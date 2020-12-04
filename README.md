@@ -10,9 +10,9 @@ At this moment my intention is to build the book using [Jupyter books](https://j
 
 In separate repositories I am planning to start a book, Foundations of Image Systems Engineering (FISE).   That book will focus on the material Joyce Farrell and I teach in Image Systems Engineering (Psych 221).
 
-
+![Frontispiece - how do we insert a github image?](https://github.com/wandell/foundationsofvision/blob/main/1995/bookCover/frontispiece.jpg)
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyNzM5MDE1OCwxMzI4MTg2NjUwLC0xMD
-g4MTE3MTA3XX0=
+eyJoaXN0b3J5IjpbLTM0MTc4ODUzNiwxNDI3MzkwMTU4LDEzMj
+gxODY2NTAsLTEwODgxMTcxMDddfQ==
 -->
