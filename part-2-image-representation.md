@@ -1,13 +1,4 @@
----
-id: 1459
-title: 'PART 2: Image Representation'
-date: '2012-04-23T16:29:05-07:00'
-author: Wandell
-layout: page
-guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=1459'
----
-
-## Introduction
+# Section: Image Representation  {.unnumbered}
 
 Our understanding of how the visual pathways represent images is based upon a diverse collection of methods, drawn from several different fields. Four broad principles emerge from the studies in these different disciplines.
 
@@ -28,7 +19,7 @@ In the primate retina, one pair of visual streams, based on two specialized type
 
 Separate visual areas exist within the visual cortex as well. These areas can be identified from their unique patterns of interconnection. The functional significance of these areas is an important question in modern vision science, and we will review some of the hypotheses about these areas in the later chapters.
 
-### Adaptation and Contrast
+## Adaptation and Contrast
 
 It would be impractical to create a new visual stream to meet every visual challenge. Neurons within individual pathways must be able to adjust to their sensitivity to light stimulation in response to changes in the imaging conditions.
 
@@ -36,13 +27,13 @@ The most salient adjustment of the image representation is the compensation in r
 
 Under many conditions the change in sensitivity achieves a constant representation of image *contrast*, rather than image light level. Image contrast is the ratio of the light at a point compared to the light at nearby points. Since this ratio is preserved as the level of ambient illumination decreases, preserving image contrast enhances our ability to distinguish and recognize objects in the image.
 
-### Multiresolution representations
+## Multiresolution representations
 
 Behavioral studies of contrast sensitivity suggest that image contrast is represented within separate visual streams that specialize in coding the information within a certain range of spatial frequencies and orientations. This *multiresolution* representation is qualitatively consistent with measurements of receptive field properties in primary visual cortex.
 
 Multiresolution image representations have become a standard tool in computational applications, including image compression, segmentation, and analysis. To understand the implications of multiresolution for the visual pathways, we will spend some time thinking about how these computational applications can be designed to work with multiresolution representations.
 
-### Linking Hypotheses
+## Linking Hypotheses
 
 Within vision science, biological and behavioral measurements data are frequently compared. G.S. Brindley called hypotheses that relate measurements in these fields *linking hypotheses*. He advised that we adopt a very conservative position in drawing connections between biological from behavioral measurements.
 

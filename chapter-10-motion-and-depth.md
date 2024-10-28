@@ -1,33 +1,38 @@
 ---
 id: 221
-title: 'Chapter 10: Motion and Depth'
+title: 'Motion and Depth'
 date: '2012-02-10T01:30:56-08:00'
 author: Wandell
 layout: page
 guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=221'
 ---
 
-- [Computing Motion](#Computing_Motion)
-    - [Stimulus Representation: Motion Sampling](#Stimulus_Representation:_Motion_Sampling)
-    - [Image Motion Information](#Image_Motion_Information)
-    - [The Motion Gradient Constraint](#The_Motion_Gradient_Constraint)
-    - [Space-time filters and motion gradient](#Space-time_filters_and_motion_gradient)
-    - [Depth Information in the Motion Flow Field](#Depth_Information_in_the_Motion_Flow_Field)
-- [Experimental Observations of MotionM](<#Experimental Observations of Motion>)
-    - [Motion gradients: The intersection of constraints](#Motion_gradients:_The_intersection_of_constraints)
-    - [Contrast and Color](#Contrast_and_Color)
-    - [Long and Short Range Motion Processes](#Long_and_Short_Range_Motion_Processes)
-    - [First and Second order motion](#First_and_Second_order_motion)
-- [Binocular Depth](#Binocular_Depth)
-    - [Depth Without Edges](#Depth_Without_Edges)
-    - [Depth With Edges](#Depth_With_Edges)
-- [Head and Eye Movements](#Head_and_Eye_Movements)
-    - [Vision during saccadic eye movements](#Vision_during_saccadic_eye_movements)
-- [The Cortical Basis of Motion Perception](#The_Cortical_Basis_of_Motion_Perception)
-    - [Acquired Motion Deficits](#Acquired_Motion_Deficits)
-    - [The motion pathway](#The_motion_pathway)
-    - [Motion Perception and Brain Activity](#Motion_Perception_and_Brain_Activity)
-- [Conclusion](#Conclusion)
+- [Introduction](#introduction)
+- [Computing Motion](#computing-motion)
+  - [Stimulus Representation: Motion Sampling](#stimulus-representation-motion-sampling)
+  - [The Window of Visibility](#the-window-of-visibility)
+  - [Image Motion Information](#image-motion-information)
+  - [The Motion Gradient Constraint](#the-motion-gradient-constraint)
+  - [Space-time filters and motion gradient](#space-time-filters-and-motion-gradient)
+  - [Depth Information in the Motion Flow Field](#depth-information-in-the-motion-flow-field)
+- [Experimental Observations of Motion](#experimental-observations-of-motion)
+  - [Motion gradients: The intersection of constraints](#motion-gradients-the-intersection-of-constraints)
+  - [Contrast and Color](#contrast-and-color)
+  - [Long and Short Range Motion Processes](#long-and-short-range-motion-processes)
+  - [First and Second order motion](#first-and-second-order-motion)
+- [Binocular Depth](#binocular-depth)
+  - [Depth Without Edges](#depth-without-edges)
+  - [Depth With Edges](#depth-with-edges)
+- [Head and Eye Movements](#head-and-eye-movements)
+  - [Vision during saccadic eye movements](#vision-during-saccadic-eye-movements)
+- [The Cortical Basis of Motion Perception](#the-cortical-basis-of-motion-perception)
+  - [Acquired Motion Deficits](#acquired-motion-deficits)
+  - [The motion pathway](#the-motion-pathway)
+  - [Motion Perception and Brain Activity](#motion-perception-and-brain-activity)
+    - [Lesions of area MT](#lesions-of-area-mt)
+    - [Behavior and Neural Activity](#behavior-and-neural-activity)
+    - [Microstimulation Studies of Motion and MT](#microstimulation-studies-of-motion-and-mt)
+- [Conclusion](#conclusion)
 
 ## Introduction
 

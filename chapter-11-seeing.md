@@ -1,20 +1,21 @@
 ---
 id: 225
-title: 'Chapter 11: Seeing'
+title: 'Seeing'
 date: '2012-02-10T01:31:19-08:00'
 author: Wandell
 layout: page
 guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=225'
 ---
 
-- [Miracle Cures](#Miracle_Cures)
-- [Illusions](#Illusions)
-    - [Seeing the Three-Dimensional World](<#Seeing the Three-Dimensional World>)
-    - [Shadows and Edges](#Shadows_and_Edges)
-    - [Shapes](#Shapes)
-    - [Integrating cues](#Integrating_cues)
-    - [Geometric Illusions](<#Geometric Illusions>)
-- [Summary](#Summary)
+- [Introduction](#introduction)
+- [Miracle Cures](#miracle-cures)
+- [Illusions](#illusions)
+  - [Seeing the Three-Dimensional World](#seeing-the-three-dimensional-world)
+  - [Shadows and Edges](#shadows-and-edges)
+  - [Shapes](#shapes)
+  - [Integrating cues](#integrating-cues)
+  - [Geometric Illusions](#geometric-illusions)
+- [Summary](#summary)
 
 ## Introduction
 

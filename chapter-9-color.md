@@ -1,6 +1,6 @@
 ---
 id: 217
-title: 'Chapter 9: Color'
+title: 'Color'
 date: '2012-02-10T01:30:37-08:00'
 author: Wandell
 layout: page

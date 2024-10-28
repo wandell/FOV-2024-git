@@ -1,13 +1,4 @@
----
-id: 1415
-title: 'PART 1: Image Encoding'
-date: '2012-04-23T15:55:31-07:00'
-author: Wandell
-layout: page
-guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=1415'
----
-
-## Introduction
+# Section: Image Encoding {.unnumbered}
 
 The first section of this book describes the initial encoding of light by the eye. [Chapter 2, *Image Formation*,](/chapter-2-image-formation/) reviews the image formation process, that is, the process by which light incident at the eye is focused onto the retina. Chapters [3](/chapter-3-the-photoreceptor-mosaic/) and [4](/chapter-4-wavelength-encoding/) review the basic properties of the conversion of light into a neural signal by the light-sensitive elements of the eye, the *photoreceptors*. This image encoding establishes essential limits on vision; the consequences of the image formation process can be found in many parts of the visual neural representation.
 
@@ -21,11 +12,11 @@ In addition, a new class of photosensitive cells was discovered. These cells are
 
 Finally, this 2<sup>nd</sup> edition is more firmly connected to computational methods. As we introduce many of the concepts of optics and encoding, we provide the reader with a set of software methods that can be used to calculat the encoding and responses quantitatively.
 
-### Image formation
+## Image formation
 
 The quality and general properties of the image formed at the retina establish the basic image parameters that the rest of the nervous system must use to make inferences about objects. Because the image formation process is linear, we can characterize its properties fairly thoroughly. Measurements from the eye show that even when optical focus is at its best, the image of a point is spread across eight or more photoreceptors. It follows that the image formation process attenuates the contrast of patterns that vary rapidly across space. This leaves the nervous system with only a small contrast range available in the fine spatial detail of an image, while there is a substantial contrast range present in slowly varying spatial patterns. Finally, the precise meaning of high and low frequency varies with the wavelength of the incident light because the quality of the retinal image varies strongly with wavelength. Under ordinary viewing conditions the short wavelength light (blue portion of the spectrum) is blurred strongly so that very little pattern information is available in this part of the spectrum compared to longer wavelengths of light (green, yellow and red parts of the spectrum).
 
-### The Spatial Mosaic of Photoreceptors
+## The Spatial Mosaic of Photoreceptors
 
 [Chapter 3, *The Photoreceptor Mosaic*](/chapter-3-the-photoreceptor-mosaic/), reviews the spatial arrangement of the light-sensitive elements of the photoreceptors. There are two fundamentally different types of receptors, the rods and cones. The spatial organization of the rod and cone photoreceptor mosaics differ; each mosaic reflects the main goal of the visual stream it initiates.
 
@@ -33,7 +24,7 @@ The rod visual stream initiates vision under low illumination conditions when re
 
 The visual streams initiated by the cone mosaic ordinarily operate at high light levels where there are plenty of quanta. The organization of the cone mosaic can be understood in terms of the goal of representing fine spatial detail rather than capturing more quanta. This goal is reflected separately in the spatial arrangement of the separate mosaics of the three different types of cones, the ![\Red](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-253b2a19c6d99adccef6de8babbe4738_l3.png "Rendered by QuickLaTeX.com"), ![\Green](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-feccbdf563a98946062919268fb3dc95_l3.png "Rendered by QuickLaTeX.com") and ![\Blue](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-c8756b22513d38249d8322166cb142e2_l3.png "Rendered by QuickLaTeX.com") cones. The density of the short-wavelength sensitive ![\Blue](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-c8756b22513d38249d8322166cb142e2_l3.png "Rendered by QuickLaTeX.com") cones is lowest, matching the poor resolution of the optics in the short-wavelength region. Only the ![\Red](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-253b2a19c6d99adccef6de8babbe4738_l3.png "Rendered by QuickLaTeX.com") and ![\Green](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-feccbdf563a98946062919268fb3dc95_l3.png "Rendered by QuickLaTeX.com") cones are present in the very central fovea, where they have a very high sampling density and form a locally regular sampling grid. The sampling density of the ![\Red](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-253b2a19c6d99adccef6de8babbe4738_l3.png "Rendered by QuickLaTeX.com") and ![\Green](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-feccbdf563a98946062919268fb3dc95_l3.png "Rendered by QuickLaTeX.com") cones is also a good match to the quality of the image passed by the optics of the eye in the portion of the wavelength spectrum where they have their peak sensitivity. Signals from individual cones in the fovea do not converge onto retinal neurons, but instead these signals are communicated along private neural channels to the cortex.
 
-### Wavelength Encoding
+## Wavelength Encoding
 
 [Chapter 4, *Wavelength Encoding*](/chapter-4-wavelength-encoding/), reviews how the visual pathways encode the wavelength of light, a process that greatly influences color appearance. The behavioral predictions that the eye contains three types of cones, as well as behavioral predictions of the way these cones encode wavelength, have been confirmed in a stunning set of experiments that represent an intellectual collaboration between very different disciplines. The nexus of results from physics, psychology, and biology concerning wavelength encoding form one of most beautiful and satisfying stories in science. The successful interactions between these disciplines is a remarkable intellectual achievement. The facts concerning how the visual pathways encode wavelength has been important for all color imaging technologies. The scientific methods that link the color matching experiment to the cone photocurrents are important for all of us who wish to relate behavior and brain.
 

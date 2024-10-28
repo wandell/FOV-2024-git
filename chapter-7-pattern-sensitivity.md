@@ -1,37 +1,37 @@
 ---
 id: 209
-title: 'Chapter 7: Pattern Sensitivity'
+title: 'Pattern Sensitivity'
 date: '2012-02-10T01:29:49-08:00'
 author: Wandell
 layout: page
 guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=209'
 ---
 
-- [A Single Resolution Theory](#ASingleResolutionTheory)
-    - [The neural image](#TheNeuralImage)
-    - [Schade’s single resolution theory](#SchadesSingleResolutionTheory)
-    - [Spatial contrast sensitivity functions](#SpatialContrastSensitivityFunctions)
-    - [The psychophysical linespread function](#The_psychophysical_linespread_function.)
-    - [Discussion of the theory: Static nonlinearities](#Discussion_of_the_theory_Static_nonlinearities)
-- [Experimental Tests](#Experimental_Tests)
-- [Intermediate Summary](#Intermediate_Summary)
-- [Multiresolution Theory](#Multiresolution_Theory)
-    - [Pattern Adaptation](#Pattern_Adaptation)
-    - [Pattern Discrimination and Masking](#Pattern_Discrimination_and_Masking)
-    - [The Conceptual Advantage of Multiresolution Theories](#The_Conceptual_Advantage_of_Multiresolution_Theories)
-- [Challenges to Multiresolution Theory](#Challenges_to_Multiresolution_Theory)
-    - [Pattern Adaptation to Mixtures](#Pattern_Adaptation_to_Mixtures)
-    - [Masking with Mixtures](#Masking_with_Mixtures)
-    - [Intermediate Summary](#Intermediate_Summary)
-- [Pattern Sensitivity Depends on Other Viewing Parameters](#Pattern_Sensitivity_Depends_on_Other_Viewing_Parameters)
-    - [Light Adaptation](#Light_Adaptation)
-    - [Spatio-temporal contrast sensitivity](#Spatio-temporal_contrast_sensitivity)
-    - [Temporal Sensitivity and Mean luminance](#Temporal_Sensitivity_and_Mean_luminance)
-    - [Pattern-Color Sensitivity](#Pattern-Color_Sensitivity)
-    - [Retinal Eccentricity](#Retinal_Eccentricity)
-    - [Linking Hypotheses](#Linking_Hypotheses)
-- [Spatial Localization](#Spatial_Localization)
-- [Summary](#Summary)
+- [Introduction](#introduction)
+- [A Single Resolution Theory](#a-single-resolution-theory)
+  - [Schade’s single resolution theory](#schades-single-resolution-theory)
+  - [Spatial contrast sensitivity functions](#spatial-contrast-sensitivity-functions)
+  - [The psychophysical linespread function](#the-psychophysical-linespread-function)
+  - [Discussion of the theory: Static nonlinearities](#discussion-of-the-theory-static-nonlinearities)
+- [Experimental Tests](#experimental-tests)
+- [Intermediate Summary](#intermediate-summary)
+- [Multiresolution Theory](#multiresolution-theory)
+  - [Pattern Adaptation](#pattern-adaptation)
+  - [Pattern Discrimination and Masking](#pattern-discrimination-and-masking)
+  - [The Conceptual Advantage of Multiresolution Theories](#the-conceptual-advantage-of-multiresolution-theories)
+- [Challenges to Multiresolution Theory](#challenges-to-multiresolution-theory)
+  - [Pattern Adaptation to Mixtures](#pattern-adaptation-to-mixtures)
+  - [Masking with Mixtures](#masking-with-mixtures)
+  - [Intermediate Summary](#intermediate-summary-1)
+- [Pattern Sensitivity Depends on Other Viewing Parameters](#pattern-sensitivity-depends-on-other-viewing-parameters)
+  - [Light Adaptation](#light-adaptation)
+  - [Spatio-temporal contrast sensitivity](#spatio-temporal-contrast-sensitivity)
+  - [Temporal Sensitivity and Mean luminance](#temporal-sensitivity-and-mean-luminance)
+  - [Pattern-Color Sensitivity](#pattern-color-sensitivity)
+  - [Retinal Eccentricity](#retinal-eccentricity)
+  - [Linking Hypotheses](#linking-hypotheses)
+- [Spatial Localization](#spatial-localization)
+- [Summary](#summary)
 
 ## Introduction
 

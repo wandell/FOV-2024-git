@@ -1,41 +1,35 @@
 ---
 id: 81
-title: 'Chapter 5: The Retinal Representation'
+title: 'The Retinal Representation'
 date: '2012-02-08T22:41:12-08:00'
 author: Wandell
 layout: page
 guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=81'
 ---
 
-- [An Overview of the Retina](#Overview)
-- [Retinal Structure](#Structure)
-- [Retinal function: Specialization](#Specialization)
-- [Retinal function: image contrast and adaptation](contrastandadaptation)
-
-- [Visual Streams](#visualstreams)
-- [Methods of classifying neurons](#classifyingneurons)
-- [Morphology of Parasol and Midget Ganglion Cells](#morphology)
-- [Variation with retinal eccentricity](#variation)
-- [Central Projections](#centralprojections)
-- [Conduction Time and Contrast Gain](#conduction)
-- [Visual Information Encoded by the Parvocellular and Magnocellular Pathways](#visualinformation)
-
-- [Retinal Ganglion Cell Response To Light](#retinalganglion)
-- [Center-Surround Organization](#centersurround)
-- [Measurements of Receptive Fields](#mesurementsofreceptivefields)
-- [Steady-state Measurements](#steadystate)
-- [The Two-Dimensional Receptive Field](#2dreceptivefield)
-- [Contrast Sensitivity Functions](#contrastsensitivity)
-- [Why contrast patterns are important](#whycontrast)
-- [Connections to Different Cone Types](#connectionstoconetypes)
-- [Spatio-Temporal Analysis: Lines and Spots](#linesandspots)
-- [Spatio-Temporal Measurements: Harmonic Functions](#harmonicfunctions)
-- [Space-time separability](#space-timeSeparability)
-- [The Difference of Gaussian Model](#TheDifferenceOfGaussianModel)
-
-- [Retinal Light Adaptation](#RetinalLightAdaptation)
-- [Contrast Sensitivity: Dependence on Mean Intensity](#ContrastSensitivityDependenceOnMeanIntensity)
-- [Comparison with Behavioral Contrast Sensitivity](#ComparisonWithBehavioralContrastSensitivity)
+- [An Overview of the Retina](#an-overview-of-the-retina)
+  - [Retinal structure](#retinal-structure)
+  - [Retinal function: image contrast and adaptation](#retinal-function-image-contrast-and-adaptation)
+- [Visual Streams](#visual-streams)
+  - [Methods of classifying neurons](#methods-of-classifying-neurons)
+  - [Morphology of Parasol and Midget Ganglion Cells](#morphology-of-parasol-and-midget-ganglion-cells)
+  - [Variation with retinal eccentricity](#variation-with-retinal-eccentricity)
+  - [Conduction Time and Contrast Gain](#conduction-time-and-contrast-gain)
+  - [Visual Information Encoded by the Parvocellular and Magnocellular Pathways](#visual-information-encoded-by-the-parvocellular-and-magnocellular-pathways)
+  - [Center-Surround Organization](#center-surround-organization)
+  - [Measurements of Receptive Fields](#measurements-of-receptive-fields)
+  - [Steady-state Measurements](#steady-state-measurements)
+  - [The Two-Dimensional Receptive Field](#the-two-dimensional-receptive-field)
+  - [Contrast Sensitivity Functions](#contrast-sensitivity-functions)
+  - [Why contrast patterns are important](#why-contrast-patterns-are-important)
+  - [Connections to Different Cone Types](#connections-to-different-cone-types)
+  - [Spatio-Temporal Analysis: Lines and Spots](#spatio-temporal-analysis-lines-and-spots)
+  - [Spatio-Temporal Measurements: Harmonic Functions](#spatio-temporal-measurements-harmonic-functions)
+  - [Space-time separability.](#space-time-separability)
+  - [The Difference of Gaussian Model](#the-difference-of-gaussian-model)
+- [Retinal Light Adaptation](#retinal-light-adaptation)
+  - [Contrast Sensitivity: Dependence on Mean Intensity](#contrast-sensitivity-dependence-on-mean-intensity)
+  - [Comparison with Behavioral Contrast Sensitivity](#comparison-with-behavioral-contrast-sensitivity)
 
 
 ## An Overview of the Retina

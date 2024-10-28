@@ -1,13 +1,4 @@
----
-id: 1467
-title: 'PART 3: Image Interpretation'
-date: '2012-04-23T16:31:18-07:00'
-author: Wandell
-layout: page
-guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=1467'
----
-
-## Introduction
+# Section: Image Interepretation  {.unnumbered}
 
 Helmholtz wrote:
 

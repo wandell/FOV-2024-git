@@ -1,31 +1,34 @@
 ---
 id: 57
-title: 'Chapter 4: Wavelength Encoding'
+title: 'Wavelength Encoding'
 date: '2012-02-08T22:19:00-08:00'
 author: Wandell
 layout: page
 guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=57'
 ---
 
-- [ Scotopic Wavelength Encoding ](#ScotopicWavelengthEncoding)
-    - [Matching: Homogeneity and superposition](#Matching)
-    - [Uniqueness](#Uniqueness)
-    - [The Biological Basis of Scotopic Matching](#TheBiologicalBasisofScotopicMatching)
-- [Photopic Wavelength Encoding](#PhotopicWavelengthEncoding)
-    - [Measurements of the Color-Matching Functions](#MeasurementsoftheColorMatchingFunctions)
-    - [Uniqueness of the Color-Matching Functions](#UniquenessColorMatchingFunctions)
-    - [A Standard Set of Color-Matching Functions](#AStandardSet)
-    - [The Biological Basis of Photopic Color-matching](#BiologicalBasis)
-    - [Measuring Cone Photocurrents](#MeasuringConePhotocurrents)
-    - [Static Nonlinearities: Photocurrents and Photopigments](#StaticNonlinearities)
-    - [Static Nonlinearities: The principle](#ThePrinciple)
-    - [Cone Photopigments and Color-matching](#ConePhotopigmentsandColormatching)
-    - [Why this is a big deal](#Whythisisabigdeal)
-- [Color Deficiencies](#ColorDeficiencies)
-    - [Small field dichromacy](#Smallfielddichromacy)
-    - [Dichromatic observers](#Dichromaticobservers)
-    - [Anomalous Observers](#AnomalousObservers)
-- [ ColorAppearance](#ColorAppearance)
+- [Wavelength Encoding](#wavelength-encoding)
+  - [Scotopic Wavelength Encoding](#scotopic-wavelength-encoding)
+    - [Matching: Homogeneity and superposition](#matching-homogeneity-and-superposition)
+    - [Uniqueness](#uniqueness)
+    - [The Biological Basis of Scotopic Matching](#the-biological-basis-of-scotopic-matching)
+  - [Photopic Wavelength Encoding](#photopic-wavelength-encoding)
+    - [Measurements of the Color-Matching Functions](#measurements-of-the-color-matching-functions)
+    - [Uniqueness of the Color-Matching Functions](#uniqueness-of-the-color-matching-functions)
+    - [A Standard Set of Color-Matching Functions](#a-standard-set-of-color-matching-functions)
+    - [The Biological Basis of Photopic Color-matching](#the-biological-basis-of-photopic-color-matching)
+    - [Measuring Cone Photocurrents](#measuring-cone-photocurrents)
+    - [Static Nonlinearities: Photocurrents and Photopigments](#static-nonlinearities-photocurrents-and-photopigments)
+    - [Static Nonlinearities: The principle](#static-nonlinearities-the-principle)
+    - [Cone Photopigments and Color-matching](#cone-photopigments-and-color-matching)
+    - [Why this is a big deal](#why-this-is-a-big-deal)
+  - [Color Deficiencies](#color-deficiencies)
+    - [Small field dichromacy](#small-field-dichromacy)
+    - [Dichromatic observers](#dichromatic-observers)
+      - [Pseudoisochromatic Plates.](#pseudoisochromatic-plates)
+      - [Farnsworth-Munsell 100 Hue test](#farnsworth-munsell-100-hue-test)
+    - [Anomalous Observers](#anomalous-observers)
+  - [Color Appearance](#color-appearance)
 
 # Wavelength Encoding
 

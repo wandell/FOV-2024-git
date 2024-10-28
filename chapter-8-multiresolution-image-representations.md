@@ -1,28 +1,28 @@
 ---
 id: 213
-title: 'Chapter 8: Multiresolution Image Representations'
+title: 'Multiresolution Image Representations'
 date: '2012-02-10T01:30:15-08:00'
 author: Wandell
 layout: page
 guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=213'
 ---
 
-- [Efficient Image Representations](#Efficient_Image_Representations)
-    - [Intensity Redundancy in Image Data](#Intensity_Redundancy_in_Image_Data)
-    - [Spatial Redundancy in Image Data](#Spatial_Redundancy_in_Image_Data)
-    - [Decorrelating Transformations](#Decorrelating_Transformations)
-    - [Lossy Compression](<#Lossy Compression>)
-    - [Perceptually Decorrelated Features](#Perceptually_Decorrelated_Features)
-- [A Block Transformation: The JPEG-DCT](#A_Block_Transformation_The_JPEG-DCT)
-- [Image Pyramids](#Image_Pyramids)
-    - [The Pyramid Operations: General Theory](#The_Pyramid_Operations:_General_Theory)
-    - [Pyramids: An Example](#Pyramids:_An_Example)
-    - [Image Compression Using the Error Pyramid](#Image_Compression_Using_the_Error_Pyramid)
-- [QMFs and Orthogonal Wavelets](#QMFs_and_Orthogonal_Wavelets)
-- [Applications of multiresolution representations](#Applications_of_multiresolution_representations)
-    - [Image Blending](#Image_Blending)
-    - [Progressive Image Transmission](#Progressive_Image_Transmission)
-    - [Threshold and Recognition](#Threshold_and_Recognition)
+- [Introduction](#introduction)
+- [Efficient Image Representations](#efficient-image-representations)
+  - [Intensity Redundancy in Image Data](#intensity-redundancy-in-image-data)
+  - [Spatial Redundancy in Image Data](#spatial-redundancy-in-image-data)
+  - [Decorrelating Transformations](#decorrelating-transformations)
+  - [Lossy Compression](#lossy-compression)
+  - [Perceptually Decorrelated Features](#perceptually-decorrelated-features)
+- [A Block Transformation: The JPEG-DCT](#a-block-transformation-the-jpeg-dct)
+- [Image Pyramids](#image-pyramids)
+  - [The Pyramid Operations: General Theory](#the-pyramid-operations-general-theory)
+  - [Pyramids: An Example](#pyramids-an-example)
+  - [Image Compression Using the Error Pyramid](#image-compression-using-the-error-pyramid)
+- [QMFs and Orthogonal Wavelets](#qmfs-and-orthogonal-wavelets)
+- [Applications of multiresolution representations](#applications-of-multiresolution-representations)
+  - [Image Blending](#image-blending)
+  - [Threshold and Recognition](#threshold-and-recognition)
 
 ## Introduction
 

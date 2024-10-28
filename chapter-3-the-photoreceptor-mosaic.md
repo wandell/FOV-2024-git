@@ -1,23 +1,25 @@
 ---
 id: 51
-title: 'Chapter 3: The Photoreceptor Mosaic'
+title: 'The Photoreceptor Mosaic'
 date: '2012-02-08T22:14:57-08:00'
 author: Wandell
 layout: page
 guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=51'
 ---
 
-- [The Photoreceptor Mosaic](#ThePhotoreceptorMosaic)
-    - [Units of Visual Angle](#UnitsofVisualAngle)
-- [The ![\Blue](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-c8756b22513d38249d8322166cb142e2_l3.png "Rendered by QuickLaTeX.com") Cone Mosaic](#TheSConeMosaic)
-    - [Behavioral Measurements](#BehavioralMeasurements)
-    - [Biological Measurements](#BiologicalMeasurements)
-    - [Why are the ![\Blue](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-c8756b22513d38249d8322166cb142e2_l3.png "Rendered by QuickLaTeX.com") Cones Widely Spaced?](#Whyarethecones)
-- [Visual Interferometry](#VisualInterferometry)
-- [Sampling and Aliasing](#SamplingandAliasing)
-- [The ![\Red](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-253b2a19c6d99adccef6de8babbe4738_l3.png "Rendered by QuickLaTeX.com") and ![\Green](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-feccbdf563a98946062919268fb3dc95_l3.png "Rendered by QuickLaTeX.com") Cone Mosaic](#TheLandMConeMosaic)
-    - [Visual Interferometry](#VisualInterferometry)
-- [Summary and Discussion](#SummaryandDiscussion)
+- [The Photoreceptor Mosaic](#the-photoreceptor-mosaic)
+  - [The S Cone Mosaic](#the-s-cone-mosaic)
+    - [Behavioral Measurements](#behavioral-measurements)
+    - [Biological Measurements](#biological-measurements)
+    - [Why are the S cones widely spaced?](#why-are-the-s-cones-widely-spaced)
+  - [Visual Interferometry](#visual-interferometry)
+  - [Sampling and Aliasing](#sampling-and-aliasing)
+      - [Sampling is a Linear Operation](#sampling-is-a-linear-operation)
+      - [Aliasing of harmonic functions](#aliasing-of-harmonic-functions)
+      - [Experimental Implications](#experimental-implications)
+  - [The L and M Cone Mosaic](#the-l-and-m-cone-mosaic)
+    - [Visual Interferometry: Measurements of Human Optics](#visual-interferometry-measurements-of-human-optics)
+  - [Summary and Discussion](#summary-and-discussion)
 
 <a name="ThePhotoreceptorMosaic"></a>
 
