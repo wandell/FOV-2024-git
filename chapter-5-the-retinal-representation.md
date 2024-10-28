@@ -1,42 +1,8 @@
----
-id: 81
-title: 'The Retinal Representation'
-date: '2012-02-08T22:41:12-08:00'
-author: Wandell
-layout: page
-guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=81'
----
-
-- [An Overview of the Retina](#an-overview-of-the-retina)
-  - [Retinal structure](#retinal-structure)
-  - [Retinal function: image contrast and adaptation](#retinal-function-image-contrast-and-adaptation)
-- [Visual Streams](#visual-streams)
-  - [Methods of classifying neurons](#methods-of-classifying-neurons)
-  - [Morphology of Parasol and Midget Ganglion Cells](#morphology-of-parasol-and-midget-ganglion-cells)
-  - [Variation with retinal eccentricity](#variation-with-retinal-eccentricity)
-  - [Conduction Time and Contrast Gain](#conduction-time-and-contrast-gain)
-  - [Visual Information Encoded by the Parvocellular and Magnocellular Pathways](#visual-information-encoded-by-the-parvocellular-and-magnocellular-pathways)
-  - [Center-Surround Organization](#center-surround-organization)
-  - [Measurements of Receptive Fields](#measurements-of-receptive-fields)
-  - [Steady-state Measurements](#steady-state-measurements)
-  - [The Two-Dimensional Receptive Field](#the-two-dimensional-receptive-field)
-  - [Contrast Sensitivity Functions](#contrast-sensitivity-functions)
-  - [Why contrast patterns are important](#why-contrast-patterns-are-important)
-  - [Connections to Different Cone Types](#connections-to-different-cone-types)
-  - [Spatio-Temporal Analysis: Lines and Spots](#spatio-temporal-analysis-lines-and-spots)
-  - [Spatio-Temporal Measurements: Harmonic Functions](#spatio-temporal-measurements-harmonic-functions)
-  - [Space-time separability.](#space-time-separability)
-  - [The Difference of Gaussian Model](#the-difference-of-gaussian-model)
-- [Retinal Light Adaptation](#retinal-light-adaptation)
-  - [Contrast Sensitivity: Dependence on Mean Intensity](#contrast-sensitivity-dependence-on-mean-intensity)
-  - [Comparison with Behavioral Contrast Sensitivity](#comparison-with-behavioral-contrast-sensitivity)
-
-
-## An Overview of the Retina
+# An Overview of the Retina
 
 In this chapter we will review the structure of the retina and its role in organizing visual information. The retina is a thin layer of neural tissue that lines the eye. After the retinal image is encoded by the photoreceptors, neurons within the retina transform the photoreceptor signals into a new representation that is carried by the optic nerve to a variety of locations in the brain. The retina is important for several reasons. First, the retina is important to neuroscientists because it is a very accessible part of the central nervous system making it an important site for scientific study Second, the retina is important to clinicians since it is the only part of the central nervous system that can be examined directly, by using an opthalmoscope. Third, the retina is important to vision scientists because it has several important visual functions, including encoding the image and transforming it into a collection of separate pathways that send information about the entire retinal image to the brain. Since retinal neurons develop from the same progenitor cells that give rise to the brain, the organization of information within these retinal pathways is also an important clue about the organization within the brain as well.
 
-### Retinal structure
+## Retinal structure
 
 Over most of its extent, the primate retina is approximately 0.5 mm thick and consists of three layers of cell bodies and two layers containing the synaptic interconnections between the neurons. Near the optical axis of the eye, however, the primate retina contains a specialized region, the fovea, consisting of only a single layer of neurons, the cone photoreceptors. Both of these structural properties of the retina can be seen in the anatomical cross-section section of a human retina shown in Figure 4.1.
 
@@ -54,7 +20,7 @@ The axons of the retinal ganglion cells provide the only retinal output signal. 
 
 <div class="wp-caption aligncenter" id="attachment_935" style="width: 501px">[![blindspot](/wp-content/uploads/2012/02/blindspot-1024x521.png)](/wp-content/uploads/2012/02/blindspot.png)Figure 5.3: A demonstration of the blindspot. Place the page about 25 cm from your eye. Then close your left eye and fixate the X: the white spot in the texture will disappear. If it does not, then slowly move the book back and forth, carefully maintaining fixation, until the spot does disappear. The two squares above and below become hard to see in the periphery, but they do not disappear. This demonstrates that the disappearance of the central square is not merely due to a general loss of visibility at this eccentricity.
 
-</div>### Retinal function: specialization
+</div>## Retinal function: specialization
 
 The retina segregates visual information into parallel neural pathways specialized for different visual tasks. In earlier chapters, we reviewed one example of neural specialization in the retina: there are two different types of photoreceptors, the rods and the cones, that both sample the image. These two photoreceptors types are responsible for encoding the visual image in different intensity ranges.
 
@@ -74,7 +40,7 @@ We will refer to the connected series of neurons carrying information in paralle
 
 Evidently, one of the important functions of the retina is to organize the information encoded by the photoreceptors into a collection of visual streams. Presumably, the purpose of these separate visual streams is to communicate relevant image information efficiently to brain areas engaged in specialized types of visual processing. This observation reinforces the view that the existence of these visual streams can be an important clue about the functional organization of the visual pathways. We presume that each visual stream carries an efficient representation of the spatio-temporal component of the image that is most relevant for task carried out in visual area where the ganglion cell output is sent. Hence, by studying the response sensitivity to different kinds of stimuli of the neurons within a visual stream, we learn something about the functional role of that stream.
 
-### Retinal function: image contrast and adaptation
+## Retinal function: image contrast and adaptation
 
 There are some visual challenges that are common to the information carried on all of the specialized visual streams. It makes sense to try to solve these types of problems when the signals are close together, as in the retina, rather than after the visual signals have reached widely separated destinations within the brain.
 
@@ -82,11 +48,11 @@ A fundamental challenge that is common to the signals carried by all retinal neu
 
 Neurons in the peripheral visual system solve this problem, in part, by signaling the local contrast in the image rather than the absolute stimulus level. The local contrast is the percent change in the image intensity relative to the local average. The range of contrasts in a typical image is constant as ambient illumination level changes and typically spans no more than two orders of magnitude. By coding contrast, rather than absolute level, neurons with small dynamic range can convey essential information about the retinal image despite enormous variations in the absolute level. In later chapters we will review computational issues and we will find that in contrast is an important signal in its own right. The contrast signal is closely coupled to the properties of surfaces, and surfaces are often the visual entity we want to identify or recognize\\footnote In some books the dynamic range problem is treated by explaining that the photoreceptors respond to light intensity using a compressive function of intensity, such as a logarithmic or power function. A compressive function maps a light stimulus ranging over six orders of magnitude into neural responses of one to two orders of magnitude above their intrinsic variability. In the modern literature, this view has been substantially replaced by a formulation based on stimulus and response contrast.}.
 
-## Visual Streams
+# Visual Streams
 
 We will begin by reviewing the kinds of methods we can use to classify retinal neurons. Then, we will review the principal features of the information carried within two specific visual streams, the *parvocellular pathway* and the *magnocellular pathway*. We focus on these two streams because we know most about them and because their output represents a very large fraction of the total output of the retina.
 
-### Methods of classifying neurons
+## Methods of classifying neurons
 
 The form and structure of a neuron, including its dendritic field, cell body, and axonal projections, are called the neuron’s *morphology*, The most fundamental method of distinguishing categories of neurons is simply to study their morphology. A second type of data we can use is the neuron’s electrical responsiveness to different signals, that is its *electrophysiology*. A third type of data we can use is to study the chemical substances used to build the neuron, that is the neuron’s *biochemistryv*. A fourth type of data is the *anatomical* pattern of interconnections a neuron makes with other neurons. The most satisfying classification of neurons occurs when the evidence from these different sources converge.
 
@@ -94,7 +60,7 @@ We used all of these methods to distinguish the photoreceptors into rods and con
 
 It is natural to use our successes at peripheral levels to guide our next analysis of cellular function. So, we begin the analysis of the retinal ganglion cells by considering how we can use the measurements to categorize the retinal ganglion cells into groups serving various visual functions.
 
-### Morphology of Parasol and Midget Ganglion Cells
+## Morphology of Parasol and Midget Ganglion Cells
 
 When examining the retinal ganglion cell layer using a light microscope, one sees ganglion cells of many different sizes, shapes and patterns of dendritic fields. In an extraordinary set of studies, Santiago Ramon y Cajal examined the retinal cell types in many mammalian eyes, but no primates, and identified the basic anatomical structure of the retina. To classify neurons, Cajal used several morphological properties, relying mainly on the location of the dendritic arbor terminations. Figure 5.5 shows Cajal at work, along with one of his sketches of the mammalian retina.
 
@@ -106,7 +72,7 @@ When examining the retinal ganglion cell layer using a light microscope, one see
 
 </div>The morphology of the midget ganglion cells contrasts with a second class of ganglion cells shown in Figure 5.6b and called *parasol* cells by Polyak. The parasol cells have a sparse dendritic tree and medium to large cell bodies. The drawings in Figure 5.6 compare a sampling of the midget and parasol cells at several distances from the fovea.
 
-### Variation with retinal eccentricity
+## Variation with retinal eccentricity
 
 As Polyak noted, the size of many types of retinal neurons increases with distance from the fovea. For example, a cell body or dendritic field that is relatively large in the fovea will be relatively small in the periphery. While Polyak says that the midget ganglion cells are present throughout the retina, due to retinal inhomogeneity the midget ganglion cells in the periphery are larger than the parasol cells near the fovea. If absolute size is not a reliable indicator, what measurement can we use to decide whether neurons at different eccentricities are of the same type? In a seminal paper, Boycott and W\\”assle (1974) showed how to make such a measurement in the retina of the domestic cat. The idea is simple and elegant: make measurements that span a wide range of retinal eccentricities and compare the trends within the population. Boycott and W\\”assle’s methods and observations have been extended from cat to the primate and human (Perry and Cowey 1981,1984; Levinthal et al., 1981; Rodieck et al. ,1985; Watanabe and Rodieck ,1989; Dacey, 1992).
 
@@ -120,7 +86,7 @@ Although the two populations both receive a complete copy of the image, they do 
 
 <div class="wp-caption aligncenter" id="attachment_943" style="width: 440px">[![rgcMaps](/wp-content/uploads/2012/02/rgcMaps-1024x576.png)](/wp-content/uploads/2012/02/rgcMaps.png)Figure 5.8: Midget and parasol dendritic fields} both sample the entire retinal image. The dendritic fields of the midget ganglion cells (a) are small compared to the dendritic fields of the parasol cells (b). Parasol cells have much larger dendritic fields at each retinal location, so that fewer are needed to cover the entire retina (From Rodieck and Watanabe, 1989).
 
-</div>### Central Projections
+</div>## Central Projections
 
 A second method of identifying visual streams originating in the ganglion cell layers is to consider how the retinal ganglion By injecting tracer substances that are carried from the brain back to the retina, we can identify where each type of retinal ganglion cell sends its outputs.
 
@@ -138,7 +104,7 @@ Although the majority of retinal ganglion cells send their outputs to the latera
 
 The majority of the retinal output is sent to the lateral geniculate nucleus. But, the retinal connections in the lateral geniculate nucleus account for only about 10 percent of the synapses. Nearly 60 percent of the synapses in the lateral geniculate are signals from the cortex and the remaining synapses are connections with other parts of the brain (Sherman and Koch, 1990).
 
-### Conduction Time and Contrast Gain
+## Conduction Time and Contrast Gain
 
 There are several differences in the way neurons in the parvo- and magnocellular pathways code information. These differences are clues about the kind of visual information represented by these visual streams and the function these streams serve in vision.
 
@@ -152,7 +118,7 @@ First, the conduction time for electrical signals traveling from the optic chias
 
 </div>While they original observed the difference in contrast-gain in the lateral geniculate nucleus, Kaplan and Shapley went on to show that this difference can be traced to differences in the response gains of the midget and parasol neurons within the primate retina. Quite possibly, the differences in these signals may begin at the bipolar connection to the cones themselves.
 
-### Visual Information Encoded by the Parvocellular and Magnocellular Pathways
+## Visual Information Encoded by the Parvocellular and Magnocellular Pathways
 
 Anatomical and physiological measurements suggest that the parvocellular and magnocellular pathways carry different types of information to the brain. We can try to evaluate this hypothesis by removing one of the pathways by introducing a lesion in to the pathway and studying the changes in an animal’s performance due to the lesion.
 
@@ -178,7 +144,7 @@ Classically, the visual receptive field of a neuron was defined as the retinal a
 
 Although we refer to a *neuron’s* receptive field, in fact the receptive field depends on the properties of the entire visual pathway, beginning with the optics and including the transformation by the neuron itself. In some cases, when there is feedback descending upon the neuron from central brain regions, the receptive field we measure at a neuron includes contributions from many places within the visual pathways (though there is no feedback to the retinal ganglion cells).
 
-### Center-Surround Organization
+## Center-Surround Organization
 
 <div class="wp-caption aligncenter" id="attachment_957" style="width: 452px">[![rgc.recording](/wp-content/uploads/2012/02/rgc.recording-1024x895.png)](/wp-content/uploads/2012/02/rgc.recording.png)Figure 5.13: Retinal ganglion cell action potentials} can be recorded with a microelectrode at the two locations shown. One location is near the cell bodies in the ganglion cell layer of the retina. A second position is near the optic nerve (Source: Enroth-Cugell and Robson, 1984).
 
@@ -204,7 +170,7 @@ The dendritic fields of retinal ganglion cells with on-center are segregated in 
 
 \\nocite{Nelson et al, Kolb …} \\nocite{BoycottandWassleReviewArticle} \\nocite{Dacey1992} % and Petersen, PNAS
 
-### Measurements of Receptive Fields
+## Measurements of Receptive Fields
 
 The classical receptive field is only a partial description of the neuron’s response properties. To understand a neuron’s transformation of the light signal completely, we would like to predict the pattern of action potentials in response to any visual stimulus. To describe the transformation from light to neural activation completely, we need to develop a more systematic method of measuring the neuron’s response. Since there are many possible visual stimuli, we need to develop a method so that we can make a small set of measurements and then use these measurements to predict the responses to all other stimuli.
 
@@ -216,7 +182,7 @@ Linear systems theory provides some guidance on the question of how to measure t
 
 If the ganglion cell response obeys the principle of superposition, we should be able to predict the temporal response when we present the spot and the annulus together. The observed response and the predicted response are shown in panels (c) and (d) of the figure. They are compared in panel (e) of the figure. For this pair of stimuli, and this retinal ganglion cell, the principle of superposition predicts the neuron’s complete response very well.
 
-### Steady-state Measurements
+## Steady-state Measurements
 
 To build a complete description of the neural response properties, we must include time in our characterization of the neuron’s receptive field. We will consider the full space-time receptive field later in this chapter. But, it is simpler to begin with an example in which we eliminate time as a variable; we will consider only the response after the stimulus has been presented for several seconds and the neuron’s response has stabilized. This asymptotic response is called the *steady-state* response of the neuron. By measuring the steady-state response of the neuron, we remove time as a factor in our analysis.
 
@@ -254,13 +220,13 @@ We expect that the steady-state response to the new test pattern will be ![\Delt
 
 By examining the matrix tableau, you can see that to estimate the entries of the system matrix we need to measure the response to a series of lines at different positions on the retina. The response to each line defines the corresponding entry in the system matrix. The curve in Figure 5.16b is a graphical representation of the entries of the system matrix, that is, of the neuron’s one-dimensional receptive field.
 
-### The Two-Dimensional Receptive Field
+## The Two-Dimensional Receptive Field
 
 <div class="wp-caption aligncenter" id="attachment_967" style="width: 624px">[![rf.2d](/wp-content/uploads/2012/02/rf.2d-1024x433.png)](/wp-content/uploads/2012/02/rf.2d.png)Figure 5.17: The two-dimensional steady-state receptive field} of an on-center off-surround retinal ganglion cell is represented in two different ways. (a) A surface plot shows the spatial sensitivity by the height of the surface. The inhibitory surround covers a large area compared to the center, but its general effect on the neuron's response is small compared to the center. (b) An image shows the spatial sensitivity of the receptive field by the image intensity. A light color denotes a retinal location where light excites the neuron, a dark color is a location where light inhibits the neuron, and gray locations are places where light has no influence on the neuron's response.
 
 </div>By measuring with points of light rather than lines, we can measure a two-dimensional steady-state receptive field. Figure 5.17 shows two ways to represent the two-dimensional receptive field of a retinal ganglion cell. The height of the curve in Figure 5.17a shows change neuron’s light response as we stimulate with a point of light at different locations in the visual field. The large positive values in the center of the diagram indicate that this neuron is excited by stimuli in a central region. The negative values in the surrounding region show the inhibition by point stimuli surrounding the central region. Notice that the effect at each point in the inhibitory surround is very small, but the inhibitory surround covers large area compared to the excitatory center. The picture captures quantitatively the center-surround antagonism that Kuffler discovered in cat retinal ganglion cells. Figure 5.17b represents the same measurements as an image. Light regions show where the neuron is excited by a spot and a dark regions show where the neuron is inhibited.
 
-### Contrast Sensitivity Functions
+## Contrast Sensitivity Functions
 
 Often, it is useful to characterize the response of a linear system in terms of the system’s response to harmonic functions. It is helpful to understand the information encoded by neurons by plotting their response to harmonic functions as well.
 
@@ -278,7 +244,7 @@ We summarize the neuron’s response to harmonic functions at a range of spatial
 
 The contrast sensitivity function of a retinal ganglion cell is an alternative way to represent the cell’s receptive field. There are several characteristic features of retinal ganglion cell contrast sensitivity functions. First, retinal ganglion cell contrast sensitivity functions are single-peaked. Single-peaked contrast sensitivity functions are called *bandpass* and the peak-frequency is called the *center* frequency. With experience, the contrast sensitivity function becomes an intuitive way to understand some aspects of the neuron’s receptive field.
 
-### Why contrast patterns are important
+## Why contrast patterns are important
 
 In early studies of the neural response to light, the stimulus intensity, ![\intensityi{}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-fa822f90910eb9a189518643d56adbca_l3.png "Rendered by QuickLaTeX.com"), was treated as the input variable. In this case, the linear systems methods fail severely. If we wish to apply linear methods to characterizing the responses of retinal ganglion cells, it is important to fix the mean level, and to treat the stimulus contrast, ![\contrasti{}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-4bd92be5a3a2aaaa5be79b1124b54b6f_l3.png "Rendered by QuickLaTeX.com"), as the input.
 
@@ -288,7 +254,7 @@ The change in the system performance as we vary the mean stimulus level is calle
 
 Most of modern vision science relies uses contrast as the key experimental parameter. The linearities that I will describe in this chapter and the following chapters are usually measured in the contrast domain, at a fixed mean level. As we change the mean level, the properties of the linear system we estimate change as well. This is a fundamental non-linearity in the system’s behavior. A complete theory must weave together how the locally linear responses, on a single mean background, vary with the mean. We will review this topic, called *adaptation*, at the end of this chapter and then again in later chapters.
 
-### Connections to Different Cone Types
+## Connections to Different Cone Types
 
 In the primate fovea, the center response of the midget ganglion cells depends on the light captured by a single cone. Hence, the centers will inherit the wavelength sensitivity of the photopigment in that cone’s outer segment. Parvocellular Pathway neurons with receptive fields near the primate fovea often have a center response that is either an ![\Red](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-253b2a19c6d99adccef6de8babbe4738_l3.png "Rendered by QuickLaTeX.com") or ![\Green](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-feccbdf563a98946062919268fb3dc95_l3.png "Rendered by QuickLaTeX.com") cone. roughly equal to the optical blur imposed by diffraction (2.4 – 4.2 minutes of arc), which is consistent with the center response being due to a single cone.
 
@@ -302,7 +268,7 @@ D. Dacey and B. Lee have confirmed the existence of a visual stream specialized 
 
 The bistratified neurons send their outputs to the parvocellular layers of the lateral geniculate nucleus (Rodieck et al., 1993). Using electrophysiological methods, one can measure receptive fields in that nucleus whose excitatory centers are driven by signals from the ![\Blue](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-c8756b22513d38249d8322166cb142e2_l3.png "Rendered by QuickLaTeX.com") cones. It is also possible that these neurons project to the intercalated zones of the lateral geniculate. Because the sampling resolution of the ![\Blue](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-c8756b22513d38249d8322166cb142e2_l3.png "Rendered by QuickLaTeX.com") cone mosaic is poor, we do not expect these neurons to make up a large fraction of the total population. Nonetheless, they are important since at present they are the only cell class known to carry the ![\Blue](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-c8756b22513d38249d8322166cb142e2_l3.png "Rendered by QuickLaTeX.com") cone signal (Wiesel and Hubel, 1964; Gouras, 1969; Derrington et al., 1984).
 
-### Spatio-Temporal Analysis: Lines and Spots
+## Spatio-Temporal Analysis: Lines and Spots
 
 Up to now, we have considered only the steady-state response, thus excluding time in order to simplify our analysis. Now we consider how to include the temporal response of the neuron in our measurement of the receptive field.
 
@@ -316,7 +282,7 @@ The data in Figure 5.15 and other experimental measurements have shown that for 
 
 Since any one-dimensional time-varying stimulus is the sum of a set of briefly flashed lines, a collection of measurements like the simulations in Figure 5.20b permit us to predict the response to any such stimulus. Such measurements define the space-time receptive field of this simulated neuron for one spatial dimension. This method of defining space-time receptive fields has been applied mainly to study the cat visual pathway (Stevens and Gerstein, 1976; Palmer and Davis, 1981; Emerson et al, 1992).
 
-### Spatio-Temporal Measurements: Harmonic Functions
+## Spatio-Temporal Measurements: Harmonic Functions
 
 It is also possible to measure receptive field properties using harmonic functions, though in this case, we need to use harmonic functions in space and time. We can create space-time harmonic functions by multiplying cosinusoidal contrast patterns in space and time, creating a stimulus called a *contrast-reversing grating*. Such a pattern is the product of a spatial harmonic with frequency ![f_x](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-3bcda67db202bde80916b57d737d9cde_l3.png "Rendered by QuickLaTeX.com") cycles per degree and a temporal harmonic with frequency ![f_t](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-fb84fe93d5e5409f88cf56fb672918b0_l3.png "Rendered by QuickLaTeX.com") Hz. The formula for a contrast-reversing grating made from cosinusoids is
 
@@ -336,7 +302,7 @@ Neurons in the lateral geniculate nucleus respond linearly for stimuli as high a
 
 </div>The response to contrast-reversing patterns of a parvocellular neuron in the monkey lateral geniculate nucleus is shown in Figure 5.22. This surface plot was derived by interpolating measurements reported by Derrington and Lennie (1984). This cell responded to temporal and spatial modulations up to 15 Hz and 15 cycles per degree. From the shape of the neuron we can make several observations about the neuron’s responsivity. First, the reduced sensitivity at low spatial frequencies shows that the neuron had a significant opponent surround. Second, the neuron responds well to all tested temporal frequencies when we measured with a low spatial frequency stimulus, but the neuron responds poorly at high temporal frequencies when measured using a high spatial frequency stimulus. Since the response to the high spatial frequency stimulus is mediated through the on-center, the data show that the temporal sensitivity from the on-center and opposing surround may be different. It is time to consider the general question of the interdependence of spatial and temporal sensitivity.
 
-### Space-time separability.
+## Space-time separability.
 
 We have defined the neuron’s receptive using two complementary representations. In one case, the we have defined the receptive field using briefly flashed lines, and in the second case we have defined the receptive field using harmonic functions of space-time. We can use either method to measure and describe a linear neuron’s receptive field.
 
@@ -358,7 +324,7 @@ If the space-time receptive field is separable, then, it follows from the defini
 
 As the plots in Figure 5.20b and Figure 5.22 show, the space-time receptive fields of neurons in the parvocellular pathway are not space-time separable. Hence, these neurons do not have unique spatial or temporal response properties\\footnote{ Although I will not go into the details here, by considering the connections to specific cone types you can convince yourself that the receptive fields will not be separable with respect to space and wavelength.} In part because of this complexity, it is important to go beyond the descriptions of the neuron’s response we obtain from linear measurements, and to build a model to predict the neuron’s response to space-time patterns.
 
-### The Difference of Gaussian Model
+## The Difference of Gaussian Model
 
 In the mid 1960s, R. W. Rodieck and Enroth-Cugell and Robson introduced a linear receptive field model that has served as the basis for most subsequent models of linear retinal ganglion cells. The basic model is important in vision science broadly since the ideas in the model have been used in many different areas including work in the visual psychophysics of spatial perception and in computer vision vision work addressed to edge-detection and image segmentation. The receptive field model is now called the *Difference of Gaussian* model (Rodieck, 1965; Enroth-Cugell and Robson, 1966, Enroth-Cugell, Robson, Schweitzer-Tong and Watson, 1983).
 
@@ -384,7 +350,7 @@ When we measure with respect to contrast instead of absolute intensity tests of 
 
 Through the course of a day, however, the range of image absolute intensities we experience typically exceeds 6 orders of magnitude. The visual pathways do not remain linear over this enormous range. When we study the response to contrast stimuli, we are attending to the local response of a globally nonlinear system. To fully understand the properties of neurons, we must also analyze how their responses change as we vary the mean background level. The changing neural and behavioral responses as a function of mean background intensity varies is called *visual adaptation*. In this section we will consider how to the locally linear measures we have developed using contrast must be extended when we consider the visual pathways over a wider range of mean signal levels.
 
-### Contrast Sensitivity: Dependence on Mean Intensity
+## Contrast Sensitivity: Dependence on Mean Intensity
 
 Figure 5.24a shows several contrast sensitivity functions from a cat retinal ganglion cell. These functions were measured on a wide range of mean intensities. When the mean intensity is relatively low, the neuron responds poorly to relatively high spatial frequencies\\footnote{ In general, cats have very poor spatial resolution compared to primates. The spatial frequency range of this neuron, and cats performance as measured behaviorally, is far below the normal range for primate visual acuity.} At low background intensities the contrast sensitivity function shows little bandpass behavior, suggesting that there is little effect of the inhibitory surround. As the background intensity increases, the contrast sensitivity function changes shape. The reduced sensitivity to low frequency sensitivity stimuli becomes apparent, indicating that the opponent surround is more significant.
 
@@ -400,7 +366,7 @@ Image contrast and image intensity are inter-related quantities. The relatively 
 
 As the mean intensity of the background varies, we can find other aspects to the change in the neural response as well. Plotted as insets to the figure are the PSTHs of the measurements to these incremental threshold flashes. The timecourse of the response to the incremental flash varies with mean intensity level, becoming somewhat brisker with sharper signals at the onset and offset of the test flash. Thus, we see that the temporal response of the neuron, like the spatial contrast sensitivity, varies with mean intensity level. These adaptations probably occur to take advantage of the improved quality of the signal available at higher light levels.
 
-### Comparison with Behavioral Contrast Sensitivity
+## Comparison with Behavioral Contrast Sensitivity
 
 <div class="wp-caption aligncenter" id="attachment_985" style="width: 501px">[![rgc.weber](/wp-content/uploads/2012/02/rgc.weber_-1024x689.png)](/wp-content/uploads/2012/02/rgc.weber_.png)Figure 5.25: Threshold sensitivity as a function of background intensity measured on a cat retinal ganglion cell. The threshold intensity of an incremental test flash required to elicit a criterion peak firing rate in a retinal ganglion cell was measured. The test flash was presented on a large steady background, The logarithm of the threshold intensity of the test flash grows linearly with the logarithm of the mean background intensity, and the slope is close to one. Hence, the threshold is intensity is proportional to the background intensity. The insets within the figure show the PSTH and demonstrate that the timecourse of the ganglion cell changes with intensity level. On higher backgrounds, transient overshoots and undershoots are evident. (Source: Enroth-Cugell et al. 1977).
 
