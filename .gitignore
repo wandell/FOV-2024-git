@@ -1,0 +1,38 @@
+# Quarto and build files
+/_book/
+/.quarto/
+/_site/
+
+FOV-1995/*
+
+# R specific
+.Rhistory
+.RData
+.Rproj.user/
+
+# Python specific
+__pycache__/
+*.pyc
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Editor specific
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Emacs
+*~
+
+# Image editor specific
+*afphoto*
+
+# Don't upload the rendered pdf
+index.pdf
+index.log
+index.tex
+index.toc
+
+index.aux
