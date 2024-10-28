@@ -1,0 +1,55 @@
+---
+id: 1459
+title: 'PART 2: Image Representation'
+date: '2012-04-23T16:29:05-07:00'
+author: Wandell
+layout: page
+guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=1459'
+---
+
+## Introduction
+
+Our understanding of how the visual pathways represent images is based upon a diverse collection of methods, drawn from several different fields. Four broad principles emerge from the studies in these different disciplines.
+
+- Anatomical studies show that the neurons in the visual pathway are segregated into different *visual streams*. The functional role of the visual streams must be inferred from the anatomical properties along with the way the neurons in these separate streams respond to light stimulation.
+- The most important information represented by the visual pathways is the image *contrast*, not the absolute light level. The image contrast is the ratio of the local intensity and the average image intensity. To represent the image contrast, neurons in the visual pathway change their sensitivity to compensate for changes in the mean illumination level. This process, called *visual adpatation*, permits the visual system to represent information in terms of the relative intensity of different portions of the visual field, i.e., the contrast, rather than the absolute intensity.
+- Behavioral and electrophysiolgical measurements suggest that contrast information is represented at different spatial scales and orientations.
+- As we try to integrate information from these diverse areas, we will consider the question of what standards we can apply to merge measurements from these different fields of study.
+
+### Visual Streams
+
+The visual system consists of a collection of pathways, each responsible for analyzing different aspects of the retinal image. The specialization of the visual pathways begins at the peripheral stages of the visual encoding with the segregation into rods and cones. The segregation is elaborated in the retina and continues into the cortical areas.
+
+The distinction between rod and cone vision is clear: the division of labor between rods and cones permit us to extend the range of illumination conditions where we can see. It seems likely that the visual streams throughout the visual pathways exist to meet various functional requirements. How can we establish their roles?
+
+One visual stream in the retina contains the signals communicated to control eye movements. The spatio-temporal image information needed to control eye movements differs from the information needed to analyze fine detail and color in spatial patterns. This visual stream can be identified based in part on its anatomical connections and in part from the fact that the neurons in this stream respond to light differently from the neurons that signal pattern and shape information.
+
+In the primate retina, one pair of visual streams, based on two specialized types ganglion cells whose inputs are kept separate into primary visual cortex, has been studied extensively. One stream represents contrast information that varies slowly over space but rapidly over time, while the other represents information that varies rapidly over space but slowly over time. The specialization of these visual streams, too, must serve a purpose in extending visual performance.
+
+Separate visual areas exist within the visual cortex as well. These areas can be identified from their unique patterns of interconnection. The functional significance of these areas is an important question in modern vision science, and we will review some of the hypotheses about these areas in the later chapters.
+
+### Adaptation and Contrast
+
+It would be impractical to create a new visual stream to meet every visual challenge. Neurons within individual pathways must be able to adjust to their sensitivity to light stimulation in response to changes in the imaging conditions.
+
+The most salient adjustment of the image representation is the compensation in response to variation in the illumination level, *visual adaptation*. As the mean illumination level increases, the light sensitivity of individual neurons in the visual pathway, and of the whole observer, decreases.
+
+Under many conditions the change in sensitivity achieves a constant representation of image *contrast*, rather than image light level. Image contrast is the ratio of the light at a point compared to the light at nearby points. Since this ratio is preserved as the level of ambient illumination decreases, preserving image contrast enhances our ability to distinguish and recognize objects in the image.
+
+### Multiresolution representations
+
+Behavioral studies of contrast sensitivity suggest that image contrast is represented within separate visual streams that specialize in coding the information within a certain range of spatial frequencies and orientations. This *multiresolution* representation is qualitatively consistent with measurements of receptive field properties in primary visual cortex.
+
+Multiresolution image representations have become a standard tool in computational applications, including image compression, segmentation, and analysis. To understand the implications of multiresolution for the visual pathways, we will spend some time thinking about how these computational applications can be designed to work with multiresolution representations.
+
+### Linking Hypotheses
+
+Within vision science, biological and behavioral measurements data are frequently compared. G.S. Brindley called hypotheses that relate measurements in these fields *linking hypotheses*. He advised that we adopt a very conservative position in drawing connections between biological from behavioral measurements.
+
+This conservatism is far from universally accepted. For example, Zeki argues that a fearless attitude in speculating about linking hypothesis is to be admired and emulated. Begin by formulating guesses about brain and perception, he argues. The number of views on this matter exceeds the number of vision scientists.
+
+The next few chapters contain many examples in which behavior and physiology are compared. What standard should we adopt before we accept a neural phenomena as corresponding to a behavioral phenomenon?
+
+A necessary condition for accepting a neural measurement as an explanation of a behavioral measurement is this: the logic of the separate experiments must stand on their own. An analogy between a few behavioral measurements and the receptive field properties of a neuron may be suggestive, but it should only serve as an inspiration for more perspiration.
+
+Use the relationship between color-matching behavior and photopigment sensitivities as your model of a complete story. The linking hypothesis for color-matching is built by connecting a quantitative set of behavioral measurements and a quantitative set of physiological measurements. For each type of measurement, we can derive a clear set of rules that define how the system will respond to a wide range of stimuli. When each analysis stands on its own, the link between behavior and physiology is strongest.

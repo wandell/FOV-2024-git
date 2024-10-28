@@ -7,9 +7,24 @@ book:
   date: "10/26/2024"
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
+    - preface.md
+    - part-1-image-encoding.md
+    - chapter-2-image-formation.md
+    - chapter-3-the-photoreceptor-mosaic.md
+    - chapter-4-wavelength-encoding.md
+    - part-2-image-representation.md
+    - chapter-5-the-retinal-representation.md
+    - chapter-6-the-cortical-representation.md
+    - chapter-7-pattern-sensitivity.md
+    - chapter-8-multiresolution-image-representations.md
+    - part-3-image-interpretation.md
+    - chapter-9-color.md
+    - chapter-10-motion-and-depth.md
+    - chapter-11-seeing.md
     - references.qmd
+    - part-4-appendix.md
+    - appendix.md
+    - computational-examples.md
 
 bibliography: references.bib
 

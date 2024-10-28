@@ -4,6 +4,7 @@
 /_site/
 
 FOV-1995/*
+jekyll*/*
 
 # R specific
 .Rhistory

@@ -1,0 +1,42 @@
+---
+id: 1467
+title: 'PART 3: Image Interpretation'
+date: '2012-04-23T16:31:18-07:00'
+author: Wandell
+layout: page
+guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=1467'
+---
+
+## Introduction
+
+Helmholtz wrote:
+
+> The general rule determining the ideas of vision that are formed whenever an impression is made on the eye, is that *such objects are always imagined as being present in the field of vision as would have to be there in order to produce the same impression on the nervous mechanism* <small>\[Italics in the original; Southall, Physiological Optics, Vol. III, p. 2, 1865\]</small>
+
+Helmholtz’ advice is at the center of much modern vision science. Helmholtz recommends that we think of our perceptions as mental representations of the object most likely to explain the sensory input. To understand the logic of perception, therefore, we should study how to use the retinal image to estimate the object properties. The interest in understanding perceptions as estimates of the physical properties of objects joins computational vision together with physiology and psychology. as we review color appearance, motion and depth perception, and objects in the we will find several ways in which Helmholtz’ general advice has succeeded in specific cases.
+
+Like many good ideas, Helmholtz’ idea has often been rediscovered. We should be generous in crediting the re-discovery of good ideas, since that is greatly preferable to the rediscovery of bad ideas. Marr’s (1980) influential book amplifies Helmholtz’ point, and by using the word computational, rather than inferential, Marr also linked vision to the computer metaphor. My colleague Roger Shepard has championed this approach as well in his writings under the banner of *psychophysical complementarity*.
+
+When we pose vision science questions as an estimation problem — what objects could give rise to the sensory input? — we place biology, psychology and computation on common ground. Each discipline can formulate its experiments and theories in terms of a fundamental computational objective. The neural response, the behavior, and the computation all are seen as part of the goal of defining an object and estimating object properties. Even if the computational method turns out to be a poor model of human vision, discovering a new method may still be useful for robotics or other industrial applications.
+
+In the next few chapters, then, we will engage in some free-wheeling abstract thinking about visual inferences. We will ask what sensory information is available in the retinal image that could be used to estimate object properties, first for color, and then for motion and depth. We will consider abstract algorithms to extract this information, and then we will consider how the neural substrate represents and analyzes this information.
+
+### Color Appearance
+
+In the next chapter we will analyze the visual inferences that lead to color appearance. The color appearance of an object is predicted better by the object’s surface reflectance function than by the light scattered from the object. We will study how the visual system can, in principle, use the light scattered from a surface to infer an object’s surface reflectance function, and then, we will compare people’s color appearance judgments with this standard.
+
+As is common in biology and behavior, the performance does not match the absolute best limits. But, there are some important similarities, so that we obtain an excellent framework for understanding behavior and the neural representation by beginning with the computational questions. For example, we will consider how computational analyses of color can help us understand some of the basic properties of the neural response to wavelength, such as opponent-colors signals.
+
+We are at the beginning stages of discovering the neural mechanisms of color appearance. The clinical literature documents many cases of individuals who have lost their ability to organize color appearance as a consequence of strokes located in the visual area. We will consider the logic of these clinical cases studies. Then, we will review some of the experimental evidence that seeks to connect color appearance and neural responses. The most important aspect of this review is that it will get us thinking about the general methods we have available to us to relate perception and brain activity.
+
+### Motion and Depth
+
+Many of the same issues arise in [Chapter 10](/chapter-10-motion-and-depth/) as I discuss motion and depth perception. I have grouped motion and depth because estimating motion and depth are closely related computational tasks. Image changes arising from an observer’s motion yield a rich source of information about depth.
+
+It will also become clear that just as color is not a direct representation of wavelength, perceived motion is not a direct representation of physical motion. Rather, motion perception is a mental inference that relies on computations implemented in the visual pathways.
+
+For motion perception, more than any other percept, there is strong evidence to identify a particular visual stream as an important component of motion judgments. This visual stream can be traced from the retina to visual area MT. We will review the evidence that this stream plays a role in motion perception, and we will review new experiments that expand our repertoire of techniques for connecting brain activity and behavior.
+
+### Objects and Illusions
+
+Color and motion are descriptions of objects. We identify the perceptual color and motion so that we can recognize and interact with objects. Objects have color; objects move. Perhaps the most important question concerning vision, then, is how we decide that something is an object in the first place. We will end by considering an array of visual illusions that offer us hints about object perception, and that make us think about how we see objects.
