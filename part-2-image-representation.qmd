@@ -1,4 +1,4 @@
-# Section: Image Representation  {.unnumbered}
+# Introduction to Image Representation  {.unnumbered}
 
 Our understanding of how the visual pathways represent images is based upon a diverse collection of methods, drawn from several different fields. Four broad principles emerge from the studies in these different disciplines.
 

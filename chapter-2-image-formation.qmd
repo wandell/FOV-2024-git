@@ -1,32 +1,4 @@
----
-id: 19
-title: 'Image Formation'
-date: '2012-02-08T21:16:48-08:00'
-author: wandell
-layout: page
-guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=19'
----
-
-<div>- [Optical Components of the Eye](#OpticalComponentsoftheEye)
-- [Reflections From the Eye](#ReflectionsFromtheEye)
-- [Linear Systems Methods](#LinearSystemsMethods)
-    - [Homogeneity](#Homogeneity)
-    - [Superposition](#Superposition)
-    - [Implications of Homogeneity and Superposition](#ImplicationsofHomogeneityandSuperposition)
-    - [Why Linear Methods are Useful](#Whylinearmethodsareuseful)
-- [Shift-Invariant Linear Transformations](#ShiftInvariantLinearTransformations)
-    - [Shift-Invariant Systems: Definition](#Definition)
-    - [Shift-Invariant Systems: Properties](#Properties)
-- [The Optical Quality of the Eye](#TheOpticalQualityoftheEye)
-    - [The Linespread Function](#TheLinespreadFunction)
-    - [The Modulation Transfer Function](#TheModulationTransferFunction)
-- [Lenses, Diffraction and Aberrations](#LensesDiffractionandAberrations)
-    - [Lenses and Accommodation](#LensesandAccommodation)
-    - [Pinhole Optics and Diffraction](#PinholeOpticsandDiffraction)
-    - [The Pointspread Function and Astigmatism](#ThePointspreadFunctionandAstigmatism)
-    - [Chromatic Aberration](#ChromaticAberration)
-
-# Image Formation
+# Image Formation {#chapter-image-formation}
 
 The cornea and lens are the interface between the physical world of light and the visual encoding. The cornea and lens bring light into focus at the light sensitive receptors in the retina. These cells initiate a series of visual events that result in our visual experience.
 

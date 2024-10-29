@@ -1,29 +1,4 @@
----
-id: 51
-title: 'The Photoreceptor Mosaic'
-date: '2012-02-08T22:14:57-08:00'
-author: Wandell
-layout: page
-guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=51'
----
-
-- [The Photoreceptor Mosaic](#the-photoreceptor-mosaic)
-  - [The S Cone Mosaic](#the-s-cone-mosaic)
-    - [Behavioral Measurements](#behavioral-measurements)
-    - [Biological Measurements](#biological-measurements)
-    - [Why are the S cones widely spaced?](#why-are-the-s-cones-widely-spaced)
-  - [Visual Interferometry](#visual-interferometry)
-  - [Sampling and Aliasing](#sampling-and-aliasing)
-      - [Sampling is a Linear Operation](#sampling-is-a-linear-operation)
-      - [Aliasing of harmonic functions](#aliasing-of-harmonic-functions)
-      - [Experimental Implications](#experimental-implications)
-  - [The L and M Cone Mosaic](#the-l-and-m-cone-mosaic)
-    - [Visual Interferometry: Measurements of Human Optics](#visual-interferometry-measurements-of-human-optics)
-  - [Summary and Discussion](#summary-and-discussion)
-
-<a name="ThePhotoreceptorMosaic"></a>
-
-# The Photoreceptor Mosaic
+# The Photoreceptor Mosaic {#chapter-photoreceptor-mosaic}
 
 In [Chapter 2](/chapter-2-image-formation/) we reviewed Campbell and Gubisch’s (1967) measurements of the optical linespread function. Their data are presented in Figure 2.12, as smooth curves, but the actual measurements must have taken place at a series of finely spaced intervals called sample points. In designing their experiment, Campbell and Gubisch must have considered carefully how to space their sample points because they wanted to space their measurement samples only finely enough to capture the intensity variations in the measurement plane. Had they positioned their samples too widely, then they would have missed significant variations in the data. On the other hand, spacing the sample positions too closely would have made the measurement process wasteful of time and resources.
 
