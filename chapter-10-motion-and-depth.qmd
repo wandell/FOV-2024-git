@@ -1,40 +1,4 @@
----
-id: 221
-title: 'Motion and Depth'
-date: '2012-02-10T01:30:56-08:00'
-author: Wandell
-layout: page
-guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=221'
----
-
-- [Introduction](#introduction)
-- [Computing Motion](#computing-motion)
-  - [Stimulus Representation: Motion Sampling](#stimulus-representation-motion-sampling)
-  - [The Window of Visibility](#the-window-of-visibility)
-  - [Image Motion Information](#image-motion-information)
-  - [The Motion Gradient Constraint](#the-motion-gradient-constraint)
-  - [Space-time filters and motion gradient](#space-time-filters-and-motion-gradient)
-  - [Depth Information in the Motion Flow Field](#depth-information-in-the-motion-flow-field)
-- [Experimental Observations of Motion](#experimental-observations-of-motion)
-  - [Motion gradients: The intersection of constraints](#motion-gradients-the-intersection-of-constraints)
-  - [Contrast and Color](#contrast-and-color)
-  - [Long and Short Range Motion Processes](#long-and-short-range-motion-processes)
-  - [First and Second order motion](#first-and-second-order-motion)
-- [Binocular Depth](#binocular-depth)
-  - [Depth Without Edges](#depth-without-edges)
-  - [Depth With Edges](#depth-with-edges)
-- [Head and Eye Movements](#head-and-eye-movements)
-  - [Vision during saccadic eye movements](#vision-during-saccadic-eye-movements)
-- [The Cortical Basis of Motion Perception](#the-cortical-basis-of-motion-perception)
-  - [Acquired Motion Deficits](#acquired-motion-deficits)
-  - [The motion pathway](#the-motion-pathway)
-  - [Motion Perception and Brain Activity](#motion-perception-and-brain-activity)
-    - [Lesions of area MT](#lesions-of-area-mt)
-    - [Behavior and Neural Activity](#behavior-and-neural-activity)
-    - [Microstimulation Studies of Motion and MT](#microstimulation-studies-of-motion-and-mt)
-- [Conclusion](#conclusion)
-
-## Introduction
+## Motion and depth {#sec-motion-depth}
 
 The perception of motion, like the perception of color, is a visual inference. The images encoded by the photoreceptors are merely changing two-dimensional patterns of light intensity. Our visual pathways *interpret* these two-dimensional images to create our perception of objects moving in a three-dimensional world. How it is possible, even in principle, to infer three-dimensional motion from the two-dimensional retinal image is one important puzzle of motion; how our visual pathways actually make this inference is a second.
 

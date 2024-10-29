@@ -1,23 +1,4 @@
----
-id: 225
-title: 'Seeing'
-date: '2012-02-10T01:31:19-08:00'
-author: Wandell
-layout: page
-guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=225'
----
-
-- [Introduction](#introduction)
-- [Miracle Cures](#miracle-cures)
-- [Illusions](#illusions)
-  - [Seeing the Three-Dimensional World](#seeing-the-three-dimensional-world)
-  - [Shadows and Edges](#shadows-and-edges)
-  - [Shapes](#shapes)
-  - [Integrating cues](#integrating-cues)
-  - [Geometric Illusions](#geometric-illusions)
-- [Summary](#summary)
-
-## Introduction
+## Seeing {#sec-seeing}
 
 Seeing is a collection of inferences about the world. Motion, color and depth are important individual judgments. To see, however, we must connect these inferences into a unified explanation of the image. Until we integrate the separate inferences of pattern, color, motion and depth into a description of objects and surfaces, the world remains a disconcerting jumble of unconnected events.
 

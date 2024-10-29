@@ -1,41 +1,5 @@
----
-id: 217
-title: 'Color'
-date: '2012-02-10T01:30:37-08:00'
-author: Wandell
-layout: page
-guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=217'
----
+# Color {#sec-color}
 
-&gt;[Spectral Image Formation](#Spectral_Image_Formation)
-
-- [Surface reflectance estimation](#Surface_reflectance_estimation)
-- [Linear Models](#Linear_Models)
-- [Simple Illuminant Estimation](#Simple_Illuminant_Estimation)
-- [Surface Reflectance Models](<#Surface Reflectance Models>)
-- [Sensor-based error measures](#Sensor-based_error_measures)
-- [Surface and Illuminant Estimation Algorithms](#Surface_and_Illuminant_Estimation_Algorithms)
-- [Illuminant correction: An example calculation](#Illuminant_correction:_An_example_calculation)
-
-3. [Color Constancy: Experiments](#Color_Constancy:_Experiments)
-    - [Asymmetric Color-matching Experiments](#Asymmetric_Color-matching_Experiments)
-    - [The linearity of asymmetric color-matches](#The_linearity_of_asymmetric_color-matches)
-    - [Von Kries Coefficient Law: Experiments](#Von_Kries_Coefficient_Law:_Experiments)
-    - [How Color Constant Are We?](#How_Color_Constant_Are_We?)
-4. [The Perceptual Organization of Color](<#The Perceptual Organization of Color>)
-    - [Opponent-Colors](#Opponent-Colors)
-    - [Hue Cancellation](#Hue_Cancellation)
-    - [Opponent-colors measurements at threshold](#Opponent-colors_measurements_at_threshold)
-    - [Decorrelation of the Cone Absorptions](#Decorrelation_of_the_Cone_Absorptions)
-    - [Spatial Pattern and Color](#Spatial_Pattern_and_Color)
-5. [The Cortical Basis of Color Appearance](#The_Cortical_Basis_of_Color_Appearance)
-    - [Regularities of the Cerebral Dyschromatopsia Syndrome](#Regularities_of_the_Cerebral_Dyschromatopsia_Syndrome)
-    - [Behavioral studies of patients with cerebral dyschromatopsia](#Behavioral_studies_of_patients_with_cerebral_dyschromatopsia)
-    - [How many cone types are functional?](#How_many_cone_types_are_functional?)
-    - [Physiological studies of color appearance](#Physiological_studies_of_color_appearance)
-    - [Reasoning about Cortex and Perception](#Reasoning_about_Cortex_and_Perception)
-6. [Summary and Conclusions](<#Summary and Conclusions>)
-## Color Constancy: Theory
 
 Edwin Land was one of the great inventors and entrepreneurs in US history; he created instant developing film and founded the Polaroid Corporation. The first instant developing film made black and white reproductions, and after a few years Land decided to create a color version of the film. In order to learn about color appearance, Land returned to his laboratory to experiment with color. He was so surprised by his observations that he decided to write a paper summarizing his observations. In a paper published in the Proceedings of the National Academy of Sciences (USA), Land startled many people by arguing that there are only two, not three, types of cones. He further went on to dismiss the significance of the color-matching experiments. He wrote: “We have come to the conclusion that the classical laws of color mixing conceal great basic laws of color vision \[Proc. Nat. Acad. Sci, 1959\].” Land’s sharp words, an arrow aimed at the heart of color science, provoked heated rejoinders from two leading scientists, Judd (1960) and Walls (1960).
 
@@ -46,6 +10,8 @@ Land’s observation is consistent with our review of color-matching in [Chapter
 <div class="wp-caption alignright" id="attachment_319" style="width: 312px">[![Contrast illusion](/wp-content/uploads/2012/02/contrast1.png)](/wp-content/uploads/2012/02/contrast1.png)Fig 9.1 Color appearance in a region depends on the spatial pattern of cone absorptions, not just the absorptions the absorptions within the region.} The two square regions are physically identical and thus create the same local rate of photopigment absorption. Yet, they appear to have different lightness because of the difference in their relative absorptions compared to nearby areas.
 
 </div>Land’s paper contained a set of interesting qualitative demonstrations that illustrate these same points. While the limitations of the color-matching experiment were new to Land and the reviewers of his paper, they were not new to most color scientists. For example, Judd (1940) had worked for years trying to understand these effects. Later in this chapter I will review work at Kodak and in academic laboratories, contemporaneous with that of Land, that was designed to elucidate the mechanisms of color appearance. This episode in the history of color science remains important, however, because it reminds us that the phenomena of color appearance are very significant and very compelling, enough so to motivate Edwin Land to challenge whether the color establishment had answered the right questions. As to Land’s additional and extraordinary claim in those papers, that there are two not three types of photoreceptors, well, we all have off days\\footnote{ Of course, even on his off days, Land was worth a billion dollars.}.
+
+# Color Constancy: Theory
 
 If the absolute rates of photopigment absorptions don’t explain color appearance, what does? The illusions in Figures~?? and 9.1 both suggest that color appearance is related to the  *relative*cone absorption rates. Within an image, bright objects generate more cone absorptions than dark objects; red objects create more ![\Red](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-253b2a19c6d99adccef6de8babbe4738_l3.png "Rendered by QuickLaTeX.com") cone absorptions and blue objects more ![\Blue](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-c8756b22513d38249d8322166cb142e2_l3.png "Rendered by QuickLaTeX.com") cone absorptions. Hence, one square in Figure 9.1 appears light because it is associated with more cone absorptions than its neighboring region, while the other appears dark because it is associated with fewer cone absorptions. The relative absorption rate is very closely connected to the idea of the stimulus contrast that has been so important in this book. Color appearance depends more on the local contrast of the cone absorptions than on the absolute level of cone absorptions.
 

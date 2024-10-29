@@ -6,34 +6,7 @@ author: Wandell
 layout: page
 guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=209'
 ---
-
-- [Introduction](#introduction)
-- [A Single Resolution Theory](#a-single-resolution-theory)
-  - [Schade’s single resolution theory](#schades-single-resolution-theory)
-  - [Spatial contrast sensitivity functions](#spatial-contrast-sensitivity-functions)
-  - [The psychophysical linespread function](#the-psychophysical-linespread-function)
-  - [Discussion of the theory: Static nonlinearities](#discussion-of-the-theory-static-nonlinearities)
-- [Experimental Tests](#experimental-tests)
-- [Intermediate Summary](#intermediate-summary)
-- [Multiresolution Theory](#multiresolution-theory)
-  - [Pattern Adaptation](#pattern-adaptation)
-  - [Pattern Discrimination and Masking](#pattern-discrimination-and-masking)
-  - [The Conceptual Advantage of Multiresolution Theories](#the-conceptual-advantage-of-multiresolution-theories)
-- [Challenges to Multiresolution Theory](#challenges-to-multiresolution-theory)
-  - [Pattern Adaptation to Mixtures](#pattern-adaptation-to-mixtures)
-  - [Masking with Mixtures](#masking-with-mixtures)
-  - [Intermediate Summary](#intermediate-summary-1)
-- [Pattern Sensitivity Depends on Other Viewing Parameters](#pattern-sensitivity-depends-on-other-viewing-parameters)
-  - [Light Adaptation](#light-adaptation)
-  - [Spatio-temporal contrast sensitivity](#spatio-temporal-contrast-sensitivity)
-  - [Temporal Sensitivity and Mean luminance](#temporal-sensitivity-and-mean-luminance)
-  - [Pattern-Color Sensitivity](#pattern-color-sensitivity)
-  - [Retinal Eccentricity](#retinal-eccentricity)
-  - [Linking Hypotheses](#linking-hypotheses)
-- [Spatial Localization](#spatial-localization)
-- [Summary](#summary)
-
-## Introduction
+# Pattern vision {#sec-pattern-vision}
 
 In this chapter we will consider measurements and models of human visual sensitivity to spatial and temporal patterns. We have covered topics relevant to pattern sensitivity in earlier chapters as we reviewed image formation and the receptor mosaic. Here, we will extend our analysis by reviewing a collection of behavioral studies designed to reveal how the visual system as a whole detects and discriminates spatio-temporal patterns.
 

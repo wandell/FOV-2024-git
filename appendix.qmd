@@ -1,46 +1,14 @@
----
-id: 229
-title: Appendix
-date: '2012-02-10T01:32:09-08:00'
-author: Wandell
-layout: page
-guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=229'
----
+# Appendix {#sec-appendx}
 
-- [1. Shift-Invariant Linear Systems](#1-shift-invariant-linear-systems)
-  - [Shift-Invariant Linear Systems: Definitions](#shift-invariant-linear-systems-definitions)
-  - [Convolution](#convolution)
-  - [Convolution and Harmonic Functions](#convolution-and-harmonic-functions)
-  - [The Discrete Fourier Series: Definitions](#the-discrete-fourier-series-definitions)
-  - [The Discrete Fourier Series: Properties](#the-discrete-fourier-series-properties)
-  - [Measuring a Convolution System using Harmonic Functions](#measuring-a-convolution-system-using-harmonic-functions)
-- [2. Display Calibration](#2-display-calibration)
-  - [An Overview of a CRT Display](#an-overview-of-a-crt-display)
-  - [The frame-buffer](#the-frame-buffer)
-  - [The Display Intensity](#the-display-intensity)
-  - [The Display Spectral Power Distribution](#the-display-spectral-power-distribution)
-  - [The Calibration Matrix](#the-calibration-matrix)
-  - [Example Calculations](#example-calculations)
-  - [Color Calibration Tips](#color-calibration-tips)
-    - [Spatial Independence](#spatial-independence)
-    - [Phosphor Independence](#phosphor-independence)
-- [3. Classification](#3-classification)
-  - [A Bayes classifier for an Intensity Discrimination Task](#a-bayes-classifier-for-an-intensity-discrimination-task)
-  - [A Bayes classifier for a Pattern Discrimination Task](#a-bayes-classifier-for-a-pattern-discrimination-task)
-- [4. Signal Estimation: A Geometric View](#4-signal-estimation-a-geometric-view)
-  - [Matrix equations](#matrix-equations)
-- [5. Motion Flow Field Calculation](#5-motion-flow-field-calculation)
-  - [Imaging Geometry and Perspective Projection](#imaging-geometry-and-perspective-projection)
-  - [Motion Flow](#motion-flow)
+The appendix consists of five sections. In [Appendix section 1](/appendix/#Shift-Invariant_Linear_Systems) I review several properties of shift-invariant linear systems and outline proofs of these properties. This appendix also includes a brief discussion of the Discrete Fourier Series, a method for representing functions as the weighted sum of harmonic functions. [Appendix section 2](/appendix/#Display_Calibration) contains a review of the main aspects of visual display calibration for psychophysical experiments. [Appendix section 3](/appendix/#Classification) contains a description of the basic results in classification theory, Bayes Rule and linear discriminant functions. [Appendix section 4](/appendix/#Signal_Estimation:_A_Geometric_View) provides a geometric interpretation of vector and matrix multiplication as well as a brief introduction to signal estimation. [Appendix section 5](/appendix/#Motion_Flow_Field_Calculation) outlines how to compute a motion flow field that arises when an observer moves through a fixed environment.
 
-
-# 1. Shift-Invariant Linear Systems
+## Shift-Invariant Linear Systems {#sec-shift-invariant}
 
 Many of the ideas in this book rely on properties of shift-invariant linear systems. In the text, I introduced these properties without any indication of how to prove that they are true. I have two goals for this section. First, I will sketch proofs of several important properties of shift-invariant linear systems. Second, I will describe *convolution* and the *Discrete Fourier Series*, two tools that help us take advantage of these properties <sup>1</sup>.
 
 > <sup>1 </sup> <small>The results in this appendix are expressed using real harmonic functions. This is in contrast to the common practice of using complex notation, specifically Euler’s complex exponential, as a shorthand to represent sums of harmonic functions. The exposition using complex exponentials is brief and elegant, but I believe it obscures the connection with experimental measurements. For this reason, I have avoided the development based on complex notation.</small>
 
-## Shift-Invariant Linear Systems: Definitions
+### Definitions
 
 Shift-invariance is a system property that can be verified by experimental measurement. For example, in [Chapter 2](/chapter-2-image-formation/) I described how to check whether the optics of the eye is shift-invariant by the following measurements. Image a line through the optics onto the retina, and measure the linespread function. Then, shift the line to a new position, forming a new retinal image. Compare the new image with the original. If the images have the same shape, differing only by a shift in position, then the optics is shift-invariant over the measured range.
 
@@ -62,7 +30,7 @@ The extended functions ![\lspreadhat{}](https://foundationsofvision.vista.su.dom
 
 <span class="ql-right-eqno"> </span><span class="ql-left-eqno"> </span>![\[ (\ldots, \lspreadhati{-1} = \lspreadhati{N-1}, ~\lspreadhati{0} = \lspreadhati{N}, ~\lspreadhati{1}, \ldots, \lspreadhati{N},~ \lspreadhati{N+1} = \lspreadhati{1}, \ldots ) . \]](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-4b84d0a924f9d2b60c348f9a39a29402_l3.png "Rendered by QuickLaTeX.com")
 
-## Convolution
+### Convolution
 
 Next, we derive some of the properties of linear shift-invariant systems. We begin by describing these properties in terms of the *system matrix* (see [Chapter 2](/chapter-2-image-formation/)). Then, we will show how the simple structure of the shift-invariant system matrix permits us to relate the input and output by a summation formula called *cyclic convolution*. The convolution formula is so important that shift-invariant systems are sometimes called *convolution systems* <sup>2</sup>.
 
@@ -96,7 +64,7 @@ We can use this relationship to simplify the summation further,
 
 In this form, we see that the response depends only on the input and the linespread. The summation formula in Equation~[6](#id2513666426) is called *cyclic convolution*. Hence, we have shown that to compute the response of a shift-invariant linear system to any stimulus, we need measure only the linespread function.
 
-## Convolution and Harmonic Functions
+### Convolution and Harmonic Functions
 
 Next, we study some of the properties of the convolution formula. Most important, we will see why harmonic functions have a special role in the analysis of convolution systems.
 
@@ -133,7 +101,7 @@ where
 
 We have shown that when the input to the system is a sinusoidal function at frequency ![f](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-8f51d5769daf4c908ad99156b65e83f1_l3.png "Rendered by QuickLaTeX.com"), the output of the system is the weighted sum of a sinusoid and a cosinusoid, both at frequency ![f](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-8f51d5769daf4c908ad99156b65e83f1_l3.png "Rendered by QuickLaTeX.com"). This is equivalent to showing that when the input is a sinusoid at frequency ![f](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-8f51d5769daf4c908ad99156b65e83f1_l3.png "Rendered by QuickLaTeX.com"), the output will be a scaled and shifted copy of the input, ![s_f \sin (\pfiN + \phi_f )](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-c9749e6994242d0b8e837cafdb54addb_l3.png "Rendered by QuickLaTeX.com") (see Equation~??). As we shall see below, it is easy to generalize this result to all harmonic functions.
 
-## The Discrete Fourier Series: Definitions
+### The Discrete Fourier Series: Defined
 
 In general, when we measure the response of a shift-invariant linear system we measure ![N](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-977aac0f2eb8acd667f3e56471727913_l3.png "Rendered by QuickLaTeX.com") output values. When the input is a sinusoid, or more generally a harmonic, we can specify the response using only the two numbers, ![a](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-a877136da15a8ef393a3c5a3bd333804_l3.png "Rendered by QuickLaTeX.com") and ![b](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-918b9e3d70dff3d0d9dcc894d03d49ef_l3.png "Rendered by QuickLaTeX.com"), in Equation~[10](#id3539455567). We would like to take advantage of this special property of shift-invariant systems. To do so, we need a method of representing input stimuli as the weighted sum of harmonic functions.
 
@@ -157,7 +125,7 @@ The vectors ![{\vect{a}}](https://foundationsofvision.vista.su.domains/wp-conten
 
 The DFS represents the original stimulus as the weighted sum of a set of harmonic functions (i.e., sampled sine and cosine functions). We call these sampled harmonic functions the *basis functions* of the DFS representation. The vectors ![\vect{a}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-5859733435d21d7ccb09f4efb77141a6_l3.png "Rendered by QuickLaTeX.com") and ![\vect{b}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-ad439985032080068dfca8d0f51ce133_l3.png "Rendered by QuickLaTeX.com") contain basis functions *weights* or *coefficients* that specify how much of each basis function must be added in to recreate the original stimulus, ![\pixvec](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-34369e851c9b43400272cafcefc73a34_l3.png "Rendered by QuickLaTeX.com").
 
-## The Discrete Fourier Series: Properties
+### The Discrete Fourier Series: Properties
 
 <div class="wp-caption aligncenter" id="attachment_1387" style="width: 501px">[![sincos](/wp-content/uploads/2012/02/sincos-1024x466.png)](/wp-content/uploads/2012/02/sincos.png)Figure A1.1: The basis functions of the Discrete Fourier Series. The cosinusoidal (a) and sinusoidal (b) basis functions of the discrete Fourier series representation when N=8 are shown. Notice the redundancy between the functions at symmetrically placed frequencies.
 
@@ -193,7 +161,7 @@ where ![{\matr{I}_{N \times N}}](https://foundationsofvision.vista.su.domains/wp
 
 Compare Equation~[17](#id3758215120) and Equation~[13](#id498232223). Notice that the Equations become identical if we make the assignments in Equation~[15](#id3985969429). This completes the sketch of the proof.
 
-## Measuring a Convolution System using Harmonic Functions
+### Measuring a Convolution System using Harmonic Functions
 
 Finally, we show how to predict the response of a shift-invariant linear system to any stimulus using only the responses to unit amplitude cosinusoidal inputs. This result is the logical basis for describing system performance from measurements of the response to harmonic functions. When the system is linear and shift-invariant, its responses to harmonic functions is a complete description of the system; but, this is not true for arbitrary linear systems.
 
@@ -213,13 +181,13 @@ We have shown that if we measure the system response to unit amplitude cosinusoi
 
 You will find this series of calculations used implicitly at several points in the text. For example, we followed this organization when I described measurements of the optical quality of the lens ([Chapter 2](/chapter-2-image-formation/)) and when I described measurements of behavioral sensitivity to spatiotemporal patterns ([Chapter 7](/chapter-7-pattern-sensitivity/)).
 
-# 2. Display Calibration
+## Display Calibration
 
 Visual displays based on a *cathode ray tube* (CRT) are used widely in business, education and entertainment. The CRT reproduces color images using the principles embodied in the color-matching experiment ([Chapter 4](/chapter-4-wavelength-encoding/)).
 
 The design of the color CRT is one of the most important applications of vision science; thus, it is worth understanding the design as an engineering achievement. Also, because the CRT is used widely in experimental vision science, understanding how to control the CRT display is an essential skill for all vision scientists. This appendix reviews several of the principles of monitor calibration.
 
-## An Overview of a CRT Display
+### An Overview of a CRT Display
 
 <div class="wp-caption aligncenter" id="attachment_1391" style="width: 501px">[![crtShadow](/wp-content/uploads/2012/02/crtShadow-1024x499.png)](/wp-content/uploads/2012/02/crtShadow.png)Figure A2.1: Overview of a cathode ray tube display. (a) A side view of the display showing the cathode, which is the source of electrons, and a method of focusing the electrons into a beam that is deflected in a raster pattern across the faceplate of the display. (b) The geometrical arrangement of the electron beams, shadow-mask, and phosphor allows each electron beam to stimulate only one of the three phosphors.
 
@@ -231,13 +199,13 @@ Monochrome CRTs have a single electron beam and a single type of phosphor. In mo
 
 In order that each electron beam stimulate emissions from only one of the three types of phosphors, a metal plate, called a *shadow-mask*, is interposed between the three electron guns and the faceplate. A conventional shadow-mask is a metal plate with a series of finely spaced holes. The relative positions of the holes and the electron guns are arranged, as shown in Figure A2.1b, so that as the beam sweeps across the faceplate the electrons from a single gun that pass through a hole are absorbed by only one of the three types of phosphors; electrons from that gun that would have stimulated the other phosphors are absorbed or scattered by the shadow-mask.
 
-## The frame-buffer
+### The frame-buffer
 
 In experiments, the control signal sent to the CRT display is usually created using computer software. There are two principal methods for creating these control signals. In one method, the user controls the three electron beam intensities by writing out the values of three matrices into three separate *video frame-buffers*. Each matrix specifies the control signal for one of the electron guns. Each matrix entry specifies the desired voltage level of the control signal at a single point on the faceplate. Usually, the intensity levels within each matrix are quantized to 8 bits, so this computer display architecture is called *24 bit color*, or *RGB color*.
 
 In a second method, the user writes a single matrix into a single frame-buffer. The value at each location in this matrix is converted into three control signals sent to the display according to a code contained in in a *color look-up table*. This architecture is called *indexed color*. This method is cost-effective because it does away with two of the three frame-buffers. When using this method, the user can only select among 256 (8 bits) colors when displaying a single image.
 
-## The Display Intensity
+### Display Intensity
 
 Calibrating a visual display means measuring the relationship between the frame-buffer values and the light emitted by the display. In this section we will discuss the relationship between the frame-buffer values and the intensity of the emitted light. In the next section we will discuss the relationship between the frame-buffer values and the spectral composition of the emitted light.
 
@@ -259,7 +227,7 @@ The nonlinear function relating the frame-buffer values and the relative intensi
 
 where ![a](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-a877136da15a8ef393a3c5a3bd333804_l3.png "Rendered by QuickLaTeX.com") is a fitting parameter. Somewhat fortuitously, the nonlinear relationship between frame-buffer values and intensity compensates for the nonlinear relationship between intensity and brightness. To show this, I have replotted Figure 2.2a on a graph whose vertical scale is brightness, that is relative intensity raised to the ![0.4](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-d19480873d6029322b207a26183b96a0_l3.png "Rendered by QuickLaTeX.com") power. This graph shows that the relationship between the frame-buffer value and brightness is nearly linear. This has the effect of equalizing the perceptual steps between different levels of the frame-buffer and simplifying certain aspects of controlling the appearance of the display.
 
-## The Display Spectral Power Distribution
+### Display Spectral Power Distribution
 
 The spectral power distribution of the light emitted in each small region of a CRT display is the mixture of the light emitted by the three phosphors. Since the mixture of lights obeys superposition, we can characterize the spectral power distributions emitted by a CRT using simple linear methods.
 
@@ -279,7 +247,7 @@ Figure A2.3 is a matrix tableau that illustrates how to compute the spectral pow
 
 </div>The light emitted from a CRT is different from lights we encounter in natural scenes. For example, the spectral power distribution of the red phosphor, with its sharp and narrow peaks, is unlike the light we see in natural images. Nonetheless, we can adjust the three intensities of the three phosphors on a color CRT to match the appearance of most spectral power distributions, just as we can match appearance in the color-matching experiment by adjusting the intensity of three primary lights (see [Chapter 4](/chapter-4-wavelength-encoding/)).
 
-## The Calibration Matrix
+### Color Calibration Matrix
 
 In many types of psychophysical experiments, we must be able to specify and control the relative absorption rates in the three types of cones. In this section, I show how to measure and control the relative cone absorptions when the phosphor spectral power distributions and the relative cone photopigment spectral sensitivities are known.
 
@@ -301,7 +269,7 @@ Suppose the red phosphor stimulated only the ![\Red](https://foundationsofvision
 
 > <sup>4 </sup><small>This calculation applies to spatially uniform regions of a display, in which we can ignore the complications of chromatic aberration. Marimont and Wandell (1994) describe how to include the effects of chromatic aberration.</small>
 
-## Example Calculations
+### Example Calculations
 
 Now, we consider two ways we might use the calibration matrix. First, we might wish to calculate the receptor absorptions to a particular light from the CRT. Second, we might wish to know how to adjust the relative intensities of the CRT in order to achieve a particular pattern of cone absorptions.
 
@@ -319,7 +287,7 @@ Suppose we wish to display a pair of stimuli that differ only in their effects o
 
 Notice that to create a stimulus difference seen only by the ![\Blue](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-c8756b22513d38249d8322166cb142e2_l3.png "Rendered by QuickLaTeX.com") cones, we needed to adjust the intensities of all three phosphor emissions. For example, to increase the ![\Blue](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-c8756b22513d38249d8322166cb142e2_l3.png "Rendered by QuickLaTeX.com") cone absorptions we need to increase the intensity of the blue phosphor emissions. This will also cause some increases in the ![\Red](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-253b2a19c6d99adccef6de8babbe4738_l3.png "Rendered by QuickLaTeX.com") and ![\Green](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-feccbdf563a98946062919268fb3dc95_l3.png "Rendered by QuickLaTeX.com") cone absorptions, and we must compensate for this by decreasing the emissions from the red and green phosphors.
 
-## Color Calibration Tips
+#### Color Calibration Tips
 
 For most of us calibration is not, in itself, the point. Rather, we calibrate displays to describe and control experimental stimuli. If your experiments only involve a small number of stimuli, then it is best to calibrate those stimuli exhaustively. This strategy avoids making a lot of unnecessary assumptions, and your accuracy will be limited only by the quality of your calibration instrument.
 
@@ -327,7 +295,7 @@ In some experiments, and in most commercial applications, the number of stimuli 
 
 Because of the large number of potential stimuli, we need to build a model of the relationship between the frame-buffer entries and the monitor output. The discussion of calibration in this appendix is based on an implicit model of the display. To perform a high quality calibration, you should check some of these assumptions. What are these implicit assumptions, and how close will they be to real performance?
 
-### Spatial Independence
+#### Spatial Independence
 
 First, we have assumed that the transfer function from the frame buffer values to the monitor output is independent of the spatial pattern in the frame buffer. Specifically, we have assumed that the light measurements we obtain from a region are the same if the surrounding area were set to zero or set to any other intensity level.
 
@@ -335,7 +303,7 @@ In fact, the intensity in a region is not always independent of the spatial patt
 
 If you are interested in a harsh test to evaluate spatial independence of a display, try displaying a square pattern consisting of alternating pixels with ![0](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-10feb151d68dbf9aeb65e93a2d82d302_l3.png "Rendered by QuickLaTeX.com") and ![255](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-59cb63044b719b472372248d825e758f_l3.png "Rendered by QuickLaTeX.com"). When you step away from the monitor, the pattern will blur; in principle, the brightness of the this pattern should match the brightness of a uniform square of the same size all of whose values are set to the frame-buffer value whose relative intensity is ![0.5](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-330a6506e7c826b201ec1c010dccaedc_l3.png "Rendered by QuickLaTeX.com"). You can try the test using alternating horizontal lines, or alternating vertical lines, or random dot arrays.
 
-### Phosphor Independence
+#### Phosphor Independence
 
 Brainard (1989) points out that the spatial independence assumption reduces the number of measurements to approximately ![1.6 \times 10^{7}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-25f3a9853bbb1788e9d98564cd37a00a_l3.png "Rendered by QuickLaTeX.com"). Still too many measurements to make; but, at least we have reduced the problem so that there are fewer measurements than the number of atoms in the universe.
 
@@ -345,7 +313,7 @@ Before performing your experiments, it is important to verify phosphor independe
 
 For further discussion of calibration, consult some papers in which authors have described their experience with specific display calibration projects (e.g. Brainard, 1989; Cowan and Rowell, 1986; Post, 1989; Berns et al., 1993ab).
 
-# 3. Classification
+## Classification
 
 Many visual judgments are classifications: an edge is present, or not; a part is defective, or not; a tumor is present, or not. The threshold and discrimination performances reviewed in [Chapter 7](/chapter-7-pattern-sensitivity/) are classifications as well: I saw it, or not; the stimulus was this one, or that. This appendix explains some of the basic concepts in classification theory and their application to understanding vision.
 
@@ -391,7 +359,7 @@ as
 
 The term on the left hand side of the Equation~[23](#id3514090741) is called the *likelihood ratio*. The quantity on the right is called the *odds ratio*. The formula tells us that we should select ![\stimA](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-5ae5e06bacc980bc4964399f114b5242_l3.png "Rendered by QuickLaTeX.com") when the likelihood ratio, which depends on the data, exceeds the odds ratio, which depends on the a priori knowledge. A system that uses this formula to classify the stimuli is called a *Bayes classifier*.
 
-## A Bayes classifier for an Intensity Discrimination Task
+### A Bayes classifier for an Intensity Discrimination Task
 
 In this section we will devise a Bayes classifier for a simple experimental decision. Suppose that we ask an observer to decide whether we have presented one of two brief visual stimuli; the two stimuli are identical in all ways but their intensity. We suppose that the observer decides which stimulus was presented based on the total number of cone absorptions during the trial, ![\sum_{i=1}^{N} d_i = d](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-26f20970d9d81c2e5a8bd0f1c24f3d58_l3.png "Rendered by QuickLaTeX.com"), and without paying attention to the spatial distribution of the cone absorptions.
 
@@ -417,7 +385,7 @@ Figure A3.1 shows the probability distributions of the number of cone absorption
 > 
 > To find further support for their observation, Hecht et al. analyzed how the subject’s responses varied across trials. They assumed that all of the observed variability was due to the stimulus, and none was due to the observer. Their account is repeated in a wonderful didactic style in Cornsweet’s book. I don’t think this assumption is justified; a complete treatment of the data must take into account variability intrinsic to the human observer (e.g., Nachmias and Kocher, 1970).
 
-## A Bayes classifier for a Pattern Discrimination Task
+### A Bayes classifier for a Pattern Discrimination Task
 
 To discriminate between different spatial patterns, or stimuli located at different spatial positions, the observer must use the spatial pattern of cone absorptions. Consequently, pattern discrimination must depend on comparisons of a vector of measurements, ![\data](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-c56a0840a11d4c6659e8a56923bed5a3_l3.png "Rendered by QuickLaTeX.com"), not just a single value. In this section, we develop a Bayes classifier that can be applied to a pattern discrimination task.
 
@@ -479,7 +447,7 @@ Why, then, is the Bayes classifier analysis important? The Bayes classifier anal
 
 > The real power of this approach is that the ideal discriminator \[Bayes classifier\] measures all the information available to the later stages of the visual system. I would like to suggest that measuring the information available in discrimination stimuli with a model of the sort I have described here should be done as routinely as measuring the luminances of the stimuli with a photometer. In other words, we should not only use a light meter but we should also use the appropriate information meter. It is simply a matter of following the first commandment of psychophysics: “know thy stimulus.” (Geisler, 1987, p. 30)
 
-# 4. Signal Estimation: A Geometric View
+## Signal Estimation: A Geometric View
 
 This book is filled with calculations of the general form
 
@@ -529,7 +497,7 @@ Figure A4.3c shows the same representation but for a pair of sensors represented
 
 > <sup>7 </sup><small>In general, we would place the perpendicular line at a distance of ![\| \vect{x} \| cos ( \theta_i ) / \| \vect{a}_i\|](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-15568e1b06658ec7cea08f3310a365f1_l3.png "Rendered by QuickLaTeX.com"), but we have assumed that ![\vect{a}_i](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-56dac104025f93ed8b85bb640d1ab2e4_l3.png "Rendered by QuickLaTeX.com") has unit length.</small>
 
-## Matrix equations
+### Matrix equations
 
 Ordinarily, we use matrix multiplication to represent a collection of dot products. Many aspects of the signal estimation problem can be expressed and solved using methods developed for matrix algebra.
 
@@ -567,7 +535,7 @@ In general, the best solution will depend on the noise properties and the error 
 
 A full discussion of the problems involved in signal estimation and matrix algebra would take us far beyond the scope of this book, but there are several excellent textbooks that explain these ideas (Strang, 1993; Lawson and Hanson, 1974, Vetterling, et al., 1992). Also, the manuals for several computer packages, such as *Matlab* and *Mathematica*, contain useful information about using these methods and further references. To see how some of these tools have been applied to vision science, you might consult some of the following references (Brainard, 1994, Heeger and Jepson, 1992; Marimont and Wandell,1992; Nielsen and Wandell, 1988; Thomas et al., 1994; Tomasi and Kanade, 1991, Wandell, 1987)
 
-# 5. Motion Flow Field Calculation
+## Motion Flow Field Calculation
 
 The motion flow field describes how an image point changes position from one moment in time to the next, say, as an observer changes viewpoint. I reviewed several properties of the motion flow field in [Chapter 10](/chapter-10-motion-and-depth/), and I also reviewed how to use the information in a motion flow field to estimate scene properties, including observer motion and depth maps.
 
@@ -575,7 +543,7 @@ In this appendix I describe how to compute a motion flow field. There are variou
 
 To calculate the motion flow field, we will treat the eye as a pinhole camera and we will define the position of the points in space relative to the pinhole. Based on this framework, we will derive two formulae. First, we will derive the *perspective projection* formula. This formula describes how points in space project onto locations in the image plane of the pinhole camera. Second, we will derive how translating and rotating the pinhole camera position, i.e., the *viewpoint*, changes the point coordinates in space. Finally, we combine these two formulae to predict how changing the viewpoint changes the point locations in the image plane, thus creating the motion flow field.
 
-## Imaging Geometry and Perspective Projection
+### Imaging Geometry and Perspective Projection
 
 We base our calculations on ray-tracing from points in the world onto an image plane in a pinhole camera (see [Chapter 2](/chapter-2-image-formation/)). To simplify some of the graphics calculations, it is conventional to place the pinhole at the origin of the coordinate frame and the imaging plane in the positive quadrant of the coordinate frame. Figure A5.1a shows the geometric relationship between a point in space, the pinhole, and the image plane.
 
@@ -588,8 +556,9 @@ Figures A5.1bc show the geometric relationship between a point in space and its 
 <span class="ql-right-eqno"> (34) </span><span class="ql-left-eqno"> </span>![\begin{equation*}  u = ( \vecti{p}{1} / \vecti{p}{3}) f ~~~\mbox{and}~~~ v = (\vecti{p}{2} / \vecti{p}{3} ) f . \end{equation*}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-9984eae11f1777edc0d05d250615435f_l3.png "Rendered by QuickLaTeX.com")
 
 <div class="wp-caption aligncenter" id="attachment_1409" style="width: 501px">[![perspective](/wp-content/uploads/2012/02/perspective-1024x809.png)](/wp-content/uploads/2012/02/perspective.png)Figure A5.1: Perspective calculations of a pinhole camera. The coordinate frame is centered at the pinhole, and the image plane is located at a distance f in front of the pinhole parallel to the X-Y plane. (a) A ray from a point (p1, p2, p3) that passes through the pinhole will intersect the image plane at location (u,v). (b) From a view along the Y axis we find a pair of similar triangles. These triangles define an equation that relates the image plane coordinate, u, the point coordinates, and the distance from the pinhole to the image plane, f. (c) From a view along the X axis, we find an analogous pair of similar triangles and an analogous equation for v.
+</div>
 
-</div>## Imaging Geometry, Camera Translation and Rotation
+### Imaging Geometry, Camera Translation and Rotation
 
 The coordinate frame is centered at the pinhole. Hence, when the pinhole camera moves, each point in the world is assigned a new position vector. Here, we calculate the change in coordinates of the points for each motion of the pinhole optics. We will use the new coordinate to calculate the change in the point’s image position, and then the motion flow field vectors.
 
@@ -601,7 +570,7 @@ We can compute the change in the coordinate,, ![{\bf \delta} \vect{p} = (\delta 
 
 These formulae apply when the rotation and translation are small quantities, measuring the instantaneous change in position.
 
-## Motion Flow
+### Motion Flow
 
 Finally, we compute motion flow by using Equation~[34](#id2583343672) to specify how the change in position in space maps into a change in image position. The original point ![\vect{p}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-33a8854a1c8603c19be5c57d3d70e1bd_l3.png "Rendered by QuickLaTeX.com") mapped into an image position ![(u,v)](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-47185ea770246119ff883c621c88ac95_l3.png "Rendered by QuickLaTeX.com"); after the observer moves the new coordinate, ![\vect{p} + {\bf \delta} \vect{p}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-7a4824a410ae9594f23170754f98d7d5_l3.png "Rendered by QuickLaTeX.com") maps into a new image position, ![(u',v')](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-125ca053938a4a4e3ebea641c8fb848e_l3.png "Rendered by QuickLaTeX.com"). The resulting motion flow is the difference in the two image positions, ![\motFlow{u}{v} = (u-u',v-v')^T](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-64c76383c99d5125c8399bd340cdc224_l3.png "Rendered by QuickLaTeX.com").
 

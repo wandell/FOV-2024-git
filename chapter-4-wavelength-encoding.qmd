@@ -1,13 +1,4 @@
----
-id: 57
-title: 'Wavelength Encoding'
-date: '2012-02-08T22:19:00-08:00'
-author: Wandell
-layout: page
-guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=57'
----
-
-# Wavelength Encoding {#chapter-wavelength-encoding}
+# Wavelength Encoding {#sec-wavelength-encoding}
 
 Sir Isaac Newton’s sketch in Figure 4.1 summarizes his investigations into the properties of light. In these experiments, Newton separated daylight into its fundamental components by passing it through a prism and creating a rainbow. Newton’s demonstration that light can be decomposed into rays of different wavelength is at the foundation of our understanding of light and color.
 

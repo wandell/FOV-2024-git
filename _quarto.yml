@@ -29,7 +29,6 @@ book:
     - references.qmd
     - part: "Appendix"
       chapters:
-       - part-4-appendix.qmd
        - appendix.qmd
        - computational-examples.qmd
        - online-teaching-resources.qmd
