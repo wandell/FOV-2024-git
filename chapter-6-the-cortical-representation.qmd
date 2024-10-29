@@ -9,24 +9,7 @@ footnotes:
     - '[{"content":"Both of these methods are based on indirect measures of neural activation. With the PET method, an observer receives a low dose of radiation in his blood stream and neural activity is indicated by brain regions showing increased radioactivity. The fMRI signal detects differences in the local concentration of blood oxygen. Both the increased radioactivity and the change in local blood oxygenation are due to vascular responses to the neural activity (Posner and Raichle, 1994; Ogawa, 1992; Kwong, 1992).","id":"e8e15f97-7113-4078-9c80-b4a6c821a86c"},{"content":"In principle, one might construct an oriented receptive field from the outputs of a single line of lateral geniculate neurons. But, recall that the receptive fields of lateral geniculate neurons have a weak opposing surround. The inhibitory and excitatory regions of the cortical neurons often are more nearly balanced in their effect. Hence, I have constructed these regions by combining the outputs from separate groups of neurons.","id":"9c1ffbdc-c103-451f-99de-823f22ffdadf"},{"content":"You can demonstrate the relative shift in retinal positions to yourself as follows. Focus on a nearby object, say your finger placed in front of your nose. Then, alternately look through one eye and then the other. Although your finger remains in the fovea, the relative positions of points nearer or further than your finger will change as you look through each eye in turn.","id":"8ad11a8d-9e18-46e6-8823-023a160b1606"},{"content":"A frequently suggested alternative is that these disparity cues serve to converge the two eyes. Since the same cues are used to converge the eyes and estimate depth, this alternative hypothesis is virtually impossible to rule out.","id":"e610291f-f7a6-4ea7-b808-3e727c09e031"},{"content":"See Hubel''s Nobel lecture for a marvelous description of the paradigm prior to their work. ","id":"9e2b8379-b8d7-4b72-8e6f-7be5d7ef9543"}]'
 ---
 
-- [Overview of the Visual Cortex](#overview-of-the-visual-cortex)
-- [The Architecture of Primary Visual Cortex](#the-architecture-of-primary-visual-cortex)
-  - [The layers of area V1](#the-layers-of-area-v1)
-  - [The pathway to area V1](#the-pathway-to-area-v1)
-    - [Eye of origin](#eye-of-origin)
-    - [Ganglion cell classification](#ganglion-cell-classification)
-    - [Retinotopic organization](#retinotopic-organization)
-  - [Electrical stimulation of Human Area V1](#electrical-stimulation-of-human-area-v1)
-- [Receptive Fields in Primary Visual Cortex](#receptive-fields-in-primary-visual-cortex)
-  - [Orientation selectivity](#orientation-selectivity)
-  - [Direction selectivity](#direction-selectivity)
-  - [Contrast Sensitivity of Cortical Cells](#contrast-sensitivity-of-cortical-cells)
-  - [Contrast Normalization](#contrast-normalization)
-  - [Binocular Receptive Fields](#binocular-receptive-fields)
-- [Visual Streams in the Cortex](#visual-streams-in-the-cortex)
-  - [The fate of the parvocellular and magnocellular pathways](#the-fate-of-the-parvocellular-and-magnocellular-pathways)
-  - [The function of the visual areas](#the-function-of-the-visual-areas)
-- [Footnotes](#footnotes)
+
 
 In this chapter we will review the representation of information in visual cortex. There have been many advances in our understanding of visual cortex over the last twenty-five years. Even today, our view of visual cortex is changing rapidly; new results that change our overall view sometimes seem to arrive weekly. In the beginning of this chapter, I will review what is commonly accepted concerning visual cortex. Towards the end, I will introduce some of the broader claims that have been made about the relationship between visual cortex and perception. We will take up the issue of connecting cortex, computation, and seeing again in the later chapters.
 
