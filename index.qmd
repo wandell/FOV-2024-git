@@ -1,8 +1,10 @@
+![](front-isetbio-notext.png){fig-align="center" width="80%"}
+
 # Preface {.unnumbered}
 
-While writing the first edition of this book, I was inspired by the breadth and vibrancy of vision science, writing: “Vision scientists solve problems across the fields of biology, psychology, and engineering. Our field takes on problems ranging from the nature of consciousness to the hurry-up-and-ship-it applications needed to keep a company afloat. The book is filled with measurements and facts; but, my main goal in writing this book has been to explain how we learned these facts and how they support a collection of theories that explain what we see.” I remain inspired.
+While writing the first edition of this book, I was inspired by the breadth and vibrancy of vision science, writing: “Vision scientists solve problems across the fields of biology, psychology, and engineering. Our field takes on problems ranging from the nature of consciousness to the hurry-up-and-ship-it applications needed to keep a company afloat. The book is filled with measurements and facts; but, my main goal in writing this book has been to explain how we learned these facts and how they support a collection of theories that explain what we see.” I remain inspired and committed to this broad view of vision science.
 
-In the thirty years since I wrote the first edition of this book, scientists have built new instruments and made new measurements that extend our basic knowledge of the visual system. Magnetic resonance imaging, adaptive optics, and optical imaging methods have extended the foundations of our field. New theoretical methods have been added to the computational toolkit. I am glad to have the good fortune to be able to update the text with these new ideas and methods and to write this 2<sup>nd</sup> edition.
+In the thirty years since I wrote the first edition of this book, scientists have built new instruments and made new measurements that extend our basic knowledge of the visual system. Magnetic resonance imaging, adaptive optics, and optical imaging methods have extended the foundations of our field. New theoretical methods have been added to the computational toolkit. I am glad to have the good fortune to be able to update the text with these new ideas and methods and to write this 2^nd^ edition.
 
 The technologies for book-writing and communicating ideas have changed markedly over the past thirty years. The first edition, written prior to the widespread adoption of Internet technologies, was a conventional printed volume. Over the years, I migrated the book to a web-site and made it freely available. These days my students learn nearly exclusively by reading material in electronic formats (web pages, e-readers), watching videos, and interacting with computational notebooks. For this reason, the 2<sup>nd</sup> edition communicates vision science using these newer formats, with an Internet-first approach. The links on the book pages lead the reader to additional explanatory text, videos, and open-source, freely available software so that the reader can explore computational ideas.
 
@@ -24,9 +26,9 @@ Third, the methods and standards of proof that are used to understand image enco
 
 The second section of this volume reviews how the retinal image is represented by the neural response within the peripheral visual pathways. This section begins with a review of the anatomical and functional measurements of the image within the retina and primary visual cortex. These measurements characterize the neural substrate of the visual representation. These studies reveal several important points about how light is represented in the brain.
 
-- The visual system comprises spatially interleaved neuronal types, with distinct anatomical and functional properties.
-- The different neuron types form circuits that receive and transmit information spanning many brain locations.
-- Different types of visual judgments can rely on information represented in different circuits.
+-   The visual system comprises spatially interleaved neuronal types, with distinct anatomical and functional properties.
+-   The different neuron types form circuits that receive and transmit information spanning many brain locations.
+-   Different types of visual judgments can rely on information represented in different circuits.
 
 The second half of the Representation section reviews perceptual and computational studies of image representation. These studies have led to various proposals about how pattern and color information is represented within the retina and early cortical areas, and how information is integrated across a series of eye movements. The computational investigations cover fundamental issues, such as efficient image representation and quantification of the information available for visual interpretation.
 

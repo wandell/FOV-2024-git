@@ -2,7 +2,7 @@ project:
   type: book
 
 book:
-  title: "FOV-2024"
+  title: "Foundations of Vision (2nd Edition)"
   author: "Brian Wandell"
   date: "10/26/2024"
   chapters:
