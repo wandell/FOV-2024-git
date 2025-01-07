@@ -1,0 +1,45 @@
+# Neuroimaging instrumentation
+
+Scientists and engineers have developed many different ways to measure aspects of the human brain. Science, being a very human activity, is filled with people who advocate for one modality as being particularly important or insightful.  There are days when I find this quite amusing - it is likely physicists debating the measurement of a material's electrical properties or mass.  There are times when I don't find this kind of stuff amusing any more.  Oh well.
+
+If we restrict ourselves to measurements that apply to the human brain, and in particular to the human brain in a way that is relatively non-invasive, we still have several options.  When the brain's neurons and glia are active they produce an associated electromagnetic field.  The bulk field can be measured with arrays of sensors placed on the skull.  It is possible to create devices that measure the bulk electrical field and the magnetic field at a spatial resolution of roughly a centimeter and at very high temporal resolution.  These techniques are called electroencephalography (EEG) and magnetoencephalography (MEG).  There are various ways to instrument these measurements, including choices of materials, spatial resolution, and so forth.  Each of these instruments produces an array of time series measurements.  The two methods both pick up activity mainly from cortical neurons, rather than the deeper nuclei or even portions of cortex that are remote from the skull.  Even within the superficial cortex, they do not pick up activity from precisely the same neurons because the electrical and magnetic signals depend upon the orientation of the axons. There are also an enormous number of ways to analyze these time series to make inferences about the builk signals
+
+It is also possible to make measurements of the neural structures.  Both CT (Computed Tomography) and structural MRI (sMRI) can inform us about the relatively density of different substances in the brain.  They make these measurements in very different ways.
+
+Computed Tomography (CT) imaging works by capturing X-ray measurements from multiple angles around the body. As X-rays pass through different tissues, they are absorbed at different rates depending on the tissue density. The scanner rotates around the patient, collecting thousands of these X-ray "snapshots" from different directions. Advanced computer algorithms,known as tomographic reconstruction, combine these 2D projections to reconstruct a detailed 3D image of the internal structures, where each point represents the tissue's X-ray absorption properties. This allows us to visualize the varying densities of different tissues – from dense bone to soft tissue – throughout the entire scanned volume. This process revolutionized medical imaging by providing clear cross-sectional views of the body that weren't possible with traditional X-ray imaging, which acquires and renders only a single snapshot. 
+
+fNIRS - measures change in cellular refraction that arise with activiation.  The device is relatively inexpensive and portable.  It can be used while subjects are somewhat active (moving). These signals are very difficult to interpret clearly, but they are useful as a general diagnostic.  Claude says:  "I need to correct a few points about fNIRS (functional Near-Infrared Spectroscopy):
+
+While it's true that fNIRS has relatively poor spatial resolution compared to methods like fMRI, its value extends well beyond infant studies. Here are the key points:
+
+1. fNIRS can be used in many populations, not just infants. Its main advantages are:
+   - Portability and lower cost compared to fMRI
+   - Tolerance of movement, making it useful for studying behavior in natural settings
+   - Ability to conduct long-term continuous monitoring
+   - Can be used during physical activity or speech
+
+2. Regarding infant studies: While it's true that fNIRS is particularly useful for studying infants, this isn't because of skull development. Rather, it's because:
+   - Infants can't easily stay still for fMRI
+   - fNIRS is quiet and less intimidating than MRI
+   - The technique is more tolerant of movement
+   - It can be used while infants are awake and behaving naturally
+
+3. Clinical applications include:
+   - Monitoring brain oxygenation during surgery
+   - Studying psychiatric conditions
+   - Evaluating brain function in patients who can't undergo MRI
+   - Neurorehabilitation monitoring
+
+The spatial resolution is indeed limited (typically 2-3 cm) compared to fMRI, but this trade-off comes with excellent temporal resolution (on the order of milliseconds) and the ability to measure both oxygenated and deoxygenated hemoglobin concentrations."
+
+Positron Emission Tomography - Some people consider it invasive, so there's that.  It can be used to measure different things from X-ray and MR because it uses labeled molecules.  Its spatial resolution is relatively low (a couple of centimeters).  But it does inform us about molecules in a way that has yet to be achieved by MR.
+
+fMRI  measures changes in blood oxygenation and flow.  We will spend much of the quarter on these signals and instrumentation.
+
+## Biological substrate
+
+There are two directions that we can use these techniques. What's in there.  And then how the measures we make connect to behavior.
+
+## MR has multiple modalities
+
+When we use X-rays, we measure one thing.  The density of x-ray transmission.  End of story.  But MRI can be used in many ways.
