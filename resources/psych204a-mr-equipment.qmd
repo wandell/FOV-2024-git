@@ -42,4 +42,8 @@ There are two directions that we can use these techniques. What's in there.  And
 
 ## MR has multiple modalities
 
-When we use X-rays, we measure one thing.  The density of x-ray transmission.  End of story.  But MRI can be used in many ways.
+When we use X-rays, we measure one thing.  The density of x-ray transmission.  End of story.  But MRI can be used in many ways.  In one of its most important measurements it assesses the local tissue properties using T1 and T2.  Each of these, in turn, measures different aspects of the tissue.  T1 measures how effectively the spins give up their energy to the tissue.  T2 measures how much the material disturbs the local magnetic field (e.g., blood oxy/deoxy difference).  In addition, we can measure properties such as flow of spins.  And we can measure signals that differentiate different types of molecules, such as neurotransmitters (GABA) and ???
+
+
+
+
