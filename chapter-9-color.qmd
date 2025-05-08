@@ -342,6 +342,93 @@ Brainard and Wandell’s (1991,1992) experiments were conducted on display monit
 
 ## The Perceptual Organization of Color
 
+<!--
+Notes from ChatGPT about Goethe and Newton.  An interesting aside.  Maybe a linkout to this.
+
+https://chatgpt.com/share/681d3f02-f1f0-8002-9d29-3c1b1012b25a
+
+Yes—Goethe's disagreement with Newton on color was deep and philosophical, and indeed, quite personal. In his major work *Zur Farbenlehre* (*Theory of Colours*, 1810), Goethe criticizes not just Newton's conclusions but also the entire approach Newton used to study light and color. Here's an overview of what Goethe wrote and how he regarded Newton:
+
+### 1. **Goethe’s Main Criticism of Newton**
+
+Goethe believed that Newton's **prismatic experiments**, which reduced white light into spectral colors, were **overly abstract and mechanistic**, missing the **subjective and phenomenological** aspects of how we experience color.
+
+* Goethe focused on **human perception**—how color arises from the interaction between light and dark, and between brightness and darkness through a medium (like a prism).
+* He **rejected Newton's idea** that colors are constituents of white light. Instead, Goethe saw color as **emerging at the boundaries of light and dark**, depending on the viewing conditions.
+
+For example, he would observe colors not just through prisms, but in afterimages, turbidity (as in the sky), or shadow boundaries.
+
+### 2. **Tone and Personal Criticism**
+
+Goethe's tone in *Theory of Colours* is often scathing. He accuses Newton of being **dogmatic**, **intellectually dishonest**, and **deliberately manipulative** in his presentation of optical experiments. He even suggested Newton **"deceived himself and others"** and accused him of **selecting only those results that supported his theory**.
+
+> “In this way the theory is built up out of hypotheses, confirmations, and arbitrary manipulations... Newton's statements are often so confused that one cannot help but suspect an intention to deceive.”
+> — *Paraphrased from Goethe’s Zur Farbenlehre*
+
+This kind of attack is what Helmholtz was referring to when he said that Goethe “heaped abuse” on Newton.
+
+### 3. **Philosophical Underpinning**
+
+Goethe was a **Romantic** thinker, and his disagreement was also philosophical:
+
+* He **opposed reductionism** and the idea that complex phenomena could be fully understood by breaking them into smaller, isolated parts (as Newton did with light).
+* He saw science as something that must remain connected to **lived, human experience**—and so his approach to color was more experiential, sometimes artistic, than Newton’s mathematical and physical method.
+
+### 4. **Reception and Legacy**
+
+* Goethe’s theory was **largely rejected** by physicists like Helmholtz, who upheld Newton’s optical science as correct and fundamental.
+* However, Goethe's work influenced **psychologists and artists**. Figures like **Wittgenstein**, **Kandinsky**, and the **Bauhaus** movement drew from Goethe’s emphasis on perception and subjectivity.
+* Modern **color psychology** and aspects of **visual phenomenology** can trace threads back to Goethe’s color theory.
+
+Would you like a few specific quotes from Goethe's *Zur Farbenlehre* that show his view of Newton?
+
+Certainly—here are some notable quotes from Goethe’s *Zur Farbenlehre* (*Theory of Colours*, 1810) that reflect both his disagreement with Newton and his broader approach to color. These are translated from the original German, and where helpful, I’ve added brief context.
+
+---
+
+### 1. **On Newton’s Method:**
+
+> “It is much easier to perceive error than to find truth, for the former lies on the surface and is easily seen, while the latter lies in the depths, where few are willing to search for it.”
+
+Goethe presents himself as someone willing to dive deeper than Newton, whose “surface-level” methods he believed distorted reality by relying too much on abstraction and not enough on human experience.
+
+---
+
+### 2. **Accusation of Manipulation:**
+
+> “It may truly be said that Newton has in this instance reversed the natural order of things, in order to establish an hypothesis. What is false in the foundation must also be false in the superstructure.”
+
+Here, Goethe accuses Newton of **starting with a theory and then forcing the facts to fit it**, rather than honestly observing nature.
+
+---
+
+### 3. **On Newton’s Influence:**
+
+> “The moment is come when the reign of the great Newton must end.”
+
+This is one of Goethe’s most dramatic pronouncements. It’s less a scientific claim than a **philosophical and cultural rebellion**—he was trying to dethrone Newton’s dominance in natural philosophy and replace it with something more organic and perceptual.
+
+---
+
+### 4. **Defense of Experience and Perception:**
+
+> “The eye owes its existence to light. Out of indifferent animal organs the light produces an organ to correspond to itself.”
+
+This famous quote reflects Goethe’s **biological and poetic** view of vision—not as a mechanical receiver of objective data (as in Newton), but as a co-creator of reality with light. The eye and light are **mutually generative**, not separable.
+
+---
+
+### 5. **Goethe’s Alternative Vision of Color:**
+
+> “Color itself is a degree of darkness.”
+
+Here he proposes a **very different ontology** of color than Newton’s spectrum theory. For Goethe, colors arise **between light and dark**, and their study requires attention to **context, edges, and contrasts**, not just to refraction and wavelength.
+
+---
+
+Goethe’s *Zur Farbenlehre* is unusual among scientific texts: it is at once experimental, poetic, polemical, and deeply philosophical. Would you like suggestions for an English edition that preserves his tone, or a summary of how later thinkers (like Wittgenstein or Schopenhauer) responded to it?
+
+-->
 In this section, I will review some of the methods for describing the perceptual organization of color appearance. Specifically, we will review the relationship between different colors and some of the systems for describing color appearance. In addition to the implications this organization has for understanding the neural representation of color appearance, there are also many practical needs for descriptive systems of color appearance. Artists and designers need ways to identify and specify the color appearance of a design. Further, they need ways of organizing colors and finding interesting color harmonies. Engineers need to assess the appearance and discriminability of colors used to highway signs and to label parts, packaging, and software icons.
 
 Language provides us with a useful start at organizing color appearance. Spoken English in the U.S. consists of eleven color terms that are widely and consistently used\\footnote{White, black, red, green, yellow, blue, brown, purple, pink, orange, gray.} While the number of terms used differs across cultures, there is a remarkable hierarchical organization to the order in which color names appear. Cultures with a small number of basic color names always include white, black and red. Color terms such as purple and pink enter later (Berlin and Kay, 1969; Boynton and Olsen, 1987).
