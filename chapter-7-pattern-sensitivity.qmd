@@ -480,6 +480,45 @@ Having stated this limitation in our current understanding, I don’t think we s
 
 ## Spatial Localization
 
+<!--
+The Brainard paper with J&J has a very detailed examination of resolution and chromatic aberration.
+Nicolas pointed to that paper when I wrote this email.
+
+From DB:
+
+The logMAR units can be a little confusing.  A logMar of -0.3 is 10^-0.3 = 0.5 minutes.   But that
+is the width of one of the horizontal bars of the E in standard orientation, so that the whole letter
+is 2.5 arcmin (5 lines in the E).  So roughly, the E is at the Nyquist, which is impressive but not impossible for a
+person and certainly not for a stimulus-known-exactly ideal observer. 
+[BW:  2.5 minutes for the whole E, but the 5 lines in the E are at 120 c/deg]
+ 
+For various reasons, we have gotten interested in developing an observer model that is
+less all-knowing than the stimulus-known-exactly ideal.
+ 
+DB
+ 
+From: Cottaris, Nicolas <cottaris@psych.upenn.edu>
+Date: Wednesday, May 21, 2025 at 2:23 AM
+To: Brian A Wandell <wandell@stanford.edu>, Brainard, David H <brainard@psych.upenn.edu>
+Subject: Re: Eye movements and cone density
+
+Consistent with section 4.4 of the following computational modeling paper :)
+ 
+https://pmc.ncbi.nlm.nih.gov/articles/PMC11161344/pdf/boe-15-5-3265.pdf
+ 
+Get Outlook for iOS
+From: Brian A Wandell <wandell@stanford.edu>
+Sent: Wednesday, May 21, 2025 1:48:50 AM
+To: Brainard, David H <brainard@psych.upenn.edu>; Cottaris, Nicolas <cottaris@psych.upenn.edu>
+Subject: Eye movements and cone density
+ 
+https://elifesciences.org/articles/98648
+ 
+Extreme claim.  Discrimination of orientation of E OPTO types smaller than a cone aperture.
+ 
+You know this paper?  New to me.
+-->
+
 In this section we will review how well human observers can localize the position of a target. Wulfing (1892) showed that human observers can make surprisingly fine discriminations between the positions of two objects. Observers can reliably distinguish spatial offsets between a pair of lines as small as one fifth the width of a single cone photoreceptor. Moreover, people can distinguish this spatial offset even when the objects are moving (Westheimer, 1979).
 
 <div class="wp-caption aligncenter" id="attachment_1167" style="width: 508px">[![Localization](/wp-content/uploads/2012/02/Localization-1024x444.png)](/wp-content/uploads/2012/02/Localization.png)Figure 7.27: A comparison of localization and spatial resolution experiments. In a two-line spatial acuity experiment, the observer distinguishes between a stimulus consisting of a single line from a stimulus consisting of a pair of lines separated by a small amount. The images on the left side show the estimated retinal light distribution of a reference line and of three pairs of lines separated by increasing amounts. In a localization experiment, the observer distinguishes the position of a single line from the position of a displaced line. The images on the right side of the figure show a reference line and the estimated retinal light distribution of three offset lines.
