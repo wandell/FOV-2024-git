@@ -481,6 +481,38 @@ Having stated this limitation in our current understanding, I don’t think we s
 ## Spatial Localization
 
 <!--
+Nicolas:
+But even a great prior would help to choose the stimulus that most likely gave rise to a set of cone responses under physiological optics viewing conditions - because that is the only viewing condition it was naturally exposed to. So I don’t see how even the best prior would reconstruct accurately above Nyquist unless you trained it on an  AOSLO universe.
+And while waiting for Mr Bayes to show up, introduce Mr. Simoncelli and his visual area-specific metameric stimuli. 
+
+On May 24, 2025, at 10:53, Brainard, David H <brainard@psych.upenn.edu> wrote:
+Yes: Paging Mr. Bayes, will the Reverend Bayes please dial 11 on the courtesy phone!
+
+David
+ 
+From: Brian A Wandell <wandell@stanford.edu>
+Date: Saturday, May 24, 2025 at 10:43 AM
+To: Brainard, David H <brainard@psych.upenn.edu>, Cottaris, Nicolas <cottaris@psych.upenn.edu>
+Subject: Re: Eye movements and cone density
+
+I think the simple idea of many to one mapping - stimuli to response - is helpful for teaching the issue. 
+And then to choose, you call Bayes and ask him which of the many stimuli was most likely explanation of the one measurement.
+Unfortunately, often Bayes is unable to help. Or sometimes wrong.
+But when the priors are strong, we are in luck.
+
+From: Brainard, David H <brainard@psych.upenn.edu>
+
+Yes, as Nicolas says.
+But, note that with a good prior that favors structure it is also in principle possible to reconstruct accurately above the Nyquist
+limit. It's just that there will then be some low frequency pattern of noise-like structure that will reconstruct as an interpretable
+supra-Nyquest pattern.  That is, you can't make aliasing go away, but you can control what you choose from the set of possible
+aliases.
+ 
+Jack Yellott suggested things along these lines for irregular sampling, but the idea is more general.
+Part of my post-doc plan was to test Jack's idea experimentally with Dave, although it turned out at the time we
+didn't have the experimental control we needed with interferometric techniques (all sinusoids, all the time) to get very
+ar with it.
+
 The Brainard paper with J&J has a very detailed examination of resolution and chromatic aberration.
 Nicolas pointed to that paper when I wrote this email.
 
@@ -508,8 +540,6 @@ https://pmc.ncbi.nlm.nih.gov/articles/PMC11161344/pdf/boe-15-5-3265.pdf
  
 Get Outlook for iOS
 From: Brian A Wandell <wandell@stanford.edu>
-Sent: Wednesday, May 21, 2025 1:48:50 AM
-To: Brainard, David H <brainard@psych.upenn.edu>; Cottaris, Nicolas <cottaris@psych.upenn.edu>
 Subject: Eye movements and cone density
  
 https://elifesciences.org/articles/98648
