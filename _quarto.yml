@@ -66,8 +66,7 @@ format:
     sfni: "\\sin\\left(\\frac{2 \\pi f i}{N}\\right)"
     cfni: "\\cos\\left(\\frac{2 \\pi f i}{N}\\right)"
     Resmat: "\\mathbf{R}"
-  # pdf:
-  
+    lspreadi: "\\{l_{#1}"
 
 
 

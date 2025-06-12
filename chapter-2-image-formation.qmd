@@ -215,53 +215,81 @@ and only the scale factor, which depends on frequency, is unknown.
 
 We are now ready to correct the measurements for the effects of double passage through the optics of the eye. To make the method easy to understand, we will analyze how to do the correction by first making the assumption that the optics introduce no phase shift into the retinal image; this means, for example, that a cosinusoidal stimulus creates a cosinusoidal retinal image, scaled in amplitude. It is not necessary to assume that there is no phase shift but the assumption is reasonable and the main principles of the analysis are easier to see if we assume there is no phase shift.
 
-<div class="wp-block-image"><figure class="alignright">[![Sinusoids and Double Passage](/wp-content/uploads/2012/02/doublepass-242x300.png)](/wp-content/uploads/2012/02/doublepass.png)<figcaption class="wp-element-caption">Figure 2.11: Sinusoids and Double Passage (a) The amplitude, A, of an input cosinusoid stimulus is scaled by a factor, s, after passing through even-symmetric shift-invariant symmetric optics as shown in part (b). (c) Passage through the optics a second time scales the amplitude again, resulting in a signal with amplitude s^2 A.</figcaption></figure></div>To understand how to correct for double passage, consider a hypothetical alternative experiment Campbell and Gubisch might have done Figure 2.11. Suppose Campbell and Gubisch had used input stimuli equal to cosinusoids at various spatial frequencies, ![f](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-8f51d5769daf4c908ad99156b65e83f1_l3.png "Rendered by QuickLaTeX.com"). Because the optics are shift-invariant and there is no frequency-dependent phase shift, the retinal image of a cosinusoid at frequency ![f](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-8f51d5769daf4c908ad99156b65e83f1_l3.png "Rendered by QuickLaTeX.com") is a cosinusoid scaled by a factor ![s_f](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-86e11b68cc6dace792359117ac204ffe_l3.png "Rendered by QuickLaTeX.com"). The retinal image passes back through the optics and is scaled again, so that the measurement would be a cosinusoid scaled by the factor ![{s_f}^2](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-e50fe7cb25e2ae14265cb282f892f669_l3.png "Rendered by QuickLaTeX.com"). Hence, had Campbell and Gubisch used a cosinusoidal input stimulus, we could deduce the retinal image from the measured image easily: The retinal image would be a cosinusoid with an amplitude equal to the square root of the amplitude of the measurement.
+::: {#fig-doublepass layout-ncol=1 fig-align="right"}
+![Sinusoids and Double Passage](/wp-content/uploads/2012/02/doublepass.png)
+Figure 2.11: Sinusoids and Double Passage (a) The amplitude, A, of an input cosinusoid stimulus is scaled by a factor, s, after passing through even-symmetric shift-invariant symmetric optics as shown in part (b). (c) Passage through the optics a second time scales the amplitude again, resulting in a signal with amplitude s^2 A.
+:::
 
-Campbell and Gubisch used a single line, not a set of cosinusoidal stimuli. But, we can still apply the basic idea of the hypothetical experiment to their measurements. Their input stimulus, defined over ![N](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-977aac0f2eb8acd667f3e56471727913_l3.png "Rendered by QuickLaTeX.com") locations, is
+To understand how to correct for double passage, consider a hypothetical alternative experiment Campbell and Gubisch might have done (see Figure 2.11). Suppose Campbell and Gubisch had used input stimuli equal to cosinusoids at various spatial frequencies, $f$. Because the optics are shift-invariant and there is no frequency-dependent phase shift, the retinal image of a cosinusoid at frequency $f$ is a cosinusoid scaled by a factor $s_f$. The retinal image passes back through the optics and is scaled again, so that the measurement would be a cosinusoid scaled by the factor $s_f^2$. Hence, had Campbell and Gubisch used a cosinusoidal input stimulus, we could deduce the retinal image from the measured image easily: The retinal image would be a cosinusoid with an amplitude equal to the square root of the amplitude of the measurement.
 
-<span class="ql-right-eqno"> (9) </span><span class="ql-left-eqno"> </span>![\begin{equation*} \pixveci{i} = \left\{ \begin{array}{ll} 1 & \mbox{if $i=0$} \\ 0 & \mbox{if $1 \leq i < N$} \end{array} \right. \end{equation*}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-b9e65af0e32eecc5cf5e59687369e4ad_l3.png "Rendered by QuickLaTeX.com")
+Campbell and Gubisch used a single line, not a set of cosinusoidal stimuli. But, we can still apply the basic idea of the hypothetical experiment to their measurements. Their input stimulus, defined over $N$ locations, is
+
+\[
+\pixveci{i} = \left\{
+\begin{array}{ll}
+1 & \text{if } i=0 \\
+0 & \text{if } 1 \leq i < N
+\end{array}
+\right.
+\]
 
 As I describe in the appendix, we can express the stimulus as the weighted sum of harmonic functions by using the *discrete Fourier series*. The representation of a single line is equal to the sum of cosinusoidal functions
 
-<a name="id53762106"></a>
+$$
+\hat{p}_i = 0.5 + \sum_{f=1}^{N-1} \cos\left( 2 \pi f \frac{i}{N} \right)
+$$
 
-<span class="ql-right-eqno"> (10) </span><span class="ql-left-eqno"> </span>![\begin{equation*}  \pixvechati{i} = 0.5 + \sum_{f=1}^{f=N-1} \cos( 2 \pi f {i/N})~~. \end{equation*}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-5608fea305cb63020ae96d376b13119a_l3.png "Rendered by QuickLaTeX.com")
-
-Because the system is shift-invariant, the retinal image of each cosinusoid was a scaled cosinusoid, say with scale factor ![s_f](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-86e11b68cc6dace792359117ac204ffe_l3.png "Rendered by QuickLaTeX.com"). The retinal image was scaled again during the second pass through the optics, to form the cosinusoidal term they measured<sup> 2</sup>.
+Because the system is shift-invariant, the retinal image of each cosinusoid was a scaled cosinusoid, say with scale factor $s_f$. The retinal image was scaled again during the second pass through the optics, to form the cosinusoidal term they measured.<sup>2</sup>
 
 > <sup>2 </sup> <small>Be bothered by the fact that the discrete Fourier series approximation is an infinite set of pulses,rather than a single line. To understand why, consult the Appendix.</small>
 
 Using the discrete Fourier series, we also can express the measurement as the sum of cosinusoidal functions,
 
-<span class="ql-right-eqno"> (11) </span><span class="ql-left-eqno"> </span>![\begin{equation*} \mbox{Measurement} = 0.5 + \sum_{f=1}^{f=N-1} (s_f)^2 \cos( 2 \pi f {i/N}). \end{equation*}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-a15b646520837649b36f925349abf141_l3.png "Rendered by QuickLaTeX.com")
+$$
+\text{Measurement} = 0.5 + \sum_{f=1}^{N-1} (s_f)^2 \cos\left( 2 \pi f \frac{i}{N} \right)
+$$
+{#eq:measurement}
 
-We know the values of ![{s_f}^2](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-e50fe7cb25e2ae14265cb282f892f669_l3.png "Rendered by QuickLaTeX.com"), since this was Campbell and Gubisch’s measurement. The image of the line at the retina, then, must have been
+We know the values of $s_f^2$, since this was Campbell and Gubisch’s measurement. The image of the line at the retina, then, must have been
 
-<span class="ql-right-eqno"> (12) </span><span class="ql-left-eqno"> </span>![\begin{equation*} \lspreadi{i} = 0.5 + \sum_{f=1}^{f=N-1} s_f \cos( 2 \pi f {i/N}). \end{equation*}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-a3370ea77ed2478baf9e600646d19f88_l3.png "Rendered by QuickLaTeX.com")
+$$
+\lspreadi{i} = 0.5 + \sum_{f=1}^{N-1} s_f \cos\left( 2 \pi f \frac{i}{N} \right)
+$$
+{#eq:retinal-image}
 
-<div class="wp-block-image"><figure class="alignright is-resized">[![The linespread function of the human eye](/wp-content/uploads/2012/02/cg.linespread-237x300.png)](/wp-content/uploads/2012/02/cg.linespread.png)<figcaption class="wp-element-caption">Figure 2.12: The linespread function of the human eye: The solid line in each panel is a measurement of the linespread. The dotted lines are the diffraction-limited linespread for a pupil of that diameter. (Diffraction is explained later in the text). The different panels show measurements for a variety of pupil diameters (From Campbell and Gubisch, 1967).</figcaption></figure></div>The values ![\lspreadi{i}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-2182e4bffd283f715386657461e8401d_l3.png "Rendered by QuickLaTeX.com") define the linespread function of the eye’s optics. We can correct for the double passage and estimate the linespread because the system is linear and shift-invariant.
+![The linespread function of the human eye: The solid line in each panel is a measurement of the linespread. The dotted lines are the diffraction-limited linespread for a pupil of that diameter. (Diffraction is explained later in the text). The different panels show measurements for a variety of pupil diameters (From Campbell and Gubisch, 1967).](/wp-content/uploads/2012/02/cg.linespread-237x300.png){#fig-linespread width="60%"}
+
+The values $\lspreadi{i}$ define the linespread function of the eye’s optics. We can correct for the double passage and estimate the linespread because the system is linear and shift-invariant.
 
 As you read further about experimental and computational methods in vision science, remember that there is nothing inherently important about sinusoids as visual stimuli; we must not confuse the stimulus with the system or with the theory we use to analyze the system. When the system is a shift-invariant linear system, sinusoids can be helpful in simplifying our calculations and reasoning, as we have just seen. The sinusoidal stimuli are important only insofar as they help us to measure or clarify the properties of the system. And if the system is not shift-invariant, the sinusoids may not be important at all.
 
-<a name="TheLinespreadFunction"></a>
-
-### The Linespread Function
+### The Linespread Function {#sec-linespread}
 
 Figure 2.12 contains Campbell and Gubisch’s estimates of the linespread functions of the eye. Notice that as the pupil size increases, the width of the linespread function increases which indicates that the focus is worse for larger pupil sizes. As the pupil size increases, light reaches the retina through larger and larger sections of the lens. As the area of the lens affecting the passage of light increases, the amount of blurring increases.
 
-The measured linespread functions, ![\lspreadi{i}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-2182e4bffd283f715386657461e8401d_l3.png "Rendered by QuickLaTeX.com"), along with our belief that we are studying a shift-invariant linear system, permit us to predict the retinal image for any one-dimensional input image. To calculate these predictions, it is convenient to have a function that describes the linespread of the human eye. G. Westheimer (1986) suggested the following formula to describe the measured linespread function of the human eye, when in good focus, and when the pupil diameter is near 3mm.
+The measured linespread functions, $\lspreadi{i}$, along with our belief that we are studying a shift-invariant linear system, permit us to predict the retinal image for any one-dimensional input image. To calculate these predictions, it is convenient to have a function that describes the linespread of the human eye. G. Westheimer (1986) suggested the following formula to describe the measured linespread function of the human eye, when in good focus, and when the pupil diameter is near 3mm.
 
-<span class="ql-right-eqno"> (13) </span><span class="ql-left-eqno"> </span>![\begin{equation*} \lspreadi{i} = 0.47 e^{ - 3.3 i ^ {2} } + 0.53 e ^ { -0.93 | i | } \end{equation*}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-d219e49569731c918f3b67f75a29d469_l3.png "Rendered by QuickLaTeX.com")
+\begin{equation}
+\lspreadi{i} = 0.47 e^{ - 3.3 i ^ {2} } + 0.53 e ^ { -0.93 | i | }
+\end{equation}
 
-<div class="wp-block-image"><figure class="alignleft">[![Westheimer's Linespread Function. ](/wp-content/uploads/2012/02/westheimer.ls_-300x234.png)](/wp-content/uploads/2012/02/westheimer.ls_.png)<figcaption class="wp-element-caption">Figure 2.13: Westheimer’s Linespread Function. Analytic approximation of the human linespread function for an eye with a 3.0mm diameter pupil (Westheimer, 1986).</figcaption></figure></div>We can use Westheimer’s linespread function to predict the retinal image of any one-dimensional input stimulus <sup> 3</sup>. Some examples of the predicted retinal image are shown in Figure 2.13. Because the optics blurs the image, even the light from a very fine line is spread across several photoreceptors. We will discuss the relationship between the optical defocus and the positions of the photoreceptors in [Chapter 3](/chapter-3-the-photoreceptor-mosaic/).
+![Westheimer’s Linespread Function. Analytic approximation of the human linespread function for an eye with a 3.0mm diameter pupil (Westheimer, 1986).](/wp-content/uploads/2012/02/westheimer.ls_.png){#fig-westheimer-linespread width="60%"}
 
-where the variable ![i](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-4f08fa419949e38d7eeb478c0945b7b8_l3.png "Rendered by QuickLaTeX.com") refers to position on the retina specified in terms of minutes of visual angle. A graph of this linespread function is shown in Figure 2.13.
+The linespread function is given by:
 
-> <small><sup>*3* </sup> Westheimer’s linespread function is for an average observer under one set of viewing conditions. As the pupil changes size and as observer’s age, the linespread function can vary. Consult IJspeert et al. (1993) and Williams et al. (1995) for alternatives to Westheimer’s formula.</small>
+$$
+\lspreadi{i} = 0.47 e^{ - 3.3 i ^ {2} } + 0.53 e ^ { -0.93 | i | }
+$$
 
-<a name="TheModulationTransferFunction"></a>
+We can use Westheimer’s linespread function to predict the retinal image of any one-dimensional input stimulus[^WestheimerLS]. Some examples of the predicted retinal image are shown in Figure 2.13. Because the optics blurs the image, even the light from a very fine line is spread across several photoreceptors. We will discuss the relationship between the optical defocus and the positions of the photoreceptors in [Chapter 3](/chapter-3-the-photoreceptor-mosaic/).
 
-<div class="wp-block-image"><figure class="alignleft">[![Examples of the effect of optical blurring](/wp-content/uploads/2012/02/blurring-300x228.png)](/wp-content/uploads/2012/02/blurring.png)<figcaption class="wp-element-caption">Figure 2.14: Retinal Images. Examples of the effect of optical blurring. (a) Images of a line, edge and a bar pattern. (b) The estimated retinal image of the images after blurring by Westheimer’s linespread function. The spacing of the photoreceptors in the retina is shown by the stylized arrows</figcaption></figure></div>### The Modulation Transfer Function
+where the variable $i$ refers to position on the retina specified in terms of minutes of visual angle. A graph of this linespread function is shown in @fig-westheimer-linespread.
+
+[^WestheimerLS] Westheimer’s linespread function is for an average observer under one set of viewing conditions. As the pupil changes size and as observer’s age, the linespread function can vary. Consult IJspeert et al. (1993) and Williams et al. (1995) for alternatives to Westheimer’s formula.</small>
+
+![Examples of the effect of optical blurring. (a) Images of a line, edge and a bar pattern. (b) The estimated retinal image of the images after blurring by Westheimer’s linespread function. The spacing of the photoreceptors in the retina is shown by the stylized arrows.](/wp-content/uploads/2012/02/blurring.png){#fig-blurring width="50%"}
+
+### The Modulation Transfer Function {#sec-modulationtransferfunction}
 
 In correcting for double passage, we thought about the measurements in two separate ways. Since our main objective was to derive the linespread function, a function of spatial position, we spent most of our time thinking of the measurements in terms of light intensity as a function of spatial position. When we corrected for double passage through the optics, however, we also considered a hypothetical experiment in which the stimuli were harmonic functions (cosinusoids). To perform this calculation, we found that it was easier to correct for double passage by thinking of the stimuli as the sum of harmonic functions, rather than as a function of spatial position.
 
