@@ -41,12 +41,32 @@ crossref:
   tbl-prefix: "Table"
   sec-prefix: "Section"
   
+#  I am unsure about these formatting commands for the document.  Experimental.
 format:
   html:
     theme: cosmo
-    
+    math: 
+      number-sections: true
+  pdf:
+    documentclass: scrreprt
+    toc: true
+    toc-title: "Contents"
+    toc-depth: 2
+    toc-number-sections: true
+    toc-number-depth: 2
+    fig-caption: true
+    number-sections: true
+    number-depth: 2
+    math:
+      number-equations: true
+  latex-macros:
+    pixvec: "\\mathbf{p}"
+    resvec: "\\mathbf{r}"
+    varphi: "\\frac{2 \\pi f i}{N}"
+    sfni: "\\sin\\left(\\frac{2 \\pi f i}{N}\\right)"
+    cfni: "\\cos\\left(\\frac{2 \\pi f i}{N}\\right)"
   # pdf:
- #   documentclass: scrreprt
+  
 
 
 
