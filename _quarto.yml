@@ -65,6 +65,7 @@ format:
     varphi: "\\frac{2 \\pi f i}{N}"
     sfni: "\\sin\\left(\\frac{2 \\pi f i}{N}\\right)"
     cfni: "\\cos\\left(\\frac{2 \\pi f i}{N}\\right)"
+    Resmat: "\\mathbf{R}"
   # pdf:
   
 

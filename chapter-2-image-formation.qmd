@@ -109,17 +109,47 @@ Matrix multiplication follows naturally from the properties of homogeneity and s
 
 Let’s use a specific numerical example to illustrate the principle of matrix multiplication. This will also help explain why the method is so useful.
 
-Suppose we measure a monitor that displays only three lines. We can describe the monitor image using a column vector with three entries, ![\pixvec = (p_1, p_2, p_3)^T](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-31efd787f6c726431d24b38dcd4738c2_l3.png "Rendered by QuickLaTeX.com"). The three lines of unit intensity are ![(1,0,0)^T](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-af93717dc316359a4681127e9f8ac3c4_l3.png "Rendered by QuickLaTeX.com"), ![(0,1,0)^T](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-a25b26d2100261d507baa64011d56297_l3.png "Rendered by QuickLaTeX.com") and ![(0,0,1)^T](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-b8f91bbf55ba2cf43bff4da722ede879_l3.png "Rendered by QuickLaTeX.com").
+Suppose we measure a monitor that displays only three lines. We can describe the monitor image using a column vector with three entries, $\boldsymbol{p} = (p_1, p_2, p_3)^T$. The three lines of unit intensity are $(1,0,0)^T$, $(0,1,0)^T$, and $(0,0,1)^T$.
 
-We measure the response to these input vectors to build the *system matrix*. Suppose the measurements for these three lines are ![(0.1,0.2,0.5,0.3,0,0)^T](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-2a325f1edc895e2623173979b0281cd3_l3.png "Rendered by QuickLaTeX.com"), ![(0,0.1,0.2,0.5,0.1,0)^T](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-deb16f0ca7bb89ce2e355dd9534d5090_l3.png "Rendered by QuickLaTeX.com"), and ![(0,0,0.2,0.5,0.3,0)^T](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-f0e5b2d5e83eb99c6490a4835253c3b1_l3.png "Rendered by QuickLaTeX.com") respectively. We place these responses into the columns of the system matrix:
+We measure the response to these input vectors to build the *system matrix*. Suppose the measurements for these three lines are $(0.1,0.2,0.5,0.3,0,0)^T$, $(0,0.1,0.2,0.5,0.1,0)^T$, and $(0,0,0.2,0.5,0.3,0)^T$ respectively. We place these responses into the columns of the system matrix:
 
-<span class="ql-right-eqno"> (5) </span><span class="ql-left-eqno"> </span>![\begin{equation*} \Resmat = \left ( \begin{array}{ccc} 0.1 & 0 & 0 \\ 0.2 & 0.1 & 0 \\ 0.5 & 0.2 & 0.2 \\ 0.3 & 0.5 & 0.5 \\ 0   & 0.1 & 0.3 \\ 0   & 0   & 0 \end{array} \right )\end{equation*}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-2f044c2bd442182f5d9ee117f62e054e_l3.png "Rendered by QuickLaTeX.com")
+$$
+\mathbf{R} = \begin{pmatrix}
+0.1 & 0 & 0 \\
+0.2 & 0.1 & 0 \\
+0.5 & 0.2 & 0.2 \\
+0.3 & 0.5 & 0.5 \\
+0   & 0.1 & 0.3 \\
+0   & 0   & 0
+\end{pmatrix}
+$$
 
-Because the system is linear, we can predict the response to any monitor image using the system matrix. For example, if the monitor image is ![\pixvec = (0.5,1.0,.2)^T](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-32d6d657e8b53f7a76762341301caba3_l3.png "Rendered by QuickLaTeX.com") we multiply the input vector and the system matrix to obtain the response, on the left side of Equation 6.
+Because the system is linear, we can predict the response to any monitor image using the system matrix. For example, if the monitor image is $\mathbf{p} = (0.5,1.0,0.2)^T$ we multiply the input vector and the system matrix to obtain the response, on the left side of Equation 6.
 
-<a name="id3013752578"></a>
-
-<span class="ql-right-eqno"> (6) </span><span class="ql-left-eqno"> </span>![\begin{equation*}  \left ( \begin{array}{c} 0.05 \\ 0.20 \\ 0.49 \\ 0.75 \\ 0.16 \\ 0 \end{array}\right ) = \left ( \begin{array}{ccc} 0.1 & 0 & 0 \\ 0.2 & 0.1 & 0 \\ 0.5 & 0.2 & 0.2 \\ 0.3 & 0.5 & 0.5 \\ 0   & 0.1 & 0.3 \\ 0   & 0   & 0 \end{array} \right ) \left ( \begin{array}{c} 0.5 \\ 1.0 \\ 0.2 \end{array} \right ) \end{equation*}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-fda637934ada49c92941d21b96ea4dd3_l3.png "Rendered by QuickLaTeX.com")
+$$
+\begin{pmatrix}
+0.05 \\
+0.20 \\
+0.49 \\
+0.75 \\
+0.16 \\
+0
+\end{pmatrix}
+=
+\begin{pmatrix}
+0.1 & 0 & 0 \\
+0.2 & 0.1 & 0 \\
+0.5 & 0.2 & 0.2 \\
+0.3 & 0.5 & 0.5 \\
+0   & 0.1 & 0.3 \\
+0   & 0   & 0
+\end{pmatrix}
+\begin{pmatrix}
+0.5 \\
+1.0 \\
+0.2
+\end{pmatrix}
+$$
 
 From this example we see why linear systems methods are a good starting point for answering an essential scientific question: How can we generalize from the results of measurements using a few stimuli to predict the results we will obtain when we measure using novel stimuli? Linear systems methods tell us to examine homogeneity and superposition. If these empirical properties hold in our experiment, then we will be able to measure responses to a few stimuli and predict responses to many other stimuli.
 
@@ -127,13 +157,9 @@ This is very important advice. Quantitative scientific theories are attempts to 
 
 To explain a system, we need to understand the general organizational principles concerning the system parts and how the system works in relationship to other systems. Achieving such an explanation is a creative act that goes beyond simple characterization of the input and output relationships. But, any explanation must begin with a good characterization of the processing the system performs.
 
-<a name="ShiftInvariantLinearTransformations"></a>
+## Shift-Invariant Linear Transformations {#sec-ShiftInvariantLinearTransformations}
 
-## Shift-Invariant Linear Transformations
-
-<a name="Definition"></a>
-
-### Shift-Invariant Systems: Definition
+### Shift-Invariant Systems: Definition {#sec-si-Definition}
 
 Since homogeneity and superposition are well satisfied by Campbell and Gubisch’s experimental data, we can predict the result of any input stimulus by measuring the system matrix that describes the mapping from the input signal to the measurements at the photodetector. But the experimental data are measurements of light that has passed through the optical elements of the eye twice, and we want to know the transformation when we pass through the optics once. To correct for the effects of double passage, we will take advantage of a special property of optics of the eye, *shift-invariance*. Shift-invariant linear systems are an important class of linear systems, and they have several properties that make them simpler than general linear systems. The following section briefly describes these properties and how we take advantage of them. The mathematics underlying these properties is not hard; I sketch proofs of these properties in the Appendix.
 
@@ -143,9 +169,9 @@ Suppose we start to measure the system matrix for the Campbell and Gubisch exper
 
 **We can define the system matrix of a shift-invariant system from the response to a single stimulus.**  Ordinarily, we need to build the system matrix by combining the responses to many individual lines. The system matrix of a linear shift-invariant system is simple to estimate since these responses are all the same except for a shift. Hence, if we measure a single column of the matrix, we can fill in the rest of the matrix. For a shift-invariant system, there is only one response to a line. This response is called the linespread of the system. We can use the linespread function to fill in the entire system matrix.
 
-**The response to a harmonic function at frequency ![f](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-8f51d5769daf4c908ad99156b65e83f1_l3.png "Rendered by QuickLaTeX.com") is a harmonic function at the same frequency.** Sinusoids and cosinusoids are called *harmonics* or *harmonic functions*. When the input to shift-invariant system is a harmonic at frequency ![f](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-8f51d5769daf4c908ad99156b65e83f1_l3.png "Rendered by QuickLaTeX.com"), the output will be a harmonic at the same frequency. The output may be scaled in amplitude and shifted in position, but it still will be a harmonic at the input frequency.
+**The response to a harmonic function at frequency $f$ is a harmonic function at the same frequency.** Sinusoids and cosinusoids are called *harmonics* or *harmonic functions*. When the input to shift-invariant system is a harmonic at frequency $f$, the output will be a harmonic at the same frequency. The output may be scaled in amplitude and shifted in position, but it still will be a harmonic at the input frequency.
 
-For example, when the input stimulus is defined at ![N](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-977aac0f2eb8acd667f3e56471727913_l3.png "Rendered by QuickLaTeX.com") points and at these points its values are sinusoidal, ![\SfNi](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-22c5a0bad30dec269635a1a1c47ed063_l3.png "Rendered by QuickLaTeX.com"). Then, the response of a shift-invariant system will be a scaled and shifted sinusoid, ![s_f \sin ( \pfiN + \phi_f )](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-2a0e35f43202991ec8d36fc5c9efd1db_l3.png "Rendered by QuickLaTeX.com"). There is some uncertainty concerning the output because there two unknown values, the scale factor, ![s_f](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-86e11b68cc6dace792359117ac204ffe_l3.png "Rendered by QuickLaTeX.com"), and phase shift, ![\phi_f](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-858138b7d4d95b0d375c6bb71d86f2c2_l3.png "Rendered by QuickLaTeX.com"). But, for each sinusoidal input we know a lot about the output; the output will be a sinusoid of the same frequency as the input.
+For example, when the input stimulus is defined at $N$ points and at these points its values are sinusoidal, $S_f(i, N)$. Then, the response of a shift-invariant system will be a scaled and shifted sinusoid, $s_f \sin ( \varphi_{f,N} + \phi_f )$. There is some uncertainty concerning the output because there are two unknown values, the scale factor, $s_f$, and phase shift, $\phi_f$. But, for each sinusoidal input we know a lot about the output; the output will be a sinusoid of the same frequency as the input.
 
 We can express this same result another useful way. Expanding the sinusoidal output using the summation rule we have
 
