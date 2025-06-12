@@ -215,10 +215,7 @@ and only the scale factor, which depends on frequency, is unknown.
 
 We are now ready to correct the measurements for the effects of double passage through the optics of the eye. To make the method easy to understand, we will analyze how to do the correction by first making the assumption that the optics introduce no phase shift into the retinal image; this means, for example, that a cosinusoidal stimulus creates a cosinusoidal retinal image, scaled in amplitude. It is not necessary to assume that there is no phase shift but the assumption is reasonable and the main principles of the analysis are easier to see if we assume there is no phase shift.
 
-::: {#fig-doublepass layout-ncol=1 fig-align="right"}
-![Sinusoids and Double Passage](/wp-content/uploads/2012/02/doublepass.png)
-Figure 2.11: Sinusoids and Double Passage (a) The amplitude, A, of an input cosinusoid stimulus is scaled by a factor, s, after passing through even-symmetric shift-invariant symmetric optics as shown in part (b). (c) Passage through the optics a second time scales the amplitude again, resulting in a signal with amplitude s^2 A.
-:::
+![Sinusoids and Double Passage (a) The amplitude, A, of an input cosinusoid stimulus is scaled by a factor, s, after passing through even-symmetric shift-invariant symmetric optics as shown in part (b). (c) Passage through the optics a second time scales the amplitude again, resulting in a signal with amplitude s^2 A.](/wp-content/uploads/2012/02/doublepass.png){#fig-doublepass width="50%"}
 
 To understand how to correct for double passage, consider a hypothetical alternative experiment Campbell and Gubisch might have done (see Figure 2.11). Suppose Campbell and Gubisch had used input stimuli equal to cosinusoids at various spatial frequencies, $f$. Because the optics are shift-invariant and there is no frequency-dependent phase shift, the retinal image of a cosinusoid at frequency $f$ is a cosinusoid scaled by a factor $s_f$. The retinal image passes back through the optics and is scaled again, so that the measurement would be a cosinusoid scaled by the factor $s_f^2$. Hence, had Campbell and Gubisch used a cosinusoidal input stimulus, we could deduce the retinal image from the measured image easily: The retinal image would be a cosinusoid with an amplitude equal to the square root of the amplitude of the measurement.
 
