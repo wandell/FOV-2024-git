@@ -192,10 +192,10 @@ $$
 s_f \sin (\frac{2 \pi f i}{N} + \phi_f ) = a_f \cos (\frac{2 \pi f i}{N}) + b_f \sin (\frac{2 \pi f i}{N})
 $$ {#eq-sf-sinphif}
 
-For many optical systems, such as the human eye, the relationship between harmonic inputs and the output is even simpler. When the input is a harmonic function at frequency ![f](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-8f51d5769daf4c908ad99156b65e83f1_l3.png "Rendered by QuickLaTeX.com"), the output is a scaled copy of the function and there is no shift in spatial phase. For example, when the input is $\sin(\phi_f)$, the output will be
+For many optical systems, such as the human eye, the relationship between harmonic inputs and the output is even simpler. When the input is a harmonic function at frequency ![f](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-8f51d5769daf4c908ad99156b65e83f1_l3.png "Rendered by QuickLaTeX.com"), the output is a scaled copy of the function and there is no shift in spatial phase. For example, when the input is $\sin(\frac{2 \pi f i}{N})$, the output will be
 
 $$
-s_f \sin(\phi_f)
+s_f \sin(\frac{2 \pi f i}{N})
 $$ {#eq-sf-sinphif}
 
 ## The Optical Quality of the Eye {#sec-imgfor-opticalquality}
