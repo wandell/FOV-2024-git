@@ -60,7 +60,7 @@ format:
     math:
       number-equations: true
   latex-macros:
-    pixvec: "\\mathbf{p}"
+    pixveci: "\\mathbf{p}{#1}"
     resvec: "\\mathbf{r}"
     varphi: "\\frac{2 \\pi f i}{N}"
     sfni: "\\sin\\left(\\frac{2 \\pi f i}{N}\\right)"
