@@ -66,7 +66,7 @@ We can summarize homogeneity and superposition succinctly using two equations. W
 
 $$
 \mathbf{r} = L(\mathbf{p})
-$$
+$$ {#eq-linear-transform}
 
 Homogeneity and superposition are defined by the pair of equations:
 
@@ -75,7 +75,7 @@ $$
 L(a\,\mathbf{p}) &= a\,L(\mathbf{p}) \quad &\text{(Homogeneity)} \\
 L(\mathbf{p} + \mathbf{p}') &= L(\mathbf{p}) + L(\mathbf{p}') \quad &\text{(Superposition)}
 \end{aligned}
-$$
+$$ {#eq-homogeneity-superposition}
 
 
 ### Implications of Homogeneity and Superposition
@@ -88,7 +88,7 @@ Consider an arbitrary one-dimensional image, as illustrated at the top of Figure
 
 $$
 \mathbf{r} = \sum_{i}^{N} p_i \mathbf{r}_i .
-$$
+$$ {#eq-weighted-sum}
 
 The above equation defines a transformation that maps the input stimulus, $\boldsymbol{p}$, into the measurement, $\boldsymbol{r}$. Because of the properties of homogeneity and superposition, the transformation is the weighted sum of a fixed collection of vectors: When the monitor image varies, only the weights in the formula, $p_i$, vary but the vectors $\boldsymbol{r}_i$, the reflections from single-line stimuli, remain the same. Hence, the reflected light will always be the weighted sum of these reflections.
 
@@ -101,7 +101,7 @@ Matrix multiplication has a shorthand notation to replace the explicit sum of ve
 
 $$
 \mathbf{r} = \mathbf{R} \mathbf{p}
-$$
+$$ {#eq-matrix-mult}
 
 Matrix multiplication follows naturally from the properties of homogeneity and superposition. Hence, if a system satisfies homogeneity and superposition, we can describe the system response by creating a *system matrix* that transforms the input to the output.
 
@@ -148,7 +148,7 @@ $$
 1.0 \\
 0.2
 \end{pmatrix}
-$$
+$$ {#eq-matrix-mult-example}
 
 From this example we see why linear systems methods are a good starting point for answering an essential scientific question: How can we generalize from the results of measurements using a few stimuli to predict the results we will obtain when we measure using novel stimuli? Linear systems methods tell us to examine homogeneity and superposition. If these empirical properties hold in our experiment, then we will be able to measure responses to a few stimuli and predict responses to many other stimuli.
 
@@ -176,7 +176,7 @@ We can express this same result another useful way. Expanding the sinusoidal out
 
 $$
 s_f \sin (\frac{2 \pi f i}{N} + \phi_f ) = a_f \cos (\frac{2 \pi f i}{N}) + b_f \sin (\frac{2 \pi f i}{N})
-$$
+$$ {#eq-sinusoid-expansion}
 
 where
 
@@ -185,33 +185,21 @@ $$
 a_f &= s_f \sin(\phi_f) \\
 b_f &= s_f \cos(\phi_f)
 \end{aligned}
-$$
+$$ {#eq-af-bf-def}
 
 In other words, when the input is a sinusoid at frequency $f$ the output is the weighted sum of a sinusoid and a cosinusoid, both at the same frequency as the input. In this representation, the two unknown values are the weights of the sinusoid and the cosinusoid:
 
 $$
 s_f \sin (\frac{2 \pi f i}{N} + \phi_f ) = a_f \cos (\frac{2 \pi f i}{N}) + b_f \sin (\frac{2 \pi f i}{N})
-$$
-
-where
-
-$$
-\begin{aligned}
-a_f &= s_f \sin(\phi_f) \\
-b_f &= s_f \cos(\phi_f)
-\end{aligned}
-$$
+$$ {#eq-sf-sinphif}
 
 For many optical systems, such as the human eye, the relationship between harmonic inputs and the output is even simpler. When the input is a harmonic function at frequency ![f](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-8f51d5769daf4c908ad99156b65e83f1_l3.png "Rendered by QuickLaTeX.com"), the output is a scaled copy of the function and there is no shift in spatial phase. For example, when the input is $\sin(\phi_f)$, the output will be
 
 $$
 s_f \sin(\phi_f)
-$$
-
-and only the scale factor, which depends on frequency, is unknown.
+$$ {#eq-sf-sinphif}
 
 ## The Optical Quality of the Eye {#sec-imgfor-opticalquality}
-
 We are now ready to correct the measurements for the effects of double passage through the optics of the eye. To make the method easy to understand, we will analyze how to do the correction by first making the assumption that the optics introduce no phase shift into the retinal image; this means, for example, that a cosinusoidal stimulus creates a cosinusoidal retinal image, scaled in amplitude. It is not necessary to assume that there is no phase shift but the assumption is reasonable and the main principles of the analysis are easier to see if we assume there is no phase shift.
 
 ![Sinusoids and Double Passage (a) The amplitude, A, of an input cosinusoid stimulus is scaled by a factor, s, after passing through even-symmetric shift-invariant symmetric optics as shown in part (b). (c) Passage through the optics a second time scales the amplitude again, resulting in a signal with amplitude s^2 A.](/wp-content/uploads/2012/02/doublepass.png){#fig-doublepass width="50%"}
@@ -227,13 +215,13 @@ $$
 0 & \text{if } 1 \leq i < N
 \end{array}
 \right.
-$$
+$$ {#eq-single-line-stimulus}
 
 As I describe in the appendix, we can express the stimulus as the weighted sum of harmonic functions by using the *discrete Fourier series*. The representation of a single line is equal to the sum of cosinusoidal functions
 
 $$
 \mathbf{p}_{i} = 0.5 + \sum_{f=1}^{N-1} \cos\left( 2 \pi f \frac{i}{N} \right)
-$$
+$$ {#eq-fourier-single-line}
 
 Because the system is shift-invariant, the retinal image of each cosinusoid was a scaled cosinusoid, say with scale factor $s_f$. The retinal image was scaled again during the second pass through the optics, to form the cosinusoidal term they measured.[^discrete-fourier-footnote]
 
@@ -243,15 +231,13 @@ Using the discrete Fourier series, we also can express the measurement as the su
 
 $$
 \text{Measurement} = 0.5 + \sum_{f=1}^{N-1} (s_f)^2 \cos\left( 2 \pi f \frac{i}{N} \right)
-$$
-{#eq:measurement}
+$$ {#eq-measurement}
 
 We know the values of $s_f^2$, since this was Campbell and Gubisch’s measurement. The image of the line at the retina, then, must have been
 
 $$
 \mathbf{l}_{i} = 0.5 + \sum_{f=1}^{N-1} s_f \cos\left( 2 \pi f \frac{i}{N} \right)
-$$
-{#eq:retinal-image}
+$$ {#eq-retinal-image}
 
 ![The linespread function of the human eye: The solid line in each panel is a measurement of the linespread. The dotted lines are the diffraction-limited linespread for a pupil of that diameter. (Diffraction is explained later in the text). The different panels show measurements for a variety of pupil diameters (From Campbell and Gubisch, 1967).](/wp-content/uploads/2012/02/cg.linespread.png){#fig-linespread width="60%"}
 
@@ -261,13 +247,13 @@ As you read further about experimental and computational methods in vision scien
 
 ### The Linespread Function {#sec-linespread}
 
-Figure 2.12 contains Campbell and Gubisch’s estimates of the linespread functions of the eye. Notice that as the pupil size increases, the width of the linespread function increases which indicates that the focus is worse for larger pupil sizes. As the pupil size increases, light reaches the retina through larger and larger sections of the lens. As the area of the lens affecting the passage of light increases, the amount of blurring increases.
+@fig-linespreadcontains Campbell and Gubisch’s estimates of the linespread functions of the eye. Notice that as the pupil size increases, the width of the linespread function increases which indicates that the focus is worse for larger pupil sizes. As the pupil size increases, light reaches the retina through larger and larger sections of the lens. As the area of the lens affecting the passage of light increases, the amount of blurring increases.
 
 The measured linespread functions, $\mathbf{l}_{i}$, along with our belief that we are studying a shift-invariant linear system, permit us to predict the retinal image for any one-dimensional input image. To calculate these predictions, it is convenient to have a function that describes the linespread of the human eye. G. Westheimer (1986) suggested the following formula to describe the measured linespread function of the human eye, when in good focus, and when the pupil diameter is near 3mm.
 
-\begin{equation}
+$$
 \mathbf{l}_{i} = 0.47 e^{ - 3.3 i ^ {2} } + 0.53 e ^ { -0.93 | i | }
-\end{equation}
+$$ {#eq-westheimer-linespread}
 
 ![Westheimer’s Linespread Function. Analytic approximation of the human linespread function for an eye with a 3.0mm diameter pupil (Westheimer, 1986).](/wp-content/uploads/2012/02/westheimer.ls_.png){#fig-westheimer-linespread width="60%"}
 
@@ -275,29 +261,7 @@ The linespread function is given by:
 
 $$
 \mathbf{l}_{i} = 0.47 e^{ - 3.3 i ^ {2} } + 0.53 e ^ { -0.93 | i | }
-$$
-
-We can use Westheimer’s linespread function to predict the retinal image of any one-dimensional input stimulus[^WestheimerLS]. Some examples of the predicted retinal image are shown in Figure 2.13. Because the optics blurs the image, even the light from a very fine line is spread across several photoreceptors. We will discuss the relationship between the optical defocus and the positions of the photoreceptors in [Chapter 3](/chapter-3-the-photoreceptor-mosaic/).
-
-where the variable $i$ refers to position on the retina specified in terms of minutes of visual angle. A graph of this linespread function is shown in @fig-westheimer-linespread.
-
-[^WestheimerLS] Westheimer’s linespread function is for an average observer under one set of viewing conditions. As the pupil changes size and as observer’s age, the linespread function can vary. Consult IJspeert et al. (1993) and Williams et al. (1995) for alternatives to Westheimer’s formula.</small>
-
-![Examples of the effect of optical blurring. (a) Images of a line, edge and a bar pattern. (b) The estimated retinal image of the images after blurring by Westheimer’s linespread function. The spacing of the photoreceptors in the retina is shown by the stylized arrows.](/wp-content/uploads/2012/02/blurring.png){#fig-blurring width="50%"}
-
-### The Modulation Transfer Function {#sec-modulationtransferfunction}
-
-In correcting for double passage, we thought about the measurements in two separate ways. Since our main objective was to derive the linespread function, a function of spatial position, we spent most of our time thinking of the measurements in terms of light intensity as a function of spatial position. When we corrected for double passage through the optics, however, we also considered a hypothetical experiment in which the stimuli were harmonic functions (cosinusoids). To perform this calculation, we found that it was easier to correct for double passage by thinking of the stimuli as the sum of harmonic functions, rather than as a function of spatial position.
-
-These two ways of looking at the system, in terms of spatial functions or sums of harmonic functions, are equivalent to one another. To see this, notice that we can use the linespread function to derive the retinal image to any input image. Hence, we can use the linespread to compute the scale factors of the harmonic functions. Conversely, we already saw that by measuring how the system responds to the harmonic functions, we can derive the linespread function. It is convenient to be able to reason about system performance in both ways.
-
-![Modulation transfer function measurements of the optical quality of the lens made using visual interferometry (Williams et al., 1995; described in Chapter 3). The data are compared with the predictions from the linespread suggested by Westheimer (1984) and a curve fit through the data by Williams et al. (1995).](/wp-content/uploads/2012/02/otfDataTheory.png){#fig-modulation-transfer width="60%"}
-
-The *optical transfer function* defines the system’s complete response to harmonic functions. The optical transfer function is a complex-valued function of spatial frequency. The complex values code both the scale factor and the phase shift the system induces in each harmonic function.
-
-When the linespread function of the eye is an even-symmetric function, there is no phase shift of the harmonic functions. In this case, we can describe the system completely using a real valued function, the {\\em modulation transfer function}. This function defines the scale factors applied to each spatial frequency. The data points in Figure 2.15 show measurements of the modulation transfer function of the human eye. These data points were measured using a method called *visual interferometry* that is described in [Chapter 3](/chapter-3-the-photoreceptor-mosaic/). Along with the data points in Figure 2.15, I have plotted the predicted modulation transfer function using Westheimer’s linespread function and a curve fit to the data by Williams et al. (1995). The curve derived by Westheimer (1986) using completely different data sets differs from the measurements by Williams et al. (1995) by no more than about twenty percent. This should tell you something about the relative precision of these descriptions of the optical quality of the lens.
-
-The linespread function and the modulation transfer function offer us two different ways to think about the optical quality of the lines. The linespread function in Figure 2.15, describes defocus as the spread of light from a fine slit across the photoreceptors: the light is spread across three to five photoreceptors. The modulation transfer function in Figure 2.15 describes defocus as an amplitude reduction of harmonic stimuli: beyond 12 cycles per degree the amplitude is reduced by more than a factor of two.
+$$ {#eq-westheimer-linespread-inline}
 
 ## Lenses, Diffraction and Aberrations {#sec-lensesdiffractionandaberrations}
 
@@ -317,8 +281,6 @@ The relationship between the angle of incidence and the angle of refraction was 
 $$
 \frac{ \sin \phi } { \sin \phi' } = \frac{\nu'}{\nu}
 $$ {#eq-snell} 
-<!-- id2556374033"></a> -->
-
 
 The terms $\nu'$ and $\nu$ in @eq-snell are the *refractive indices* of the two media. The refractive index of an optical medium is the ratio of the speed of light in a vacuum to the speed of light in the optical medium. The refractive index of glass is $1.520$, for water the refractive index is $1.333$ and for air it is nearly $1.000$. The refractive index of the human cornea is $1.376$, which is quite similar to water, the main content of our eyes.
 
@@ -330,11 +292,11 @@ Objects at different depths are focused at different distances behind the lens. 
 
 $$
 \frac{1}{d_s} + \frac{1}{d_i} = \frac{1}{f}
-$$
+$$ {#eq-lensmaker}
 
 From this equation, notice that we can measure the focal length of a convex thin lens by using it to image a very distant object. In that case, the term ![1/{d_s}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-4287fb74d4a5c10ed90228b1b430fe35_l3.png "Rendered by QuickLaTeX.com") is zero so that the image distance is equal to the focal length. When I first moved to California, I spent a lot of time measuring the focal length of the lenses in my laboratory by going outside and imaging the sun on a piece of paper behind the lens; the sun was a convenient source at optical infinity. It had been a less reliable source for me in my previous home.
 
-![Figure 2.17: Depth of Field in the Human Eye. Image distance is shown as a function of source distance. The bar on the vertical axis shows the distance of the retina from the lens center. A lens power of 60 diopters brings distant objects into focus, but not nearby objects; to bring nearby objects into focus the power of the lens must increase. The depth of field, namely the distance over which objects will continue to be in reasonable focus, can be estimated from the slope of the curve.](/wp-content/uploads/2012/02/accommodation.png){#fig-accommodation width="50%"}
+![Figure 2.17: Depth of Field in the Human Eye. Image distance is shown as a function of source distance. The bar on the vertical axis shows the distance of the retina from the lens center. A lens power of 60 diopters brings distant objects into focus, but not nearby objects; to bring nearby objects into focus the power of the lens must increase. The depth of field, namely the distance over which objects will continue to be in reasonable focus, can be estimated from the slope of the curve.](/wp-content/uploads/2012/02/accommodation.png){#fig-accommodation width="60%"}
 
 The optical *power* of a lens is a measure of how strongly the lens bends the incoming rays. Since a short focal length lens bends the incident ray more than a long focal length lens, the optical power is inversely related to focal length. The optical power is defined as the reciprocal of the focal length measured in meters and is specified in units of *diopters*. When we view far away objects, the distance from the middle of the cornea and the flexible lens to the retina is $0.017\,\mathrm{m}$. Hence, the optical power of the human eye is $\frac{1}{0.017} = 58.8$, or roughly $60$ diopters.
 
@@ -344,56 +306,56 @@ To bring nearby sources into focus on the retina, muscles attached to the lens c
 
 ### Pinhole Optics and Diffraction {#sec-PinholeOpticsandDiffraction}
 
-The only way to remove lens imperfections completely is to remove the lens. It is possible to focus images without any lens at all by using *pinhole*optics, as illustrated in Figure 2.18.
+The only way to remove lens imperfections completely is to remove the lens. It is possible to focus images without any lens at all by using *pinhole* optics, as illustrated in @fig-pinhole-optics.
 
-![Figure 2.18: Pinhole Optics. Using ray-tracing, we see that only a small pencil of rays passes through a pinhole. (a) If we widen the pinhole, light from the source spread across the image, making it blurry. (b) If we narrow the pinhole, only a small amount of light is let in. The image is sharp; the sharpness is limited by diffraction.](/wp-content/uploads/2012/02/pinhole.png){#fig-pinhole-optics width="40%"}
+![Pinhole Optics. Using ray-tracing, we see that only a small pencil of rays passes through a pinhole. (a) If we widen the pinhole, light from the source spread across the image, making it blurry. (b) If we narrow the pinhole, only a small amount of light is let in. The image is sharp; the sharpness is limited by diffraction.](/wp-content/uploads/2012/02/pinhole.png){#fig-pinhole-optics width="60%"}
 
 A pinhole serves as a useful focusing element because only the rays passing within a narrow angle are used to form the image. As the pinhole is made smaller, the angular deviation is reduced. Reducing the size of the pinhole serves to reduce the amount of blur due to the deviation amongst the rays. Another advantage of using pinhole optics is that no matter how distant the source point is from the pinhole, the source is rendered in sharp focus. Since the focusing is due to selecting out a thin pencil of rays, the distance of the point from the pinhole is irrelevant and accommodation is unnecessary.
 
 But the pinhole design has two disadvantages. First, as the pinhole aperture is reduced, less and less of the light emitted from the source is used to form the image. The reduction of signal has many disadvantages for sensitivity and acuity.
 
-A second fundamental limit to the pinhole design is a physical phenomenon. When light passes through a small aperture, or near the edge of an aperture, the rays do not travel in a single straight line. Instead, the light from a single ray is scattered into many directions and produces a blurry image. The dispersion of light rays that pass by an edge or narrow aperture is called *diffraction*. Diffraction scatters the rays coming from a small source across the retinal image and therefore serves to defocus the image. The effect of diffraction when we take an image using pinhole optics is shown in Figure 2.19.
+A second fundamental limit to the pinhole design is a physical phenomenon. When light passes through a small aperture, or near the edge of an aperture, the rays do not travel in a single straight line. Instead, the light from a single ray is scattered into many directions and produces a blurry image. The dispersion of light rays that pass by an edge or narrow aperture is called *diffraction*. Diffraction scatters the rays coming from a small source across the retinal image and therefore serves to defocus the image. The effect of diffraction when we take an image using pinhole optics is shown in @fig-diffraction-pinhole.
 
-![Figure 2.19: Diffraction limits the quality of pinhole optics. The three images of a bulb filament were imaged using pinholes with decreasing size. (a) When the pinhole is relatively large, the image rays are not properly converged and the image is blurred. (b) Reducing the pinhole improves the focus. (c) Reducing the pinhole further worsens the focus due to diffraction.](/wp-content/uploads/2012/02/filament.png){#fig-diffraction-pinhole width="50%"}
+![Diffraction limits the quality of pinhole optics. The three images of a bulb filament were imaged using pinholes with decreasing size. (a) When the pinhole is relatively large, the image rays are not properly converged and the image is blurred. (b) Reducing the pinhole improves the focus. (c) Reducing the pinhole further worsens the focus due to diffraction.](/wp-content/uploads/2012/02/filament.png){#fig-diffraction-pinhole width="50%"}
 
 Diffraction can be explained in two different ways. First, diffraction can be explained by thinking of light as a wave phenomenon. A wave exiting from a small aperture expands in all directions; a pair of coherent waves from adjacent apertures create an interference pattern. Second diffraction can be understood in terms of quantum mechanics; indeed, the explanation of diffraction is one of the important achievements of quantum mechanics. Quantum mechanics supposes that there are limits to how well we may know both the position and direction of travel of a photon of light. The more we know about a photon’s position, the less we can know about its direction. If we know that a photon has passed through a small aperture, then we know something about the photon’s position and we must pay a price in terms of our uncertainty concerning its direction of travel. As the aperture becomes smaller, our certainty concerning the position of the photon becomes greater; this uncertainty takes the form of the scattering of the direction of travel of the photons as they pass through the aperture. For very small apertures, for which our position certainty is high, the photon’s direction of travel is very broad producing a very blurry image.
 
-There is a close relationship between the uncertainty in the direction of travel and the shape of the aperture (see Figure 2.20). In all cases, however, when the aperture is relatively large, our knowledge of the spatial position of the photons is insignificant and diffraction does not contribute to defocus. As the pupil size decreases, and we know more about the position of the photons, the diffraction pattern becomes broader and spoils the focus.
+There is a close relationship between the uncertainty in the direction of travel and the shape of the aperture (@fig-diffraction). In all cases, however, when the aperture is relatively large, our knowledge of the spatial position of the photons is insignificant and diffraction does not contribute to defocus. As the pupil size decreases, and we know more about the position of the photons, the diffraction pattern becomes broader and spoils the focus.
 
-![Figure 2.20 Diffraction: Diffraction pattern caused by a circular aperture. (a) The image of a diffraction pattern measured through a circular aperture. (b) A graph of the cross-sectional intensity of the diffraction pattern. (After Goodman, 1968).](/wp-content/uploads/2012/02/diffraction.png){#fig-diffraction width="50%"}
+![Diffraction: Diffraction pattern caused by a circular aperture. (a) The image of a diffraction pattern measured through a circular aperture. (b) A graph of the cross-sectional intensity of the diffraction pattern. (After Goodman, 1968).](/wp-content/uploads/2012/02/diffraction.png){#fig-diffraction width="50%"}
 
 In the human eye diffraction occurs because light must pass through the circular aperture defined by the pupil. When the ambient light intensity is high, the pupil may become as small as $2\,\mathrm{mm}$ in diameter. For a pupil opening this small, the optical blurring in the human eye is due only to the small region of the cornea and lens near the center of our visual field. With this small an opening of the pupil, the quality of the cornea and lens is rather good and the main source of image blur is diffraction. At low light intensities, the pupil diameter is as large as $8\,\mathrm{mm}$. When the pupil is open quite wide, the distortion due to cornea and lens imperfections is large compared to the defocus due to diffraction.
 
-One way to evaluate the quality of the optics is to compare the blurring of the eye to the blurring from diffraction alone. The dashed lines in Figure 2.12 plot the blurring expected from diffraction for different pupil widths. Notice that when the pupil is 2.4~mm, the observed linespread is about equal to the amount expected by diffraction alone; the lens causes no further distortion. As the pupil opens, the observed linespread is worse than the blurring expected by diffraction alone. For these pupil sizes the defocus is due mainly to imperfections in the optics[^HelmholtzDiffraction].
+One way to evaluate the quality of the optics is to compare the blurring of the eye to the blurring from diffraction alone. The dashed lines in @fig-imgfor-cg-data plot the blurring expected from diffraction for different pupil widths. Notice that when the pupil is 2.4~mm, the observed linespread is about equal to the amount expected by diffraction alone; the lens causes no further distortion. As the pupil opens, the observed linespread is worse than the blurring expected by diffraction alone. For these pupil sizes the defocus is due mainly to imperfections in the optics[^HelmholtzDiffraction].
 
 [^HelmholtzDiffraction]: Helmholtz calculated that this was so long before any precise measurements of the optical quality of the eye were possible. He wrote, “The limit of the visual capacity of the eye as imposed by diffraction, as far as it can be calculated, is attained by the visual acuity of the normal eye with a pupil of the size corresponding to a good illumination.” From Helmholtz, Phys. Optics I, page 442 (Helmholtz, 1909, p. 442).
 
 ### The Pointspread Function and Astigmatism {#sec-ThePointspreadFunctionandAstigmatism}
 
-![Figure 2.21 Pointspread Function: A pointspread function. (a) and the sum of two pointspreads (b). The pointspread function is the image created by a source consisting of a small point of light. When the optics shift-invariant, the image to any stimulus can be predicted from the pointspread function.](/wp-content/uploads/2012/02/pointspread1.png){#fig-pointspread width="50%"}
+![Pointspread Function: A pointspread function. (a) and the sum of two pointspreads (b). The pointspread function is the image created by a source consisting of a small point of light. When the optics shift-invariant, the image to any stimulus can be predicted from the pointspread function.](/wp-content/uploads/2012/02/pointspread1.png){#fig-pointspread width="70%"}
 
 Most images, of course, are not composed of weighted sums of lines. The set of images that can be formed from sums of lines oriented in the same direction are all one-dimensional patterns. To create more complex images, we must either use lines with different orientations or use a different fundamental stimulus: the point.
 
-Any two-dimensional image can be described as the sum of a set of points. If the system we are studying is linear and shift-invariant, we can use the response to a point and the principle of superposition to predict the response of a system to any two-dimensional image. The measured response to a point input is called the {\\em pointspread} function. A pointspread function and the superposition of two nearby pointspreads are illustrated in Figure 2.21.
+Any two-dimensional image can be described as the sum of a set of points. If the system we are studying is linear and shift-invariant, we can use the response to a point and the principle of superposition to predict the response of a system to any two-dimensional image. The measured response to a point input is called the {\\em pointspread} function. A pointspread function and the superposition of two nearby pointspreads are illustrated in @fig-pointspread.
 
 Since lines can be formed by adding together many different points, we can compute the system’s linespread function from the pointspread. In general, we cannot deduce the pointspread function from the linespread because there is no way to add a set of lines, all oriented in the same direction, to form a point. If it is know that a pointspread function is circularly symmetric, however, a unique pointspread function can be deduced from the linespread function. The calculation is described in the beginning of Goodman (1968) and in Yellott, Wandell and Cornsweet (1981).
 
-![Figure 2.22 Astigmatism: Astigmatism implies an asymmetric pointspread function. The pointspread shown here is narrow in one direction and wide in another. The spatial resolution of an astigmatic system is better in the narrow direction than the wide direction.](/wp-content/uploads/2012/02/astigmatism.png){#fig-astigmatism width="50%"}
+![Astigmatism: Astigmatism implies an asymmetric pointspread function. The pointspread shown here is narrow in one direction and wide in another. The spatial resolution of an astigmatic system is better in the narrow direction than the wide direction.](/wp-content/uploads/2012/02/astigmatism.png){#fig-astigmatism width="70%"}
 
-When the pointspread functions is not circularly symmetric, measurements of the linespread function will vary with the orientation of the test line. It may be possible to adjust the accommodation of this type of system so that any single orientation is in good focus, but it will be impossible to bring all orientations into good focus at the same time. For the human eye, astigmatism can usually be modeled by describing the defocus as being derived from the contributions of two one-dimensional systems at right angles to one another. The defocus in intermediate angles can be predicted from the defocus of these two systems.
+When the pointspread functions is not circularly symmetric, measurements of the linespread function will vary with the orientation of the test line (@fig-astigmatism). It may be possible to adjust the accommodation of this type of system so that any single orientation is in good focus, but it will be impossible to bring all orientations into good focus at the same time. For the human eye, astigmatism can usually be modeled by describing the defocus as being derived from the contributions of two one-dimensional systems at right angles to one another. The defocus in intermediate angles can be predicted from the defocus of these two systems.
 
 ### Chromatic Aberration {#sec-ChromaticAberration}
 The light incident at the eye is usually a mixture of different wavelengths. When we measure the system response, there is no guarantee that the linespread or pointspread function we measure with different wavelengths will be the same. Indeed, for most biological eyes the pointspread function is very different as we measure using different wavelengths of light. When the pointspread function of different wavelengths of light is quite different, then the lens is said to exhibit *chromatic aberration*.
 
-![Figure 2.23 Chromatic Aberration: Chromatic aberration of the human eye. (a) The data points are from Wald and Griffin (1947), and Bedford and Wyszecki (1957). The smooth curve plots the formula used by Thibos et al. (1992), D(λ) = p – q / (λ – c ) where λ is wavelength in micrometers, D(λ) is the defocus in diopters, p =1.7312, q = 0.63346, and c = 0.21410. This formula implies an in-focus wavelength of 578 nm. (b) The power of a thin lens is the reciprocal of its focal length, which is the image distance from a source at infinity. (After Marimont and Wandell, 1993).](/wp-content/uploads/2012/02/c.aberration.png){#fig-chromatic-aberration width="40%"}
+![Chromatic Aberration: Chromatic aberration of the human eye. (a) The data points are from Wald and Griffin (1947), and Bedford and Wyszecki (1957). The smooth curve plots the formula used by Thibos et al. (1992), D(λ) = p – q / (λ – c ) where λ is wavelength in micrometers, D(λ) is the defocus in diopters, p =1.7312, q = 0.63346, and c = 0.21410. This formula implies an in-focus wavelength of 578 nm. (b) The power of a thin lens is the reciprocal of its focal length, which is the image distance from a source at infinity. (After Marimont and Wandell, 1993).](/wp-content/uploads/2012/02/c.aberration.png){#fig-chromatic-aberration width="60%"}
 
-When the incident light is the mixture of many different wavelengths, say white light, then we can see a chromatic fringe at edges. The fringe occurs because the different wavelength components of the white light are focused more or less sharply. Figure 2.23a plots one measure of the chromatic aberration. The smooth curve plots the lens power, measured in units of *em diopters* needed to bring each wavelength into focus along with a 578nm light.
+When the incident light is the mixture of many different wavelengths, say white light, then we can see a chromatic fringe at edges. The fringe occurs because the different wavelength components of the white light are focused more or less sharply. @fig-chromatic-aberration a plots one measure of the chromatic aberration. The smooth curve plots the lens power, measured in units of *em diopters* needed to bring each wavelength into focus along with a 578nm light.
 
-Figure 2.23 shows the optical power of a lens necessary to correct for the chromatic aberration of the eye. When the various wavelengths pass through the correcting lens, the optics will have the same power as the eye’s optics at 578nm. The two sets of measurements agree well with one another and are similar to what would be expected if the eye were simply a bowl of water. The smooth curve through the data is a curve used by Thibos et al. (1992) to predict the data.
+fig-chromatic-aberration@ shows the optical power of a lens necessary to correct for the chromatic aberration of the eye. When the various wavelengths pass through the correcting lens, the optics will have the same power as the eye’s optics at 578nm. The two sets of measurements agree well with one another and are similar to what would be expected if the eye were simply a bowl of water. The smooth curve through the data is a curve used by Thibos et al. (1992) to predict the data.
 
-An alternative method of representing the axial chromatic aberration of the eye is to plot the modulation transfer function at different wavelengths. The two surface plots in Figure 2.24 shows the modulation transfer function at a series of wavelengths. The plots show the same data, but seen from different points of view so that you can see around the hill. The calculation in the figure is based on an eye with a pupil diameter of 3.0mm, the same chromatic aberration as the human eye, and in perfect focus except for diffraction at 580nm.
+An alternative method of representing the axial chromatic aberration of the eye is to plot the modulation transfer function at different wavelengths. The two surface plots in @fig-chromatic-aberration-otf shows the modulation transfer function at a series of wavelengths. The plots show the same data, but seen from different points of view so that you can see around the hill. The calculation in the figure is based on an eye with a pupil diameter of 3.0mm, the same chromatic aberration as the human eye, and in perfect focus except for diffraction at 580nm.
 
-![Figure 2.24 OTF of Chromatic Aberration: Two views of the modulation transfer function of a model eye at various wavelengths. The model eye has the same chromatic aberration as the human eye (see Figure 2.23) and a 3.0mm pupil diameter. The eye is in focus at 580nm; the curve at 580nm is diffraction limited. The retinal image has no contrast beyond four cycles per degree at short wavelengths.(From Marimont and Wandell, 1993).](/wp-content/uploads/2012/02/acOTF.png){#fig-chromatic-aberration-otf width="60%"}
+![OTF of Chromatic Aberration: Two views of the modulation transfer function of a model eye at various wavelengths. The model eye has the same chromatic aberration as the human eye (@fig-chromatic-aberration) and a 3.0mm pupil diameter. The eye is in focus at 580nm; the curve at 580nm is diffraction limited. The retinal image has no contrast beyond four cycles per degree at short wavelengths.(From Marimont and Wandell, 1993).](/wp-content/uploads/2012/02/acOTF.png){#fig-chromatic-aberration-otf width="70%"}
 
 The retinal image contains very poor spatial information at wavelengths that are far from the best plane of focus. By accommodation, the human eye can place any wavelength into good focus, but it is impossible to focus all wavelengths simultaneously[^chromatic-footnote].
 
