@@ -1,0 +1,12 @@
+---
+title: "Macro Test"
+format: html
+---
+
+$$
+\phiexpr_{f,N}
+$$
+
+$$
+\pixveci{i}
+$$

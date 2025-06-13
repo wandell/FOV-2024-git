@@ -33,7 +33,7 @@ Flamant (1955) first measured the retinal image using a modified ophthalmoscope.
 
 The light that enters the observer’s eye is brought to a good focus on the retina by a lens. A small fraction of the light incident on the retina is reflected and passes – a second time – through the optics of the eye. On the return path of the light, the beam-splitter now plays its functional role. The reflected image would normally return to a focus at the light source. But the beam-splitter divides the returning beam so that a portion of it is brought to focus in a measurement plane to one side of the apparatus. Using a very fine slit in the measurement plane, with a photodetector behind it, Campbell and Gubisch measured the reflected light and used the measurements of the reflected light to infer the shape of the image on the retinal surface.
 
-What part of the eye reflects the image? In Figure 2.5 we see a cross-section of the peripheral retina. In normal vision, the image is focused on the retina at the level of the photoreceptors. The light measured by Campbell and Gubisch probably contains components from several different planes at the back of the eye. Thus, their measurements probably underestimate the quality of the image at the level of the photoreceptors Figure 2.6 shows several examples of Campbell and Gubisch’s measurements of the light reflected from the eye when the observer is looking at a very fine line. The different curves show measurements for different pupil sizes. When the pupil was wide open (top, 6.6mm diameter) the reflected light is blurred more strongly than when the pupil is closed (middle, 2.0mm). Notice that the measurements made with a large pupil opening are less noisy; when the pupil is wide open more light passes into the eye and more light is reflected, improving the quality of the measurements. The light measured in Figure 2.6 passed through the optical elements of the eye twice, while the retinal image passes through the optics only once. It follows that the spread in these curves is wider than the spread we would observe had we measured at the retina. How can we use these doublepass measurements to estimate the blur at the retina? To solve this problem, we must understand the general features of their experiment. It is time for some theory.
+What part of the eye reflects the image? In @fig-imgfor-retinalcross we see a cross-section of the peripheral retina. In normal vision, the image is focused on the retina at the level of the photoreceptors. The light measured by Campbell and Gubisch probably contains components from several different planes at the back of the eye. Thus, their measurements probably underestimate the quality of the image at the level of the photoreceptors @fig-imgfor-cg-data shows several examples of Campbell and Gubisch’s measurements of the light reflected from the eye when the observer is looking at a very fine line. The different curves show measurements for different pupil sizes. When the pupil was wide open (top, 6.6mm diameter) the reflected light is blurred more strongly than when the pupil is closed (middle, 2.0mm). Notice that the measurements made with a large pupil opening are less noisy; when the pupil is wide open more light passes into the eye and more light is reflected, improving the quality of the measurements. The light measured in @fig-imgfor-cg-data  passed through the optical elements of the eye twice, while the retinal image passes through the optics only once. It follows that the spread in these curves is wider than the spread we would observe had we measured at the retina. How can we use these doublepass measurements to estimate the blur at the retina? To solve this problem, we must understand the general features of their experiment. It is time for some theory.
 
 ![Experimental measurements of light that has been reflected from a human eye looking at a fine line. The reflected light has been blurred by double passage through the optics of the eye. (Source: Campbell and Gubisch, 1966).](/wp-content/uploads/2012/02/cg.data_.png){#fig-imgfor-cg-data width="60%"}
 
@@ -48,7 +48,7 @@ There is no single theory that applies to all measurement situations. But, linea
 
 ![The principle of homogeneity. An input stimulus and corresponding retinal image are shown in each part of the figure. The three input stimuli are the same except for a scale factor. Homogeneity is satisfied when the corresponding retinal images are scaled by the same factor. Part (a) shows an input image at unit intensity, while (b) and (c) show the image scaled by 0.5 and 2.0 respectively](/wp-content/uploads/2012/02/homogeneity.png){#fig-imgfor-homogeneity width="40%"}
 
-A test of *homogeneity* is illustrated in Figure 2.7. The left-hand panels show a series of monitor images, and the right-hand panels show the corresponding measurements of reflected light. Suppose we represent the intensities of the lines in the one-dimensional monitor image using the vector $\boldsymbol{p}$ (upper left) and we represent the retinal image measurements by the vector $\boldsymbol{r}$. Now, suppose we scale the input signal by a factor $a$, so that the new input is $a \boldsymbol{p}$. We say that the system satisfies homogeneity if the output signal is also scaled by the same factor of $a$, and thus the new output is $a \boldsymbol{r}$. For example, if we halve the input intensity, then the reflected light measured at their photodetector should be one-half the intensity (middle panel). If we double the light intensity, the response should double (bottom panel). Campbell and Gubisch’s measurements of light reflected from the human eye satisfy homogeneity.
+A test of *homogeneity* is illustrated in @fig-imgfor-homogeneity. The left-hand panels show a series of monitor images, and the right-hand panels show the corresponding measurements of reflected light. Suppose we represent the intensities of the lines in the one-dimensional monitor image using the vector $\boldsymbol{p}$ (upper left) and we represent the retinal image measurements by the vector $\boldsymbol{r}$. Now, suppose we scale the input signal by a factor $a$, so that the new input is $a \boldsymbol{p}$. We say that the system satisfies homogeneity if the output signal is also scaled by the same factor of $a$, and thus the new output is $a \boldsymbol{r}$. For example, if we halve the input intensity, then the reflected light measured at their photodetector should be one-half the intensity (middle panel). If we double the light intensity, the response should double (bottom panel). Campbell and Gubisch’s measurements of light reflected from the human eye satisfy homogeneity.
 
 :::{.callout-note}
 ## Vector notation
@@ -170,12 +170,12 @@ Suppose we start to measure the system matrix for the Campbell and Gubisch exper
 
 **The response to a harmonic function at frequency $f$ is a harmonic function at the same frequency.** Sinusoids and cosinusoids are called *harmonics* or *harmonic functions*. When the input to shift-invariant system is a harmonic at frequency $f$, the output will be a harmonic at the same frequency. The output may be scaled in amplitude and shifted in position, but it still will be a harmonic at the input frequency.
 
-For example, when the input stimulus is defined at $N$ points and at these points its values are sinusoidal, $S_f(i, N)$. Then, the response of a shift-invariant system will be a scaled and shifted sinusoid, $s_f \sin ( \varphi_{f,N} + \phi_f )$. There is some uncertainty concerning the output because there are two unknown values, the scale factor, $s_f$, and phase shift, $\phi_f$. But, for each sinusoidal input we know a lot about the output; the output will be a sinusoid of the same frequency as the input.
+For example, when the input stimulus is defined at $N$ points and at these points its values are sinusoidal, $S_f(i, N)$. Then, the response of a shift-invariant system will be a scaled and shifted sinusoid, $s_f \sin ( \frac{2 \pi f i}{N} + \phi_f )$. There is some uncertainty concerning the output because there are two unknown values, the scale factor, $s_f$, and phase shift, $\phi_f$. But, for each sinusoidal input we know a lot about the output; the output will be a sinusoid of the same frequency as the input.
 
 We can express this same result another useful way. Expanding the sinusoidal output using the summation rule we have
 
 $$
-s_f \sin (\varphi_{f,N} + \phi_f ) = a_f \cos (\varphi_{f,N}) + b_f \sin (\varphi_{f,N})
+s_f \sin (\frac{2 \pi f i}{N} + \phi_f ) = a_f \cos (\frac{2 \pi f i}{N}) + b_f \sin (\frac{2 \pi f i}{N})
 $$
 
 where
@@ -190,7 +190,7 @@ $$
 In other words, when the input is a sinusoid at frequency $f$ the output is the weighted sum of a sinusoid and a cosinusoid, both at the same frequency as the input. In this representation, the two unknown values are the weights of the sinusoid and the cosinusoid:
 
 $$
-s_f \sin (\varphi_{f,N} + \phi_f ) = a_f \cos (\varphi_{f,N}) + b_f \sin (\varphi_{f,N})
+s_f \sin (\frac{2 \pi f i}{N} + \phi_f ) = a_f \cos (\frac{2 \pi f i}{N}) + b_f \sin (\frac{2 \pi f i}{N})
 $$
 
 where
@@ -221,7 +221,7 @@ To understand how to correct for double passage, consider a hypothetical alterna
 Campbell and Gubisch used a single line, not a set of cosinusoidal stimuli. But, we can still apply the basic idea of the hypothetical experiment to their measurements. Their input stimulus, defined over $N$ locations, is
 
 $$
-\pixveci{i} = \left\{
+\mathbf{p}_{i} = \left\{
 \begin{array}{ll}
 1 & \text{if } i=0 \\
 0 & \text{if } 1 \leq i < N
@@ -232,12 +232,12 @@ $$
 As I describe in the appendix, we can express the stimulus as the weighted sum of harmonic functions by using the *discrete Fourier series*. The representation of a single line is equal to the sum of cosinusoidal functions
 
 $$
-\hat{p}_i = 0.5 + \sum_{f=1}^{N-1} \cos\left( 2 \pi f \frac{i}{N} \right)
+\mathbf{p}_{i} = 0.5 + \sum_{f=1}^{N-1} \cos\left( 2 \pi f \frac{i}{N} \right)
 $$
 
-Because the system is shift-invariant, the retinal image of each cosinusoid was a scaled cosinusoid, say with scale factor $s_f$. The retinal image was scaled again during the second pass through the optics, to form the cosinusoidal term they measured.<sup>2</sup>
+Because the system is shift-invariant, the retinal image of each cosinusoid was a scaled cosinusoid, say with scale factor $s_f$. The retinal image was scaled again during the second pass through the optics, to form the cosinusoidal term they measured.[^discrete-fourier-footnote]
 
-> <sup>2 </sup> <small>Be bothered by the fact that the discrete Fourier series approximation is an infinite set of pulses,rather than a single line. To understand why, consult the Appendix.</small>
+[^discrete-fourier-footnote]: Be bothered by the fact that the discrete Fourier series approximation is an infinite set of pulses, rather than a single line. To understand why, consult the Appendix.
 
 Using the discrete Fourier series, we also can express the measurement as the sum of cosinusoidal functions,
 
@@ -249,13 +249,13 @@ $$
 We know the values of $s_f^2$, since this was Campbell and Gubisch’s measurement. The image of the line at the retina, then, must have been
 
 $$
-\lspreadi{i} = 0.5 + \sum_{f=1}^{N-1} s_f \cos\left( 2 \pi f \frac{i}{N} \right)
+\mathbf{l}_{i} = 0.5 + \sum_{f=1}^{N-1} s_f \cos\left( 2 \pi f \frac{i}{N} \right)
 $$
 {#eq:retinal-image}
 
 ![The linespread function of the human eye: The solid line in each panel is a measurement of the linespread. The dotted lines are the diffraction-limited linespread for a pupil of that diameter. (Diffraction is explained later in the text). The different panels show measurements for a variety of pupil diameters (From Campbell and Gubisch, 1967).](/wp-content/uploads/2012/02/cg.linespread.png){#fig-linespread width="60%"}
 
-The values $\lspreadi{i}$ define the linespread function of the eye’s optics. We can correct for the double passage and estimate the linespread because the system is linear and shift-invariant.
+The values $\mathbf{l}_{i}$ define the linespread function of the eye’s optics. We can correct for the double passage and estimate the linespread because the system is linear and shift-invariant.
 
 As you read further about experimental and computational methods in vision science, remember that there is nothing inherently important about sinusoids as visual stimuli; we must not confuse the stimulus with the system or with the theory we use to analyze the system. When the system is a shift-invariant linear system, sinusoids can be helpful in simplifying our calculations and reasoning, as we have just seen. The sinusoidal stimuli are important only insofar as they help us to measure or clarify the properties of the system. And if the system is not shift-invariant, the sinusoids may not be important at all.
 
@@ -263,10 +263,10 @@ As you read further about experimental and computational methods in vision scien
 
 Figure 2.12 contains Campbell and Gubisch’s estimates of the linespread functions of the eye. Notice that as the pupil size increases, the width of the linespread function increases which indicates that the focus is worse for larger pupil sizes. As the pupil size increases, light reaches the retina through larger and larger sections of the lens. As the area of the lens affecting the passage of light increases, the amount of blurring increases.
 
-The measured linespread functions, $\lspreadi{i}$, along with our belief that we are studying a shift-invariant linear system, permit us to predict the retinal image for any one-dimensional input image. To calculate these predictions, it is convenient to have a function that describes the linespread of the human eye. G. Westheimer (1986) suggested the following formula to describe the measured linespread function of the human eye, when in good focus, and when the pupil diameter is near 3mm.
+The measured linespread functions, $\mathbf{l}_{i}$, along with our belief that we are studying a shift-invariant linear system, permit us to predict the retinal image for any one-dimensional input image. To calculate these predictions, it is convenient to have a function that describes the linespread of the human eye. G. Westheimer (1986) suggested the following formula to describe the measured linespread function of the human eye, when in good focus, and when the pupil diameter is near 3mm.
 
 \begin{equation}
-\lspreadi{i} = 0.47 e^{ - 3.3 i ^ {2} } + 0.53 e ^ { -0.93 | i | }
+\mathbf{l}_{i} = 0.47 e^{ - 3.3 i ^ {2} } + 0.53 e ^ { -0.93 | i | }
 \end{equation}
 
 ![Westheimer’s Linespread Function. Analytic approximation of the human linespread function for an eye with a 3.0mm diameter pupil (Westheimer, 1986).](/wp-content/uploads/2012/02/westheimer.ls_.png){#fig-westheimer-linespread width="60%"}
@@ -274,7 +274,7 @@ The measured linespread functions, $\lspreadi{i}$, along with our belief that we
 The linespread function is given by:
 
 $$
-\lspreadi{i} = 0.47 e^{ - 3.3 i ^ {2} } + 0.53 e ^ { -0.93 | i | }
+\mathbf{l}_{i} = 0.47 e^{ - 3.3 i ^ {2} } + 0.53 e ^ { -0.93 | i | }
 $$
 
 We can use Westheimer’s linespread function to predict the retinal image of any one-dimensional input stimulus[^WestheimerLS]. Some examples of the predicted retinal image are shown in Figure 2.13. Because the optics blurs the image, even the light from a very fine line is spread across several photoreceptors. We will discuss the relationship between the optical defocus and the positions of the photoreceptors in [Chapter 3](/chapter-3-the-photoreceptor-mosaic/).
