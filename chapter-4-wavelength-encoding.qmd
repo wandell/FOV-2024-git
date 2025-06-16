@@ -98,12 +98,11 @@ Univariance does not mean, however, that the photopigment responds equally well 
 We can measure the probability of absorption using the experimental apparatus shown in Figure 4.7. We place a thin layer of photopigment on a clear plate of glass. We create a monochromatic light by passing the light from an ordinary source through a *monochromator*. The monochromator can be constructed using prisms or diffraction gratings to separate the incident light into its separate wavelengths, much as in Newton’s original experiments. We measure the amount of monochromatic light passed through the photopigment and the glass plate by means of a photodetector at the rear of the apparatus. We then move the glass plate upwards, to remove the photopigment from the light path, and measure again. The difference in the photodetector signal measured in these two conditions is proportional to the amount of light absorbed by the photopigment.
 
 ![Rhodopsin absorptions at different wavelengths. The number of absorptions in a thin layer of photopigment are proportional to the intensity of the input light and thus satisfy the principle of homogeneity. The slope of the linear relationship between the light intensity and the number of absorptions describes the fraction of photon absorptions. The slope varies with the wavelength of the test light, thus defining the photopigment wavelength sensitivity.](/wp-content/uploads/2012/02/scotopic1.png){#fig-scotopic1 width="60%" .aligncenter}
-
-If only a thin layer of photopigment is present, the experimental measurements of the absorptions will satisfy homogeneity and superposition. To test homogeneity, we increase the intensity of the test light. We will find that the number of absorptions will increase proportionately over a significant range. To test superposition, we measure the photopigment absorptions to a test light ![\mathbf{t}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-bd3f451caa5c975d77996944cede1c35_l3.png "Rendered by QuickLaTeX.com") to be ![a](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-a877136da15a8ef393a3c5a3bd333804_l3.png "Rendered by QuickLaTeX.com"), and the number of absorptions to a second light ![\mathbf{t} '](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-7dda8e76de4cfa13f5d62f90bda230d0_l3.png "Rendered by QuickLaTeX.com") to be ![a'](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-c0dfb19c89b54331b413d6b258692ede_l3.png "Rendered by QuickLaTeX.com"). When we superimpose the two input lights, we will measure ![a + a'](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-7600ac8dfce25cb6ea8b7af06095968e_l3.png "Rendered by QuickLaTeX.com") absorptions. Since the measurement process is linear, we can estimate the system matrix of this absorption process, ![\Rhodopsin](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-f5216e64afa522d81367c3b9b319bf12_l3.png "Rendered by QuickLaTeX.com"), just as we measured the system matrix, of the scotopic matching experiment, ![\mathbf{R}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-2185dbe83313074d9ba4ac73150e96bc_l3.png "Rendered by QuickLaTeX.com").
+If only a thin layer of photopigment is present, the experimental measurements of the absorptions will satisfy homogeneity and superposition. To test homogeneity, we increase the intensity of the test light. We will find that the number of absorptions will increase proportionately over a significant range. To test superposition, we measure the photopigment absorptions to a test light $\mathbf{t}$ to be $a$, and the number of absorptions to a second light $\mathbf{t}'$ to be $a'$. When we superimpose the two input lights, we will measure $a + a'$ absorptions. Since the measurement process is linear, we can estimate the system matrix of this absorption process, $\mathbf{A}$, just as we measured the system matrix of the scotopic matching experiment, $\mathbf{R}$.
 
 ![Comparisons of scotopic matching and rhodopsin wavelength sensitivity. The filled circles show human rhodopsin absorption measured as in Figure 4.7. The open circles show human scotopic sensitivity, corrected for light loss at the lens and optical media. (Source: Wald and Brown, 1958)](/wp-content/uploads/2012/02/rhodopsin.sens_.png){#fig-rhodopsin-sens width="60%" .alignright}
 
-We can predict the matches in the scotopic matching experiment from the absorptions of the rhodopsin photopigment. A test and primary light match in the scotopic matching experiment when the two lights create the same number of absorptions in the rhodopsin photopigment. We can demonstrate this by comparing the system matrices of the scotopic matching experiment and the rhodopsin absorption experiment. After we correct for the effects of the wavelength sensitive elements of the eye, mainly the lens, we can plot the system matrices of the scotopic matching experiment $\mathbf{R}$, and the rhodopsin absorption experiment, $\Rhodopsin$, on the same graph. Wald and Brown (1958) made this comparison in the graph shown in Figure 4.9. The filled circles in the graph plot the measurements of the system matrix from the rhodopsin absorption experiment, $\Rhodopsin$. The completely open circles plot estimates of the entries of $\mathbf{R}$ after correcting for the fact that the lens absorbs a significant amount of light in the short-wavelength part of the spectrum.
+We can predict the matches in the scotopic matching experiment from the absorptions of the rhodopsin photopigment. A test and primary light match in the scotopic matching experiment when the two lights create the same number of absorptions in the rhodopsin photopigment. We can demonstrate this by comparing the system matrices of the scotopic matching experiment and the rhodopsin absorption experiment. After we correct for the effects of the wavelength sensitive elements of the eye, mainly the lens, we can plot the system matrices of the scotopic matching experiment $\mathbf{R}$, and the rhodopsin absorption experiment, $\mathbf{A}$, on the same graph. Wald and Brown (1958) made this comparison in the graph shown in Figure 4.9. The filled circles in the graph plot the measurements of the system matrix from the rhodopsin absorption experiment, $\mathbf{A}$. The completely open circles plot estimates of the entries of $\mathbf{R}$ after correcting for the fact that the lens absorbs a significant amount of light in the short-wavelength part of the spectrum.
 
 The agreement between the measurements of the rhodopsin photopigment and the scotopic matching experiment confirm a simple model of the observer’s behavior. Under scotopic viewing conditions the observer’s perception of the two halves of the bipartite field depends on a signal initiated by the rod photopigment absorptions. The two sides of the field appear identical when the rhodopsin absorption rates on the two sides of the bipartite field are equal. During the experiment, then, the observer adjusts the intensity of the matching light to equalize the rod absorption rates on the two sides of the bipartite field. Since the absorption of the light is a linear process, the observer’s behavior is linear, too.
 
@@ -132,9 +131,9 @@ Photopic color-matching satisfies homogeneity and superposition. We honor the pe
 
 ![Matrix tableau of color-matching. The photopic color-matching experiment defines a linear mapping from the test light spectral power distribution to the intensity of the three primary lights. The rows of the system matrix are called the color-matching functions. These functions can be estimated by setting matches to many different test lights and solving a set of linear equations.](/wp-content/uploads/2012/02/photopic.png ){#fig-photopic width="60%" .alignright}
 
-Because the color-matching experiment linearly maps the physical stimulus $\mathbf{t}$ to the primary intensities, $\mathbf{e}$, there must be a system matrix that maps the input vector $\mathbf{t}$ to the output vector $\mathbf{e}$. Figure 4.15 shows the input-output relationship for the photopic color-matching experiment in matrix tableau. We will call the $3 \times n_{\lambda}$ system matrix $\Photopic$.
+Because the color-matching experiment linearly maps the physical stimulus $\mathbf{t}$ to the primary intensities, $\mathbf{e}$, there must be a system matrix that maps the input vector $\mathbf{t}$ to the output vector $\mathbf{e}$. Figure 4.15 shows the input-output relationship for the photopic color-matching experiment in matrix tableau. We will call the $3 \times n_{\lambda}$ system matrix $\mathbf{C}$.
 
-We can estimate the system matrix $\Photopic$ from the color-matches in the same way as we estimated the scotopic system matrix: by setting matches to a collection of monochromatic test lights with unit intensity. Since the vector representing a monochromatic test light is zero at each entry but one, the product of the system matrix and the monochromatic test light vector equals a single column of the system matrix. Thus, by matching a series of unit intensity monochromatic lights, we can define each of the columns of the system matrix, $\Photopic$.
+We can estimate the system matrix $\mathbf{C}$ from the color-matches in the same way as we estimated the scotopic system matrix: by setting matches to a collection of monochromatic test lights with unit intensity. Since the vector representing a monochromatic test light is zero at each entry but one, the product of the system matrix and the monochromatic test light vector equals a single column of the system matrix. Thus, by matching a series of unit intensity monochromatic lights, we can define each of the columns of the system matrix, $\mathbf{C}$.
 
 It is also useful to think of the system matrix in terms of its rows, which are called the  *color-matching functions*. Each row of the matrix defines the intensity of a single primary light that was set to match the monochromatic test lights. We will relate the rows of the photopic system matrix to the properties of the cone photopigments just as we related the single row of the scotopic system matrix to the rhodopsin photopigment. However, to make the connection between the cone photopigments and the color-matching functions will require a little more work.
 
@@ -172,30 +171,30 @@ The color-matching functions are extremely important in color technology, such a
 
 Suppose two research groups measure the color-matching functions using different sets of primary lights. One group measures the color-matching functions using three primary lights $\mathbf{p}_{i}$, while the second group uses a different set of primary lights, $\mathbf{p}_{i}'$. How will the two sets of color matching functions be related?
 
-We can answer this question by the following thought experiment. First, create a matrix whose columns contain the spectral power distributions of the first group’s primary lights, and call this matrix $\Primarymat$. The spectral power distribution of a mixture of the primaries, with primary intensities $\mathbf{e}$, is the weighted sum of the columns. We can express this mixture using the matrix product $\Primarymat \mathbf{e}$. Now, we can use the color-matching functions to predict when a test light will match the mixture of three primaries. The test and primaries will match when
+We can answer this question by the following thought experiment. First, create a matrix whose columns contain the spectral power distributions of the first group’s primary lights, and call this matrix $\mathbf{P}$. The spectral power distribution of a mixture of the primaries, with primary intensities $\mathbf{e}$, is the weighted sum of the columns. We can express this mixture using the matrix product $\mathbf{P} \mathbf{e}$. Now, we can use the color-matching functions to predict when a test light will match the mixture of three primaries. The test and primaries will match when
 
 <a name="id193940126"></a>
 
 $$
-\Photopic \mathbf{t} = \Photopic \Primarymat \mathbf{e}
+\mathbf{C} \mathbf{t} = \mathbf{C} \mathbf{P} \mathbf{e}
 $$
 
-Suppose the second group of researchers can also established matches to this test light using their primaries. To describe their measurements, we create a second matrix whose columns contain the spectral power distributions of the second group’s primary lights, $\Primarymat'$. Call the primary intensities used to match the test with the second primaries $\mathbf{e}'$. Since the light $\Primarymat' \mathbf{e}'$ is a visual matched to the test light, we know that
+Suppose the second group of researchers can also established matches to this test light using their primaries. To describe their measurements, we create a second matrix whose columns contain the spectral power distributions of the second group’s primary lights, $\mathbf{P}'$. Call the primary intensities used to match the test with the second primaries $\mathbf{e}'$. Since the light $\mathbf{P}' \mathbf{e}'$ is a visual matched to the test light, we know that
 
 $$
-\Photopic \mathbf{t} = \Photopic \Primarymat' \mathbf{e}'
+\mathbf{C} \mathbf{t} = \mathbf{C} \mathbf{P}' \mathbf{e}'
 $$ {#eq-photopic-match2}
 
 By combining Equations~\@ref(eq-photopic-match) and \@ref(eq-photopic-match2), we find that the two vectors of primary intensities, $\mathbf{e}$ and $\mathbf{e}'$, are related by a linear transformation,
 
 $$
-\mathbf{e} = (\Photopic \Primarymat )^{-1}\Photopic \Primarymat' \mathbf{e}'
+\mathbf{e} = (\mathbf{C} \mathbf{P} )^{-1}\mathbf{C} \mathbf{P}' \mathbf{e}'
 $$ {#eq-photopic-transform}
 
 With a little more algebra, one can show that the color-matching functions are related by the following linear transformation:
 
 $$
-\Photopic = ( \Photopic \Primarymat' ) \Photopic'
+\mathbf{C} = ( \mathbf{C} \mathbf{P}') \mathbf{C}'
 $$ {#eq-photopic-transform2}
 
 ...
@@ -203,13 +202,13 @@ $$ {#eq-photopic-transform2}
 When we set a match between the peak photocurrent from the test light and the primary light, we establish an equation of the form
 
 $$
-F( \Rhodopsin \mathbf{t}) = F( a \Rhodopsin \mathbf{p} )
+F( \mathbf{A} \mathbf{t}) = F( a \mathbf{A} \mathbf{p} )
 $$ {#eq-static-nonlinearity}
 
 where $a$ is the intensity of the primary light needed to match the test light. Since the nonlinear function $F$ is monotonic, we can remove it from both sides of the Equation and write
 
 $$
-\Rhodopsin \mathbf{t} = a \Rhodopsin \mathbf{p}
+\mathbf{A} \mathbf{t} = a \mathbf{A} \mathbf{p}
 $$ {#eq-static-nonlinearity-linear}
 
 ...
@@ -217,11 +216,11 @@ $$ {#eq-static-nonlinearity-linear}
 We predict that two lights $\mathbf{t}$ and $\mathbf{t}'$ will be a visual match when they have equivalent effects on the cone photopigments. Thus, two lights will be metamers when
 
 $$
-\Iodopsin \mathbf{t} = \Iodopsin \mathbf{t}'
+\mathbf{B} \mathbf{t} = \mathbf{B} \mathbf{t}'
 $$ {#eq-cone-metamers}
 
-It follows that the cone absorption matrix $\Iodopsin$ is a system matrix for the color-matching experiment. This is precisely what we mean when we say that the cone photopigments can explain the color-matching experiment. Earlier in this chapter, we showed that the color-matching functions are all related by a $3 \times 3$ linear transformation. Thus, there should be a linear transformation, say $\mathbf{Q}$, that maps the cone absorption curves to the system matrix of the color-matching experiment, namely
+It follows that the cone absorption matrix $\mathbf{B}$ is a system matrix for the color-matching experiment. This is precisely what we mean when we say that the cone photopigments can explain the color-matching experiment. Earlier in this chapter, we showed that the color-matching functions are all related by a $3 \times 3$ linear transformation. Thus, there should be a linear transformation, say $\mathbf{Q}$, that maps the cone absorption curves to the system matrix of the color-matching experiment, namely
 
 $$
-\Photopic = \mathbf{Q} \Iodopsin
+\mathbf{C} = \mathbf{Q} \mathbf{B}
 $$ {#eq-cone-to-photopic}
