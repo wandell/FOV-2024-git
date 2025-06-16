@@ -144,20 +144,21 @@ Two important caveats arise when we measure the color-matching functions. These 
 The first issue concerns the selection primary lights. We should chose lights that are visually  *independent*: that is, no additive mixture of two of the primary lights should be a visual match to the third primary. This is an obvious but important constraint: it would be unreasonable to choose the second primary light that looked the same as the first except for an intensity scale factor. This choice would be foolish since we could always replace the second light by an intensity-scaled version of the first primary light, adding nothing to the range of visual matches we can obtain. Similarly, a primary that can be matched by a mixture of the first two adds nothing. We must choose our primary lights so that they are independent of one another.
 
 Even among collections of primary lights that are independent, some are more convenient than others. Empirically, it turns out that no matter which primary lights we choose, there will always be some test lights that cannot be matched by an additive mixture of the three primaries. To match these test lights, we must move one or even two of the primary lights from the matching side of the bipartite field to the test side of the bipartite field. Thus, ordinarily we obtain a visual matches of the form
-
-<span class="ql-right-eqno"> (2) </span><span class="ql-left-eqno"> </span>![\begin{equation*} \mathbf{t} = e{1} \mathbf{p}_{1} + e{2} \mathbf{p}_{2} + e{3} \mathbf{p}_3 . \end{equation*}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-e4c4f4742ed6bf983d4840b316e3b05e_l3.png "Rendered by QuickLaTeX.com")
+$$
+\mathbf{t} = e_1 \mathbf{p}_1 + e_2 \mathbf{p}_2 + e_3 \mathbf{p}_3 .
+$${#eq-cmatch1}
 
 Shifting one of the primaries to the other side of the bipartite field means that our match has the form
 
-<a name="id3033203929"></a>
+$$
+\mathbf{t} + e_1 \mathbf{p}_1 = e_2 \mathbf{p}_2 + e_3 \mathbf{p}_3 .
+$$ {#eq-cmatch2}
 
-<span class="ql-right-eqno"> (3) </span><span class="ql-left-eqno"> </span>![\begin{equation*} \mathbf{t} + e{1} \mathbf{p}_{1} = e{2} \mathbf{p}_{2} + e{3} \mathbf{p}_3 . \end{equation*}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-b0417b8d074dc68a23919dd9b25ee3d3_l3.png "Rendered by QuickLaTeX.com")
+To a mathematician, Equation (3) is the same as
 
-To a mathematician Equation~[3](#id3033203929), is the same as
-
-<a name="id1308770711"></a>
-
-<span class="ql-right-eqno"> (4) </span><span class="ql-left-eqno"> </span>![\begin{equation*} \mathbf{t} = - e{1} \mathbf{p}_1 + e{2} \mathbf{p}_2 + e{3} \mathbf{p}_3 . \end{equation*}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-0740772b6d77482177da3499654bda78_l3.png "Rendered by QuickLaTeX.com")
+$$
+\mathbf{t} = - e_1 \mathbf{p}_1 + e_2 \mathbf{p}_2 + e_3 \mathbf{p}_3 .
+$${#eq-cmatch3}
 
 Hence, when we encode the intensity of the primary light that has been shifted to the other side of the test field we denote the match using a negative intensity value\footnote{ Changing the sign of the primary intensity is a trivial matter for the theorist. It is a nuisance in the laboratory, however, and usually impossible in technological applications such as color displays. Thus, the issue of selecting primaries to minimize the number of times we must make this adjustment is of great practical interest.}.
 
