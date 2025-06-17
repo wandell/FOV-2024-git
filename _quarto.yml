@@ -41,12 +41,25 @@ crossref:
   tbl-prefix: "Table"
   sec-prefix: "Section"
   
+#  I am unsure about these formatting commands for the document.  Experimental.
 format:
   html:
     theme: cosmo
-    
-  # pdf:
- #   documentclass: scrreprt
+    math: 
+      number-sections: true
+  pdf:
+    documentclass: scrreprt
+    toc: true
+    toc-title: "Contents"
+    toc-number-sections: true
+    toc-number-depth: 2
+    fig-caption: true
+    number-sections: true
+    number-depth: 2
+    math:
+      number-equations: true
+
+
 
 
 
