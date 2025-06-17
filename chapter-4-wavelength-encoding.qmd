@@ -15,6 +15,8 @@ At the bottom of the sketch Newton illustrated that the decomposition is reversi
 
 From the second experiment, he concluded that passage through the prism had not destroyed, but merely revealed, the character of the light.
 
+## Measuring the Spectral Composition of Light
+
 We now know that Newton succeeded in decomposing the sunlight into its *spectral* components, each with its own characteristic wavelength. The prism separates the rays because the prism bends each wavelength of light by a different amount. (See the section on Snell’s law in [Chapter 3](/chapter-3-the-photoreceptor-mosaic/)). When we see the spectral components separately, they each have a different color appearance. Light with relatively long wavelengths appears red when viewed against a dark background. Light with relatively short wavelengths appears blue when viewed against a dark background. Shorter wavelengths of light are refracted more strongly than longer wavelengths. A spectral light, with energy only at a single wavelength, is also called a *monochromatic light*.
 
 ![A spectroradiometer is used to measure the spectral power distribution of light. (a) A schematic design of a spectroradiometer includes a means for separating the input light into its different wavelengths and a detector for measuring the energy at each of the separate wavelengths. (b) The color names associated with the appearance of lights at a variety of wavelengths are shown (After Wyszecki and Stiles, 1982).](/wp-content/uploads/2012/02/spectroradiometer.png){#fig-spectroradiometer width="80%"}
