@@ -53,6 +53,7 @@ format:
     mathjax: "local"
     math: 
       number-sections: true
+      number-equations: true
   pdf:
     documentclass: scrreprt
     toc: true

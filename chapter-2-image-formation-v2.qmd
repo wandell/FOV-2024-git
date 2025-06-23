@@ -2,7 +2,9 @@
 
 The cornea and lens are the interface between the physical world of light and the visual encoding. The cornea and lens bring light into focus at the light sensitive receptors in the retina. These cells initiate a series of visual events that result in our visual experience.
 
-The initial encoding of light at the retina is but the first in a series of visual transformations: The stimulus incident at the cornea is transformed into an image at the retina. The retinal image is transformed into a neural response by the light sensitive elements of the eye, the photoreceptors. The photoreceptor responses are transformed to a neural response on the optic nerve. The optic nerve representation is transformed into a cortical representation, and so forth. We can describe most of our understanding of these transformations, and thus most of our understanding of the early encoding of light by the visual pathways by using linear systems theory. Because all of our visual experience is limited by the image formation within our eye, we begin by describing this transformation of the light signal and we will use this analysis as an introduction to linear methods.
+The initial encoding of light at the retina is but the first in a series of visual transformations: The stimulus incident at the cornea is transformed into an image at the retina. The retinal image is transformed into a neural response by the light sensitive elements of the eye, the photoreceptors. The photoreceptor responses are transformed to a neural response on the optic nerve. The optic nerve representation is transformed into a cortical representation, and so forth. We can approximate certain important aspects of these transformations, and thus an approximation of the early encoding of light by the visual pathways, using linear systems theory. Because all of our visual experience is limited by the image formation within our eye, we begin by describing this transformation of the light signal and we will use this analysis as an introduction to linear methods.
+
+For many years, human optics were characterized using classical experimental methods based on lenses, beam splitters, and mirrors - and those methods are the focus of the first edition of this book. Since the late 1990s an important new set of experimental technologies,  based on **adaptive optics**, has enabled much better measurements of the properties of eye.  These methods are also being used to make entirely new measurements of the cells in the retina, and they are used to deliver precisely defined stimuli to the retina for perceptual measurements. We describe the adaptive optics technology in a new section (@sec-adaptive-optics), and we update the measurements of the optical quality of the eye (@sec-optical-quality).
 
 ## Studying reflections from the eye {#sec-optical-components}
 
@@ -36,7 +38,7 @@ What part of the eye reflects the image? In @fig-imgfor-retinalcross we see a cr
 
 ![Experimental measurements of light that has been reflected from a human eye looking at a fine line. The reflected light has been blurred by double passage through the optics of the eye. (Source: Campbell and Gubisch, 1966).](/wp-content/uploads/2012/02/cg.data_.png){#fig-imgfor-cg-data width="60%"}
 
-## Linear Systems Methods
+## Linear Systems Methods {#sec-linear-systems}
 
 A good theoretical account of a transformation, such as the mapping from monitor image to retinal image, should have two important features. First, the theoretical account should suggest to us which measurements we should make to characterize the transformation fully. Second, the theoretical account should tell us how to use these measurements to predict the retinal image distribution for all other monitor images.
 
@@ -157,7 +159,7 @@ This is very important advice. Quantitative scientific theories are attempts to 
 
 To explain a system, we need to understand the general organizational principles concerning the system parts and how the system works in relationship to other systems. Achieving such an explanation is a creative act that goes beyond simple characterization of the input and output relationships. But, any explanation must begin with a good characterization of the processing the system performs.
 
-## Shift-Invariant Linear Transformations {#sec-ShiftInvariantLinearTransformations}
+## Shift-Invariant Linear Transformations {#sec-shift-invariant}
 
 ### Shift-Invariant Systems: Definition {#sec-si-Definition}
 
@@ -200,7 +202,15 @@ $$
 s_f \sin(\frac{2 \pi f i}{N})
 $$
 
-## The Optical Quality of the Eye {#sec-imgfor-opticalquality}
+
+## Adaptive optics {#sec-adaptive-optics}
+
+New figures and text here describing the instrumentation and its principles.
+
+
+## The Optical Quality of the Eye {#sec-optical-quality}
+
+<!-- Update this section with the newer measurements -->
 
 We are now ready to correct the measurements for the effects of double passage through the optics of the eye. To make the method easy to understand, we will analyze how to do the correction by first making the assumption that the optics introduce no phase shift into the retinal image; this means, for example, that a cosinusoidal stimulus creates a cosinusoidal retinal image, scaled in amplitude. It is not necessary to assume that there is no phase shift but the assumption is reasonable and the main principles of the analysis are easier to see if we assume there is no phase shift.
 
