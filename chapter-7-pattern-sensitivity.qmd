@@ -8,7 +8,7 @@ Second, many authors believe that threshold and discrimination tasks can play a 
 
 I am not sure whether this rationale in terms of visual mechanisms adequately justifies the startling emphasis on threshold measurements. But, I think it is plain that by now we have learned a lot from detection and discrimination experiments (DeValois and DeValois, 1988; Graham, 1989). Many of the basic ideas used in image representation and computer vision were derived from the work on detection and discrimination of spatial patterns. This chapter is devoted to an exposition of some of those experiments and ideas. In In @sec-motion-depth and @sec-seeing we will take up the question of what things look like.
 
-## A Single Resolution Theory
+## Single Resolution Theory
 
 The problem of predicting human sensitivity to spatial contrast patterns has much in common with other problems we have studied: image formation, color-matching, or single unit neurophysiological responses. We want to make a small number of measurements, say sensitivity to a small number of spatial contrast patterns, and then use these measurements to predict sensitivity to all other spatial contrast patterns.
 
