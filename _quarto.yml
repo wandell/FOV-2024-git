@@ -29,7 +29,7 @@ book:
     - references.qmd
     - appendix.qmd
 
-bibliography: references.bib
+bibliography: paperpile.bib
 
 crossref:
   chapters: true
