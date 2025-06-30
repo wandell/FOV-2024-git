@@ -27,11 +27,7 @@ book:
        - chapter-10-motion-and-depth.qmd
        - chapter-11-seeing.qmd
     - references.qmd
-    - part: "Appendix"
-      chapters:
-       - appendix.qmd
-       - computational-examples.qmd
-       - online-teaching-resources.qmd
+    - appendix.qmd
 
 bibliography: references.bib
 
