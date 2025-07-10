@@ -1,6 +1,6 @@
 ![](front-isetbio-notext.png){fig-align="center" width="80%"}
 
-# Preface {.unnumbered}
+# How to study vision 
 
 While writing the first edition of this book, I was inspired by the breadth and vibrancy of vision science, writing: “Vision scientists solve problems across the fields of biology, psychology, and engineering. Our field takes on problems ranging from the nature of consciousness to the hurry-up-and-ship-it applications needed to keep a company afloat. The book is filled with measurements and facts; but, my main goal in writing this book has been to explain how we learned these facts and how they support a collection of theories that explain what we see.” I remain inspired and committed to this broad view of vision science.
 

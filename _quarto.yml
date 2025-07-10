@@ -2,7 +2,7 @@ project:
   type: book
 
 book:
-  title: "Foundations of Vision (2nd Edition)"
+  title: "Foundations of Vision (Version 1.1)"
   author: "Brian Wandell"
   date: "10/26/2024"
   chapters:
@@ -27,13 +27,9 @@ book:
        - chapter-10-motion-and-depth.qmd
        - chapter-11-seeing.qmd
     - references.qmd
-    - part: "Appendix"
-      chapters:
-       - appendix.qmd
-       - computational-examples.qmd
-       - online-teaching-resources.qmd
+    - appendix.qmd
 
-bibliography: references.bib
+bibliography: paperpile.bib
 
 crossref:
   chapters: true
