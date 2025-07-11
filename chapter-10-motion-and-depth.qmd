@@ -201,7 +201,8 @@ Adelson and Movshon (1982) described a set of measurements in which they evaluat
 
 > <small><sup>5</sup> The superposition of two gratings at different orientations looks like a plaid, so this design is often called a *motion plaid experiment.*</small>
 > 
-![Description of a random dot kinematogram. Suppose that an observer views a random collection of dots, and that each dot is moving as if it is attached to the surface of a transparent cylinder. Observers perceive the surface of an implicit rotating cylinder, even though there is no shading or edge information in the image. Because the cylinder is transparent, dots move in both directions in each local region of the image. The dots are perceived as being attached to the near or far surface consistent with their direction of motion.](/wp-content/uploads/2012/02/rdk.png){width="70%" #fig-random-dot-kinematogram}
+
+![Description of a random dot kinematogram. Suppose that an observer views a random collection of dots, and that each dot is moving as if it is attached to the surface of a transparent cylinder. Observers perceive the surface of an implicit rotating cylinder, even though there is no shading or edge information in the image. Because the cylinder is transparent, dots move in both directions in each local region of the image. The dots are perceived as being attached to the near or far surface consistent with their direction of motion.](/wp-content/uploads/2012/02/rdk.png){width="50%" #fig-random-dot-kinematogram}
 
 The behavioral experiments show that calculations like the intersection-of-constraints are helpful in some cases. But, even in these simple mixture experiments observers see objects and surfaces, concepts that are not represented in the motion computations, are important elements of human motion perception. A second way to see the close relationship between motion an surfaces is through a visual demonstration, described in Figure 10.12, called a *random dot kinematogram*.
 
