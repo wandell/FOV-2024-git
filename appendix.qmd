@@ -12,7 +12,7 @@ Many of the ideas in this book rely on properties of shift-invariant linear syst
 
 Shift-invariance is a system property that can be verified by experimental measurement. For example, in [Chapter 2](/chapter-2-image-formation/) I described how to check whether the optics of the eye is shift-invariant by the following measurements. Image a line through the optics onto the retina, and measure the linespread function. Then, shift the line to a new position, forming a new retinal image. Compare the new image with the original. If the images have the same shape, differing only by a shift in position, then the optics is shift-invariant over the measured range.
 
-We can express the empirical property of shift-invariance using the following mathematical notation. Choose a stimulus, $\pixveci{i}$ and measure the system response, $\resveci{i}$. Now, shift the stimulus by an amount $j$ and measure again. If the response is shifted by $j$ as well, then the system may be shift-invariant. Try this experiment for many values of the shift parameter, $j$. If the experiment succeeds for all shifts, then the system is shift-invariant.
+We can express the empirical property of shift-invariance using the following mathematical notation. Choose a stimulus, $\mathbf{p}i{i}$ and measure the system response, $\resveci{i}$. Now, shift the stimulus by an amount $j$ and measure again. If the response is shifted by $j$ as well, then the system may be shift-invariant. Try this experiment for many values of the shift parameter, $j$. If the experiment succeeds for all shifts, then the system is shift-invariant.
 
 If you think about this definition as an experimentalist, you can see that there are some technical problems in making the measurements needed to verify shift-invariance. Suppose that the original stimulus and response are represented at $N$ distinct points, $i = 1, \ldots, N$. If we shift the stimulus three locations so that now the fourth location contains the first entry, the fifth the second, and so forth, how do we fill in the first three locations in the new stimulus? And, what do we do with the last three values, $N-2, N-1, N$, which have nowhere to go?
 
@@ -20,16 +20,16 @@ Theorists avoid this problem by treating the real observations as if they are pa
 
 The assumption that the measurements are part of an infinite and periodic sequence permits the theorist to avoid the experimentalist’s practical problem. The assumption is also essential for obtaining several of the simple closed-form results concerning the properties of shift-invariant systems. The assumption is not consistent with real measurements since real measurements cannot be made using infinite stimuli: there is always a beginning and an end to any real experiment. As an experimentalist you must always be aware that many theoretical calculations using shift-invariant methods are not valid near the boundaries of data sets, such as near the edge of an image.
 
-Suppose we refer to the finite input as, $\\pixvec$, and the measured output, $\\lspread$, is finite. In the theoretical analysis we extend both of these functions to be infinite and periodic. We will use a hat symbol to denote the extended functions,
+Suppose we refer to the finite input as, $\mathbf{p}$, and the measured output, $\mathbf{l}$, is finite. In the theoretical analysis we extend both of these functions to be infinite and periodic. We will use a hat symbol to denote the extended functions,
 
 $$
-\\lspreadhati{i+N} = \\lspreadi{i} ~~~\\mbox{and}~~~ \\pixvechati{i+N}=\\pixveci{i} .
+\hat{l}_{i+N} = {l}_{i} ~~~\mbox{and}~~~ \hat{p}_{i+N}={p}_{i} .
 $$ {#eq-periodic-extensions}
 
-The extended functions $\\lspreadhat{}$ and $\\pixvechat$ agree with our measurements over the measurement range from $1, \\ldots, N$. By the periodicity assumption, the values outside of the measurement range are filled in by looking at the values within the measurement range. For example,
+The extended functions $\hat{\mathbf{l}}$ and $\hat{\mathbf{p}}$ agree with our measurements over the measurement range from $1, \ldots, N$. By the periodicity assumption, the values outside of the measurement range are filled in by looking at the values within the measurement range. For example,
 
 $$
-(\\ldots, \\lspreadhati{-1} = \\lspreadhati{N-1}, ~\\lspreadhati{0} = \\lspreadhati{N}, ~\\lspreadhati{1}, \\ldots, \\lspreadhati{N},~ \\lspreadhati{N+1} = \\lspreadhati{1}, \\ldots ) .
+(\ldots, \hat{l}_{-1} = \hat{l}_{N-1}, ~\hat{l}_{0} = \hat{l}_{N}, ~\hat{l}_{1}, \ldots, \hat{l}_{N},~ \hat{l}_{N+1} = \hat{l}_{1}, \ldots ) .
 $$ {#eq-periodic-example}
 
 
@@ -39,35 +39,35 @@ Next, we derive some of the properties of linear shift-invariant systems. We beg
 
 > <sup>2 </sup><small>Since we use only cyclic convolution here, I will drop the word “cyclic” and refer to the formula simply as convolution. This is slightly abusive, but conforms to common practice in many fields.</small>
 
-In [Chapter 2](/chapter-2-image-formation/) I reviewed how to measure the system matrix of an optical system for one-dimensional input stimuli. We measure the image resulting from a single line at a series of uniformly spaced input locations. If the system is shift-invariant, then the columns of the system matrix are shifted copies of one another (except for edge artifacts). To create the system matrix, we extend the inputs and outputs to be periodic functions (Equation~[1](#id380689075)). Then, we select a central block of size $N \times N$ to be the system matrix and we use the corresponding entries of the extended stimulus. For example, if the input stimulus consists of six values, $\pixvec = (0,0,0,1,0,0)$, and the response to this stimulus is the vector, $\lspread = (0.0,0.3,0.6,0.2,0.1,0.0)$, then the $6 \times 6$ system matrix is
+In [Chapter 2](/chapter-2-image-formation/) I reviewed how to measure the system matrix of an optical system for one-dimensional input stimuli. We measure the image resulting from a single line at a series of uniformly spaced input locations. If the system is shift-invariant, then the columns of the system matrix are shifted copies of one another (except for edge artifacts). To create the system matrix, we extend the inputs and outputs to be periodic functions (Equation~[1](#id380689075)). Then, we select a central block of size $N \times N$ to be the system matrix and we use the corresponding entries of the extended stimulus. For example, if the input stimulus consists of six values, $\mathbf{p} = (0,0,0,1,0,0)$, and the response to this stimulus is the vector, $\mathbf{l} = (0.0,0.3,0.6,0.2,0.1,0.0)$, then the $6 \times 6$ system matrix is
 
 $$
-\Cyclichat = \left ( \begin{array}{cccccc} 0.2 & 0.6 & 0.3 & 0.0 & 0.0 & 0.1 \\ 0.1 & 0.2 & 0.6 & 0.3 & 0.0 & 0.0 \\ 0.0 & 0.1 & 0.2 & 0.6 & 0.3 & 0.0 \\ 0.0 & 0.0 & 0.1 & 0.2 & 0.6 & 0.3 \\ 0.3 & 0.0 & 0.0 & 0.1 & 0.2 & 0.6 \\ 0.6 & 0.3 & 0.0 & 0.0 & 0.1 & 0.2 \end{array} \right) .
+\hat{\mathbf{C}} = \left ( \begin{array}{cccccc} 0.2 & 0.6 & 0.3 & 0.0 & 0.0 & 0.1 \\ 0.1 & 0.2 & 0.6 & 0.3 & 0.0 & 0.0 \\ 0.0 & 0.1 & 0.2 & 0.6 & 0.3 & 0.0 \\ 0.0 & 0.0 & 0.1 & 0.2 & 0.6 & 0.3 \\ 0.3 & 0.0 & 0.0 & 0.1 & 0.2 & 0.6 \\ 0.6 & 0.3 & 0.0 & 0.0 & 0.1 & 0.2 \end{array} \right) .
 $$ {#eq-cyclic-matrix}
 
 For a general linear system, we calculate the output using the summation formula for matrix multiplication in Equation~??,
 
 $$
-\resvechati{i} = \sumoneNj \Cyclichati{ij} \pixvechati{j} ~~.
+\hat{r}_{i} = \sum_{j=1}^N \hat{\mathbf{C}}_{ij} \hat{p}_{j} ~~.
 $$ {#eq-matrix-mult}
 
 When the linear system is shift-invariant system, this summation formula simplifies for two reasons. First, because of the assumed periodicity, the summation is precisely the same when we sum over any $N$ consecutive integers. It is useful to incorporate this generalization into the summation formula as
 
 $$
-\resvechati{i} = \sumoverNj \Cyclichati{ij} \pixvechati{j} ~~~,
+\hat{r}_{i} = \sum_{j=<N>} \hat{\mathbf{C}}_{ij} \hat{p}_{j} ~~~,
 $$ {#eq-cyclic-sum}
 
 
 where the notation $j = \langle N \rangle$ means that summation can take place over any $N$ consecutive integers. Second, notice that for whichever $N \times N$ block of values we choose, the typical entry of the system matrix will be
 
 $$
-\Cyclichati{ij} = \lspreadhati{i-j} .
+\hat{\mathbf{C}}_{ij} = \hat{l}_{i-j} .
 $$ {#eq-cyclic-entry}
 
 We can use this relationship to simplify the summation further,
 
 $$
-\resvechati{i} = \sumoverNj \lspreadhati{i-j} \pixvechati{j} ~~.
+\hat{r}_{i} = \sum_{j=<N>} \hat{l}_{i-j} \hat{p}_{j} ~~.
 $$ {#eq-cyclic-convolution}
 
 In this form, we see that the response depends only on the input and the linespread. The summation formula in Equation~[6](#eq-cyclic-convolution) is called *cyclic convolution*. Hence, we have shown that to compute the response of a shift-invariant linear system to any stimulus, we need measure only the linespread function.
@@ -84,7 +84,7 @@ Beginning with our analysis of optics in [Chapter 2](/chapter-2-image-formation/
 We can derive this result from the convolution formula. Define a new variable, $k=i-j$, and substitute $k$ into Equation~[6](#id2513666426). Remember that the summation can take place over any adjacent $N$ values. Hence, the substitution yields a modified convolution formula,
 
 $$
-\resvechati{i} = \sumoverNk \lspreadhati{k} \pixvechati{ {i - k} }
+\hat{r}_{i} = \sum_{k=<N>} \hat{l}_{k} \hat{p}_{ {i - k} }
 $$ {#eq-convolution-shift}
 
 Next, we use the convolution formula in Equation~[7](#eq-convolution-shift) to compute the response to a sinusoidal input $\SfNj$. From trigonometry we have that
@@ -97,21 +97,21 @@ $$ {#eq-sin-angle-sum}
 Substitute Equation~[8](#eq-sin-angle-sum) into Equation~[7](#eq-convolution-shift), remembering that $\sin (-k) = - \sin (k)$ and $\cos (-k) = \cos (k)$.
 
 $$
-\resvechati{i} = \sumoverNk \lspreadhati{k} \SfNi \CfNk + \sumoverNk \lspreadhati{k} \SfnNk \CfNi \nonumber \\
-= \SfNi \sumoverNk \lspreadhati{k} \CfNk - \CfNi \sumoverNk \lspreadhati{k} \SfNk
+\hat{r}_{i} = \sum_{k=<N>} \hat{l}_{k} \SfNi \CfNk + \sum_{k=<N>} \hat{l}_{k} \SfnNk \CfNi \nonumber \\
+= \SfNi \sum_{k=<N>} \hat{l}_{k} \CfNk - \CfNi \sum_{k=<N>} \hat{l}_{k} \SfNk
 $$ {#eq-sinusoid-response}
 
 We can simplify this expression to the form
 
 $$
-\resvechati{i} = a~\SfNi - b~\CfNi
+\hat{r}_{i} = a~\SfNi - b~\CfNi
 $$ {#eq-sinusoid-output}
 
 where
 
 $$
-a = \sumoverNk \lspreadhati{k} \CfNk \nonumber \\
-b = \sumoverNk \lspreadhati{k} \SfNk \nonumber
+a = \sum_{k=<N>} \hat{l}_{k} \CfNk \nonumber \\
+b = \sum_{k=<N>} \hat{l}_{k} \SfNk \nonumber
 $$ {#eq-sinusoid-coeffs}
 
 We have shown that when the input to the system is a sinusoidal function at frequency $f$, the output of the system is the weighted sum of a sinusoid and a cosinusoid, both at frequency $f$. This is equivalent to showing that when the input is a sinusoid at frequency $f$, the output will be a scaled and shifted copy of the input, $s_f \sin (\pfiN + \phi_f )$ (see Equation~??). As we shall see below, it is easy to generalize this result to all harmonic functions.
@@ -120,22 +120,22 @@ We have shown that when the input to the system is a sinusoidal function at freq
 
 In general, when we measure the response of a shift-invariant linear system we measure $N$ output values. When the input is a sinusoid, or more generally a harmonic, we can specify the response using only the two numbers, $a$ and $b$, in Equation~[10](#id3539455567). We would like to take advantage of this special property of shift-invariant systems. To do so, we need a method of representing input stimuli as the weighted sum of harmonic functions.
 
-The method used to transform a stimulus into the weighted sum of harmonic functions is called the *Discrete Fourier Transform* (DFT). The representation of the stimulus as the weighted sum of harmonic functions is called the *Discrete Fourier Series* (DFS). We use the DFS to represent an extended stimulus, $\hat{\pixvec}$.
+The method used to transform a stimulus into the weighted sum of harmonic functions is called the *Discrete Fourier Transform* (DFT). The representation of the stimulus as the weighted sum of harmonic functions is called the *Discrete Fourier Series* (DFS). We use the DFS to represent an extended stimulus, $\hat{\mathbf{p}}$.
 
 $$
-\hat{\pixvec}_i = \sum_{f=0}^{N-1} a_f \CfNi + b_f \SfNi ~~.
+\hat{\mathbf{p}}_i = \sum_{f=0}^{N-1} a_f \CfNi + b_f \SfNi ~~.
 $$ {#eq-dfs-representation}
 
-We are interested in that part of the extended stimulus that coincides with our measurements. We can express the relationship between the harmonic functions and the original stimulus, $\pixvec$, using a matrix equation
+We are interested in that part of the extended stimulus that coincides with our measurements. We can express the relationship between the harmonic functions and the original stimulus, $\mathbf{p}$, using a matrix equation
 
 $$
-\pixvec = \matCos \vect{a} + \matSin \vect{b}
+\mathbf{p} = \matCos \vect{a} + \matSin \vect{b}
 $$ {#eq-dfs-matrix}
 
 which has the matrix tableau form
 
 $$
-\left ( \begin{array}{c} ~ \\ \pixvec \\ ~ \end{array} \right ) = 
+\left ( \begin{array}{c} ~ \\ \mathbf{p} \\ ~ \end{array} \right ) = 
 \left ( \begin{array}{ccc} ~ & ~ & ~ \\ ~ & \matCos & ~\\ ~ & ~ & ~ \end{array} \right ) 
 \left ( \begin{array}{c} ~ \\ \vect{a} \\ ~ \end{array} \right ) + 
 \left ( \begin{array}{ccc} ~ & ~ & ~ \\ ~ & \matSin & ~\\ ~ & ~ & ~ \end{array} \right ) 
@@ -144,7 +144,7 @@ $$ {#eq-dfs-tableau}
 
 The vectors $\vect{a}$ and $\vect{b}$ contain the coefficients $a_f$ and $b_f$, respectively. The columns of the matrices $\matCos$ and $\matSin$ contain the relevant portions of the cosinusoidal and sinusoidal terms, $\CfNi$ and $\SfNi$, that are used in the DFS representation.
 
-The DFS represents the original stimulus as the weighted sum of a set of harmonic functions (i.e., sampled sine and cosine functions). We call these sampled harmonic functions the *basis functions* of the DFS representation. The vectors $\vect{a}$ and $\vect{b}$ contain basis functions *weights* or *coefficients* that specify how much of each basis function must be added in to recreate the original stimulus, $\pixvec$.
+The DFS represents the original stimulus as the weighted sum of a set of harmonic functions (i.e., sampled sine and cosine functions). We call these sampled harmonic functions the *basis functions* of the DFS representation. The vectors $\vect{a}$ and $\vect{b}$ contain basis functions *weights* or *coefficients* that specify how much of each basis function must be added in to recreate the original stimulus, $\mathbf{p}$.
 
 
 ### The Discrete Fourier Series: Properties
@@ -153,10 +153,10 @@ The DFS represents the original stimulus as the weighted sum of a set of harmoni
 
 Figure A1.1 shows the sampled sine and cosine functions for a period of $N = 8$. The functions are arrayed in a circle to show how they relate to one another. There are a total of 16 basis functions. But, as you can see from Figure A1.1, they are redundant. The sampled cosinusoids in the columns of $\matCos$ repeat themselves (in reverse order); for example, when $N=8$ the cosinusoids for $f = 1,2,3$ are the same as the cosinusoids for $f= 7,6,5$. The sampled sinusoids in the columns of $\matSin$ also repeat themselves except for a sign reversal (multiplication by negative one). There are only four independent sampled cosinusoids, and four independent sampled sinusoids. As a result of this redundancy, neither the $\matSin$ nor the matrix $\matCos$ is invertible.
 
-Nevertheless, the properties of these harmonic basis functions make it simple to calculate the vectors containing the weights of the harmonic functions from the original stimulus, $\pixvec$. To compute $\vect{a}$ and $\vect{b}$, we multiply the input by the basis functions, as in
+Nevertheless, the properties of these harmonic basis functions make it simple to calculate the vectors containing the weights of the harmonic functions from the original stimulus, $\mathbf{p}$. To compute $\vect{a}$ and $\vect{b}$, we multiply the input by the basis functions, as in
 
 $$
-\vect{a} = \frac{1}{N} \matCos^T \pixvec ~~~\mbox{and}~~~ \vect{b} = \frac{1}{N} \matSin^T \pixvec .
+\vect{a} = \frac{1}{N} \matCos^T \mathbf{p} ~~~\mbox{and}~~~ \vect{b} = \frac{1}{N} \matSin^T \mathbf{p} .
 $$ {#eq-dfs-coefficients}
 
 We can derive the relationship in Equation~[15](#eq-dfs-coefficients) from two observations. First, the matrix sum, $\matr{H} = \matSin + \matCos$ has a simple inverse. The columns of $\matr{H}$ are orthogonal to one another, so that the inverse of $\matr{H}$ is simply [^3].
@@ -176,12 +176,12 @@ $$
 {{\bf I}_{N \times N}} = \matr{H} \left(\frac{1}{N} \matr{H}^T \right) = \frac{1}{N} (\matCos + \matSin) (\matCos + \matSin)^T = \frac{1}{N} (\matCos \matCos^T + \matSin \matSin^T)
 $$ {#eq-dfs-inverse-proof}
 
-where ${\matr{I}_{N \times N}}$ is the identity matrix. Then, multiply both sides of Equation~[16](#eq-dfs-inverse-proof) by $\pixvec$,
+where ${\matr{I}_{N \times N}}$ is the identity matrix. Then, multiply both sides of Equation~[16](#eq-dfs-inverse-proof) by $\mathbf{p}$,
 
 %cn cn’ stim + sn sn’ stim = stim.
 
 $$
-\pixvec = \frac{1}{N} (\matCos \matCos^T \pixvec + \matSin \matSin^T \pixvec )
+\mathbf{p} = \frac{1}{N} (\matCos \matCos^T \mathbf{p} + \matSin \matSin^T \mathbf{p} )
 $$ {#eq-dfs-reconstruction}
 
 Compare Equation~[17](#eq-dfs-reconstruction) and Equation~[13](#eq-dfs-tableau}. Notice that the Equations become identical if we make the assignments in Equation~[15](#eq-dfs-coefficients). This completes the sketch of the proof.
@@ -287,13 +287,13 @@ The light emitted from a CRT is different from lights we encounter in natural sc
 
 In many types of psychophysical experiments, we must be able to specify and control the relative absorption rates in the three types of cones. In this section, I show how to measure and control the relative cone absorptions when the phosphor spectral power distributions and the relative cone photopigment spectral sensitivities are known.
 
-We use two basic matrices in these calculations. We have already created the matrix $\mathbf{M}$ whose three columns contain the spectral power distributions of the phosphors at maximum intensity. We also create a matrix, $\Iodopsin$, whose three columns contain the cone absorption sensitivities ($L$, $M$, and $S$), measured through the cornea and lens (see Table~??.) Given a set of relative intensities, $\mathbf{e}$, we calculate the relative cone photopigment absorption rates, $\lms$ by the matrix product <sup>4</sup>
+We use two basic matrices in these calculations. We have already created the matrix $\mathbf{M}$ whose three columns contain the spectral power distributions of the phosphors at maximum intensity. We also create a matrix, $\mathbf{B}$, whose three columns contain the cone absorption sensitivities ($L$, $M$, and $S$), measured through the cornea and lens (see Table~??.) Given a set of relative intensities, $\mathbf{e}$, we calculate the relative cone photopigment absorption rates, $\mathbf{r}$ by the matrix product <sup>4</sup>
 
 $$
-\lms = \Iodopsin^T \mathbf{M} \mathbf{e} = \Calibration \mathbf{e} .
+\mathbf{r} = \mathbf{B}^T \mathbf{M} \mathbf{e} = \mathbf{H} \mathbf{e} .
 $$ {#eq-calibration-matrix}
 
-We call the matrix $\Calibration = \Iodopsin^T \mathbf{M}$, the monitor’s *calibration matrix.* This matrix relates the linear phosphor intensities to the relative cone absorption rates.
+We call the matrix $\mathbf{H} = \mathbf{B}^T \mathbf{M}$, the monitor’s *calibration matrix.* This matrix relates the linear phosphor intensities to the relative cone absorption rates.
 
 As an example, I have calculated the calibration matrix for the monitor whose phosphor spectral power distributions are shown in Figure A2.3, and for the cone absorption spectra listed in Table~??. The resulting calibration matrix is
 
@@ -312,21 +312,21 @@ Suppose the red phosphor stimulated only the $L$ cones, the green the $M$ cones,
 
 Now, we consider two ways we might use the calibration matrix. First, we might wish to calculate the receptor absorptions to a particular light from the CRT. Second, we might wish to know how to adjust the relative intensities of the CRT in order to achieve a particular pattern of cone absorptions.
 
-Using the methods described so far, you can calculate the relative cone absorption rates for any triplet of frame-buffer entries. Suppose the frame-buffer values are set to $ (128,128,0) $. The pattern will look yellow since only the red and green phosphors are excited. Assuming that the curves relating relative intensity to frame-buffer level are the same for all three phosphors (Figure A2.2), we find that the relative intensities will be $ \mathbf{e} = (0.1524,0.1524,0.0)^T $. The product $ \Calibration \mathbf{e} $ yields the relative cone absorption rates $ \lms =(0.1929, 0.1677, 0.0177)^T $. If we set the frame-buffer to $ (128,128,128) $, which appears gray, the relative intensities are $ (0.1524,0.1524,0.1524) $ and the relative cone absorption rates are $ \lms = (0.2152,0.2001,0.1702)^T $.
+Using the methods described so far, you can calculate the relative cone absorption rates for any triplet of frame-buffer entries. Suppose the frame-buffer values are set to $ (128,128,0) $. The pattern will look yellow since only the red and green phosphors are excited. Assuming that the curves relating relative intensity to frame-buffer level are the same for all three phosphors (Figure A2.2), we find that the relative intensities will be $ \mathbf{e} = (0.1524,0.1524,0.0)^T $. The product $ \mathbf{H} \mathbf{e} $ yields the relative cone absorption rates $ \mathbf{r} =(0.1929, 0.1677, 0.0177)^T $. If we set the frame-buffer to $ (128,128,128) $, which appears gray, the relative intensities are $ (0.1524,0.1524,0.1524) $ and the relative cone absorption rates are $ \mathbf{r} = (0.2152,0.2001,0.1702)^T $.
 
 A second common type of calculation is used in behavioral experiments in which the experimenter wants to create a particular pattern of cone absorptions. To infer the relative display intensities necessary to achieve a desired effect on the cone absorptions, we must use the inverse of the calibration matrix, since
 
 $$
-\mathbf{e} = \Calibration^{-1} \lms .
+\mathbf{e} = \mathbf{H}^{-1} \mathbf{r} .
 $$ {#eq-inverse-calibration}
 
 To continue our example, the inverse of the calibration matrix is
 
 $$
-\Calibration^{-1} = \left ( \begin{array}{ccc} 5.8677 & -5.8795 & 0.3876 \\ -0.6074 & 1.6344 & -0.2579 \\ -0.0049 & -0.1025 & 1.0225 \end{array} \right )
+\mathbf{H}^{-1} = \left ( \begin{array}{ccc} 5.8677 & -5.8795 & 0.3876 \\ -0.6074 & 1.6344 & -0.2579 \\ -0.0049 & -0.1025 & 1.0225 \end{array} \right )
 $$ {#eq-calibration-inverse}
 
-Suppose we wish to display a pair of stimuli that differ only in their effects on the $ S $ cones. Let’s begin with a stimulus whose relative intensities are $ \mathbf{e} = (0.5,0.5,0.5)^T $. Using the calibration matrix, we calculate that the relative cone absorption rates from this stimulus: they are $ (.706, .656, .558) $. Now, let’s create a second stimulus with a slightly higher rate of $ S $ cone absorptions: say, $ \lms = (.706, .656, .700) $. Using the inverse calibration matrix, we can calculate the relative display intensities needed to produce the second stimulus: they are $ (0.555, 0.4634, 0.645) $.
+Suppose we wish to display a pair of stimuli that differ only in their effects on the $ S $ cones. Let’s begin with a stimulus whose relative intensities are $ \mathbf{e} = (0.5,0.5,0.5)^T $. Using the calibration matrix, we calculate that the relative cone absorption rates from this stimulus: they are $ (.706, .656, .558) $. Now, let’s create a second stimulus with a slightly higher rate of $ S $ cone absorptions: say, $ \mathbf{r} = (.706, .656, .700) $. Using the inverse calibration matrix, we can calculate the relative display intensities needed to produce the second stimulus: they are $ (0.555, 0.4634, 0.645) $.
 
 Notice that to create a stimulus difference seen only by the $ S $ cones, we needed to adjust the intensities of all three phosphor emissions. For example, to increase the $ S $ cone absorptions we need to increase the intensity of the blue phosphor emissions. This will also cause some increases in the $ L $ and $ M $ cone absorptions, and we must compensate for this by decreasing the emissions from the red and green phosphors.
 
