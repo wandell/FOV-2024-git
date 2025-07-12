@@ -13,7 +13,7 @@ Land’s paper contained a set of interesting qualitative demonstrations that il
 
 ## Color Constancy: Theory
 
-If the absolute rates of photopigment absorptions don’t explain color appearance, what does? The illusions in Figures~?? and 9.1 both suggest that color appearance is related to the *relative* cone absorption rates. Within an image, bright objects generate more cone absorptions than dark objects; red objects create more $[\Red]$ cone absorptions and blue objects more $[\Blue]$ cone absorptions. Hence, one square in Figure 9.1 appears light because it is associated with more cone absorptions than its neighboring region, while the other appears dark because it is associated with fewer cone absorptions. The relative absorption rate is very closely connected to the idea of the stimulus contrast that has been so important in this book. Color appearance depends more on the local contrast of the cone absorptions than on the absolute level of cone absorptions.
+If the absolute rates of photopigment absorptions don’t explain color appearance, what does? The illusions in Figures~?? and 9.1 both suggest that color appearance is related to the *relative* cone absorption rates. Within an image, bright objects generate more cone absorptions than dark objects; red objects create more $L$ cone absorptions and blue objects more $S$ cone absorptions. Hence, one square in Figure 9.1 appears light because it is associated with more cone absorptions than its neighboring region, while the other appears dark because it is associated with fewer cone absorptions. The relative absorption rate is very closely connected to the idea of the stimulus contrast that has been so important in this book. Color appearance depends more on the local contrast of the cone absorptions than on the absolute level of cone absorptions.
 
 
 The dependence on relative, rather than absolute, absorption rates is a general phenomenon, not something that is restricted to a few textbook illusions. Consider a simple thought experiment that illustrates the generality of the phenomenon. Suppose you read this book indoors. The white part of the page reflects about 90 percent of the light towards your eye, while the black ink reflects only about 2 percent. Hence, if the ambient illumination inside a reading room is 100 units, the white paper reflects 90 units and the black ink 2 units. When you take the book outside, the illumination level can be 100 times greater, or 10,000 units. Outside the black ink reflects 200 units towards your eye, which far exceeds the level of the white paper when you were indoors. Yet, the ink continues to look black. As we walk about the environment, then, we must constantly be inferring the lightness and color of objects by comparing the spatial pattern of cone absorptions~\\footnote{This example was used by Hering (1964).}.
@@ -48,10 +48,10 @@ For many types of materials, interface reflection is not selective for wavelengt
 
 ![The light reflected from objects changes as the illuminant changes. (a) The shaded panel on the left shows the spectral power distributions of a light source similar to a tungsten bulb. The three graphs on the right show the light reflected from the red, green and yellow papers in Figure 9.3 when illuminated by this source. The bar plots above the graphs show the three cone absorption rates caused by the color signal. (b) When the light source is similar to the blue sky, as in the shaded panel on the left, the light reflected from the same papers is quite different. These change considerably, too, and are thus an unreliable cue to the surface reflectance of the object.]( /wp-content/uploads/2012/02/colorSig.png){width="70%" #fig-color-signal}
 
-We can describe the reflection of light by a matte surface with a simple mathematical formula. Suppose that the illuminant spectral power distribution is $ \ill{\lambda} $. We suppose that the body reflectance is $ \surf{\lambda} $. Then the color signal, that is the light arriving at the eye, is
+We can describe the reflection of light by a matte surface with a simple mathematical formula. Suppose that the illuminant spectral power distribution is $ e(\lambda) $. We suppose that the body reflectance is $s(\lambda) $. Then the color signal, that is the light arriving at the eye, is
 
 $$
-\colsig{\lambda} = \surf{\lambda} \ill{\lambda} .
+c(\lambda) = s(\lambda) e(\lambda) .
 $$ {#eq-color-signal}
 
 
@@ -63,16 +63,16 @@ We can calculate the cone absorption rates caused by each of these color signals
 
 There are some very strong limitations on what we can achieve when we set out to estimate surface reflectance from cone absorptions. First, notice that the color signal depends on two spectral functions that are continuous functions of wavelength: the spectral power distribution of the ambient illumination and the surface reflectance function. The light incident at the eye is the product of these two functions. So, any illuminant and surface combination that produces this same light will be indistinguishable to the eye.
 
-One easy mathematical way to see why this is so is to consider the color signal. Recall that the color signal is equal to the product of the illuminant spectral power distribution $ \ill{\lambda} $ and the surface reflectance function $ \surf{\lambda} $,
+One easy mathematical way to see why this is so is to consider the color signal. Recall that the color signal is equal to the product of the illuminant spectral power distribution $ e(\lambda) $ and the surface reflectance function $ s(\lambda) $,
 
 $$
-\colsig{\lambda} = \surf{\lambda} \ill{\lambda} .
+c(\lambda) = s(\lambda) e(\lambda) .
 $$ {#eq-color-signal-example}
 
-Suppose we replace the illuminant with a new illuminant, $ f(\lambda) \ill{\lambda} $ and all of the surfaces with new functions $ \surf{\lambda} / f(\lambda) $. This change has no effect on the color signal,
+Suppose we replace the illuminant with a new illuminant, $ f(\lambda) e(\lambda) $ and all of the surfaces with new functions $ s(\lambda) / f(\lambda) $. This change has no effect on the color signal,
 
 $$
-\colsig{\lambda} = \frac{\surf{\lambda}}{f(\lambda)} f(\lambda) \ill{\lambda} = \surf{\lambda} \ill{\lambda}
+c(\lambda) = \frac{s(\lambda)}{f(\lambda)} f(\lambda) e(\lambda) = s(\lambda) e(\lambda)
 $$ {#eq-color-signal-invariance}
 
 
@@ -102,20 +102,20 @@ Since they were interested in the relative spectral composition, not the absolut
 
 The data plotted in Figure 9.6 show that measured daylight relative spectral power distributions can differ depending on the time of day and the weather conditions. But, after examining many daylight functions, Judd et al. found that the curves do not vary wildly and unpredictably; the data are fairly regular. Judd et al. captured the regularities in the data by building a linear model of the observed spectral power distributions. They designed their linear model, a *principal components model*, using the following logic.
 
-First, they decided that they wanted to approximate their observations in the *squared-error sense*. That is, suppose $\\ill{\\lambda}$ is a measurement, and $\\illhat{\\lambda}$ is the linear model estimate of the measurement. Then, they decided to select the approximation in order to minimize the *squared error*
+First, they decided that they wanted to approximate their observations in the *squared-error sense*. That is, suppose $e(\lambda)$ is a measurement, and $\hat{e}(\lambda)$ is the linear model estimate of the measurement. Then, they decided to select the approximation in order to minimize the *squared error*
 $$
-\\sum_{\\lambda} ( \\ill{\\lambda} - \\illhat{\\lambda} )^2 .
+\sum_{\lambda} (e(\lambda) - \hat{e}(\lambda) )^2 .
 $$ {#eq-squared-error}
 
-When we consider the collection of observations as a whole, the function that approximates the entire data set with the smallest squared error is the mean. The mean observation from Judd et al.’s data set, $ \illi{0}{\lambda} $, is the bold curve in Figure 9.7.
+When we consider the collection of observations as a whole, the function that approximates the entire data set with the smallest squared error is the mean. The mean observation from Judd et al.’s data set, $ e_{0}(\lambda) $, is the bold curve in Figure 9.7.
 
-Once we know the mean, we need only to approximate the difference between the mean and each individual measurement. We build the linear model to explain these differences as follows. First, we select a fixed set of *basis functions*. Basis functions, like the mean, are descriptions of the measurements. We approximate a measurement’s difference from the mean as the weighted sum of the basis functions. For example, suppose $ \Delta \illi{j}{\lambda} $ is the difference between the $ j^{th} $ daylight measurement and the mean daylight. Further, suppose we select a set of $ N $ basis functions, $ \illBasisi{i}{\lambda} $. Then, we approximate the differences from the mean as the weighted sum of these basis functions, namely
+Once we know the mean, we need only to approximate the difference between the mean and each individual measurement. We build the linear model to explain these differences as follows. First, we select a fixed set of *basis functions*. Basis functions, like the mean, are descriptions of the measurements. We approximate a measurement’s difference from the mean as the weighted sum of the basis functions. For example, suppose $\Delta e_{j}(\lambda)$ is the difference between the $j^{th}$ daylight measurement and the mean daylight. Further, suppose we select a set of $N$ basis functions, $E_{i}(\lambda)$. Then, we approximate the differences from the mean as the weighted sum of these basis functions, namely
 
 $$
-\Delta \illi{j}{\lambda} \approx \sum_{i=1}^{i=N} \illCoefi{i} \illBasisi{i}{\lambda} .
+\Delta e_{j}(\lambda) \approx \sum_{i=1}^{i=N} w_{i} E_{i}(\lambda) .
 $$ {#eq-linear-model-diff}
 
-The basis functions are chosen to make the sum of the squared errors between the *collection* of measurements and their approximations as small as possible. The number of basis functions, $ N $, is called the *dimension* of the linear model. The values $ \illCoefi{i} $ are called the linear model *weights*, or *coefficients*. They are chosen to make the squared error between an *individual* measurement and its approximation as small as possible. They serve to describe the properties of the specific measurement.
+The basis functions are chosen to make the sum of the squared errors between the *collection* of measurements and their approximations as small as possible. The number of basis functions, $ N $, is called the *dimension* of the linear model. The values $ w_{i} $ are called the linear model *weights*, or *coefficients*. They are chosen to make the squared error between an *individual* measurement and its approximation as small as possible. They serve to describe the properties of the specific measurement.
 
 As the dimension of the linear model increases, the precision of the linear model approximation improves. The dimension one chooses for an application depends on the required precision~\\footnote{The basis functions that minimize the squared error can be found in several ways, most of which are explained in widely available statistical packages. If the data are in the columns of a matrix, one can apply the singular value decomposition to the data matrix and use the left singular vectors. Equivalently, one can find the eigenvectors of the covariance matrix of the data.}.
 
@@ -123,16 +123,18 @@ Judd et al. found an excellent approximation of the daylight measurements using 
 
 ![A linear model for daylight spectral power distributions. The curve labeled mean is the mean spectral power distribution of a set of daylights whose spectral power distributions were normalized to a value of 100 at 560nm. The curves labeled 1st and 2nd show the two basis curves used to define a linear model of daylights. By adding together the mean and weighted sums of the two basis functions, one can generate examples of typical relative spectral power distributions of daylight. (Source: Judd et al., 1964).](/wp-content/uploads/2012/02/linearModDay1.png){width="70%" #fig-linear-model-daylight}
 
-Because daylights vary in their absolute spectral power distributions, not just their relative distributions, we should extend Judd et al.’s linear model to a three-dimensional linear model that includes absolute intensity. A three dimensional linear model we might use consists of the mean and the two derived curves. In this case the three-dimensional linear model approximation becomes\\footnote{It is possible to improve on this model slightly, but as a practical matter these three curves do quite well as basis functions.}
+Because daylights vary in their absolute spectral power distributions, not just their relative distributions, we should extend Judd et al.’s linear model to a three-dimensional linear model that includes absolute intensity. A three dimensional linear model we might use consists of the mean and the two derived curves. In this case the three-dimensional linear model approximation becomes[^linear-basis]
+
+[^linear-basis]: It is possible to improve on this model slightly, but as a practical matter these three curves do quite well as basis functions.
 
 <a name="id1075871617"></a>
 
 <span class="ql-right-eqno"> (2) </span><span class="ql-left-eqno"> </span>
 $$
-\ill{\lambda} = \sum_{i=1}^{3} \illCoefi{i} \illBasisi{i}{\lambda} .
+e(\lambda) = \sum_{i=1}^{3} w_{i} E_{i}(\lambda) .
 $$ {#eq-illuminant-linear-model}
 
-We can express the linear model in Equation \@eq-illuminant-linear-model as a matrix equation, $\illvec = \illBasis \illCoef$ in which $\illvec$ is a vector representing the illuminant spectral power distribution, the three columns of $\illBasis$ contain the basis functions $\illBasisi{i}{\lambda}$, and $\illCoef$ is a three dimensional vector containing the linear model coefficients $\illCoefi{i}$.
+We can express the linear model in Equation \@eq-illuminant-linear-model as a matrix equation, $\mathbf{e} = \mathbf{B}_{\mathbf{e}} \mathbf{w}$ in which $\mathbf{e}$ is a vector representing the illuminant spectral power distribution, the three columns of $\mathbf{B}_{\mathbf{e}}$ contain the basis functions $E_{i}(\lambda)$, and $\mathbf{w}$ is a three dimensional vector containing the linear model coefficients $w_{i}$.
 
 We can see why linear models are efficient by writing Equation \@eq-squared-error as a matrix tableau.
 
@@ -155,7 +157,7 @@ $$
         . & . & . \\
         . & . & . \\
         . & . & . \\
-        \illBasisi{1}{\lambda} & \illBasisi{2}{\lambda} & \illBasisi{3}{\lambda} \\
+        E_{1}(\lambda) & E_{2}(\lambda) & E_{3}(\lambda) \\
         . & . & . \\
         . & . & . \\
         . & . & . \\
@@ -163,14 +165,14 @@ $$
 \right )
 \left (
     \begin{array}{ccc}
-        & \illCoefi{1} & \\
-        & \illCoefi{2} & \\
-        & \illCoefi{3} & \\
+        & w_{1} & \\
+        & w_{2} & \\
+        & w_{3} & \\
     \end{array}
 \right )
 $$ {#eq-illuminant-matrix-form}
 
-The single spectral power distribution, the vector on the left, consists of measurements at many different wavelengths. The linear model summarizes each measurement as the weighted sum of the basis functions, which are the same for all measurements, and a few weights, $\illCoef$, which are unique to each measurement. The linear model is efficient because we represent each additional measurement using only three weights, $\illCoef$, rather than the full spectral power distribution.
+The single spectral power distribution, the vector on the left, consists of measurements at many different wavelengths. The linear model summarizes each measurement as the weighted sum of the basis functions, which are the same for all measurements, and a few weights, $\mathbf{w}$, which are unique to each measurement. The linear model is efficient because we represent each additional measurement using only three weights, $\mathbf{w}$, rather than the full spectral power distribution.
 
 ### Simple Illuminant Estimation
 
@@ -180,16 +182,16 @@ Suppose we have a device with three color sensors, whose spectral responsivities
 
 $$
 \begin{eqnarray*}
-r_1 & = & \sum_\lambda r_1(\lambda)\, e(\lambda) \\
-r_2 & = & \sum_\lambda r_2(\lambda)\, e(\lambda) \\
-r_3 & = & \sum_\lambda r_3(\lambda)\, e(\lambda)
+r_1 & = & \sum_\lambda R_1(\lambda)\, e(\lambda) \\
+r_2 & = & \sum_\lambda R_2(\lambda)\, e(\lambda) \\
+r_3 & = & \sum_\lambda R_3(\lambda)\, e(\lambda)
 \end{eqnarray*}
 $$ {#eq-sensor-responses}
 
 We can group these three linear equations into a single matrix equation
 
 $$
-r = R\, e
+r = \mathbf{S}\, e
 $$ {#eq-sensor-matrix}
 
 where the column vector $r$ contains the sensor responses, the rows of the matrix $R$ are the sensor spectral responsivities, and $e$ is the illuminant spectral power distribution.
@@ -197,10 +199,10 @@ where the column vector $r$ contains the sensor responses, the rows of the matri
 Before the Judd et al. study, one might have thought that three sensor responses are insufficient to estimate the illumination. But, from their data we have learned that we can approximate $e$ with a three-dimensional linear model, $e \approx E\, w$. This reduces the equation to
 
 $$
-r \approx (R\, E)\, w
+r \approx (\mathbf{S} \mathbf{B}_{\mathbf{e}})\, w
 $$ {#eq-sensor-linear-model}
 
-The matrix $R\, E$ is $3 \times 3$, and its entries are all known. The sensor responses, $r$, are also known. The only unknown is $w$. Hence, we can estimate $w$, and use these weights to calculate the spectral power distribution, $E\, w$.
+The matrix $(\mathbf{S} \mathbf{B}_{\mathbf{e}})$ is $3 \times 3$, and its entries are all known. The sensor responses, $r$, are also known. The only unknown is $w$. Hence, we can estimate $w$, and use these weights to calculate the spectral power distribution, $\mathbf{B}_\mathbf{e}\, \mathbf{w}$.
 
 This calculation illustrates two aspects of the role of linear models. First, linear models represent a priori knowledge about the likely set of inputs. Using this information permits us to convert underdetermined linear equations (Equation \@eq-sensor-matrix) into equations we can solve (Equation \@eq-sensor-linear-model). Linear models are a blunt but useful tool for representing probabilities. Using linear models, it becomes possible to use measurements from only three color sensors to estimate the full relative spectral power distribution of daylight illumination.
 
@@ -221,10 +223,10 @@ As an example, I have built a linear model to approximate a small collection sur
 
 ![A linear model to approximate the surface reflectances in the Macbeth ColorChecker. The panels in each row of this figure show the surface reflectance functions of six colored surfaces (dashed line) and the approximation to these functions using a linear model (solid lines). The approximations using linear models with three (a), two (b) and one (c) dimension respectively are shown.](/wp-content/uploads/2012/02/macbethApprox.png){width="70%" #fig-macbeth-approx}
 
-To create the linear model, I measured the surface reflectance functions of these patches with a spectral radiometer in my laboratory. The original data set, then, consisted of measurements from 370nm to 730nm in 1 nm steps for each of the 24 patches. Then, using conventional statistical packages, I calculated a three-dimensional linear model to fit all of these surface reflectance functions. The linear model basis functions, $\surBasisi{i}{\lambda}$, were selected to minimize the squared error~\footnote{ I calculated the singular value decomposition of the matrix whose columns consist of the surface reflectance vectors. I used the left singular vectors as the basis functions.}
+To create the linear model, I measured the surface reflectance functions of these patches with a spectral radiometer in my laboratory. The original data set, then, consisted of measurements from 370nm to 730nm in 1 nm steps for each of the 24 patches. Then, using conventional statistical packages, I calculated a three-dimensional linear model to fit all of these surface reflectance functions. The linear model basis functions, $\surBasisi{i}(\lambda)$, were selected to minimize the squared error~\footnote{ I calculated the singular value decomposition of the matrix whose columns consist of the surface reflectance vectors. I used the left singular vectors as the basis functions.}
 
 $$
-\left (\surf{\lambda} - \sum_{i=1}^{N} \surCoefi{i} \surBasisi{i}{\lambda} \right ) ^2 .
+\left (s(\lambda) - \sum_{i=1}^{N} \surCoefi{i} \surBasisi{i}(\lambda) \right ) ^2 .
 $$ {#eq-surface-linmodel-error}
 
 The values $\surCoefi{i}$ are called the  *surface coefficients*, and we will represent them as a vector, $\surCoef = (\surCoefi{1}, \ldots , \surCoefi{N})$. There are fewer surface coefficients than data measurements. If we create a matrix whose columns are are the basis functions, $\surBasis$, then we can express the linear model approximation as $\surBasis \surCoef$.
@@ -266,13 +268,13 @@ A second group of estimation algorithms compensates for the mismatch in measurem
 
 Before returning to experimental measurements of color appearance, let’s perform an example calculation that is of some practical interest as well as of some interest in understanding how the visual system might compensate for illumination changes. By working this example, we will start to consider what neural operations might permit the visual pathways to compensate for changes in the ambient illumination.
 
-First, let’s write down the general expression that shows how the surface and illuminant functions combine to yield the cone absorption rates. The three equations for the three cone types, $[\Red]$, $[\Green]$, and $[\Blue]$, are
+First, let’s write down the general expression that shows how the surface and illuminant functions combine to yield the cone absorption rates. The three equations for the three cone types, $L$, $M$, and $S$, are
 
 $$
 \begin{eqnarray*}
-\recRespi{1} & = & \sum_{\lambda} \recSens{1}(\lambda) E(\lambda) S(\lambda) \nonumber \\
-\recRespi{2} & = & \sum_{\lambda} \recSens{2}(\lambda) E(\lambda) S(\lambda) \nonumber \\
-r_3 & = & \sum_{\lambda} \recSens{3}(\lambda) E(\lambda) S(\lambda) .
+\recRespi{1} & = & \sum_(\lambda) \recSens{1}(\lambda) E(\lambda) S(\lambda) \nonumber \\
+\recRespi{2} & = & \sum_(\lambda) \recSens{2}(\lambda) E(\lambda) S(\lambda) \nonumber \\
+r_3 & = & \sum_(\lambda) \recSens{3}(\lambda) E(\lambda) S(\lambda) .
 \end{eqnarray*}
 $$ {#eq-cone-absorptions}
 
@@ -282,10 +284,10 @@ $$
 \recResp \approx \illMat{e} \surCoef .
 $$ {#eq-lighting-matrix}
 
-We call the matrix $\illMat{e}$ that relates these two vectors the  *lighting* matrix. The entries of this matrix depend upon the illumination, $\illvec$. The $ij^{th}$ entry of the lighting matrix is
+We call the matrix $\illMat{e}$ that relates these two vectors the  *lighting* matrix. The entries of this matrix depend upon the illumination, $\mathbf{e}$. The $ij^{th}$ entry of the lighting matrix is
 
 $$
-\sum_{\lambda} \left ( \sum_k \illCoefi{k} \illBasisi{k}{\lambda} \right ) \recSens{i}(\lambda) \surBasisi{j}{\lambda} .
+\sum_(\lambda) \left ( \sum_k w_{k} E_{k}(\lambda) \right ) \recSens{i}(\lambda) \surBasisi{j}(\lambda) .
 $$ {#eq-lighting-matrix-entry}
 
 We can compute two lighting matrices (Equation~[9](#id4233032400)) from the spectral curves we have been using as examples. For one lighting matrix I used the mean daylight spectral power distribution, and for the other I used the spectral power distribution of a tungsten bulb. I used the linear model of the Macbeth ColorChecker for the surface basis functions and the Stockman and MacLeod cone absorption functions (see the appendix to [Chapter 4](/chapter-4-wavelength-encoding/)). The lighting matrix for the blue sky illumination is
@@ -312,7 +314,7 @@ $$
 \right ) .
 $$ {#eq-lighting-matrix-tungsten}
 
-Notice that the largest differences between the matrices are in the third row. This is the row that describes the effect of each surface coefficient on the $[\Blue]$ cone absorptions. The blue sky lighting matrix contains much larger values than matrix for the tungsten bulb. This makes sense because that is the region of the spectrum where these two illuminant spectral power distributions differ the most (see Figure 9.5).
+Notice that the largest differences between the matrices are in the third row. This is the row that describes the effect of each surface coefficient on the $S$ cone absorptions. The blue sky lighting matrix contains much larger values than matrix for the tungsten bulb. This makes sense because that is the region of the spectrum where these two illuminant spectral power distributions differ the most (see Figure 9.5).
 
 Imagine, now the following way in which the visual system might compensate for illumination changes. Suppose that the cortical analysis of color is based upon the assumption that the illumination is always that of a blue sky. When the illumination is different from the blue sky, the retina must try to provide a neural signal that is similar to the one that would have been observed under a blue sky. What computation does the retina need to perform in order to transform the cone absorptions obtained under the tungsten bulb illuminant into the cone absorption that would have occurred under the blue sky?
 
@@ -344,15 +346,15 @@ $$ {#eq-tungsten-to-blue-sky}
 
 The retina can compensate for the illumination change by linearly transforming the observed cone absorptions, $\recResp^\prime$, into a new signal, $\recResp$.
 
-Now, what does it mean for the retina to compute a linear transformation? The linear transformation consists of a simple series of multiplications and additions. For example, consider the third row of the matrix in Equation~\@eq-tungsten-to-blue-sky. This row defines how the new $\Blue$ cone absorptions should be computed from the observed absorptions. When we write this transformation as a single linear equation we see that the observed and transformed signals are related as
+Now, what does it mean for the retina to compute a linear transformation? The linear transformation consists of a simple series of multiplications and additions. For example, consider the third row of the matrix in Equation~\@eq-tungsten-to-blue-sky. This row defines how the new $S$ cone absorptions should be computed from the observed absorptions. When we write this transformation as a single linear equation we see that the observed and transformed signals are related as
 
 $$
-\Blue = .0429~\Red^\prime + -0.0755~\Green^\prime + 1.8091~\Blue^\prime .
+S = .0429~L^\prime + -0.0755~M^\prime + 1.8091~S^\prime .
 $$ {#eq-blue-transform}
 
-The transformed $\Blue$ cone absorption is mainly a scaled version of the observed absorptions. Because the tungsten bulb emits much less energy in the short-wavelength part of the spectrum, the scale factor is larger than one. In addition, to be absolutely precise, we should add in a small amount of the observed $\Red$ cone signal and subtract out a small amount of the observed $\Green$ cone signal. But, these contributions are relatively small compared to the contribution from the $\Blue$ cones. In general, for each of the cone types, the largest contributions to the transformed signal are scaled copies of the same signal type.
+The transformed $S$ cone absorption is mainly a scaled version of the observed absorptions. Because the tungsten bulb emits much less energy in the short-wavelength part of the spectrum, the scale factor is larger than one. In addition, to be absolutely precise, we should add in a small amount of the observed $L$ cone signal and subtract out a small amount of the observed $M$ cone signal. But, these contributions are relatively small compared to the contribution from the $S$ cones. In general, for each of the cone types, the largest contributions to the transformed signal are scaled copies of the same signal type.
 
-In this matrix, and in many practical examples, the only additive term that is not negligible is the contribution of the $\Green$ cone response to the transformed $\Red$ signal. As a rough rule, because the diagonal terms are much larger than the off-diagonal terms, we can obtain good first order approximation to the proper transformation by simply scaling the the observed cone absorptions (e.g., Forsythe et al., 1994).
+In this matrix, and in many practical examples, the only additive term that is not negligible is the contribution of the $M$ cone response to the transformed $L$ signal. As a rough rule, because the diagonal terms are much larger than the off-diagonal terms, we can obtain good first order approximation to the proper transformation by simply scaling the the observed cone absorptions (e.g., Forsythe et al., 1994).
 
 Compensating for the illumination change by a purely diagonal scaling of the cone absorptions is called *von Kries Coefficient Law*. The correction is not as precise as the best linear correction, but it frequently provides a good approximation. And, as we shall see in the next section, the von Kries Coefficient Law describes certain aspects of human color appearance measurements as well.
 
@@ -392,7 +394,7 @@ Evidently, von Kries not only raised the question of linearity of asymmetric col
 
 While von Kries considered the question settled, not everyone was persuaded. Over the years, there have been many separate experimental tests of linearity in the asymmetric color-matching experiment. I am particularly impressed by a series of papers by Elaine Wassef, working first in London and then at the University College for Girls in Cairo. Wassef wrote at roughly the same time E. H. Land was working at Polaroid. In her papers, she reports on new studies and a review of the experimental test of asymmetric color-matching linearity\footnote{ Interestingly, one of the largest sets of data she reviewed was a series of experiments performed at the Kodak research laboratories, Polaroid’s competitor. } (Wassef, 1952, 1958, 1959) Like von Kries, Wassef asked whether one could predict asymmetric color-matches using the principle of superposition. And, like von Kries, she concluded that the weight of the experimental evidence supported the linearity hypothesis: When the illumination changes, the cone absorptions of the test and matching lights are related by a linear transformation.
 
-I have replotted some of Wassef’s data to illustrate the nature of the measurements and the size of the effect (Figure 9.12). The illuminant spectral power distributions she used in her dichoptic matching experiment are plotted in Figure 9.12a. To plot her results, I have converted Wassef’s reported measurements into one absorptions. I have plotted the cone absorptions of the surfaces that matched in color appearance when seen under the two illuminants. Figure 9.12b shows the $[\Red]$ and $[\Green]$ cone absorptions of the surfaces under the two illuminants, and Figure 9.12c shows the $[\Red]$ and $[\Blue]$ cone absorptions. The cone absorptions for objects seen under a tungsten illuminant are plotted as open circles; the cone absorptions for objects seen under a blue sky illumination are plotted as filled squares. The size of the effect is quite substantial. Two sets of points show the cone absorptions of targets that look identical in their respective contexts. Yet, the cone absorption values from the surfaces under these illuminants don’t even overlap in their values.
+I have replotted some of Wassef’s data to illustrate the nature of the measurements and the size of the effect (Figure 9.12). The illuminant spectral power distributions she used in her dichoptic matching experiment are plotted in Figure 9.12a. To plot her results, I have converted Wassef’s reported measurements into one absorptions. I have plotted the cone absorptions of the surfaces that matched in color appearance when seen under the two illuminants. Figure 9.12b shows the $L$ and $M$ cone absorptions of the surfaces under the two illuminants, and Figure 9.12c shows the $L$ and $S$ cone absorptions. The cone absorptions for objects seen under a tungsten illuminant are plotted as open circles; the cone absorptions for objects seen under a blue sky illumination are plotted as filled squares. The size of the effect is quite substantial. Two sets of points show the cone absorptions of targets that look identical in their respective contexts. Yet, the cone absorption values from the surfaces under these illuminants don’t even overlap in their values.
 
 ![Data from an asymmetric color-matching experiment using the dichoptic method. The test and matching lights are viewed in different contexts and appear identical. But, the two lights have very different cone absorption rates. Hence, appearance matches made across an illuminant change are not cone absorption matches. The spectral power distributions of two illuminants, one approximating mean daylight and the other a tungsten illuminant are shown in panel a. Cone absorptions for targets that appear identical to one another in these two contexts are shown as scatterplots in (b) for the (L, M) cones, and (c) for the (L, S) cones. The points plotted as open circles are cone absorptions for tests seen under the first illuminant; matches seen under the second illuminant are plotted as filled squares. The stimuli represented by the absorptions have the same color appearance, but they correspond to very different cone absorptions (Source: Wassef, 1959).](/wp-content/uploads/2012/02/wassefShift.png){width="70%" #fig-wassef-shift}
 
@@ -400,13 +402,13 @@ Taken together, the color matching and asymmetric color-matching show the follow
 
 ### Von Kries Coefficient Law: Experiments
 
-Through his Coefficient Law, J. Von Kries sought to explain these asymmetric color matches by a simple physiological mechanism. He suggested that the visual pathways adjust to the illumination by scaling the signals from the individual cone classes. This hypothesis has a simple experimental prediction: If we plot, say, the $[\Blue]$ cone absorptions of the test and match surfaces on a single graph, the data should fall along a straight line through the origin. The slope of the predicted line is the scale factor for the illuminant change.
+Through his Coefficient Law, J. Von Kries sought to explain these asymmetric color matches by a simple physiological mechanism. He suggested that the visual pathways adjust to the illumination by scaling the signals from the individual cone classes. This hypothesis has a simple experimental prediction: If we plot, say, the $S$ cone absorptions of the test and match surfaces on a single graph, the data should fall along a straight line through the origin. The slope of the predicted line is the scale factor for the illuminant change.
 
 Neither von Kries or Wassef knew the photopigment spectral curves; hence, they could not create the graph they needed to test the von Kries Coefficient Law directly. But, using an indirect measurement based on estimation of the eigenvectors of the measured linear transformations, Burnham et al. (1957) and Wassef (1959) rejected von Kries scaling. Despite this rejection, von Kries’ hypothesis continued to be used widely to explain how color appearance varies with illumination. Among theorists, for example, E. H. Land relied entirely on von Kries scaling as the foundation of his retinex theory (Brewer, 1954; Brainard and Wandell, 1986; Land, 1986).
 
 ![The cone absorptions of the test and match surfaces fall close to a straight line. These appearance matches were made by presenting the test and match objects to different eyes. The illuminant for one eye was similar to a tungsten bulb and the other eye was blue skylight. The Von Kries coefficient law predicts that the line should pass through the origin of the graph; while not precisely correct, the rule is a helpful starting point (Source: Wassef, 1959).](/wp-content/uploads/2012/02/wassefVK.png){width="70%" #fig-wassef-vk}
 
-Today, we have good estimates of the spectral sensitivities of the cone photopigments and it is possible convert Wassef’s data into cone absorptions and analyze von Kries coefficient law directly. Figure 9.13 shows a graphical evaluation of von Kries hypothesis for the data in Figure 9.12. Each panel plots the cone absorptions of corresponding test and match targets for one of the three cone types. As predicted by Von Kries, the cone absorptions of the test and match targets fall along a line. Moreover, the slope of the lines relating the cone absorptions also make sense. The slope is largest for the $[\Blue]$ cones where illuminant change has its largest effect. The data are not perfectly consistent with von Kries scaling, however, because the lines through the data do not pass through the origin, as required by the theory\footnote{Indeed, this is equally a failure of the simple linearity that Wassef uses to summarize the data, and more in line with some of the conclusions that Burnham et al. (1957) drew about their data.}.
+Today, we have good estimates of the spectral sensitivities of the cone photopigments and it is possible convert Wassef’s data into cone absorptions and analyze von Kries coefficient law directly. Figure 9.13 shows a graphical evaluation of von Kries hypothesis for the data in Figure 9.12. Each panel plots the cone absorptions of corresponding test and match targets for one of the three cone types. As predicted by Von Kries, the cone absorptions of the test and match targets fall along a line. Moreover, the slope of the lines relating the cone absorptions also make sense. The slope is largest for the $S$ cones where illuminant change has its largest effect. The data are not perfectly consistent with von Kries scaling, however, because the lines through the data do not pass through the origin, as required by the theory\footnote{Indeed, this is equally a failure of the simple linearity that Wassef uses to summarize the data, and more in line with some of the conclusions that Burnham et al. (1957) drew about their data.}.
 
 There is an emerging consensus in many branches of color science that the von Kries coefficient law explains much about how color appearance depends on the illumination. J. von Kries simple hypothesis is important partly because of its practical utility, and partly because of its implications for the representation of color appearance within the brain. The hypothesis explains the major adjustments for color constancy to in terms of the photoreceptor signal, and the photoreceptor signals combine within the retina ([Chapter 4](/chapter-4-wavelength-encoding/)). Hence, von Kries hypothesis implies that either (a) the main adjustment takes place very early, or (b) the photoreceptor signals can be separated in the central representation. This topic will come up again later, when we review some of the phenomena concerning color appearance in the central nervous system.
 
@@ -578,9 +580,9 @@ A natural starting place is to suppose that there is a population of neurons who
 
 This question was studied by DeValois and his collaborators in the lateral geniculate nucleus of the monkey. In their studies, DeValois and his colleagues studied the response of neurons to monochromatic stimuli presented on a zero background. They found a weak correspondence between the neutral points of individual neurons and the perceptual neutral points (DeValois, et al. 1966). More recently, Derrington, Krauskopf and Lennie (1984) measured the responses of lateral geniculate neurons using contrast stimulus presented on a moderate, neutral background. They estimated the input to these neurons from the different cone classes and confirmed the basic observations made by DeValois and his colleagues.
 
-Derrington et al. reported that parvocellular neurons could be classified into two groups of neurons. One population of neurons receives opposing input from the $[\Red]$ and $[\Green]$ cones. The panel on the left of Figure 9.18 shows my estimate of the spectral sensitivity of this group of parvocellular neurons. For these neurons wavelengths near 570nm are quite ineffective. But, there is a great deal of variation within this cell population making it difficult to be confident in the connection. Moreover, these neurons do not show a second zero-crossing near 470nm that would parallel the human opponent-colors judgments in the hue cancellation experiment.
+Derrington et al. reported that parvocellular neurons could be classified into two groups of neurons. One population of neurons receives opposing input from the $L$ and $M$ cones. The panel on the left of Figure 9.18 shows my estimate of the spectral sensitivity of this group of parvocellular neurons. For these neurons wavelengths near 570nm are quite ineffective. But, there is a great deal of variation within this cell population making it difficult to be confident in the connection. Moreover, these neurons do not show a second zero-crossing near 470nm that would parallel the human opponent-colors judgments in the hue cancellation experiment.
 
-A second population of lateral geniculate neurons receives input from the $[\Blue]$ cones and an opposing signal from a combination of the $[\Red]$ and $[\Green]$ cones. For these neurons, wavelengths near 500nm are quite ineffective. The panel on the right of Figure 9.18 shows my estimate of the spectral sensitivity of this group of parvocellular neurons.
+A second population of lateral geniculate neurons receives input from the $S$ cones and an opposing signal from a combination of the $L$ and $M$ cones. For these neurons, wavelengths near 500nm are quite ineffective. The panel on the right of Figure 9.18 shows my estimate of the spectral sensitivity of this group of parvocellular neurons.
 
 
 ![Opponent-signals measured in lateral geniculate nucleus neurons. These spectral response curves are inferred from the measured responses of lateral geniculate neurons to many different colored stimuli presented on a monitor. The vast majority of lateral geniculate neurons in the parvocellular layers can be divided into two groups based on their response to modulations colored lights. One group of neurons receives an opponent contribution from the L and M cones alone (panel a). The second group of neurons receives a signal of like sign from the L and M cones, and an opposing signal from the S cones (panel b) (Source: Derrington et al., 1984).](/wp-content/uploads/2012/02/dkl.png){width="70%" #fig-lg-opponent-signals}
@@ -593,7 +595,7 @@ The spectral responses of these neural populations suggest that there is only a 
 
 opponent-signals measured in the lateral geniculate nucleus probably represent a code used by the visual pathways because of its properties in communicating information from the retina to the brain. The psychological opponent-colors coding may be a consequence of the coding strategy used to communicate information from the retina to the cortex. What reason might there be for using an opponent-signals coding?
 
-One reason to use an opponent-signal representation has to do with the efficiency of the visual encoding. Because of the overlap of the $[\Red]$ and $[\Green]$ cone spectral sensitivities, the absorption rates of these two cone types are highly correlated. This correlation represents an inefficiency in the visual coding of spectral information. As I described in [Chapter 8](/chapter-8-multiresolution-image-representations/), decorrelating the signals can improve the efficiency of the neural representation.
+One reason to use an opponent-signal representation has to do with the efficiency of the visual encoding. Because of the overlap of the $L$ and $M$ cone spectral sensitivities, the absorption rates of these two cone types are highly correlated. This correlation represents an inefficiency in the visual coding of spectral information. As I described in [Chapter 8](/chapter-8-multiresolution-image-representations/), decorrelating the signals can improve the efficiency of the neural representation.
 
 We can illustrate this principle by working an example, parallel to the one in [Chapter 8](/chapter-8-multiresolution-image-representations/). Consider the cone absorptions to a set of surfaces. Because of the overlap in spectral sensitivities, the cone absorptions between, say, the $L$ and $M$ cones will be correlated. To remove the correlation, we create a new representation of the signals consisting of the $L$ cone absorptions alone, and a weighted combination of the the $L$, $M$, and $S$ cone absorptions. We will choose the weighted combination of signals so that the new signal is independent of the $L$ cone absorptions. As we reviewed in the earlier chapter, by decorrelating the cone absorptions before they travel to the brain, we make effective use of the dynamic range of the neurons transmitting the information (Buchsbaum and Gottschalk, 1986).
 
@@ -706,7 +708,7 @@ Figure9.21 shows two squarewaves composed of alternating blue and yellow bars. O
 
 Poirson and Wandell (1993) used an asymmetric color-matching task to study how color appearance changes with spatial frequency of the squarewave pattern. Subjects viewed squarewave patterns whose bars were colored modulations about a neutral gray background; that is, the average of the two bars comprising the pattern was equal to the mean background level. Subjects adjusted the appearance of a 2 degree square patch to have the same color appearance as each of the bars in the pattern.
 
-Two qualitative observations stood out in this study. First, spatial patterns of moderate and high spatial frequency patterns (above 8 cpd) appear mainly light-dark, with little saturation. Thus, no matter what the relative cone absorptions of a high spatial frequency target, the target appeared to be a light dark variation about the mean level. Second, the spatially asymmetric color appearance matches are not photopigment matches. This can be deduced from the first observation: Because of axial chromatic aberration, moderate frequency squarewave contrast patterns (4 and 8 cpd) cannot stimulate the $[\Blue]$ cones significantly. Yet, subjects match the bars in these high frequency patterns using a 2 deg patch with considerable $[\Blue]$ cone contrast. The asymmetric color-matches are established at neural sites central to the photoreceptors.
+Two qualitative observations stood out in this study. First, spatial patterns of moderate and high spatial frequency patterns (above 8 cpd) appear mainly light-dark, with little saturation. Thus, no matter what the relative cone absorptions of a high spatial frequency target, the target appeared to be a light dark variation about the mean level. Second, the spatially asymmetric color appearance matches are not photopigment matches. This can be deduced from the first observation: Because of axial chromatic aberration, moderate frequency squarewave contrast patterns (4 and 8 cpd) cannot stimulate the $S$ cones significantly. Yet, subjects match the bars in these high frequency patterns using a 2 deg patch with considerable $S$ cone contrast. The asymmetric color-matches are established at neural sites central to the photoreceptors.
 
 Poirson and I explained the asymmetric spatial color matches using a pattern-color separable model. In this model, we supposed that the color appearance of the target was determined by the response of three color mechanisms, and that the response of each mechanisms was separable with respect to pattern and color. We derived the spatial and spectral responsivities of these pathways from the observers color-matches; the estimated sensitivities are shown in Figure 9.22.
 
@@ -762,7 +764,7 @@ Cerebral dyschromatopsics score quite poorly on the Farnsworth-Munsell hue test 
 
 The patients’ errors on the Ishihara color plates and the Farnsworth-Munsell hue test are not consistent with a visual pigment loss. Nonetheless, we cannot tell from their performance on these tests whether the separate cone classes are functioning or whether the loss of color perception is due, in part, to cone dysfunction.
 
-Gibson (1961; Alpern, 1974; Mollon et al., 1980) developed a behavioral test to infer whether the patients with cerebral dyschromatopsia had more than a single class of functioning cones. The logic of their behavioral test is based on the fact the cone signals are scaled to correct for changes in the ambient lighting conditions. For example, in the presence of a long-wavelength background, the sensitivity of the $[\Red]$ cones is suppressed while the sensitivity of the $[\Blue]$ cones remains unchanged.
+Gibson (1961; Alpern, 1974; Mollon et al., 1980) developed a behavioral test to infer whether the patients with cerebral dyschromatopsia had more than a single class of functioning cones. The logic of their behavioral test is based on the fact the cone signals are scaled to correct for changes in the ambient lighting conditions. For example, in the presence of a long-wavelength background, the sensitivity of the $L$ cones is suppressed while the sensitivity of the $S$ cones remains unchanged.
 
 Now, suppose a subject has only a single type of cone. For this observer wavelength sensitivity is determined by the spectral sensitivity a single cone photopigment. Changes of the background illumination will not change the observer’s relative wavelength sensitivity. This is the situation for normal observers under scotopic viewing conditions when we see only through the rods. Under scotopic conditions wavelength sensitivity is determined by the rhodopsin photopigment; changing the background does not change in the relative sensitivity to different test wavelengths\footnote{ In a beautiful series of experiments, W.S. Stiles(1939; 1959; 1979) studied how sensitivity varies as one changes the wavelength and intensity of a test and background lights. He developed a penetrating analysis of this experimental paradigm and identified candidates processes which he believed might describe photoreceptor adaptation. He referred to these processes as $\pi$-mechanisms, “p” for process and $\pi$ for p.}.
 
