@@ -266,11 +266,11 @@ But, what conditions must be met to insure that $e_i$ and $\hat{g}_{i}$ are orth
 
 <a name="id3778804003"></a>
 $$
-\begin{align*}
+\begin{align}
 0 = {e_i}^t \hat{g}_{i} 
 &= ( g_i^t (2 {P_i}^t) P_i ) ( (2 {P_i}^t) P_i g_i - g_i) \\
 &= [ g_i^t (2 {P_i}^t) ( P_i (2 {P_i}^t) ) P_i g_i ] - [ g_i^t (2 {P_i}^t) P_i g_i ] .
-\end{align*}
+\end{align}
 $$ {#eq-8}
 
 If the rows of $P_i$ are an orthogonal set, then by appropriate scaling we can arrange it so that ${P_i} (2 {P_i}^t)$ is equal to the identity matrix. In that case, the final term in @eq-8 simplifies and we have
@@ -325,8 +325,8 @@ The most trivial, and rather ineffective, way of joining the two images is shown
 
 $$
 b(x,y) = \left \{ \begin{array}{ll}
-1 & \mbox{if $x < m$} \\
-0 & \mbox{otherwise}
+1 & \text{if } x < m \\
+0 & \text{otherwise}
 \end{array} \right.
 $$ {#eq-blend-step}
 
@@ -339,10 +339,10 @@ We might use a less drastic blending function for $b(x,y)$. For example, we migh
 <span class="ql-right-eqno"> (13) </span><span class="ql-left-eqno"> </span>
 $$
 b(x,y) = \left \{ \begin{array}{ll}
-1 & \mbox{if $x < m - w $} \\
-1 - \frac{x - m - w }{2w} & \mbox{if $m - w \leq x \leq m + w$} \\
-0 & \mbox{otherwise}
-\end{array} \right.
+1 & \text{if } x < m - w \\
+1 - \frac{x - m - w }{2w} & \text{if } m - w \leq x \leq m + w \\
+0 & \text{otherwise}
+\end{array} \right \}.
 $$ {#eq-blend-ramp}
 
 Using a ramp to join the images blurs the image at the edge, as illustrated in panels (d) and (e) of @fig-astro-res. In panel (d) the width parameter of the linear ramp, $w$, is fairly small. When the width is small the edge artifact remains visible. As the width is broadened, the edge artifact is removed (panel (e)) and elements from both images contribute to the image in the central region. At this point the vertical shift between the two images becomes apparent. If you look carefully in the central region, you will see double stars shifted vertically one above the other. Image details that are much smaller than the width of the ramp appear in the blended image and they appear at their shifted locations. The stars are small compared to the width of the linear ramp, so the blended image contains the an artifact due to the shift in the image details.

@@ -253,7 +253,9 @@ Marimont and Wandell (1992) describe how to create linear models that are approp
 
 There is much regularity in daylight and surface functions; so, it makes sense to evaluate how well we estimate spectral functions from sensor responses. Estimation algorithms rely on two essential components.
 
-First, we need a method of representing our knowledge about the likely surface and illuminant functions. For example, linear models can be used encode our a priori knowledge~\\footnote{More sophisticated methods are based on using Bayesian estimation as part of the calculation. For example, see Freeman and Brainard (1993) and D’Zmura and Iverson (1993).} Second, all modern estimation methods assume that the illumination varies either slowly or not at all across the image. This assumption is important because it means that the illumination adds very few new parameters to estimate.
+First, we need a method of representing our knowledge about the likely surface and illuminant functions. For example, linear models can be used encode our a priori knowledge[^bayesian-estimation]. Second, all modern estimation methods assume that the illumination varies either slowly or not at all across the image. This assumption is important because it means that the illumination adds very few new parameters to estimate.
+
+[^bayesian-estimation]: More sophisticated methods are based on using Bayesian estimation as part of the calculation. For example, see Freeman and Brainard (1993) and D’Zmura and Iverson (1993).
 
 Consider an example of an image with $p$ points. We expect to obtain $3$ cone absorption rates at each image point, so there are $3p$ measurements. If we can use a surface 3 dimensional model for the surfaces, then there are $3p$ unknown surface coefficients. And, there is a linear relationship between the measurements and the unknown quantities. If the illuminant is known, then the problem is straightforward to solve.
 
