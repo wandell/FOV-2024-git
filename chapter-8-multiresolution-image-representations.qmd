@@ -66,14 +66,11 @@ We can divide the image compression strategies I have discussed into two parts. 
 
 <a name="id1630831666"></a>
 
-<span class="ql-right-eqno"> (1) </span><span class="ql-left-eqno"> </span>
-\[
-\begin{equation*}
+$$
     \left ( \begin{array}{c} p(x,y) \\ p(x,y+1) - p(x,y) \\ \end{array} \right ) =
     \left ( \begin{array}{cc} 1 & 0 \\ -1 & 1 \\ \end{array} \right )
     \left ( \begin{array}{c} p(x,y) \\ p(x,y+1) \\ \end{array} \right )
-\end{equation*}
-\]
+$${#eq-pixel-decor}
 
 We apply the linear transformation because the correlation of the transformed values is much smaller than the correlation in the original representation.
 
@@ -172,15 +169,9 @@ We can now put together the two basic pyramid operations into a constructive seq
 To complete the construction of all levels of the pyramid, we apply the same sequence of operations, but now beginning with first level of the pyramid, $g_1$. We build a new convolution matrix, $B_1$; we sample using the matrix, $S_1$; we build $g_2 = S_1 B_1 g_1$; we interpolate $g_2$ using a matrix $E_1$; finally, we form the new error image $g_1 - \hat{g}_{1}$, where $\hat{g}_{1} = E_1 g_2$. To construct the entire pyramid we repeat the process, reducing the number of elements at each step. We stop when we decide that the reduced image, $g_n$, is small enough so that no further blurring and sampling would be useful.
 
 The pyramid construction procedure defines three sequences of signals; the series of blurred and sampled signals whose size is continually being reduced, the interpolated signals, and the error signals. We can summarize their relationship to one another in a few simple equations. First, the reduced image at the $i^{th}$ level is created by applying the basic pyramid operation to the previous level.
-
-<a name="id345499008"></a>
-
-<span class="ql-right-eqno"> (2) </span><span class="ql-left-eqno"> </span>
-\[
-\begin{equation*}
+$$
 g_i = P_{i - 1} g_{i-1}
-\end{equation*}
-\]
+$$ {#eq-pyramid-reduction}
 
 The estimate of the image $\hat{g}_{i}$ is created from the lower resolution representation by the calculation
 
@@ -193,12 +184,9 @@ $$
 Finally, the difference between the original and the estimate is the error image,
 
 <a name="id1061946577"></a>
-
 $$
-\begin{equation*} 
 e_i = g_i - \hat{g}_{i} = g_i - E_i {P_i} g_i 
-\end{equation*}
-$$
+$$ {#eq-error-image}
 
 Two different sets of these signals preserve the information in the original. One sequence consists of the original input and the sequence of *reduced signals*, $g_0$, $g_1$, $g_2$, $\ldots$, $g_n$. This sequence provides a description of the original signal at lower and lower resolution. It contains all of the data in the original image trivially since the original image is part of the sequence. This image sequence is of interest when we display low resolution versions of the image.
 
@@ -258,8 +246,9 @@ Equation [6](#id1070182640) implies that the square matrix ${{P_0}( 2 {P_0}^t)}$
 
 A second inelegant feature of the Gaussian and Laplacian pyramid is that the representation is overcomplete, i.e., there are more transform coefficients than there are pixels in the original image. The increase in the transform coefficients can be traced to the fact that we represent an image $g_i$ with $N_i$ pixels by a reduced signal and an error signal that contain more than $N_i$ coefficients. For example, we represent the information in the $i^{th}$ level of the pyramid using the reduced image $g_{i+1}$ and the error image $e_i$.
 
-<span class="ql-right-eqno"> (7) </span><span class="ql-left-eqno"> </span>
-$\begin{equation*} g_i = (2 {P_i}^t) g_{i+1} + e_i \end{equation*}$
+$$
+g_i = (2 {P_i}^t) g_{i+1} + e_i
+$$ {#eq-pyramid-reconstruction}
 
 In the one-dimensional case, the error image, $e_i$, contains $N_{i}$ transform coefficients. The reduced signal, $g_{i+1}$, contains ${N_i} / 2$ coefficients. To create an efficient representation, we must represent $g_i$ using $N_i$ transform coefficients, not $1.5 N_i$ coefficients as in the Gaussian pyramid.
 
@@ -267,8 +256,9 @@ The error signal and the interpolated signal are intended to code different comp
 
 <a name="id2549884629"></a>
 
-<span class="ql-right-eqno"> (8) </span><span class="ql-left-eqno"> </span>
-$\begin{equation*} 0 = {e_i}^t \hat{g}_{i} . \end{equation*}$
+$$
+0 = {e_i}^t \hat{g}_{i}
+$$ {#eq-orthogonality}
 
 If we require that $\hat{g}_{i}$ and $e_i$ to be orthogonal, we can obtain significant efficiencies in our representation. By definition, we know that the interpolated image $\hat{g}_{i}$ is the weighted sum of the columns of ${P_i}^t$. If we the error $e_i$ image is orthogonal to the interpolated image, then the error image must be the weighted sum of a set of column vectors that are all orthogonal to the columns of ${P_i}^t$. In the (one-dimensional) Gaussian pyramid construction, ${P_i}^t$ has $N_i / 2$ columns. From basic linear algebra, we know that there are $(1 / 2) N_i$ vectors perpendicular to the columns of ${P_i}^t$. Hence, if $\hat{g}_{i}$ is orthogonal to $e_i$, we can describe both of these images using only $N_i$ transform coefficients, and the representation will no longer overcomplete.
 
@@ -319,12 +309,9 @@ The human visual system also needs to blend images. As we saw in the early chapt
 
 We can see some of the advantages of a multiresolution image blending by comparing the method with a single resolution blend. So, let’s begin by defining a simple method of joining the two pictures, based on a single resolution representation. Suppose we decide to join a picture on the left $L(x,y)$ and a picture on the right $R(x,y)$. We will blend the images by mixing their intensity values near the border where the join. A formal rule for to blend the image data must specify how to combine the data from the two images. We do this using a blending function, call it $b(x,y)$, whose values vary between $0$ and $1.0$. To construct our single-resolution blending algorithm we form a mixture image from the weighted average
 
-<span class="ql-right-eqno"> (11) </span><span class="ql-left-eqno"> </span>
-\[
-\begin{equation*}
+$$
 M(x,y) = b(x,y) L(x,y) + ( 1 - b(x,y)) R(x,y) .
-\end{equation*}
-\]
+$$ {#eq-blend-single-res}
 
 Consider the performance of this type of single resolution blend on an a pair of simulated astronomical images in @fig-astro-res. Each of these images contain $512$ rows and columns. The two images were built to simulate the appearance of a starry sky. The images contain three distortions to illustrate some of the advantages of multiresolution methods for blending images.
 
@@ -336,15 +323,12 @@ Because the images are divided along a vertical line, we need to concern ourselv
 
 The most trivial, and rather ineffective, way of joining the two images is shown in panel (c). In this case the two images are simply divided in half and joined at the dividing line. Simply abutting the two images is equivalent to choosing a function $s(x,y)$ equal to
 
-<span class="ql-right-eqno"> (12) </span><span class="ql-left-eqno"> </span>
-\[
-\begin{equation*}
+$$
 b(x,y) = \left \{ \begin{array}{ll}
 1 & \mbox{if $x < m$} \\
 0 & \mbox{otherwise}
 \end{array} \right.
-\end{equation*}
-\]
+$$ {#eq-blend-step}
 
 where $m$ is the midpoint of the image, $256$ in this case. This smoothing function leads to a strong artifact at the midpoint because of the difference in mean gray level.
 
@@ -353,25 +337,20 @@ We might use a less drastic blending function for $b(x,y)$. For example, we migh
 <a name="id3260796847"></a>
 
 <span class="ql-right-eqno"> (13) </span><span class="ql-left-eqno"> </span>
-\[
-\begin{equation*}
+$$
 b(x,y) = \left \{ \begin{array}{ll}
-{1 } & \mbox{if $x < m - w $} \\
-{1 - \frac{x - m - w }{2w}} & \mbox{if $m - w \leq x \leq m + w$} \\
+1 & \mbox{if $x < m - w $} \\
+1 - \frac{x - m - w }{2w} & \mbox{if $m - w \leq x \leq m + w$} \\
 0 & \mbox{otherwise}
 \end{array} \right.
-\end{equation*}
-\]
+$$ {#eq-blend-ramp}
 
 Using a ramp to join the images blurs the image at the edge, as illustrated in panels (d) and (e) of @fig-astro-res. In panel (d) the width parameter of the linear ramp, $w$, is fairly small. When the width is small the edge artifact remains visible. As the width is broadened, the edge artifact is removed (panel (e)) and elements from both images contribute to the image in the central region. At this point the vertical shift between the two images becomes apparent. If you look carefully in the central region, you will see double stars shifted vertically one above the other. Image details that are much smaller than the width of the ramp appear in the blended image and they appear at their shifted locations. The stars are small compared to the width of the linear ramp, so the blended image contains the an artifact due to the shift in the image details.
-
 
 Multiresolution representations provide a natural, way for combining the two images that avoid some of these artifacts. We can state the multiresolution blending method as an algorithm.
 
 1. Form the pyramid of error images for $L$ and $R$.
-
 2. Within each level of the pyramid, average the error images with a blend function $b(x,y)$. A simple ramp function, as in Equation [13](#id3260796847) with $w = 1$, will do as the blend function.
-
 3. Compute the new image by reconstructing the image from the blended pyramid of error images.
 
 The image in panel (f) of @fig-astro-res contains the results of applying the multiresolution blend to the images. The multiresolution algorithm avoids the previous artifacts because by averaging the two error pyramids, two images combine over different spatial regions in each of the resolution bands. Data from the low resolution level is combined over a wide spatial region of the image, while data from the high resolution levels are combined over a narrow spatial region of the image.
@@ -394,7 +373,7 @@ Th engineering issues that arise in progressive image transmission may be releva
 
 ### Threshold and Recognition
 
-Image compression methods link {\\em visual sensitivity} measurements to an engineering application. This makes sense because threshold sensitivity plays a role in image compression; perceptually lossless compression methods, by definition, tolerate threshold level differences between the reconstructed image and the original.
+Image compression methods link *visual sensitivity* measurements to an engineering application. This makes sense because threshold sensitivity plays a role in image compression; perceptually lossless compression methods, by definition, tolerate threshold level differences between the reconstructed image and the original.
 
 For the applications apart from compression, however, sensitivity is not the key psychological measure. Since low resolution images do not look the same as the high resolution images, sensitivity to differences is not the key behavioral measure. To understand when progressive image transmissions methods work well, or which low resolution version is the best approximation to a high resolution version of an image, we need to be informed about which multiresolution representations permit people to {\\em recognize} quickly or {\\em search} for an item in a large collection of low resolution images quickly. Just as the design of multiresolution image compression methods requires knowing visual sensitivity to different spatial frequency bands, so too multiresolution methods for progressive image transmission requires knowing how important different resolution bands will be for expressing the information in an image.
 
