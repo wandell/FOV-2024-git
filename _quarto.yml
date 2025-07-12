@@ -55,7 +55,11 @@ format:
     math:
       number-equations: true
 
-
+# ASK someone skilled about this.  They don't work in the color chapter and elsewhere.
+# It would be nice to have macros working for math.
+latex-macros:
+  match: "\\mathbf{m}"
+  matchi: "\\mathbf{m}_{#1}"
 
 
 
