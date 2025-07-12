@@ -4,15 +4,15 @@ The appendix consists of five sections. In [Appendix section 1](/appendix/#Shift
 
 ## Shift-Invariant Linear Systems {#sec-shift-invariant}
 
-Many of the ideas in this book rely on properties of shift-invariant linear systems. In the text, I introduced these properties without any indication of how to prove that they are true. I have two goals for this section. First, I will sketch proofs of several important properties of shift-invariant linear systems. Second, I will describe *convolution* and the *Discrete Fourier Series*, two tools that help us take advantage of these properties <sup>1</sup>.
+Many of the ideas in this book rely on properties of shift-invariant linear systems. In the text, I introduced these properties without any indication of how to prove that they are true. I have two goals for this section. First, I will sketch proofs of several important properties of shift-invariant linear systems. Second, I will describe *convolution* and the *Discrete Fourier Series*, two tools that help us take advantage of these properties.[^convolution]
 
-> <sup>1 </sup> <small>The results in this appendix are expressed using real harmonic functions. This is in contrast to the common practice of using complex notation, specifically Euler’s complex exponential, as a shorthand to represent sums of harmonic functions. The exposition using complex exponentials is brief and elegant, but I believe it obscures the connection with experimental measurements. For this reason, I have avoided the development based on complex notation.</small>
+[^convolution]: The results in this appendix are expressed using real harmonic functions. This is in contrast to the common practice of using complex notation, specifically Euler’s complex exponential, as a shorthand to represent sums of harmonic functions. The exposition using complex exponentials is brief and elegant, but I believe it obscures the connection with experimental measurements. For this reason, I have avoided the development based on complex notation.
 
 ### Definitions
 
 Shift-invariance is a system property that can be verified by experimental measurement. For example, in [Chapter 2](/chapter-2-image-formation/) I described how to check whether the optics of the eye is shift-invariant by the following measurements. Image a line through the optics onto the retina, and measure the linespread function. Then, shift the line to a new position, forming a new retinal image. Compare the new image with the original. If the images have the same shape, differing only by a shift in position, then the optics is shift-invariant over the measured range.
 
-We can express the empirical property of shift-invariance using the following mathematical notation. Choose a stimulus, $\mathbf{p}i{i}$ and measure the system response, $\resveci{i}$. Now, shift the stimulus by an amount $j$ and measure again. If the response is shifted by $j$ as well, then the system may be shift-invariant. Try this experiment for many values of the shift parameter, $j$. If the experiment succeeds for all shifts, then the system is shift-invariant.
+We can express the empirical property of shift-invariance using the following mathematical notation. Choose a stimulus, $\mathbf{p}i{i}$ and measure the system response, $\mathbf{r}_{i}$. Now, shift the stimulus by an amount $j$ and measure again. If the response is shifted by $j$ as well, then the system may be shift-invariant. Try this experiment for many values of the shift parameter, $j$. If the experiment succeeds for all shifts, then the system is shift-invariant.
 
 If you think about this definition as an experimentalist, you can see that there are some technical problems in making the measurements needed to verify shift-invariance. Suppose that the original stimulus and response are represented at $N$ distinct points, $i = 1, \ldots, N$. If we shift the stimulus three locations so that now the fourth location contains the first entry, the fifth the second, and so forth, how do we fill in the first three locations in the new stimulus? And, what do we do with the last three values, $N-2, N-1, N$, which have nowhere to go?
 
@@ -35,9 +35,9 @@ $$ {#eq-periodic-example}
 
 ### Convolution
 
-Next, we derive some of the properties of linear shift-invariant systems. We begin by describing these properties in terms of the *system matrix* (see [Chapter 2](/chapter-2-image-formation/)). Then, we will show how the simple structure of the shift-invariant system matrix permits us to relate the input and output by a summation formula called *cyclic convolution*. The convolution formula is so important that shift-invariant systems are sometimes called *convolution systems* <sup>2</sup>.
+Next, we derive some of the properties of linear shift-invariant systems. We begin by describing these properties in terms of the *system matrix* (see [Chapter 2](/chapter-2-image-formation/)). Then, we will show how the simple structure of the shift-invariant system matrix permits us to relate the input and output by a summation formula called *cyclic convolution*. The convolution formula is so important that shift-invariant systems are sometimes called *convolution systems*.[^cyclic-convolution]
 
-> <sup>2 </sup><small>Since we use only cyclic convolution here, I will drop the word “cyclic” and refer to the formula simply as convolution. This is slightly abusive, but conforms to common practice in many fields.</small>
+[^cyclic-convolution]: Since we use only cyclic convolution here, I will drop the word “cyclic” and refer to the formula simply as convolution. This is slightly abusive, but conforms to common practice in many fields.
 
 In [Chapter 2](/chapter-2-image-formation/) I reviewed how to measure the system matrix of an optical system for one-dimensional input stimuli. We measure the image resulting from a single line at a series of uniformly spaced input locations. If the system is shift-invariant, then the columns of the system matrix are shifted copies of one another (except for edge artifacts). To create the system matrix, we extend the inputs and outputs to be periodic functions (Equation~[1](#id380689075)). Then, we select a central block of size $N \times N$ to be the system matrix and we use the corresponding entries of the extended stimulus. For example, if the input stimulus consists of six values, $\mathbf{p} = (0,0,0,1,0,0)$, and the response to this stimulus is the vector, $\mathbf{l} = (0.0,0.3,0.6,0.2,0.1,0.0)$, then the $6 \times 6$ system matrix is
 
@@ -87,34 +87,36 @@ $$
 \hat{r}_{i} = \sum_{k=<N>} \hat{l}_{k} \hat{p}_{ {i - k} }
 $$ {#eq-convolution-shift}
 
-Next, we use the convolution formula in Equation~[7](#eq-convolution-shift) to compute the response to a sinusoidal input $\SfNj$. From trigonometry we have that
-
+Next, we use the convolution formula in Equation~[7](#eq-convolution-shift) to compute the response to a sinusoidal input $\sin(\frac{2 \pi f j}{N})$. From trigonometry we have that
 
 $$
-\SfNij = \SfNi \CfNj + \SfNj \CfNi ~ .
+\sin(\frac{2 \pi f (i+j)}{N}) = \sin(\frac{2 \pi f i}{N}) \cos(\frac{2 \pi f j}{N}) + \sin(\frac{2 \pi f j}{N}) \cos(\frac{2 \pi f i}{N}) ~ .
 $$ {#eq-sin-angle-sum}
 
 Substitute Equation~[8](#eq-sin-angle-sum) into Equation~[7](#eq-convolution-shift), remembering that $\sin (-k) = - \sin (k)$ and $\cos (-k) = \cos (k)$.
 
 $$
-\hat{r}_{i} = \sum_{k=<N>} \hat{l}_{k} \SfNi \CfNk + \sum_{k=<N>} \hat{l}_{k} \SfnNk \CfNi \nonumber \\
-= \SfNi \sum_{k=<N>} \hat{l}_{k} \CfNk - \CfNi \sum_{k=<N>} \hat{l}_{k} \SfNk
+\begin{align}
+\hat{r}_{i} & = \sum_{k=<N>} \hat{l}_{k} \sin(\frac{2 \pi f i}{N}) \cos(\frac{2 \pi f k}{N}) + \sum_{k=<N>} \hat{l}_{k} \sin(\frac{2 \pi f k}{N}) \cos(\frac{2 \pi f i}{N})  \\
+& = \sin(\frac{2 \pi f i}{N}) \sum_{k=<N>} \hat{l}_{k} \cos(\frac{2 \pi f k}{N}) - \cos(\frac{2 \pi f i}{N}) \sum_{k=<N>} \hat{l}_{k} \sin(\frac{2 \pi f k}{N})
+\end{align}
 $$ {#eq-sinusoid-response}
 
 We can simplify this expression to the form
 
 $$
-\hat{r}_{i} = a~\SfNi - b~\CfNi
+\hat{r}_{i} = a~\sin(\frac{2 \pi f i}{N}) - b~\cos(\frac{2 \pi f i}{N})
 $$ {#eq-sinusoid-output}
 
 where
 
-$$
-a = \sum_{k=<N>} \hat{l}_{k} \CfNk \nonumber \\
-b = \sum_{k=<N>} \hat{l}_{k} \SfNk \nonumber
+$$\begin{align}
+a & = \sum_{k=<N>} \hat{l}_{k} \cos(\frac{2 \pi f k}{N})  \\
+b & = \sum_{k=<N>} \hat{l}_{k} \sin(\frac{2 \pi f k}{N})
+\end{align}
 $$ {#eq-sinusoid-coeffs}
 
-We have shown that when the input to the system is a sinusoidal function at frequency $f$, the output of the system is the weighted sum of a sinusoid and a cosinusoid, both at frequency $f$. This is equivalent to showing that when the input is a sinusoid at frequency $f$, the output will be a scaled and shifted copy of the input, $s_f \sin (\pfiN + \phi_f )$ (see Equation~??). As we shall see below, it is easy to generalize this result to all harmonic functions.
+We have shown that when the input to the system is a sinusoidal function at frequency $f$, the output of the system is the weighted sum of a sinusoid and a cosinusoid, both at frequency $f$. This is equivalent to showing that when the input is a sinusoid at frequency $f$, the output will be a scaled and shifted copy of the input, $s_f \sin (\frac{\pi f i}{N} + \phi_f )$ (see Equation~??). As we shall see below, it is easy to generalize this result to all harmonic functions.
 
 ### The Discrete Fourier Series: Defined
 
@@ -123,65 +125,64 @@ In general, when we measure the response of a shift-invariant linear system we m
 The method used to transform a stimulus into the weighted sum of harmonic functions is called the *Discrete Fourier Transform* (DFT). The representation of the stimulus as the weighted sum of harmonic functions is called the *Discrete Fourier Series* (DFS). We use the DFS to represent an extended stimulus, $\hat{\mathbf{p}}$.
 
 $$
-\hat{\mathbf{p}}_i = \sum_{f=0}^{N-1} a_f \CfNi + b_f \SfNi ~~.
+\hat{{p}}_i = \sum_{f=0}^{N-1} a_f \cos(\frac{2 \pi f i}{N}) + b_f \sin(\frac{2 \pi f i}{N}) ~~.
 $$ {#eq-dfs-representation}
 
 We are interested in that part of the extended stimulus that coincides with our measurements. We can express the relationship between the harmonic functions and the original stimulus, $\mathbf{p}$, using a matrix equation
 
 $$
-\mathbf{p} = \matCos \vect{a} + \matSin \vect{b}
+\mathbf{p} = \mathbf{C} \mathbf{a} + \mathbf{S} \mathbf{b}
 $$ {#eq-dfs-matrix}
 
 which has the matrix tableau form
 
 $$
 \left ( \begin{array}{c} ~ \\ \mathbf{p} \\ ~ \end{array} \right ) = 
-\left ( \begin{array}{ccc} ~ & ~ & ~ \\ ~ & \matCos & ~\\ ~ & ~ & ~ \end{array} \right ) 
-\left ( \begin{array}{c} ~ \\ \vect{a} \\ ~ \end{array} \right ) + 
-\left ( \begin{array}{ccc} ~ & ~ & ~ \\ ~ & \matSin & ~\\ ~ & ~ & ~ \end{array} \right ) 
-\left( \begin{array}{c} ~ \\ \vect{b} \\ ~ \end{array} \right )
+\left ( \begin{array}{ccc} ~ & ~ & ~ \\ ~ & \mathbf{C} & ~\\ ~ & ~ & ~ \end{array} \right ) 
+\left ( \begin{array}{c} ~ \\ \mathbf{a} \\ ~ \end{array} \right ) + 
+\left ( \begin{array}{ccc} ~ & ~ & ~ \\ ~ & \mathbf{S} & ~\\ ~ & ~ & ~ \end{array} \right ) 
+\left( \begin{array}{c} ~ \\ \mathbf{b} \\ ~ \end{array} \right )
 $$ {#eq-dfs-tableau}
 
-The vectors $\vect{a}$ and $\vect{b}$ contain the coefficients $a_f$ and $b_f$, respectively. The columns of the matrices $\matCos$ and $\matSin$ contain the relevant portions of the cosinusoidal and sinusoidal terms, $\CfNi$ and $\SfNi$, that are used in the DFS representation.
+The vectors $\mathbf{a}$ and $\mathbf{b}$ contain the coefficients $a_f$ and $b_f$, respectively. The columns of the matrices $\mathbf{C}$ and $\mathbf{S}$ contain the relevant portions of the cosinusoidal and sinusoidal terms, $\cos(\frac{2 \pi f i}{N})$ and $\sin(\frac{2 \pi f i}{N})$, that are used in the DFS representation.
 
-The DFS represents the original stimulus as the weighted sum of a set of harmonic functions (i.e., sampled sine and cosine functions). We call these sampled harmonic functions the *basis functions* of the DFS representation. The vectors $\vect{a}$ and $\vect{b}$ contain basis functions *weights* or *coefficients* that specify how much of each basis function must be added in to recreate the original stimulus, $\mathbf{p}$.
+The DFS represents the original stimulus as the weighted sum of a set of harmonic functions (i.e., sampled sine and cosine functions). We call these sampled harmonic functions the *basis functions* of the DFS representation. The vectors $\mathbf{a}$ and $\mathbf{b}$ contain basis functions *weights* or *coefficients* that specify how much of each basis function must be added in to recreate the original stimulus, $\mathbf{p}$.
 
 
 ### The Discrete Fourier Series: Properties
 
 ![The basis functions of the Discrete Fourier Series. The cosinusoidal (a) and sinusoidal (b) basis functions of the discrete Fourier series representation when N=8 are shown. Notice the redundancy between the functions at symmetrically placed frequencies.](../wp-content/uploads/2012/02/sincos.png){#fig-dfs-basis width="70%"}
 
-Figure A1.1 shows the sampled sine and cosine functions for a period of $N = 8$. The functions are arrayed in a circle to show how they relate to one another. There are a total of 16 basis functions. But, as you can see from Figure A1.1, they are redundant. The sampled cosinusoids in the columns of $\matCos$ repeat themselves (in reverse order); for example, when $N=8$ the cosinusoids for $f = 1,2,3$ are the same as the cosinusoids for $f= 7,6,5$. The sampled sinusoids in the columns of $\matSin$ also repeat themselves except for a sign reversal (multiplication by negative one). There are only four independent sampled cosinusoids, and four independent sampled sinusoids. As a result of this redundancy, neither the $\matSin$ nor the matrix $\matCos$ is invertible.
+Figure A1.1 shows the sampled sine and cosine functions for a period of $N = 8$. The functions are arrayed in a circle to show how they relate to one another. There are a total of 16 basis functions. But, as you can see from Figure A1.1, they are redundant. The sampled cosinusoids in the columns of $\mathbf{C}$ repeat themselves (in reverse order); for example, when $N=8$ the cosinusoids for $f = 1,2,3$ are the same as the cosinusoids for $f= 7,6,5$. The sampled sinusoids in the columns of $\mathbf{S}$ also repeat themselves except for a sign reversal (multiplication by negative one). There are only four independent sampled cosinusoids, and four independent sampled sinusoids. As a result of this redundancy, neither the $\mathbf{S}$ nor the matrix $\mathbf{C}$ is invertible.
 
-Nevertheless, the properties of these harmonic basis functions make it simple to calculate the vectors containing the weights of the harmonic functions from the original stimulus, $\mathbf{p}$. To compute $\vect{a}$ and $\vect{b}$, we multiply the input by the basis functions, as in
+Nevertheless, the properties of these harmonic basis functions make it simple to calculate the vectors containing the weights of the harmonic functions from the original stimulus, $\mathbf{p}$. To compute $\mathbf{a}$ and $\mathbf{b}$, we multiply the input by the basis functions, as in
 
 $$
-\vect{a} = \frac{1}{N} \matCos^T \mathbf{p} ~~~\mbox{and}~~~ \vect{b} = \frac{1}{N} \matSin^T \mathbf{p} .
+\mathbf{a} = \frac{1}{N} \mathbf{C}^T \mathbf{p} ~~~\mbox{and}~~~ \mathbf{b} = \frac{1}{N} \mathbf{S}^T \mathbf{p} .
 $$ {#eq-dfs-coefficients}
 
-We can derive the relationship in Equation~[15](#eq-dfs-coefficients) from two observations. First, the matrix sum, $\matr{H} = \matSin + \matCos$ has a simple inverse. The columns of $\matr{H}$ are orthogonal to one another, so that the inverse of $\matr{H}$ is simply [^3].
+We can derive the relationship in Equation~[15](#eq-dfs-coefficients) from two observations. First, the matrix sum, $\mathbf{H} = \mathbf{S} + \mathbf{C}$ has a simple inverse. The columns of $\mathbf{H}$ are orthogonal to one another, so that the inverse of $\mathbf{H}$ is simply [^hartley-transform].
 
 $$
-\matr{H}^{-1} = \frac{1}{N} \matr{H}^{T} = \frac{1}{N} (\matSin + \matCos)^T .
+\mathbf{H}^{-1} = \frac{1}{N} \mathbf{H}^{T} = \frac{1}{N} (\mathbf{S} + \mathbf{C})^T .
 $$ {#eq-dfs-inverse}
 
+[^hartley-transform]: This observation is the basis of another useful linear transform method called the *Hartley Transform* (Bracewell, 1986).
 
-> <sup>3 </sup><small> This observation is the basis of another useful linear transform method called the *Hartley Transform* (Bracewell, 1986).</small>
+Second, the columns of the matrices $\mathbf{C}$ and $\mathbf{S}$ are perpendicular to one another: $\mathbf{0} = \mathbf{C} \mathbf{S}^{T}$. This observation should not be surprising since continuous sinusoids and cosinusoids are also orthogonal to one another.
 
-Second, the columns of the matrices $\matCos$ and $\matSin$ are perpendicular to one another: $\matr{0} = \matCos \matSin^{T}$. This observation should not be surprising since continuous sinusoids and cosinusoids are also orthogonal to one another.
-
-We can use these two observations to derive Equation~[15](#eq-dfs-coefficients) as follows. Express the fact that $\matr{H}$ and $\frac{1}{N} \matr{H}^{T}$ are inverses as follows:
+We can use these two observations to derive Equation~[15](#eq-dfs-coefficients) as follows. Express the fact that $\mathbf{H}$ and $\frac{1}{N} \mathbf{H}^{T}$ are inverses as follows:
 
 $$
-{{\bf I}_{N \times N}} = \matr{H} \left(\frac{1}{N} \matr{H}^T \right) = \frac{1}{N} (\matCos + \matSin) (\matCos + \matSin)^T = \frac{1}{N} (\matCos \matCos^T + \matSin \matSin^T)
+{{\bf I}_{N \times N}} = \mathbf{H} \left(\frac{1}{N} \mathbf{H}^T \right) = \frac{1}{N} (\mathbf{C} + \mathbf{S}) (\mathbf{C} + \mathbf{S})^T = \frac{1}{N} (\mathbf{C} \mathbf{C}^T + \mathbf{S} \mathbf{S}^T)
 $$ {#eq-dfs-inverse-proof}
 
-where ${\matr{I}_{N \times N}}$ is the identity matrix. Then, multiply both sides of Equation~[16](#eq-dfs-inverse-proof) by $\mathbf{p}$,
+where ${\mathbf{I}_{N \times N}}$ is the identity matrix. Then, multiply both sides of Equation~[16](#eq-dfs-inverse-proof) by $\mathbf{p}$,
 
 %cn cn’ stim + sn sn’ stim = stim.
 
 $$
-\mathbf{p} = \frac{1}{N} (\matCos \matCos^T \mathbf{p} + \matSin \matSin^T \mathbf{p} )
+\mathbf{p} = \frac{1}{N} (\mathbf{C} \mathbf{C}^T \mathbf{p} + \mathbf{S} \mathbf{S}^T \mathbf{p} )
 $$ {#eq-dfs-reconstruction}
 
 Compare Equation~[17](#eq-dfs-reconstruction) and Equation~[13](#eq-dfs-tableau}. Notice that the Equations become identical if we make the assignments in Equation~[15](#eq-dfs-coefficients). This completes the sketch of the proof.
@@ -192,7 +193,7 @@ Finally, we show how to predict the response of a shift-invariant linear system 
 
 Because cosinusoids and sinusoids are shifted copies of one another, the response of a shift-invariant linear system to these functions is the same except for a shift. From a calculation like the one in Equation~[8](#id2187188570), except using a cosinusoidal input, we can calculate the following result: If the response to a cosinusoid at frequency $f$ is a sum of cosinusoid and sinusoid with weights, $(a_f, b_f)$, then, the response to a sinusoid at frequency $f$ will have weights $(b_f, -a_f)$. Hence, if we know the response to a cosinusoid at $f$, we also know the response to a sinusoid at $f$.
 
-Next, we can use our knowledge of the response to sinusoids and cosinusoids at $f$ to predict the response to any harmonic function at $f$. Suppose that the input is a harmonic function $a \CfNi + b \SfNi$, and the output is, say $a^\prime \CfNi + b^\prime \SfNi$. If the response to a unit amplitude cosinusoid is $u_f \CfNi + v_f \SfNi$, then the response to a unit amplitude sinusoid is $v_f \CfNi - u_f \SfNi$. Using these two facts and linearity we calculate the coefficients of the response,
+Next, we can use our knowledge of the response to sinusoids and cosinusoids at $f$ to predict the response to any harmonic function at $f$. Suppose that the input is a harmonic function $a \cos(\frac{2 \pi f i}{N}) + b \sin(\frac{2 \pi f i}{N})$, and the output is, say $a^\prime \cos(\frac{2 \pi f i}{N}) + b^\prime \sin(\frac{2 \pi f i}{N})$. If the response to a unit amplitude cosinusoid is $u_f \cos(\frac{2 \pi f i}{N}) + v_f \sin(\frac{2 \pi f i}{N})$, then the response to a unit amplitude sinusoid is $v_f \cos(\frac{2 \pi f i}{N}) - u_f \sin(\frac{2 \pi f i}{N})$. Using these two facts and linearity we calculate the coefficients of the response,
 
 $$
 \begin{eqnarray*}
@@ -271,10 +272,10 @@ $$
 \mathbf{m}_{1} + \mathbf{m}_{2} + \mathbf{m}_{3} .
 $$ {#eq-monitor-max-sum}
 
-More generally, if we set the phosphors to the three relative intensities $\mathbf{e} = ( \er , \eg , \eb )$, the light emitted by the CRT will be the weighted sum
+More generally, if we set the phosphors to the three relative intensities $\mathbf{e} = ( {e_r} , {e_g} , {e_b} )$, the light emitted by the CRT will be the weighted sum
 
 $$
-\mathbf{t} = \er \mathbf{m}_{1} + \eg \mathbf{m}_{2} + \eb \mathbf{m}_{3}
+\mathbf{t} = {e_r} \mathbf{m}_{1} + {e_g} \mathbf{m}_{2} + {e_b} \mathbf{m}_{3}
 $$ {#eq-monitor-weighted-sum}
 
 Figure A2.3 is a matrix tableau that illustrates how to compute the spectral power distribution of light emitted from a CRT display. The vector $\mathbf{e}$ contains the relative intensity of each of the three phosphors. The three columns of a matrix, call it $\mathbf{M}$, contain the spectral power distributions of the light emitted by the red, green and blue phosphors at maximum intensity. The spectral power distribution of light emitted from the monitor is the product $\mathbf{M} \mathbf{e}$.
@@ -287,7 +288,7 @@ The light emitted from a CRT is different from lights we encounter in natural sc
 
 In many types of psychophysical experiments, we must be able to specify and control the relative absorption rates in the three types of cones. In this section, I show how to measure and control the relative cone absorptions when the phosphor spectral power distributions and the relative cone photopigment spectral sensitivities are known.
 
-We use two basic matrices in these calculations. We have already created the matrix $\mathbf{M}$ whose three columns contain the spectral power distributions of the phosphors at maximum intensity. We also create a matrix, $\mathbf{B}$, whose three columns contain the cone absorption sensitivities ($L$, $M$, and $S$), measured through the cornea and lens (see Table~??.) Given a set of relative intensities, $\mathbf{e}$, we calculate the relative cone photopigment absorption rates, $\mathbf{r}$ by the matrix product <sup>4</sup>
+We use two basic matrices in these calculations. We have already created the matrix $\mathbf{M}$ whose three columns contain the spectral power distributions of the phosphors at maximum intensity. We also create a matrix, $\mathbf{B}$, whose three columns contain the cone absorption sensitivities ($L$, $M$, and $S$), measured through the cornea and lens (see Table~??.) Given a set of relative intensities, $\mathbf{e}$, we calculate the relative cone photopigment absorption rates, $\mathbf{r}$ by the matrix product[^uniform-display]
 
 $$
 \mathbf{r} = \mathbf{B}^T \mathbf{M} \mathbf{e} = \mathbf{H} \mathbf{e} .
@@ -305,7 +306,7 @@ Each column of the calibration matrix describes the relative cone absorptions ca
 
 Suppose the red phosphor stimulated only the $L$ cones, the green the $M$ cones, and the blue the $S$ cones. In that case, the calibration matrix would be diagonal, and we could control the absorptions in a single cone class by adjusting only one of the phosphor emissions. In practice, the light from each of the CRT phosphors is absorbed in all three cone types and the calibration matrix is never diagonal. As a result, to control the cone absorptions we must take into account the effect each phosphor has on each of the three cone types. This complexity is unavoidable because of the overlap of the cone absorption curves and the need to use phosphors with broadband emissions to create a bright display. Consequently, the calibration matrix is never diagonal.
 
-> <sup>4 </sup><small>This calculation applies to spatially uniform regions of a display, in which we can ignore the complications of chromatic aberration. Marimont and Wandell (1994) describe how to include the effects of chromatic aberration.</small>
+[^uniform-display]: This calculation applies to spatially uniform regions of a display, in which we can ignore the complications of chromatic aberration. Marimont and Wandell (1994) describe how to include the effects of chromatic aberration.
 
 
 ### Example Calculations
@@ -362,53 +363,53 @@ For further discussion of calibration, consult some papers in which authors have
 
 Many visual judgments are classifications: an edge is present, or not; a part is defective, or not; a tumor is present, or not. The threshold and discrimination performances reviewed in [Chapter 7](/chapter-7-pattern-sensitivity/) are classifications as well: I saw it, or not; the stimulus was this one, or that. This appendix explains some of the basic concepts in classification theory and their application to understanding vision.
 
-We will explore the issues in classification by analyzing some simple behavioral decisions, the kind that take place in many vision experiments. Suppose that during an experimental trial, the observer must decide which of two visual stimuli, $\stimA$ or $\stimB$, is present. Part of the observer’s decision will be based on the pattern of cone absorptions during the experimental trial. We can list the cone absorptions in a vector, $\data$, whose values represent the number of absorptions in each of the cones. Because there are statistical fluctuations in the light source, and variability in the image formation process, the pattern of cone absorptions created by the same stimulus varies from trial to trial. As a result, the pattern of cone absorptions from the two different stimuli may sometimes be the same, and perfect classification may be impossible.
+We will explore the issues in classification by analyzing some simple behavioral decisions, the kind that take place in many vision experiments. Suppose that during an experimental trial, the observer must decide which of two visual stimuli, $A$ or $B$, is present. Part of the observer’s decision will be based on the pattern of cone absorptions during the experimental trial. We can list the cone absorptions in a vector, $\mathbf{d}$, whose values represent the number of absorptions in each of the cones. Because there are statistical fluctuations in the light source, and variability in the image formation process, the pattern of cone absorptions created by the same stimulus varies from trial to trial. As a result, the pattern of cone absorptions from the two different stimuli may sometimes be the same, and perfect classification may be impossible.
 
 What response strategy should the subject use to classify the stimuli correctly as often as possible? A good way to lead your life is this: *When you are uncertain and must decide, choose the more likely alternative.*
 
-We can translate this simple principle into a statistical procedure by the following set of calculations. Suppose that we know the probability of the signal being $\stimA$ when we observe $\data$. This is called the *conditional probability*, $P(\stimA \mid \data)$, which is read as “the probability of $\stimA$ given $\data$.” Suppose we also know the conditional probability that the signal is $\stimB$ is $P(\stimB \mid \data)$. The observer should decide that the signal is the one that is more likely given the data, namely
+We can translate this simple principle into a statistical procedure by the following set of calculations. Suppose that we know the probability of the signal being $A$ when we observe $\mathbf{d}$. This is called the *conditional probability*, $P(A \mid \mathbf{d})$, which is read as “the probability of $A$ given $\mathbf{d}$.” Suppose we also know the conditional probability that the signal is $B$ is $P(B \mid \mathbf{d})$. The observer should decide that the signal is the one that is more likely given the data, namely
 
 $$
-\mbox{If}~ P(\stimA \mid \data) ~ > ~ P(\stimB \mid \data ) \mbox{~~choose $\stimA$, else $\stimB$}.
+\mbox{If}~ P(A \mid \mathbf{d}) ~ > ~ P(B \mid \mathbf{d} ) \mbox{~~choose $A$, else $B$}.
 $$ {#eq-decision-rule}
 
-We call the expression in Equation~[20](#eq-decision-rule) a *decision rule*. The decision rule in Equation~[20](#eq-decision-rule) is framed in terms of the likelihood of the stimuli ($\stimA$ or $\stimB$) given the data ($\data$). This formulation of the probabilities runs counter to our normal learning experience. During training, we know that stimulus $\stimA$ has been presented, and we experience a collection of cone absorptions. Experience informs us about probability of the data given the stimulus, $P(\data \mid \stimA)$, not the probability of the stimulus given the data, $P(\stimA \mid \data)$. Hence, we would like to reformulate Equation~[20](#eq-decision-rule) in terms of the way we acquire our experience.
+We call the expression in Equation~[20](#eq-decision-rule) a *decision rule*. The decision rule in Equation~[20](#eq-decision-rule) is framed in terms of the likelihood of the stimuli ($A$ or $B$) given the data ($\mathbf{d}$). This formulation of the probabilities runs counter to our normal learning experience. During training, we know that stimulus $A$ has been presented, and we experience a collection of cone absorptions. Experience informs us about probability of the data given the stimulus, $P(\mathbf{d} \mid A)$, not the probability of the stimulus given the data, $P(A \mid \mathbf{d})$. Hence, we would like to reformulate Equation~[20](#eq-decision-rule) in terms of the way we acquire our experience.
 
-*Bayes Rule* is a formula that converts probabilities derived from experience, $P(\data \mid \stimA)$, into the form we need for the decision-rule, $P(\stimA \mid \data)$. The expression for Bayes Rule is
+*Bayes Rule* is a formula that converts probabilities derived from experience, $P(\mathbf{d} \mid A)$, into the form we need for the decision-rule, $P(A \mid \mathbf{d})$. The expression for Bayes Rule is
 
 <a name="id2208315637"></a>
 
 <span class="ql-right-eqno"> (21) </span><span class="ql-left-eqno"> </span>
 $$
-P(\stimA \mid \data ) = P ( \data \mid \stimA ) \frac{ P ( \stimA ) }{ P ( \data ) }
+P(A \mid \mathbf{d} ) = P ( \mathbf{d} \mid A ) \frac{ P ( A ) }{ P ( \mathbf{d} ) }
 $$ {#eq-bayes-rule}
 
-where $P(\stimA)$ is the probability the experimenter presents signal $\stimA$ (in this case one-half) and $P(\data)$ is the probability of observing $\data$ quanta. As we shall see, this second probability turns out to be irrelevant to our decision.
+where $P(A)$ is the probability the experimenter presents signal $A$ (in this case one-half) and $P(\mathbf{d})$ is the probability of observing $\mathbf{d}$ quanta. As we shall see, this second probability turns out to be irrelevant to our decision.
 
-The probabilities on the right hand side of Bayes Rule are either estimated from our experience, $P(\data \mid \stimA)$, or they are a structural part of the experimental design $P(\stimA)$. The probability that stimulus $\stimA$ or $\stimB$ is presented is called the *a priori* probability, or *base rate*. The probability $P(\data \mid \stimA)$ is called the *likelihood* of the observation given the hypothesis. The probability, $P(\stimA \mid \data)$ is called the *a posteriori* probability. Bayes Rule combines the base rate and the likelihood of the observation to form the a posteriori probability of the hypothesis.
+The probabilities on the right hand side of Bayes Rule are either estimated from our experience, $P(\mathbf{d} \mid A)$, or they are a structural part of the experimental design $P(A)$. The probability that stimulus $A$ or $B$ is presented is called the *a priori* probability, or *base rate*. The probability $P(\mathbf{d} \mid A)$ is called the *likelihood* of the observation given the hypothesis. The probability, $P(A \mid \mathbf{d})$ is called the *a posteriori* probability. Bayes Rule combines the base rate and the likelihood of the observation to form the a posteriori probability of the hypothesis.
 
 We can use Bayes Rule to express the decision criterion in Equation~[20](#id4204964774) in this more convenient form.
 <a name="id1391374113"></a>
 
-$$(\mbox{If}~~ P(\data \mid \stimA) \frac { P(\stimA)}{ P(\data) } > P(\data \mid \stimB) \frac{ P(\stimB) }{ P(\data) } ~~\mbox{choose $\stimA$,~else~$\stimB$}.)
+$$(\mbox{If}~~ P(\mathbf{d} \mid A) \frac { P(A)}{ P(\mathbf{d}) } > P(\mathbf{d} \mid B) \frac{ P(B) }{ P(\mathbf{d}) } ~~\mbox{choose $A$,~else~$B$}.)
 $$ {#eq-bayes-decision-1}
 
-Since the probability of observing the data, $P(\data)$, divides both sides of this inequality, this probability is irrelevant to the
+Since the probability of observing the data, $P(\mathbf{d})$, divides both sides of this inequality, this probability is irrelevant to the
 decision. Therefore, we can re-write Equation [22](#id1391374113) as
 
 <a name="id3514090741"></a>
 
 $$
-\frac{ P(\data \mid \stimA) }{ P(\data \mid \stimB) } > \frac{ P(\stimB) } { P(\stimA) }.
+\frac{ P(\mathbf{d} \mid A) }{ P(\mathbf{d} \mid B) } > \frac{ P(B) } { P(A) }.
 $$ {#eq-bayes-decision-2}
 
-The term on the left hand side of Equation~[23](#id3514090741) is called the *likelihood ratio*. The quantity on the right is called the *odds ratio*. The formula tells us that we should select $\stimA$ when the likelihood ratio, which depends on the data, exceeds the odds ratio, which depends on the a priori knowledge. A system that uses this formula to classify the stimuli is called a *Bayes classifier*.
+The term on the left hand side of Equation~[23](#id3514090741) is called the *likelihood ratio*. The quantity on the right is called the *odds ratio*. The formula tells us that we should select $A$ when the likelihood ratio, which depends on the data, exceeds the odds ratio, which depends on the a priori knowledge. A system that uses this formula to classify the stimuli is called a *Bayes classifier*.
 
 ### A Bayes classifier for an Intensity Discrimination Task
 
 In this section we will devise a Bayes classifier for a simple experimental decision. Suppose that we ask an observer to decide whether we have presented one of two brief visual stimuli; the two stimuli are identical in all ways but their intensity. We suppose that the observer decides which stimulus was presented based on the total number of cone absorptions during the trial, $\sum_{i=1}^{N} d_i = d$, and without paying attention to the spatial distribution of the cone absorptions.
 
-Across experimental trials, the number of absorptions from $\stimA$ will vary. There are two sources of this variability. One source of variability is in the stimulus itself. Photons emitted by a light source are the result of a change in the energy level of an electron within the source material. Each electron within the material has some probability of changing states and yielding some energy in the form of a photon. This change in excitation level is a purely statistical event and cannot be precisely controlled. The variability in the number of emitted photons, then, is inherent in the physics of light emission and cannot be eliminated.
+Across experimental trials, the number of absorptions from $A$ will vary. There are two sources of this variability. One source of variability is in the stimulus itself. Photons emitted by a light source are the result of a change in the energy level of an electron within the source material. Each electron within the material has some probability of changing states and yielding some energy in the form of a photon. This change in excitation level is a purely statistical event and cannot be precisely controlled. The variability in the number of emitted photons, then, is inherent in the physics of light emission and cannot be eliminated.
 
 A second source of variability is in the observer. On different experimental trials, the position of the eye, accommodative state of the lens, and other optical factors will vary. As these image formation parameters vary, the chance that photons are absorbed within the photopigment will vary. These statistic fluctuations are unavoidable as well.
 
@@ -427,56 +428,58 @@ $$ {#eq-poisson-prob}
 
 The value $\mu$ is called the *rate-parameter* of the Poisson distribution. The variance of the Poisson distribution is also $\mu$.
 
-Figure A3.1 shows the probability distributions of the number of cone absorptions from the two stimuli, $\stimA$ and $\stimB$. For this illustration, I have assumed that the mean absorptions from the two stimuli are $\muA = 8$ and $\muB = 12$, respectively. Since the a priori stimulus probabilities are equal, the observer will select stimulus $\stimA$ whenever $P(d \mid A)$ exceeds $P(d \mid \stimB)$. For this pair of distributions, this occurs whenever the observation is less than 9.
-![Bayes classifier for an intensity discrimination. The Poisson distributions of stimulus A with rate parameter muA = 8 (x's) and B with rate parameter muB = 12 (o's) are shown. When the a priori probabilities of seeing the stimuli are equal, the Bayes classifier selects B when the absorptions exceed the dashed line drawn through the graph. When the a priori probabilities are P(A) = 0.75 and P(B) = 0.25, the Bayes classifier selects B when the absorptions exceed the solid line drawn through the graph.](../wp-content/uploads/2012/02/sdt.png){#fig-bayes-intensity width="70%"}
+Figure A3.1 shows the probability distributions of the number of cone absorptions from the two stimuli, $A$ and $B$. For this illustration, I have assumed that the mean absorptions from the two stimuli are $\mu_{A} = 8$ and $\mu_{B} = 12$, respectively. Since the a priori stimulus probabilities are equal, the observer will select stimulus $A$ whenever $P(d \mid A)$ exceeds $P(d \mid B)$. For this pair of distributions, this occurs whenever the observation is less than 9.
 
-Now, suppose the experimenter presents $\stimA$ with probability $0.75$ and $\stimB$ with probability $0.25$. In this case, the subject can be right three quarters of the time simply by always guessing $\stimA$. Given the strong a priori odds for $\stimA$, the Bayes classifier will only choose $\stimB$ if the likelihood exceeds three to one. From the distributions in Figure A3.1 we find this occurs when there are at least 13 absorptions. The Bayes classifier uses the data and the a priori probabilities to make a decision <sup>5</sup>.
+![Bayes classifier for an intensity discrimination. The Poisson distributions of stimulus A with rate parameter muA = 8 (x's) and B with rate parameter muB = 12 (o's) are shown. When the a priori probabilities of seeing the stimuli are equal, the Bayes classifier selects B when the absorptions exceed the dashed line drawn through the graph. When the a priori probabilities are P(A) = 0.75 and P(B) = 0.25, the Bayes classifier selects B when the absorptions exceed the solid line drawn through the graph.](/wp-content/uploads/2012/02/sdt.png){#fig-bayes-intensity width="70%"}
 
-> <sup>5 </sup><small>In a classic paper, Hecht, Schlaer and Pirenne (1942) measured the smallest number of quanta necessary to reliably detect a signal. In the most sensitive region of the retina, under the optimized viewing conditions, they found that 100 quanta at the cornea, which corresponds to about 10 absorptions, are sufficient. The quanta are absorbed in an area covered by several hundred rods; hence, it is quite unlikely that two quanta will be absorbed by the same rod. They concluded, quite correctly, that a single photon of light can produce a measurable response in a single rod.</small>
-> 
-> To find further support for their observation, Hecht et al. analyzed how the subject’s responses varied across trials. They assumed that all of the observed variability was due to the stimulus, and none was due to the observer. Their account is repeated in a wonderful didactic style in Cornsweet’s book. I don’t think this assumption is justified; a complete treatment of the data must take into account variability intrinsic to the human observer (e.g., Nachmias and Kocher, 1970).
+Now, suppose the experimenter presents $A$ with probability $0.75$ and $B$ with probability $0.25$. In this case, the subject can be right three quarters of the time simply by always guessing $A$. Given the strong a priori odds for $A$, the Bayes classifier will only choose $B$ if the likelihood exceeds three to one. From the distributions in Figure A3.1 we find this occurs when there are at least 13 absorptions. The Bayes classifier uses the data and the a priori probabilities to make a decision.[^hecht-photon-detection]
+
+[^hecht-photon-detection]: In a classic paper, Hecht, Schlaer and Pirenne (1942) measured the smallest number of quanta necessary to reliably detect a signal. In the most sensitive region of the retina, under the optimized viewing conditions, they found that 100 quanta at the cornea, which corresponds to about 10 absorptions, are sufficient. The quanta are absorbed in an area covered by several hundred rods; hence, it is quite unlikely that two quanta will be absorbed by the same rod. They concluded, quite correctly, that a single photon of light can produce a measurable response in a single rod.
+
+To find further support for their observation, Hecht et al. analyzed how the subject’s responses varied across trials. They assumed that all of the observed variability was due to the stimulus, and none was due to the observer. Their account is repeated in a wonderful didactic style in Cornsweet’s book. I don’t think this assumption is justified; a complete treatment of the data must take into account variability intrinsic to the human observer (e.g., Nachmias and Kocher, 1970).
+
 
 ### A Bayes classifier for a Pattern Discrimination Task
-To discriminate between different spatial patterns, or stimuli located at different spatial positions, the observer must use the spatial pattern of cone absorptions. Consequently, pattern discrimination must depend on comparisons of a vector of measurements, $\data$, not just a single value. In this section, we develop a Bayes classifier that can be applied to a pattern discrimination task.
+To discriminate between different spatial patterns, or stimuli located at different spatial positions, the observer must use the spatial pattern of cone absorptions. Consequently, pattern discrimination must depend on comparisons of a vector of measurements, $\mathbf{d}$, not just a single value. In this section, we develop a Bayes classifier that can be applied to a pattern discrimination task.
 
 Again, for illustrative purposes we assume that the variability is due entirely to the stimulus. Moreover, we will assume that the variability in light absorption at neighboring receptors is statistically independent. Independence means that the probability of $d_i$ absorptions at the $i^{th}$ receptor and $d_j$ at the $j^{th}$ is
 
 $$
-P(d_i ~\&~ d_j \mid \stimA) = P(d_i \mid A)~P(d_j \mid \stimA) .
+P(d_i ~\&~ d_j \mid A) = P(d_i \mid A)~P(d_j \mid A) .
 $$ {#eq-independence}
 
-We can extend this principle across all of the receptors to write the probability of observing $\data$ given signal $\stimA$, namely
+We can extend this principle across all of the receptors to write the probability of observing $\mathbf{d}$ given signal $A$, namely
 
 $$
-L_A = \prod_{i=1}^{N} P(d_i \mid \stimA) ,
+L_A = \prod_{i=1}^{N} P(d_i \mid A) ,
 $$ {#eq-likelihood}
 
-where $L_A$ is the likelihood of observing $\data$ given the stimulus $\stimA$.
+where $L_A$ is the likelihood of observing $\mathbf{d}$ given the stimulus $A$.
 
-Finally, we must specify the spatial pattern of two stimuli. The expected number of absorptions at the $i^{th}$ cone will depend on the spatial pattern of the stimulus. We call the mean intensity of the stimulus at location $i$, $\muAi$ and $\muBi$, respectively.
+Finally, we must specify the spatial pattern of two stimuli. The expected number of absorptions at the $i^{th}$ cone will depend on the spatial pattern of the stimulus. We call the mean intensity of the stimulus at location $i$, $\mu_{A}i$ and $\mu_{B,i}$, respectively.
 
 We are ready to compute the proper Bayes classifier. The general form of the decision criterion is
 
 $$
-\mbox{If}~~\frac{P(\data \mid \stimA)}{P(\data \mid \stimB)} > \frac{P( \stimB )}{P( \stimA )}~~ \mbox{choose A, else B}.
+\mbox{If}~~\frac{P(\mathbf{d} \mid A)}{P(\mathbf{d} \mid B)} > \frac{P( B )}{P( A )}~~ \mbox{choose A, else B}.
 $$ {#eq-bayes-classifier-general}
 
 If the two stimuli are presented in the experiment equally often, we can re-write this equation as
 
 $$
-\mbox{If}~~P( \data \mid \stimA ) > P( \data \mid \stimB )~~ \mbox{choose $\stimA$, else $\stimB$}.
+\mbox{If}~~P( \mathbf{d} \mid A ) > P( \mathbf{d} \mid B )~~ \mbox{choose $A$, else $B$}.
 $$ {#eq-bayes-classifier-equal-prior}
 
 Next, we can use independence to write
 
 $$
-\mbox{If}~~\prod_{i=1}^N P(d_i \mid \stimA) > \prod_{i=1}^N P(d_i \mid \stimB)~~\mbox{choose A, else B}.
+\mbox{If}~~\prod_{i=1}^N P(d_i \mid A) > \prod_{i=1}^N P(d_i \mid B)~~\mbox{choose A, else B}.
 $$ {#eq-bayes-classifier-independence}
 
 Now, we substitute the Poisson formula, take the logarithm of both sides, and regroup terms to obtain
 
 $$
-\mbox{If}~ \sum_{i=1}^{N} d_i \ln \left(\frac{\muAi}{\muBi}\right) > \sum_{i=1}^{N} \muAi - \sum_{i=1}^{N} \muBi~ \\
+\mbox{If}~ \sum_{i=1}^{N} d_i \ln \left(\frac{\mu_{A,i}}{\mu_{B,i}}\right) > \sum_{i=1}^{N} \mu_{A,i} - \sum_{i=1}^{N} \mu_{B,i}~ \\
 \mbox{choose A, else B}.
 $$ {#eq-bayes-classifier-poisson}
 
@@ -486,17 +489,17 @@ $$
 \sum_{i=1}^{N} d_i w_i ,
 $$ {#eq-bayes-classifier-weighted-sum}
 
-where $w_i= \ln \left( \frac{\muAi}{\muBi} \right)$. This is a very familiar computation; it is directly analogous to the calculation implemented by a linear neuron whose receptive field sensitivity at position $i$ is $w_i$ (see [Chapter 5](/chapter-5-the-retinal-representation/)).
+where $w_i= \ln \left( \frac{\mu_{A,i}}{\mu_{B,i}} \right)$. This is a very familiar computation; it is directly analogous to the calculation implemented by a linear neuron whose receptive field sensitivity at position $i$ is $w_i$ (see [Chapter 5](/chapter-5-the-retinal-representation/)).
 
 The second term is the difference between the total number of photopigment absorptions expected from each stimulus.
 
 $$
-\sum_{i=1}^{N} \muAi - \sum_{i=1}^{N} \muBi .
+\sum_{i=1}^{N} \mu_{A,i} - \sum_{i=1}^{N} \mu_{B,i} .
 $$ {#eq-bayes-classifier-diff}
 
-This term acts as a normalizing criterion to correct for the overall response to the two stimuli. The decision rule in Equation~[28](#eq-bayes-classifier-poisson) compares a weighted sum of cone absorptions to the normalizing criterion. If the first term exceeds the second, then choose response $\stimA$, else $\stimB$.
+This term acts as a normalizing criterion to correct for the overall response to the two stimuli. The decision rule in Equation~[28](#eq-bayes-classifier-poisson) compares a weighted sum of cone absorptions to the normalizing criterion. If the first term exceeds the second, then choose response $A$, else $B$.
 
-We have learned that a Bayes classifier for pattern discrimination can be implemented using the results of simple linear calculations, like the calculations represented in the outputs of some peripheral neurons. In fact, making a decision like a Bayes classifier is equivalent to comparing the response of a linear neuron with a criterion value. If response of the linear neuron with receptive field defined by $w_i$ exceeds the criterion value, then choose stimulus $\stimA$, otherwise choose $\stimB$.
+We have learned that a Bayes classifier for pattern discrimination can be implemented using the results of simple linear calculations, like the calculations represented in the outputs of some peripheral neurons. In fact, making a decision like a Bayes classifier is equivalent to comparing the response of a linear neuron with a criterion value. If response of the linear neuron with receptive field defined by $w_i$ exceeds the criterion value, then choose stimulus $A$, otherwise choose $B$.
 
 ![Bayes classifier for a spatial discrimination task. (a) The mean retinal image of a line. The grid lines are separated by 30 sec of arc, approximately the spacing of the cone inner segments in the fovea. (b) The mean retinal image of an image formed by a pair of lines separated by 30 sec of arc. The intensity of each line is one half the intensity of the line in panel (a). (c) The weights of the Bayes classifier that should be used to discriminate the stimuli in (a) and (b), given the assumptions of independent Poisson noise. (After: Geisler, 1989).](../wp-content/uploads/2012/02/geisler.png){#fig-bayes-classifier width="70%"}
 
@@ -518,9 +521,9 @@ $$
 \mathbf{a}^T \mathbf{x} = \sum_{i=1}^{N} a_i x_i ~~~.
 $$ {#eq-dot-product}
 
-This formula is called the *dot product* of the vectors $\mathbf{a}$ and $\mathbf{x}$. It is so important that it is often given a special notation, such as $\mathbf{a} \cdot \mathbf{x}$. Every time we multiply a matrix by a vector, $\mathbf{A} \mathbf{x}$, we compute the dot product $\mathbf{x}$ with the rows of $\mathbf{A}$. In this section, I want to discuss some geometric intuitions connected with the dot product operation <sup>6</sup>.
+This formula is called the *dot product* of the vectors $\mathbf{a}$ and $\mathbf{x}$. It is so important that it is often given a special notation, such as $\mathbf{a} \cdot \mathbf{x}$. Every time we multiply a matrix by a vector, $\mathbf{A} \mathbf{x}$, we compute the dot product $\mathbf{x}$ with the rows of $\mathbf{A}$. In this section, I want to discuss some geometric intuitions connected with the dot product operation.[^dot-product-terminology]
 
-> <sup>6 </sup><small>Physicists often refer to Equation~[30](#eq-dot-product) as the scalar product because the result is a scalar; mathematicians often refer to the dot product as an inner product and write it using angle brackets $\langle \mathbf{a}, \mathbf{x} \rangle$.</small>
+[^dot-product-terminology]: Physicists often refer to Equation~[30](#eq-dot-product) as the scalar product because the result is a scalar; mathematicians often refer to the dot product as an inner product and write it using angle brackets $\langle \mathbf{a}, \mathbf{x} \rangle$.
 
 Although we used the dot product calculation many times, I decided not to use the dot product notation in the main portion of the book because the notation treats the two vectors symmetrically; but, in most applications the vectors $\mathbf{a}$ and $\mathbf{x}$ had an asymmetrical role. The vector $\mathbf{x}$ was usually a stimulus, say the wavelength composition of a light or a one-dimensional spatial pattern, and the vector $\mathbf{a}$ was part of the sensory apparatus, say a photopigment wavelength sensitivity or a ganglion cell receptive field. Because the physical entities we described were not symmetric, I felt that the asymmetric notation, $\mathbf{a}^T \mathbf{x}$, was more appropriate.
 
@@ -544,7 +547,7 @@ By inspecting Figure A4.1b, you can see that there are many signal vectors, $\ma
 
 ![A geometric representation of the three-dimensional dot product. (a) The perpendicular from x to a is indicated by the dashed line. When a is a unit vector, the distance from the origin to the intersection of the dashed line with a is the scalar value of the dot product. (b) Any vector whose endpoint falls within the indicated plane yields the same scalar value when we compute the vector's dot with a.](../wp-content/uploads/2012/02/dotProduct3.png){#fig-dot-product-3d width="70%"}
 
-The geometric intuition extends smoothly to vectors with more than two dimensions. Figure A4.2a shows the dot product between a pair of three-dimensional vectors. In three-dimensions, all of the vectors whose endpoints fall on a plane perpendicular to the unit-length vector $\vect{a}$ have the same dot product with that vector (Figure A4.2b). In four or more dimensions the set of signals with a common dot product value fall on a *hyperplane*.
+The geometric intuition extends smoothly to vectors with more than two dimensions. Figure A4.2a shows the dot product between a pair of three-dimensional vectors. In three-dimensions, all of the vectors whose endpoints fall on a plane perpendicular to the unit-length vector $\mathbf{a}$ have the same dot product with that vector (Figure A4.2b). In four or more dimensions the set of signals with a common dot product value fall on a *hyperplane*.
 
 Figures A4.1b and A4.2b illustrate the information that is preserved and that is lost in a dot product calculation. When we measure the dot product of a pair of two-dimensional vectors, we learn that the signal must have fallen along a particular line; when we measure a three-dimensional dot-product, we learn that the signal must have fallen within a certain plane. Hence, each dot product helps to define the set of possible input signals.
 
@@ -558,15 +561,15 @@ $$
 \vecti{w}{1} \cos(2 \pi f_1 x) + \vecti{w}{2} \cos(2 \pi f_2 x)
 $$ {#eq-cosine-sum}
 
-We can represent each of these spatial contrast patterns using a two-dimensional vector, $\vect{x} = (w_1, w_2)$, whose entries are the weights of the cosinusoids. We can represent the sensitivity of each linear neuron to these spatial patterns using a two-dimensional vector, $\vect{a}_i$, whose two entries define the neuron’s sensitivity to each of the cosinusoidal terms. Because the neurons are linear, we can compute the $i^{th}$ neuron’s response to any pattern in the set from the linear calculation in the dot product, namely, ${\vect{a}_i}^T \vect{x}$.
+We can represent each of these spatial contrast patterns using a two-dimensional vector, $\vect{x} = (w_1, w_2)$, whose entries are the weights of the cosinusoids. We can represent the sensitivity of each linear neuron to these spatial patterns using a two-dimensional vector, $\mathbf{a}_i$, whose two entries define the neuron’s sensitivity to each of the cosinusoidal terms. Because the neurons are linear, we can compute the $i^{th}$ neuron’s response to any pattern in the set from the linear calculation in the dot product, namely, ${\mathbf{a}_i}^T \vect{x}$.
 
-Figure A4.3a shows geometrically how to use two responses to identify uniquely the two-dimensional input stimulus. Suppose that the response of the neuron with receptive field $\vect{a}_1$ is $r_1$. Then, we can infer that the stimulus must fall along a line perpendicular to the vector $\vect{a}_1$ and intersecting $\vect{a}_1$ at a distance $r_1 = \| \vect{x} \| \cos ( \theta_1 )$ from the origin <sup>7</sup>. If the response to the second neuron is $r_2$, we can draw a second line that describes a second set of possible stimulus locations. The true stimulus must be on both lines, so it is located at the intersection of the two dashed lines.
+Figure A4.3a shows geometrically how to use two responses to identify uniquely the two-dimensional input stimulus. Suppose that the response of the neuron with receptive field $\mathbf{a}_1$ is $r_1$. Then, we can infer that the stimulus must fall along a line perpendicular to the vector $\mathbf{a}_1$ and intersecting $\mathbf{a}_1$ at a distance $r_1 = \| \vect{x} \| \cos ( \theta_1 )$ from the origin <sup>7</sup>. If the response to the second neuron is $r_2$, we can draw a second line that describes a second set of possible stimulus locations. The true stimulus must be on both lines, so it is located at the intersection of the two dashed lines.
 
 When the sensor responses have some added noise, which is always the case in real measurements, some sensor combinations provide more precise estimates than others. Figure A4.3b shows a pair of sensors whose vectors are nearly orthogonal to one another. Because of the sensor noise, the true identity of the signal is uncertain. The lightly shaded bands drawn around the perpendicular dashed lines show the effect of sensor noise on the estimated region from the individual measurements. The darkly shaded region is the intersection of the bands, showing the likely region containing the signal. For these orthogonal sensors, the dark band that is likely to contain the signal is fairly small.
 
 Figure A4.3c shows the same representation but for a pair of sensors represented nearly parallel vectors. Such a pair of sensors is said to be *correlated*. When the sensors are correlated in this way, the shaded region can be quite large in the direction perpendicular to the sensor vectors. In the presence of noise, correlated sensors provide a poor estimate of the signal.
 
-> <sup>7 </sup><small>In general, we would place the perpendicular line at a distance of $\| \vect{x} \| \cos ( \theta_i ) / \| \vect{a}_i\|$, but we have assumed that $\vect{a}_i$ has unit length.</small>
+> <sup>7 </sup><small>In general, we would place the perpendicular line at a distance of $\| \vect{x} \| \cos ( \theta_i ) / \| \mathbf{a}_i\|$, but we have assumed that $\mathbf{a}_i$ has unit length.</small>
 
 
 ### Matrix equations
