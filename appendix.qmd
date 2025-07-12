@@ -263,21 +263,21 @@ where $a$ is a fitting parameter. Somewhat fortuitously, the nonlinear relations
 
 The spectral power distribution of the light emitted in each small region of a CRT display is the mixture of the light emitted by the three phosphors. Since the mixture of lights obeys superposition, we can characterize the spectral power distributions emitted by a CRT using simple linear methods.
 
-Suppose we measure the spectral power distribution of the red, green and blue phosphors at their maximum intensity levels. We record these measurements in three column vectors, $\monitori{i}, ~ i = 1,2,3$.
+Suppose we measure the spectral power distribution of the red, green and blue phosphors at their maximum intensity levels. We record these measurements in three column vectors, $\mathbf{m}_{i}, ~ i = 1,2,3$.
 
-By superposition, we know that light from the monitor screen is always the weighted sum of light from the three phosphors. For example, if all three of the phosphors are set to their maximum levels, the light emitted from the screen, call it $\test$, will have a spectral power distribution of
+By superposition, we know that light from the monitor screen is always the weighted sum of light from the three phosphors. For example, if all three of the phosphors are set to their maximum levels, the light emitted from the screen, call it $\mathbf{t}$, will have a spectral power distribution of
 
 $$
-\monitori{1} + \monitori{2} + \monitori{3} .
+\mathbf{m}_{1} + \mathbf{m}_{2} + \mathbf{m}_{3} .
 $$ {#eq-monitor-max-sum}
 
-More generally, if we set the phosphors to the three relative intensities $\evec = ( \er , \eg , \eb )$, the light emitted by the CRT will be the weighted sum
+More generally, if we set the phosphors to the three relative intensities $\mathbf{e} = ( \er , \eg , \eb )$, the light emitted by the CRT will be the weighted sum
 
 $$
-\test = \er \monitori{1} + \eg \monitori{2} + \eb \monitori{3}
+\mathbf{t} = \er \mathbf{m}_{1} + \eg \mathbf{m}_{2} + \eb \mathbf{m}_{3}
 $$ {#eq-monitor-weighted-sum}
 
-Figure A2.3 is a matrix tableau that illustrates how to compute the spectral power distribution of light emitted from a CRT display. The vector $\evec$ contains the relative intensity of each of the three phosphors. The three columns of a matrix, call it $\Monitor$, contain the spectral power distributions of the light emitted by the red, green and blue phosphors at maximum intensity. The spectral power distribution of light emitted from the monitor is the product $\Monitor \evec$.
+Figure A2.3 is a matrix tableau that illustrates how to compute the spectral power distribution of light emitted from a CRT display. The vector $\mathbf{e}$ contains the relative intensity of each of the three phosphors. The three columns of a matrix, call it $\mathbf{M}$, contain the spectral power distributions of the light emitted by the red, green and blue phosphors at maximum intensity. The spectral power distribution of light emitted from the monitor is the product $\mathbf{M} \mathbf{e}$.
 
 ![The spectral power distribution of light emitted from a CRT. The entries e = (er, eg, eb) are the relative intensity of the three phosphors. The columns of M contain the spectral power distributions at maximum intensity. The vector calculated by Me is the spectral power distribution of the light emitted by the CRT. The output shown in the figure was calculated for e = (0.5, 0.6,0.7)T.](../wp-content/uploads/2012/02/monitor.mat_.png){#fig-monitor-matrix width="70%"}
 
@@ -287,13 +287,13 @@ The light emitted from a CRT is different from lights we encounter in natural sc
 
 In many types of psychophysical experiments, we must be able to specify and control the relative absorption rates in the three types of cones. In this section, I show how to measure and control the relative cone absorptions when the phosphor spectral power distributions and the relative cone photopigment spectral sensitivities are known.
 
-We use two basic matrices in these calculations. We have already created the matrix $\Monitor$ whose three columns contain the spectral power distributions of the phosphors at maximum intensity. We also create a matrix, $\Iodopsin$, whose three columns contain the cone absorption sensitivities ($\Red$, $\Green$, and $\Blue$), measured through the cornea and lens (see Table~??.) Given a set of relative intensities, $\evec$, we calculate the relative cone photopigment absorption rates, $\lms$ by the matrix product <sup>4</sup>
+We use two basic matrices in these calculations. We have already created the matrix $\mathbf{M}$ whose three columns contain the spectral power distributions of the phosphors at maximum intensity. We also create a matrix, $\Iodopsin$, whose three columns contain the cone absorption sensitivities ($L$, $M$, and $S$), measured through the cornea and lens (see Table~??.) Given a set of relative intensities, $\mathbf{e}$, we calculate the relative cone photopigment absorption rates, $\lms$ by the matrix product <sup>4</sup>
 
 $$
-\lms = \Iodopsin^T \Monitor \evec = \Calibration \evec .
+\lms = \Iodopsin^T \mathbf{M} \mathbf{e} = \Calibration \mathbf{e} .
 $$ {#eq-calibration-matrix}
 
-We call the matrix $\Calibration = \Iodopsin^T \Monitor$, the monitor’s *calibration matrix.* This matrix relates the linear phosphor intensities to the relative cone absorption rates.
+We call the matrix $\Calibration = \Iodopsin^T \mathbf{M}$, the monitor’s *calibration matrix.* This matrix relates the linear phosphor intensities to the relative cone absorption rates.
 
 As an example, I have calculated the calibration matrix for the monitor whose phosphor spectral power distributions are shown in Figure A2.3, and for the cone absorption spectra listed in Table~??. The resulting calibration matrix is
 
@@ -303,7 +303,7 @@ $$ {#eq-calibration-matrix-example}
 
 Each column of the calibration matrix describes the relative cone absorptions caused by emissions from one of the phosphors: The absorptions from the red phosphor are in the first column, and absorptions due to the green and blue phosphors are in the second and third columns, respectively.
 
-Suppose the red phosphor stimulated only the $\Red$ cones, the green the $\Green$ cones, and the blue the $\Blue$ cones. In that case, the calibration matrix would be diagonal, and we could control the absorptions in a single cone class by adjusting only one of the phosphor emissions. In practice, the light from each of the CRT phosphors is absorbed in all three cone types and the calibration matrix is never diagonal. As a result, to control the cone absorptions we must take into account the effect each phosphor has on each of the three cone types. This complexity is unavoidable because of the overlap of the cone absorption curves and the need to use phosphors with broadband emissions to create a bright display. Consequently, the calibration matrix is never diagonal.
+Suppose the red phosphor stimulated only the $L$ cones, the green the $M$ cones, and the blue the $S$ cones. In that case, the calibration matrix would be diagonal, and we could control the absorptions in a single cone class by adjusting only one of the phosphor emissions. In practice, the light from each of the CRT phosphors is absorbed in all three cone types and the calibration matrix is never diagonal. As a result, to control the cone absorptions we must take into account the effect each phosphor has on each of the three cone types. This complexity is unavoidable because of the overlap of the cone absorption curves and the need to use phosphors with broadband emissions to create a bright display. Consequently, the calibration matrix is never diagonal.
 
 > <sup>4 </sup><small>This calculation applies to spatially uniform regions of a display, in which we can ignore the complications of chromatic aberration. Marimont and Wandell (1994) describe how to include the effects of chromatic aberration.</small>
 
@@ -312,12 +312,12 @@ Suppose the red phosphor stimulated only the $\Red$ cones, the green the $\Green
 
 Now, we consider two ways we might use the calibration matrix. First, we might wish to calculate the receptor absorptions to a particular light from the CRT. Second, we might wish to know how to adjust the relative intensities of the CRT in order to achieve a particular pattern of cone absorptions.
 
-Using the methods described so far, you can calculate the relative cone absorption rates for any triplet of frame-buffer entries. Suppose the frame-buffer values are set to $ (128,128,0) $. The pattern will look yellow since only the red and green phosphors are excited. Assuming that the curves relating relative intensity to frame-buffer level are the same for all three phosphors (Figure A2.2), we find that the relative intensities will be $ \evec = (0.1524,0.1524,0.0)^T $. The product $ \Calibration \evec $ yields the relative cone absorption rates $ \lms =(0.1929, 0.1677, 0.0177)^T $. If we set the frame-buffer to $ (128,128,128) $, which appears gray, the relative intensities are $ (0.1524,0.1524,0.1524) $ and the relative cone absorption rates are $ \lms = (0.2152,0.2001,0.1702)^T $.
+Using the methods described so far, you can calculate the relative cone absorption rates for any triplet of frame-buffer entries. Suppose the frame-buffer values are set to $ (128,128,0) $. The pattern will look yellow since only the red and green phosphors are excited. Assuming that the curves relating relative intensity to frame-buffer level are the same for all three phosphors (Figure A2.2), we find that the relative intensities will be $ \mathbf{e} = (0.1524,0.1524,0.0)^T $. The product $ \Calibration \mathbf{e} $ yields the relative cone absorption rates $ \lms =(0.1929, 0.1677, 0.0177)^T $. If we set the frame-buffer to $ (128,128,128) $, which appears gray, the relative intensities are $ (0.1524,0.1524,0.1524) $ and the relative cone absorption rates are $ \lms = (0.2152,0.2001,0.1702)^T $.
 
 A second common type of calculation is used in behavioral experiments in which the experimenter wants to create a particular pattern of cone absorptions. To infer the relative display intensities necessary to achieve a desired effect on the cone absorptions, we must use the inverse of the calibration matrix, since
 
 $$
-\evec = \Calibration^{-1} \lms .
+\mathbf{e} = \Calibration^{-1} \lms .
 $$ {#eq-inverse-calibration}
 
 To continue our example, the inverse of the calibration matrix is
@@ -326,9 +326,9 @@ $$
 \Calibration^{-1} = \left ( \begin{array}{ccc} 5.8677 & -5.8795 & 0.3876 \\ -0.6074 & 1.6344 & -0.2579 \\ -0.0049 & -0.1025 & 1.0225 \end{array} \right )
 $$ {#eq-calibration-inverse}
 
-Suppose we wish to display a pair of stimuli that differ only in their effects on the $ \Blue $ cones. Let’s begin with a stimulus whose relative intensities are $ \evec = (0.5,0.5,0.5)^T $. Using the calibration matrix, we calculate that the relative cone absorption rates from this stimulus: they are $ (.706, .656, .558) $. Now, let’s create a second stimulus with a slightly higher rate of $ \Blue $ cone absorptions: say, $ \lms = (.706, .656, .700) $. Using the inverse calibration matrix, we can calculate the relative display intensities needed to produce the second stimulus: they are $ (0.555, 0.4634, 0.645) $.
+Suppose we wish to display a pair of stimuli that differ only in their effects on the $ S $ cones. Let’s begin with a stimulus whose relative intensities are $ \mathbf{e} = (0.5,0.5,0.5)^T $. Using the calibration matrix, we calculate that the relative cone absorption rates from this stimulus: they are $ (.706, .656, .558) $. Now, let’s create a second stimulus with a slightly higher rate of $ S $ cone absorptions: say, $ \lms = (.706, .656, .700) $. Using the inverse calibration matrix, we can calculate the relative display intensities needed to produce the second stimulus: they are $ (0.555, 0.4634, 0.645) $.
 
-Notice that to create a stimulus difference seen only by the $ \Blue $ cones, we needed to adjust the intensities of all three phosphor emissions. For example, to increase the $ \Blue $ cone absorptions we need to increase the intensity of the blue phosphor emissions. This will also cause some increases in the $ \Red $ and $ \Green $ cone absorptions, and we must compensate for this by decreasing the emissions from the red and green phosphors.
+Notice that to create a stimulus difference seen only by the $ S $ cones, we needed to adjust the intensities of all three phosphor emissions. For example, to increase the $ S $ cone absorptions we need to increase the intensity of the blue phosphor emissions. This will also cause some increases in the $ L $ and $ M $ cone absorptions, and we must compensate for this by decreasing the emissions from the red and green phosphors.
 
 
 #### Color Calibration Tips
