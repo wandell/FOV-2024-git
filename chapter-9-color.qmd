@@ -196,10 +196,10 @@ $$ {#eq-sensor-matrix}
 
 where the column vector $r$ contains the sensor responses, the rows of the matrix $R$ are the sensor spectral responsivities, and $e$ is the illuminant spectral power distribution.
 
-Before the Judd et al. study, one might have thought that three sensor responses are insufficient to estimate the illumination. But, from their data we have learned that we can approximate $e$ with a three-dimensional linear model, $e \approx E\, w$. This reduces the equation to
+Before the Judd et al. study, one might have thought that three sensor responses are insufficient to estimate the illumination. But, from their data we have learned that we can approximate $e$ with a three-dimensional linear model, $e \approx E\, \mathbf{w}$. This reduces the equation to
 
 $$
-r \approx (\mathbf{S} \mathbf{B}_{\mathbf{e}})\, w
+r \approx (\mathbf{S} \mathbf{B}_{\mathbf{e}})\, \mathbf{w}
 $$ {#eq-sensor-linear-model}
 
 The matrix $(\mathbf{S} \mathbf{B}_{\mathbf{e}})$ is $3 \times 3$, and its entries are all known. The sensor responses, $r$, are also known. The only unknown is $w$. Hence, we can estimate $w$, and use these weights to calculate the spectral power distribution, $\mathbf{B}_\mathbf{e}\, \mathbf{w}$.
@@ -223,13 +223,13 @@ As an example, I have built a linear model to approximate a small collection sur
 
 ![A linear model to approximate the surface reflectances in the Macbeth ColorChecker. The panels in each row of this figure show the surface reflectance functions of six colored surfaces (dashed line) and the approximation to these functions using a linear model (solid lines). The approximations using linear models with three (a), two (b) and one (c) dimension respectively are shown.](/wp-content/uploads/2012/02/macbethApprox.png){width="70%" #fig-macbeth-approx}
 
-To create the linear model, I measured the surface reflectance functions of these patches with a spectral radiometer in my laboratory. The original data set, then, consisted of measurements from 370nm to 730nm in 1 nm steps for each of the 24 patches. Then, using conventional statistical packages, I calculated a three-dimensional linear model to fit all of these surface reflectance functions. The linear model basis functions, $\surBasisi{i}(\lambda)$, were selected to minimize the squared error~\footnote{ I calculated the singular value decomposition of the matrix whose columns consist of the surface reflectance vectors. I used the left singular vectors as the basis functions.}
+To create the linear model, I measured the surface reflectance functions of these patches with a spectral radiometer in my laboratory. The original data set, then, consisted of measurements from 370nm to 730nm in 1 nm steps for each of the 24 patches. Then, using conventional statistical packages, I calculated a three-dimensional linear model to fit all of these surface reflectance functions. The linear model basis functions, $S_{i}(\lambda)$, were selected to minimize the squared error~\footnote{ I calculated the singular value decomposition of the matrix whose columns consist of the surface reflectance vectors. I used the left singular vectors as the basis functions.}
 
 $$
-\left (s(\lambda) - \sum_{i=1}^{N} \surCoefi{i} \surBasisi{i}(\lambda) \right ) ^2 .
+\left (s(\lambda) - \sum_{i=1}^{N} \sigma_{i} S_{i}(\lambda) \right ) ^2 .
 $$ {#eq-surface-linmodel-error}
 
-The values $\surCoefi{i}$ are called the  *surface coefficients*, and we will represent them as a vector, $\surCoef = (\surCoefi{1}, \ldots , \surCoefi{N})$. There are fewer surface coefficients than data measurements. If we create a matrix whose columns are are the basis functions, $\surBasis$, then we can express the linear model approximation as $\surBasis \surCoef$.
+The values $\sigma_{i}$ are called the  *surface coefficients*, and we will represent them as a vector, $\mathbf{\sigma} = (\sigma_{1}, \ldots , \sigma_{N})$. There are fewer surface coefficients than data measurements. If we create a matrix whose columns are are the basis functions, ${\mathbf{B}_\mathbf{s}}$, then we can express the linear model approximation as ${\mathbf{B}_\mathbf{s}} \mathbf{\sigma}$.
 
 The dashed lines in Figure 9.8 show the reflectance functions of six of the twenty-four surfaces. The smooth curves within each row of the figure contain the approximations using linear models with different dimensionality. The bottom row shows a one-dimensional linear model; in this case the approximations are scaled copies of one another. As we increase the dimensionality of the linear model the approximations become very similar to the originals. The 3-dimensional model the approximations are quite close to the true functions.
 
@@ -255,10 +255,10 @@ There is much regularity in daylight and surface functions; so, it makes sense t
 
 First, we need a method of representing our knowledge about the likely surface and illuminant functions. For example, linear models can be used encode our a priori knowledge~\\footnote{More sophisticated methods are based on using Bayesian estimation as part of the calculation. For example, see Freeman and Brainard (1993) and D’Zmura and Iverson (1993).} Second, all modern estimation methods assume that the illumination varies either slowly or not at all across the image. This assumption is important because it means that the illumination adds very few new parameters to estimate.
 
-Consider an example of an image with p points. We expect to obtain 3 cone absorption rates at each image point, so there are $3p$ measurements. If we can use a surface 3 dimensional model for the surfaces, then there are $3p$ unknown surface coefficients. And, there is a linear relationship between the measurements and the unknown quantities. If the illuminant is known, then the problem is straightforward to solve.
+Consider an example of an image with $p$ points. We expect to obtain $3$ cone absorption rates at each image point, so there are $3p$ measurements. If we can use a surface 3 dimensional model for the surfaces, then there are $3p$ unknown surface coefficients. And, there is a linear relationship between the measurements and the unknown quantities. If the illuminant is known, then the problem is straightforward to solve.
 
 
-The additional unknown illuminant parameters make the problem a challenge. If the illuminant can vary from point to point, there will be 3p unknown parameters and the mismatch between known and unknown parameters will be very great. But, if the illuminant is constant across the image, we only have 3 additional parameters. In this case, by making some modest assumptions about the image, we can find ways to infer these three parameters and then proceed to estimate the surface parameters.
+The additional unknown illuminant parameters make the problem a challenge. If the illuminant can vary from point to point, there will be $6p$ unknown parameters and the mismatch between known and unknown parameters will be very great. But, if the illuminant is constant across the image, we only have $3$ additional parameters. In this case, by making some modest assumptions about the image, we can find ways to infer these three parameters and then proceed to estimate the surface parameters.
 
 Modern estimation algorithms work by find a method to overcome the mismatch between the measurements and the unknowns. We can divide existing estimation algorithms into two groups. The majority of estimation algorithms infer the illumination parameters by making one additional assumption about the image contents. For example, suppose we know the reflectance function of one surface. Then, we can use the sensor responses from that surface to measure the illuminant parameters. Knowing the reflectance function of one surface in the image compensates for the three unknown illuminant parameters. There are several implementations of this principle. The most important is the assumption that the average of all the surfaces in the image is gray, which is called the  *gray-world* assumption (Buchsbaum, 1980; Land, 1988). Other algorithms are based on the assumption that the brightest surface in the image is a uniform, perfect reflector (McCann, et al. 1977). An interesting variant on both of these assumptions is the idea that we can identify specular or glossy surfaces in the image. Since specularities reflect the illumination directly, often without altering the illuminant’s spectral power distribution, the sensor responses to glossy surfaces provide information about the illuminant (Lee 1986; D’Zmura and Lennie, 1986; Tominaga and Wandell, 1989, 1990).
 
@@ -271,23 +271,23 @@ Before returning to experimental measurements of color appearance, let’s perfo
 First, let’s write down the general expression that shows how the surface and illuminant functions combine to yield the cone absorption rates. The three equations for the three cone types, $L$, $M$, and $S$, are
 
 $$
-\begin{eqnarray*}
-\recRespi{1} & = & \sum_(\lambda) \recSens{1}(\lambda) E(\lambda) S(\lambda) \nonumber \\
-\recRespi{2} & = & \sum_(\lambda) \recSens{2}(\lambda) E(\lambda) S(\lambda) \nonumber \\
-r_3 & = & \sum_(\lambda) \recSens{3}(\lambda) E(\lambda) S(\lambda) .
-\end{eqnarray*}
+\begin{align}
+r_{1} & = \sum_{\lambda} R_{1}(\lambda) E(\lambda) S(\lambda)  \\
+r_{2} & = \sum_{\lambda} R_{2}(\lambda) E(\lambda) S(\lambda)  \\
+r_{3} & = \sum_{\lambda} R_{3}(\lambda) E(\lambda) S(\lambda) .
+\end{align}
 $$ {#eq-cone-absorptions}
 
-Next, we replace the illuminant and surface functions in Equation~[8](#id530804539) with their linear model approximations. This yields a new relationship between the coefficients of the surface reflectance linear model, $\surCoef$, and the three-dimensional vector of cone absorptions, $\recResp$,
+Next, we replace the illuminant and surface functions in Equation~[8](#id530804539) with their linear model approximations. This yields a new relationship between the coefficients of the surface reflectance linear model, $\mathbf{\sigma}$, and the three-dimensional vector of cone absorptions, $\mathbf{r}$,
 
 $$
-\recResp \approx \illMat{e} \surCoef .
+\mathbf{r} \approx \mathbf{\Lambda}_{e} \mathbf{\sigma} .
 $$ {#eq-lighting-matrix}
 
-We call the matrix $\illMat{e}$ that relates these two vectors the  *lighting* matrix. The entries of this matrix depend upon the illumination, $\mathbf{e}$. The $ij^{th}$ entry of the lighting matrix is
+We call the matrix $\mathbf{\Lambda}_{e}$ that relates these two vectors the  *lighting* matrix. The entries of this matrix depend upon the illumination, $\mathbf{e}$. The $ij^{th}$ entry of the lighting matrix is
 
 $$
-\sum_(\lambda) \left ( \sum_k w_{k} E_{k}(\lambda) \right ) \recSens{i}(\lambda) \surBasisi{j}(\lambda) .
+\sum_{\lambda} \left ( \sum_k w_{k} E_{k}(\lambda) \right ) R_{i}(\lambda) S_{j}(\lambda) .
 $$ {#eq-lighting-matrix-entry}
 
 We can compute two lighting matrices (Equation~[9](#id4233032400)) from the spectral curves we have been using as examples. For one lighting matrix I used the mean daylight spectral power distribution, and for the other I used the spectral power distribution of a tungsten bulb. I used the linear model of the Macbeth ColorChecker for the surface basis functions and the Stockman and MacLeod cone absorption functions (see the appendix to [Chapter 4](/chapter-4-wavelength-encoding/)). The lighting matrix for the blue sky illumination is
@@ -322,29 +322,31 @@ Imagine, now the following way in which the visual system might compensate for i
 The cone absorptions from a single surface under the two illuminants can be written as
 
 $$
-\recResp \approx \illMat{e} \surCoef, \mbox{ and } \\
-\recResp^\prime \approx \illMat{e'} \surCoef .
+\begin{align}
+\mathbf{r} & \approx \mathbf{\Lambda}_{e} \mathbf{\sigma}, \mbox{ and } \\
+\mathbf{r}^\prime & \approx \mathbf{\Lambda}_{e'} \mathbf{\sigma} .
+\end{align}
 $$ {#eq-cone-absorptions-two-illuminants}
 
 By inverting the lighting matrices and recombining terms, we find that the cone absorptions under the two illuminants should be related linearly as,
 
 $$
-\recResp \approx \illMat{e} \illMatinv{e'} \recResp^\prime .
+\mathbf{r} \approx \mathbf{\Lambda}_{e} ~ {\mathbf{\Lambda}^{-1}_{e'}} ~ \mathbf{r}^\prime .
 $$ {#eq-linear-relation-cone-absorptions}
 
 Hence, we can transform the cone absorptions from a surface illuminated by the tungsten bulb into the cone absorptions of the same surface illuminated by the blue sky by the following:
 
 $$
-\recResp = \left (
+\mathbf{r} = \left (
 \begin{array}{ccc}
 0.8119 & 0.2271 & 0.0550 \\
 -0.0803 & 1.1344 & 0.1282 \\
 0.0429 & -0.0755 & 1.8091 \\
 \end{array}
-\right ) \recResp^\prime.
+\right ) \mathbf{r}^\prime.
 $$ {#eq-tungsten-to-blue-sky}
 
-The retina can compensate for the illumination change by linearly transforming the observed cone absorptions, $\recResp^\prime$, into a new signal, $\recResp$.
+The retina can compensate for the illumination change by linearly transforming the observed cone absorptions, $\mathbf{r}^\prime$, into a new signal, $\mathbf{r}$.
 
 Now, what does it mean for the retina to compute a linear transformation? The linear transformation consists of a simple series of multiplications and additions. For example, consider the third row of the matrix in Equation~\@eq-tungsten-to-blue-sky. This row defines how the new $S$ cone absorptions should be computed from the observed absorptions. When we write this transformation as a single linear equation we see that the observed and transformed signals are related as
 
