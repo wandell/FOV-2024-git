@@ -318,12 +318,11 @@ Notice that the largest differences between the matrices are in the third row. T
 
 Imagine, now the following way in which the visual system might compensate for illumination changes. Suppose that the cortical analysis of color is based upon the assumption that the illumination is always that of a blue sky. When the illumination is different from the blue sky, the retina must try to provide a neural signal that is similar to the one that would have been observed under a blue sky. What computation does the retina need to perform in order to transform the cone absorptions obtained under the tungsten bulb illuminant into the cone absorption that would have occurred under the blue sky?
 
-
 The cone absorptions from a single surface under the two illuminants can be written as
 
 $$
 \begin{align}
-\mathbf{r} & \approx \mathbf{\Lambda}_{e} \mathbf{\sigma}, \mbox{ and } \\
+\mathbf{r} & \approx \mathbf{\Lambda}_{e} \mathbf{\sigma}, \text{and} \\
 \mathbf{r}^\prime & \approx \mathbf{\Lambda}_{e'} \mathbf{\sigma} .
 \end{align}
 $$ {#eq-cone-absorptions-two-illuminants}
@@ -359,9 +358,6 @@ The transformed $S$ cone absorption is mainly a scaled version of the observed a
 In this matrix, and in many practical examples, the only additive term that is not negligible is the contribution of the $M$ cone response to the transformed $L$ signal. As a rough rule, because the diagonal terms are much larger than the off-diagonal terms, we can obtain good first order approximation to the proper transformation by simply scaling the the observed cone absorptions (e.g., Forsythe et al., 1994).
 
 Compensating for the illumination change by a purely diagonal scaling of the cone absorptions is called *von Kries Coefficient Law*. The correction is not as precise as the best linear correction, but it frequently provides a good approximation. And, as we shall see in the next section, the von Kries Coefficient Law describes certain aspects of human color appearance measurements as well.
-
-\newcommand{\match}{\mbox{${\bf m}$}}
-\newcommand{\matchi}[1]{\mbox{${\bf m}_{#1}$}}
 
 ## Color Constancy: Experiments
 
