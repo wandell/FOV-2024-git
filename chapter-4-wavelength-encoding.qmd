@@ -108,7 +108,9 @@ The precise quantitative match between the scotopic matches and the rod photopig
 
 ## Photopic Wavelength Encoding
 
-When the cones initiate vision, under photopic conditions, we do encode some information about the relative spectral power distribution of the incident light. Changes in the relative spectral power distributions result in changes of the color appearance of the light. Several of the important properties of color appearance can be traced to the way cone photoreceptors encode the relative spectral power distribution of light\footnote{ N.B. Color appearance is not a simple consequence of the spectral power distribution of the incident light. We will discuss color appearance broadly in [Chapter 9](/chapter-9-color/)}.
+When the cones initiate vision, under photopic conditions, we do encode some information about the relative spectral power distribution of the incident light. Changes in the relative spectral power distributions result in changes of the color appearance of the light. Several of the important properties of color appearance can be traced to the way cone photoreceptors encode the relative spectral power distribution of light[^color-appearance-note].
+
+[^color-appearance-note]: Color appearance is not a simple consequence of the spectral power distribution of the incident light. We will discuss color appearance broadly in [Chapter 9](/chapter-9-color/).
 
 ![The color-matching experiment. The observer views a bipartite field and adjusts the intensities of the three primary lights to match the appearance of the test light. (a) A side-view of the experimental apparatus. (b) The appearance of the stimuli to the observer. (After @judd-wyszecki1975)](/wp-content/uploads/2012/02/colorMatching.png ){#fig-color-matching width="60%" .aligncenter}
 
@@ -157,7 +159,9 @@ $$
 \mathbf{t} = - e_1 \mathbf{p}_1 + e_2 \mathbf{p}_2 + e_3 \mathbf{p}_3 .
 $${#eq-cmatch3}
 
-Hence, when we encode the intensity of the primary light that has been shifted to the other side of the test field we denote the match using a negative intensity value\footnote{ Changing the sign of the primary intensity is a trivial matter for the theorist. It is a nuisance in the laboratory, however, and usually impossible in technological applications such as color displays. Thus, the issue of selecting primaries to minimize the number of times we must make this adjustment is of great practical interest.}.
+Hence, when we encode the intensity of the primary light that has been shifted to the other side of the test field we denote the match using a negative intensity value[^negative-intensity-note].
+
+[^negative-intensity-note]: Changing the sign of the primary intensity is a trivial matter for the theorist. It is a nuisance in the laboratory, however, and usually impossible in technological applications such as color displays. Thus, the issue of selecting primaries to minimize the number of times we must make this adjustment is of great practical interest.
 
 ![The color-matching functions are the rows of the color-matching system matrix. The functions measured by @stiles-colourmatching1959 using a 10 deg bipartite field and primary lights at the wavelengths 645.2 nm, 526.3 nm, and 444.4 nm with unit radiant power are shown.](/wp-content/uploads/2012/02/cie.rgb_.png ){#fig-cie-rgb width="60%" }
 
