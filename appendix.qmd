@@ -12,7 +12,7 @@ Many of the ideas in this book rely on properties of shift-invariant linear syst
 
 Shift-invariance is a system property that can be verified by experimental measurement. For example, in [Chapter 2](/chapter-2-image-formation/) I described how to check whether the optics of the eye is shift-invariant by the following measurements. Image a line through the optics onto the retina, and measure the linespread function. Then, shift the line to a new position, forming a new retinal image. Compare the new image with the original. If the images have the same shape, differing only by a shift in position, then the optics is shift-invariant over the measured range.
 
-We can express the empirical property of shift-invariance using the following mathematical notation. Choose a stimulus, $\mathbf{p}i{i}$ and measure the system response, $\mathbf{r}_{i}$. Now, shift the stimulus by an amount $j$ and measure again. If the response is shifted by $j$ as well, then the system may be shift-invariant. Try this experiment for many values of the shift parameter, $j$. If the experiment succeeds for all shifts, then the system is shift-invariant.
+We can express the empirical property of shift-invariance using the following mathematical notation. Choose a stimulus, $\mathbf{p}_{i}$ and measure the system response, $\mathbf{r}_{i}$. Now, shift the stimulus by an amount $j$ and measure again. If the response is shifted by $j$ as well, then the system may be shift-invariant. Try this experiment for many values of the shift parameter, $j$. If the experiment succeeds for all shifts, then the system is shift-invariant.
 
 If you think about this definition as an experimentalist, you can see that there are some technical problems in making the measurements needed to verify shift-invariance. Suppose that the original stimulus and response are represented at $N$ distinct points, $i = 1, \ldots, N$. If we shift the stimulus three locations so that now the fourth location contains the first entry, the fifth the second, and so forth, how do we fill in the first three locations in the new stimulus? And, what do we do with the last three values, $N-2, N-1, N$, which have nowhere to go?
 
@@ -116,7 +116,7 @@ b & = \sum_{k=<N>} \hat{l}_{k} \sin(\frac{2 \pi f k}{N})
 \end{align}
 $$ {#eq-sinusoid-coeffs}
 
-We have shown that when the input to the system is a sinusoidal function at frequency $f$, the output of the system is the weighted sum of a sinusoid and a cosinusoid, both at frequency $f$. This is equivalent to showing that when the input is a sinusoid at frequency $f$, the output will be a scaled and shifted copy of the input, $s_f \sin (\frac{\pi f i}{N} + \phi_f )$ (see Equation~??). As we shall see below, it is easy to generalize this result to all harmonic functions.
+We have shown that when the input to the system is a sinusoidal function at frequency $f$, the output of the system is the weighted sum of a sinusoid and a cosinusoid, both at frequency $f$. This is equivalent to showing that when the input is a sinusoid at frequency $f$, the output will be a scaled and shifted copy of the input, $s_f \sin (\frac{\pi f i}{N} + \phi_f )$ (see @eq-sinusoid-expansion). As we shall see below, it is easy to generalize this result to all harmonic functions.
 
 ### The Discrete Fourier Series: Defined
 
