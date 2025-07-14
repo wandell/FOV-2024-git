@@ -1,3 +1,8 @@
+---
+title: "Appendix"
+appendix: true
+---
+
 # Appendix {.unnumbered #sec-appendx}
 
 The appendix consists of five sections. In [Appendix section 1](/appendix/#Shift-Invariant_Linear_Systems) I review several properties of shift-invariant linear systems and outline proofs of these properties. This appendix also includes a brief discussion of the Discrete Fourier Series, a method for representing functions as the weighted sum of harmonic functions. [Appendix section 2](/appendix/#Display_Calibration) contains a review of the main aspects of visual display calibration for psychophysical experiments. [Appendix section 3](/appendix/#Classification) contains a description of the basic results in classification theory, Bayes Rule and linear discriminant functions. [Appendix section 4](/appendix/#Signal_Estimation:_A_Geometric_View) provides a geometric interpretation of vector and matrix multiplication as well as a brief introduction to signal estimation. [Appendix section 5](/appendix/#Motion_Flow_Field_Calculation) outlines how to compute a motion flow field that arises when an observer moves through a fixed environment.
@@ -39,13 +44,13 @@ Next, we derive some of the properties of linear shift-invariant systems. We beg
 
 [^cyclic-convolution]: Since we use only cyclic convolution here, I will drop the word “cyclic” and refer to the formula simply as convolution. This is slightly abusive, but conforms to common practice in many fields.
 
-In [Chapter 2](/chapter-2-image-formation/) I reviewed how to measure the system matrix of an optical system for one-dimensional input stimuli. We measure the image resulting from a single line at a series of uniformly spaced input locations. If the system is shift-invariant, then the columns of the system matrix are shifted copies of one another (except for edge artifacts). To create the system matrix, we extend the inputs and outputs to be periodic functions (Equation~[1](#id380689075)). Then, we select a central block of size $N \times N$ to be the system matrix and we use the corresponding entries of the extended stimulus. For example, if the input stimulus consists of six values, $\mathbf{p} = (0,0,0,1,0,0)$, and the response to this stimulus is the vector, $\mathbf{l} = (0.0,0.3,0.6,0.2,0.1,0.0)$, then the $6 \times 6$ system matrix is
+In [Chapter 2](/chapter-2-image-formation/) I reviewed how to measure the system matrix of an optical system for one-dimensional input stimuli. We measure the image resulting from a single line at a series of uniformly spaced input locations. If the system is shift-invariant, then the columns of the system matrix are shifted copies of one another (except for edge artifacts). To create the system matrix, we extend the inputs and outputs to be periodic functions (@eq-periodic-extensions). Then, we select a central block of size $N \times N$ to be the system matrix and we use the corresponding entries of the extended stimulus. For example, if the input stimulus consists of six values, $\mathbf{p} = (0,0,0,1,0,0)$, and the response to this stimulus is the vector, $\mathbf{l} = (0.0,0.3,0.6,0.2,0.1,0.0)$, then the $6 \times 6$ system matrix is
 
 $$
 \hat{\mathbf{C}} = \left ( \begin{array}{cccccc} 0.2 & 0.6 & 0.3 & 0.0 & 0.0 & 0.1 \\ 0.1 & 0.2 & 0.6 & 0.3 & 0.0 & 0.0 \\ 0.0 & 0.1 & 0.2 & 0.6 & 0.3 & 0.0 \\ 0.0 & 0.0 & 0.1 & 0.2 & 0.6 & 0.3 \\ 0.3 & 0.0 & 0.0 & 0.1 & 0.2 & 0.6 \\ 0.6 & 0.3 & 0.0 & 0.0 & 0.1 & 0.2 \end{array} \right) .
 $$ {#eq-cyclic-matrix}
 
-For a general linear system, we calculate the output using the summation formula for matrix multiplication in Equation~??,
+For a general linear system, we calculate the output using the summation formula for matrix multiplication in @eq-weighted-sum,
 
 $$
 \hat{r}_{i} = \sum_{j=1}^N \hat{\mathbf{C}}_{ij} \hat{p}_{j} ~~.
@@ -70,7 +75,7 @@ $$
 \hat{r}_{i} = \sum_{j=<N>} \hat{l}_{i-j} \hat{p}_{j} ~~.
 $$ {#eq-cyclic-convolution}
 
-In this form, we see that the response depends only on the input and the linespread. The summation formula in Equation~[6](#eq-cyclic-convolution) is called *cyclic convolution*. Hence, we have shown that to compute the response of a shift-invariant linear system to any stimulus, we need measure only the linespread function.
+In this form, we see that the response depends only on the input and the linespread. The summation formula in @eq-cyclic-convolution) is called *cyclic convolution*. Hence, we have shown that to compute the response of a shift-invariant linear system to any stimulus, we need measure only the linespread function.
 
 ### Convolution and Harmonic Functions
 
@@ -87,7 +92,7 @@ $$
 \hat{r}_{i} = \sum_{k=<N>} \hat{l}_{k} \hat{p}_{ {i - k} }
 $$ {#eq-convolution-shift}
 
-Next, we use the convolution formula in Equation~[7](#eq-convolution-shift) to compute the response to a sinusoidal input $\sin(\frac{2 \pi f j}{N})$. From trigonometry we have that
+Next, we use the convolution formula in @eq-convolution-shift) to compute the response to a sinusoidal input $\sin(\frac{2 \pi f j}{N})$. From trigonometry we have that
 
 $$
 \sin(\frac{2 \pi f (i+j)}{N}) = \sin(\frac{2 \pi f i}{N}) \cos(\frac{2 \pi f j}{N}) + \sin(\frac{2 \pi f j}{N}) \cos(\frac{2 \pi f i}{N}) ~ .
