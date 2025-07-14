@@ -18,7 +18,9 @@ In this chapter we will consider several different multiresolution representatio
 
 Efficient image representations are important for systems with finite resources, which is to say all systems. No matter how much computer memory or how many visual neurons we have, we can always perform better computations, transmit more information, or store higher quality images if we use efficient storage algorithms. If we fail to consider efficiency, then we waste resource that could improve performance.
 
-Image compression algorithms transform image data from one representation to a new one that requires less storage space. To evaluate the efficiency of a compression algorithm, we need some way to describe the amount of space required to store an image. The most common way to measure the amount of storage space necessary to encode an image is to count the total number of bytes used to represent the image\footnote{ A bit is a single **b**inary dig**it**, that is, 0 or 1. A byte is 8 bits and represents 256 levels ($2^8$). A megabyte is $10^6$ bytes, while a gigabyte is $10^9$ bytes.}. Color images acquired from cameras or scanners, or color images that are about to be displayed on a monitor, are represented in terms of the intensities at a set of picture locations, called *pixels*. The color data are represented in three color bands, usually called the red, green and blue bands. We can compute the number of bytes data represented in a single image fairly easily. Suppose we have a modest size image of $512$ rows and $512$ columns, and that each color band represents intensity using one byte. The image representation within a single color band requires $512 \times 512 \times 3$ bytes of data, or approximately $0.75$ Megabytes of data. If we have an image comprising $1024$ rows and columns, we will require $3.0$ Megabytes to represent the image. In a movie clip, in which we update the image sixty times a second, the numbers grow at an alarming rate; one minute requires 10 Gigabytes of information, and one hour requires 600 Gigabytes.
+Image compression algorithms transform image data from one representation to a new one that requires less storage space. To evaluate the efficiency of a compression algorithm, we need some way to describe the amount of space required to store an image. The most common way to measure the amount of storage space necessary to encode an image is to count the total number of bytes used to represent the image[^bytes-def]. Color images acquired from cameras or scanners, or color images that are about to be displayed on a monitor, are represented in terms of the intensities at a set of picture locations, called *pixels*. The color data are represented in three color bands, usually called the red, green and blue bands. We can compute the number of bytes data represented in a single image fairly easily. Suppose we have a modest size image of $512$ rows and $512$ columns, and that each color band represents intensity using one byte. The image representation within a single color band requires $512 \times 512 \times 3$ bytes of data, or approximately $0.75$ Megabytes of data. If we have an image comprising $1024$ rows and columns, we will require $3.0$ Megabytes to represent the image. In a movie clip, in which we update the image sixty times a second, the numbers grow at an alarming rate; one minute requires 10 Gigabytes of information, and one hour requires 600 Gigabytes.
+
+[^bytes-def]: A bit is a single **b**inary dig**it**, that is, 0 or 1. A byte is 8 bits and represents 256 levels ($2^8$). A megabyte is $10^6$ bytes, while a gigabyte is $10^9$ bytes.
 
 Notice that color image encoding already uses a significant amount of image compression that is made possible by the special characteristics of human vision. The physical signal consists of light with energy at many wavelengths, i.e., a complete spectral power distribution. The image data, however, does not encode the complete spectral power distribution of the displayed or acquired color signal. The data represent only three color bands, a very compressed representation of the image. The results of the color-matching experiment justifies the compression of information (see [Chapter 4](/chapter-4-wavelength-encoding/)). This part of compression is so well understood, it is rarely mentioned explicitly in discussions of image compression.
 
@@ -58,7 +60,9 @@ We can improve the efficiency of the image representation by removing this spati
 
 After transforming the data, the number of bits needed to code $p(x,y)$ is unchanged. But the difference, $p(x,y+1)- p(x,y)$, can fall in a larger range, anywhere between $255$ and $-255$ so that we may need as many as $9$ bits to store this value. In principle, requiring an additional bit is worse, but in practice the difference between most adjacent pixels is quite small. This point is illustrated by the cross-correlogram of the transformed values shown in Figure 8.3c. The horizontal axis measures the pixel intensity $p(x,y)$, and the vertical axis measures the difference value, $p(x,y+1) - p(x,y)$. First, notice that most of the values of the intensity difference cluster near zero. Second, notice that there is virtually no correlation between the transformed values; knowing the value of $p(x,y)$ does not help us know the value of the difference.
 
-To build an efficient representation, we can use the same strategy I outlined in the previous section. We use a short code (say, 5 bits) to encode the small difference values that occur frequently. We use a longer code (say, 10 bits) to encode the rarely occurring large values. Because most of the pixel differences are small, the representation will more efficient.\footnote{ We could improve even this coding strategy in many different ways. For example, after the first pair of pixels we never need to encode an absolute pixel level, we can always encode only differences between adjacent pixels. This is called Differential Pulse Code Modulation, or *DPCM*. Or, we could consider the pair of pixels as a vector, calculate the frequency distribution of all possible vectors, and build an efficient code for sending communicating the values of these vectors. This is called Vector Quantization, or *VQ*. All of these methods trade on the fact that natural images are more likely to contain some spatial patterns than others. }
+To build an efficient representation, we can use the same strategy I outlined in the previous section. We use a short code (say, 5 bits) to encode the small difference values that occur frequently. We use a longer code (say, 10 bits) to encode the rarely occurring large values. Because most of the pixel differences are small, the representation will more efficient.[^dpcm-vq]
+
+[^dpcm-vq]: We could improve even this coding strategy in many different ways. For example, after the first pair of pixels we never need to encode an absolute pixel level, we can always encode only differences between adjacent pixels. This is called Differential Pulse Code Modulation, or *DPCM*. Or, we could consider the pair of pixels as a vector, calculate the frequency distribution of all possible vectors, and build an efficient code for sending communicating the values of these vectors. This is called Vector Quantization, or *VQ*. All of these methods trade on the fact that natural images are more likely to contain some spatial patterns than others.
 
 ### Decorrelating Transformations
 
@@ -66,14 +70,11 @@ We can divide the image compression strategies I have discussed into two parts. 
 
 <a name="id1630831666"></a>
 
-<span class="ql-right-eqno"> (1) </span><span class="ql-left-eqno"> </span>
-\[
-\begin{equation*}
+$$
     \left ( \begin{array}{c} p(x,y) \\ p(x,y+1) - p(x,y) \\ \end{array} \right ) =
     \left ( \begin{array}{cc} 1 & 0 \\ -1 & 1 \\ \end{array} \right )
     \left ( \begin{array}{c} p(x,y) \\ p(x,y+1) \\ \end{array} \right )
-\end{equation*}
-\]
+$${#eq-pixel-decor}
 
 We apply the linear transformation because the correlation of the transformed values is much smaller than the correlation in the original representation.
 
@@ -95,7 +96,9 @@ Lossy compression is inappropriate for many types of applications, such as stori
 
 As we reviewed in Chapters [2](/chapter-2-image-formation/) and [7](/chapter-7-pattern-sensitivity/), the human visual system is very sensitive to some patterns and wavelengths but far less sensitive to others. Perceptually lossless encoding methods are designed to account for these differences in human visual sensitivity. These schemes allocate more storage space to represent highly visible patterns and less storage space to represent poorly visible patterns (@watson-ahumada1989; @watson1990-perceptual).
 
-Perceptually lossless image encoding algorithms follow a logic that has much in common with the lossless encoding algorithms. First, the image data are transformed to a new set of values, using a linear transformation. The transformed values are intended to represent *perceptually decorrelated features*. Second, the algorithm allocates different amounts of precision to these transformed values. In this case, the precision allocated to each transformed value depends on the visual salience of the feature the value represents; hence, salient features are allocated more storage space than barely visible features. It is at this point in the process where lossy algorithms differ from lossless algorithms. Lossless algorithms allocate enough storage so that the transformed values are represented perfectly, yet due to the decorrelation they still achieve some savings. Lossy algorithms do not allocate enough storage to perfectly represent the initial information; the image cannot be reconstructed perfectly from the compressed representation. The lossy algorithm is designed, however, so that the lost information would not have been visible anyway. Thus, the new picture will require less storage and still look like the original image.\footnote{ In practice, lossy and lossless compression are concatenated to compress image data. First a lossy compression algorithm is applied, followed by a lossless algorithm.}.
+Perceptually lossless image encoding algorithms follow a logic that has much in common with the lossless encoding algorithms. First, the image data are transformed to a new set of values, using a linear transformation. The transformed values are intended to represent *perceptually decorrelated features*. Second, the algorithm allocates different amounts of precision to these transformed values. In this case, the precision allocated to each transformed value depends on the visual salience of the feature the value represents; hence, salient features are allocated more storage space than barely visible features. It is at this point in the process where lossy algorithms differ from lossless algorithms. Lossless algorithms allocate enough storage so that the transformed values are represented perfectly, yet due to the decorrelation they still achieve some savings. Lossy algorithms do not allocate enough storage to perfectly represent the initial information; the image cannot be reconstructed perfectly from the compressed representation. The lossy algorithm is designed, however, so that the lost information would not have been visible anyway. Thus, the new picture will require less storage and still look like the original image.[^lossy-lossless-combo]
+
+[^lossy-lossless-combo]: In practice, lossy and lossless compression are concatenated to compress image data. First a lossy compression algorithm is applied, followed by a lossless algorithm.
 
 ### Perceptually Decorrelated Features
 
@@ -119,7 +122,9 @@ This compression strategy depends on the perceptual independence of the image fe
 
 ## A Block Transformation: The JPEG-DCT {#sec-dct}
 
-The Joint Photographic Experts Group (JPEG) committee of the International Standards Organization has defined an image compression algorithm based on a linear transformation called the *Discrete Cosine Transformation* (DCT). Because of the widespread acceptance of this standard, and the existence of hardware to implement the JPEG-DCT compression algorithm is likely to appear on your desk and in your home within the next few years. The JPEG-DCT compression algorithm has a multiresolution character and bears an imprint from work in visual perception\footnote{The DCT is similar to the Fourier Series computation reviewed in Chapters~?? and ??.}.
+The Joint Photographic Experts Group (JPEG) committee of the International Standards Organization has defined an image compression algorithm based on a linear transformation called the *Discrete Cosine Transformation* (DCT). Because of the widespread acceptance of this standard, and the existence of hardware to implement the JPEG-DCT compression algorithm is likely to appear on your desk and in your home within the next few years. The JPEG-DCT compression algorithm has a multiresolution character and bears an imprint from work in visual perception[^dct-footnote].
+
+[^dct-footnote]: The DCT is similar to the Fourier Series computation reviewed in Chapters~?? and ??.
 
 ![The perceptual features of the DCT. The DCT features are products of harmonic functions, cos(2 \pi f_1 j)cos(2 \pi f_2 k), where j and k refer to position along the horizontal and vertical directions. These functions have both positive and negative values, and they are shown as contrast patterns varying about a constant gray background.](/wp-content/uploads/2012/02/05_perceptualFeaturesofDCT.png){#fig-dct fig-align="center" width="437"}
 
@@ -139,7 +144,9 @@ To reconstruct an approximation of the original image, we only need to apply the
 
 One of the most important limiting factors in compressing images arises from the separation of the original image into distinct blocks for independent processing. Pixels located at the edge of these blocks are reconstructed without any information concerning the intensity level of the pixels that are adjacent, in the next block. One of the most important visual artifacts of the reconstruction, then, is the appearance of distortions at the edges of these blocks, which are commonly called *block artifacts*. These artifacts are visible in the reconstructed image shown in @fig-jpeg-dct.
 
-There are two aspects of the JPEG-DCT algorithm that connect it with human vision. First the algorithm uses a roughly multiresolution representation of the image data. One way to see the multiresolution character of the algorithm is to imagine grouping together the coefficients obtained from the separate image blocks. Within each block, there are 64 DCT coefficients corresponding to the 64 image features. By collecting the corresponding transform coefficients from each block, we obtain a measure of the amount of each image feature within the image blocks. Implicitly, then, the DCT coefficients define sixty four images, each describing the contribution of the sixty four image features of the DCT. These implicit images are analogous to the collection of neural images that make up a multiresolution model of spatial vision (Chapter~??)\\footnote{ There is something that may strike you as odd when you think about the JPEG representation in this way. Notice that each block contributes the same number of coefficients to represent low frequency information as high frequency information. Yet, from the Nyquist sampling theorem (see Chapter~??), we know that we can represent the low frequency information using many fewer samples than are needed to represent the high frequency information. Why isn’t this differential sampling rate is not part of the JPEG representation? The reason is in part due to the block coding, and in part due to the properties of the image features.}.
+There are two aspects of the JPEG-DCT algorithm that connect it with human vision. First the algorithm uses a roughly multiresolution representation of the image data. One way to see the multiresolution character of the algorithm is to imagine grouping together the coefficients obtained from the separate image blocks. Within each block, there are 64 DCT coefficients corresponding to the 64 image features. By collecting the corresponding transform coefficients from each block, we obtain a measure of the amount of each image feature within the image blocks. Implicitly, then, the DCT coefficients define sixty four images, each describing the contribution of the sixty four image features of the DCT. These implicit images are analogous to the collection of neural images that make up a multiresolution model of spatial vision (Chapter~??)[^jpeg-dct-sampling].
+
+[^jpeg-dct-sampling]: There is something that may strike you as odd when you think about the JPEG representation in this way. Notice that each block contributes the same number of coefficients to represent low frequency information as high frequency information. Yet, from the Nyquist sampling theorem (see Chapter~??), we know that we can represent the low frequency information using many fewer samples than are needed to represent the high frequency information. Why isn’t this differential sampling rate is not part of the JPEG representation? The reason is in part due to the block coding, and in part due to the properties of the image features.
 
 Second, the JPEG-DCT algorithm relies on the assumption that quantization in the high spatial frequency coefficients does not alter the quality of the image features coded by low spatial frequency coefficients. If reduced resolution of the high spatial frequencies influences very visible features in the image, then the algorithm will fail. Hence, the assumption that the transform yields perceptually *independent* features is very important to the success of the algorithm.
 
@@ -172,15 +179,9 @@ We can now put together the two basic pyramid operations into a constructive seq
 To complete the construction of all levels of the pyramid, we apply the same sequence of operations, but now beginning with first level of the pyramid, $g_1$. We build a new convolution matrix, $B_1$; we sample using the matrix, $S_1$; we build $g_2 = S_1 B_1 g_1$; we interpolate $g_2$ using a matrix $E_1$; finally, we form the new error image $g_1 - \hat{g}_{1}$, where $\hat{g}_{1} = E_1 g_2$. To construct the entire pyramid we repeat the process, reducing the number of elements at each step. We stop when we decide that the reduced image, $g_n$, is small enough so that no further blurring and sampling would be useful.
 
 The pyramid construction procedure defines three sequences of signals; the series of blurred and sampled signals whose size is continually being reduced, the interpolated signals, and the error signals. We can summarize their relationship to one another in a few simple equations. First, the reduced image at the $i^{th}$ level is created by applying the basic pyramid operation to the previous level.
-
-<a name="id345499008"></a>
-
-<span class="ql-right-eqno"> (2) </span><span class="ql-left-eqno"> </span>
-\[
-\begin{equation*}
+$$
 g_i = P_{i - 1} g_{i-1}
-\end{equation*}
-\]
+$$ {#eq-pyramid-reduction}
 
 The estimate of the image $\hat{g}_{i}$ is created from the lower resolution representation by the calculation
 
@@ -193,12 +194,9 @@ $$
 Finally, the difference between the original and the estimate is the error image,
 
 <a name="id1061946577"></a>
-
 $$
-\begin{equation*} 
 e_i = g_i - \hat{g}_{i} = g_i - E_i {P_i} g_i 
-\end{equation*}
-$$
+$$ {#eq-error-image}
 
 Two different sets of these signals preserve the information in the original. One sequence consists of the original input and the sequence of *reduced signals*, $g_0$, $g_1$, $g_2$, $\ldots$, $g_n$. This sequence provides a description of the original signal at lower and lower resolution. It contains all of the data in the original image trivially since the original image is part of the sequence. This image sequence is of interest when we display low resolution versions of the image.
 
@@ -224,9 +222,14 @@ Next, we calculate the error signal, the difference between the estimate and the
 
 ![The Gaussian and Laplacian image pyramids. (a) The series of reduced images that form the Gaussian image pyramid begins with the original image, on the left. This image is blurred by a Gaussian convolution kernel and then sampled to form the image at a lower spatial resolution and size. (b) Each reduced image in the Gaussian pyramid can be used to estimate the image at a higher spatial resolution and size. The difference between the estimate the higher resolution image forms an error image, which in the case of Gaussian filtering is called the Laplacian pyramid. These error images can have positive or negative values, so I have shown them as contrast images in which gray represents zero error, while white and black represent positive and negative error respectively. (After @burtadelson1983a-pyramid).](/wp-content/uploads/2012/02/09_theGaussianAndLaplacian1.png){#fig-pyramid-2d fig-align="center" width="451"}
 
-@fig-pyramid-2d (a) shows the result of applying the pyramid process to a two-dimensional signal, in this case an image. The sequence of reduced images forming the Gaussian pyramid is shown on the top, with the original image on the left. These images were created by blurring the original and then representing the new data at one half the sampling rate for both the rows and the columns. Thus, in the two-dimensional case each reduced image contains only one-quarter the number of coefficients as its predecessor\footnote{Therefore, in the estimation phase we multiply the interpolation matrix by a factor of 4, not 2, i.e., $E_0 = 4 {P_0}^t$.}.
+@fig-pyramid-2d (a) shows the result of applying the pyramid process to a two-dimensional signal, in this case an image. The sequence of reduced images forming the Gaussian pyramid is shown on the top, with the original image on the left. These images were created by blurring the original and then representing the new data at one half the sampling rate for both the rows and the columns. Thus, in the two-dimensional case each reduced image contains only one-quarter the number of coefficients as its predecessor[^2d-interpolation-factor].
 
-The sequence of error images forming the Laplacian pyramid is shown in @fig-pyramid-2d (b). Because the interpolation routine uses a smooth Gaussian function to interpolate the lower resolution images, the large errors tend to occur near the edges in the image. And, because the images are mainly smooth (adjacent pixel intensities are correlated) most of the errors are small\\footnote{In order to display the error images, which negative coefficients, the image intensities are scaled so that black is a negative value, medium gray is zero, and white is positive.}.
+[^2d-interpolation-factor]: Therefore, in the estimation phase we multiply the interpolation matrix by a factor of 4, not 2, i.e., $E_0 = 4 {P_0}^t$.
+
+
+The sequence of error images forming the Laplacian pyramid is shown in @fig-pyramid-2d (b). Because the interpolation routine uses a smooth Gaussian function to interpolate the lower resolution images, the large errors tend to occur near the edges in the image. And, because the images are mainly smooth (adjacent pixel intensities are correlated) most of the errors are small[^laplacian-error-display].
+
+[^laplacian-error-display]: In order to display the error images, which have negative coefficients, the image intensities are scaled so that black is a negative value, medium gray is zero, and white is positive.
 
 ### Image Compression Using the Error Pyramid
 
@@ -254,12 +257,15 @@ $$
 g_1 = P_0 (2 {P_0}^t) g_1 = P_0 \hat{g}_{0}
 $$ {#eq-sec6}
 
-Equation [6](#id1070182640) implies that the square matrix ${{P_0}( 2 {P_0}^t)}$ must be the identity matrix. This implies that the columns of the matrix, $P_0$, should be *orthogonal* to one another\footnote{Orthogonality is defined in [Chapter 7](/chapter-7-pattern-sensitivity/) and the Appendix. Two vectors are orthogonal when $a^t b = 0$.}. This is not a property of the Gaussian and Laplacian pyramid.
+Equation [6](#id1070182640) implies that the square matrix ${{P_0}( 2 {P_0}^t)}$ must be the identity matrix. This implies that the columns of the matrix, $P_0$, should be *orthogonal* to one another[^orthogonality-def]. This is not a property of the Gaussian and Laplacian pyramid.
+
+[^orthogonality-def]: Orthogonality is defined in [Chapter 7](/chapter-7-pattern-sensitivity/) and the Appendix. Two vectors are orthogonal when $a^t b = 0$.
 
 A second inelegant feature of the Gaussian and Laplacian pyramid is that the representation is overcomplete, i.e., there are more transform coefficients than there are pixels in the original image. The increase in the transform coefficients can be traced to the fact that we represent an image $g_i$ with $N_i$ pixels by a reduced signal and an error signal that contain more than $N_i$ coefficients. For example, we represent the information in the $i^{th}$ level of the pyramid using the reduced image $g_{i+1}$ and the error image $e_i$.
 
-<span class="ql-right-eqno"> (7) </span><span class="ql-left-eqno"> </span>
-$\begin{equation*} g_i = (2 {P_i}^t) g_{i+1} + e_i \end{equation*}$
+$$
+g_i = (2 {P_i}^t) g_{i+1} + e_i
+$$ {#eq-pyramid-reconstruction}
 
 In the one-dimensional case, the error image, $e_i$, contains $N_{i}$ transform coefficients. The reduced signal, $g_{i+1}$, contains ${N_i} / 2$ coefficients. To create an efficient representation, we must represent $g_i$ using $N_i$ transform coefficients, not $1.5 N_i$ coefficients as in the Gaussian pyramid.
 
@@ -267,8 +273,9 @@ The error signal and the interpolated signal are intended to code different comp
 
 <a name="id2549884629"></a>
 
-<span class="ql-right-eqno"> (8) </span><span class="ql-left-eqno"> </span>
-$\begin{equation*} 0 = {e_i}^t \hat{g}_{i} . \end{equation*}$
+$$
+0 = {e_i}^t \hat{g}_{i}
+$$ {#eq-orthogonality}
 
 If we require that $\hat{g}_{i}$ and $e_i$ to be orthogonal, we can obtain significant efficiencies in our representation. By definition, we know that the interpolated image $\hat{g}_{i}$ is the weighted sum of the columns of ${P_i}^t$. If we the error $e_i$ image is orthogonal to the interpolated image, then the error image must be the weighted sum of a set of column vectors that are all orthogonal to the columns of ${P_i}^t$. In the (one-dimensional) Gaussian pyramid construction, ${P_i}^t$ has $N_i / 2$ columns. From basic linear algebra, we know that there are $(1 / 2) N_i$ vectors perpendicular to the columns of ${P_i}^t$. Hence, if $\hat{g}_{i}$ is orthogonal to $e_i$, we can describe both of these images using only $N_i$ transform coefficients, and the representation will no longer overcomplete.
 
@@ -276,11 +283,11 @@ But, what conditions must be met to insure that $e_i$ and $\hat{g}_{i}$ are orth
 
 <a name="id3778804003"></a>
 $$
-\begin{align*}
+\begin{align}
 0 = {e_i}^t \hat{g}_{i} 
 &= ( g_i^t (2 {P_i}^t) P_i ) ( (2 {P_i}^t) P_i g_i - g_i) \\
 &= [ g_i^t (2 {P_i}^t) ( P_i (2 {P_i}^t) ) P_i g_i ] - [ g_i^t (2 {P_i}^t) P_i g_i ] .
-\end{align*}
+\end{align}
 $$ {#eq-8}
 
 If the rows of $P_i$ are an orthogonal set, then by appropriate scaling we can arrange it so that ${P_i} (2 {P_i}^t)$ is equal to the identity matrix. In that case, the final term in @eq-8 simplifies and we have
@@ -319,12 +326,9 @@ The human visual system also needs to blend images. As we saw in the early chapt
 
 We can see some of the advantages of a multiresolution image blending by comparing the method with a single resolution blend. So, let’s begin by defining a simple method of joining the two pictures, based on a single resolution representation. Suppose we decide to join a picture on the left $L(x,y)$ and a picture on the right $R(x,y)$. We will blend the images by mixing their intensity values near the border where the join. A formal rule for to blend the image data must specify how to combine the data from the two images. We do this using a blending function, call it $b(x,y)$, whose values vary between $0$ and $1.0$. To construct our single-resolution blending algorithm we form a mixture image from the weighted average
 
-<span class="ql-right-eqno"> (11) </span><span class="ql-left-eqno"> </span>
-\[
-\begin{equation*}
+$$
 M(x,y) = b(x,y) L(x,y) + ( 1 - b(x,y)) R(x,y) .
-\end{equation*}
-\]
+$$ {#eq-blend-single-res}
 
 Consider the performance of this type of single resolution blend on an a pair of simulated astronomical images in @fig-astro-res. Each of these images contain $512$ rows and columns. The two images were built to simulate the appearance of a starry sky. The images contain three distortions to illustrate some of the advantages of multiresolution methods for blending images.
 
@@ -336,15 +340,12 @@ Because the images are divided along a vertical line, we need to concern ourselv
 
 The most trivial, and rather ineffective, way of joining the two images is shown in panel (c). In this case the two images are simply divided in half and joined at the dividing line. Simply abutting the two images is equivalent to choosing a function $s(x,y)$ equal to
 
-<span class="ql-right-eqno"> (12) </span><span class="ql-left-eqno"> </span>
-\[
-\begin{equation*}
+$$
 b(x,y) = \left \{ \begin{array}{ll}
-1 & \mbox{if $x < m$} \\
-0 & \mbox{otherwise}
+1 & \text{if } x < m \\
+0 & \text{otherwise}
 \end{array} \right.
-\end{equation*}
-\]
+$$ {#eq-blend-step}
 
 where $m$ is the midpoint of the image, $256$ in this case. This smoothing function leads to a strong artifact at the midpoint because of the difference in mean gray level.
 
@@ -353,25 +354,20 @@ We might use a less drastic blending function for $b(x,y)$. For example, we migh
 <a name="id3260796847"></a>
 
 <span class="ql-right-eqno"> (13) </span><span class="ql-left-eqno"> </span>
-\[
-\begin{equation*}
+$$
 b(x,y) = \left \{ \begin{array}{ll}
-{1 } & \mbox{if $x < m - w $} \\
-{1 - \frac{x - m - w }{2w}} & \mbox{if $m - w \leq x \leq m + w$} \\
-0 & \mbox{otherwise}
-\end{array} \right.
-\end{equation*}
-\]
+1 & \text{if } x < m - w \\
+1 - \frac{x - m - w }{2w} & \text{if } m - w \leq x \leq m + w \\
+0 & \text{otherwise}
+\end{array} \right \}.
+$$ {#eq-blend-ramp}
 
 Using a ramp to join the images blurs the image at the edge, as illustrated in panels (d) and (e) of @fig-astro-res. In panel (d) the width parameter of the linear ramp, $w$, is fairly small. When the width is small the edge artifact remains visible. As the width is broadened, the edge artifact is removed (panel (e)) and elements from both images contribute to the image in the central region. At this point the vertical shift between the two images becomes apparent. If you look carefully in the central region, you will see double stars shifted vertically one above the other. Image details that are much smaller than the width of the ramp appear in the blended image and they appear at their shifted locations. The stars are small compared to the width of the linear ramp, so the blended image contains the an artifact due to the shift in the image details.
-
 
 Multiresolution representations provide a natural, way for combining the two images that avoid some of these artifacts. We can state the multiresolution blending method as an algorithm.
 
 1. Form the pyramid of error images for $L$ and $R$.
-
 2. Within each level of the pyramid, average the error images with a blend function $b(x,y)$. A simple ramp function, as in Equation [13](#id3260796847) with $w = 1$, will do as the blend function.
-
 3. Compute the new image by reconstructing the image from the blended pyramid of error images.
 
 The image in panel (f) of @fig-astro-res contains the results of applying the multiresolution blend to the images. The multiresolution algorithm avoids the previous artifacts because by averaging the two error pyramids, two images combine over different spatial regions in each of the resolution bands. Data from the low resolution level is combined over a wide spatial region of the image, while data from the high resolution levels are combined over a narrow spatial region of the image.
@@ -394,7 +390,7 @@ Th engineering issues that arise in progressive image transmission may be releva
 
 ### Threshold and Recognition
 
-Image compression methods link {\\em visual sensitivity} measurements to an engineering application. This makes sense because threshold sensitivity plays a role in image compression; perceptually lossless compression methods, by definition, tolerate threshold level differences between the reconstructed image and the original.
+Image compression methods link *visual sensitivity* measurements to an engineering application. This makes sense because threshold sensitivity plays a role in image compression; perceptually lossless compression methods, by definition, tolerate threshold level differences between the reconstructed image and the original.
 
 For the applications apart from compression, however, sensitivity is not the key psychological measure. Since low resolution images do not look the same as the high resolution images, sensitivity to differences is not the key behavioral measure. To understand when progressive image transmissions methods work well, or which low resolution version is the best approximation to a high resolution version of an image, we need to be informed about which multiresolution representations permit people to {\\em recognize} quickly or {\\em search} for an item in a large collection of low resolution images quickly. Just as the design of multiresolution image compression methods requires knowing visual sensitivity to different spatial frequency bands, so too multiresolution methods for progressive image transmission requires knowing how important different resolution bands will be for expressing the information in an image.
 
@@ -409,7 +405,7 @@ Bruner and Potter compared subjects’ ability to recognize images in a few ways
 @fig-bruner-potter illustrates three different measurement conditions. Observers in one group saw the image develop from very blurry to only fairly blurry over a two minute period. At the end of this period the subjects were asked to identify the object in the image. They were correct on about a quarter of the images. Observers in a second group only began viewing the image after after 87 seconds. They first saw the image at a somewhat higher resolution, but then they could watch the image develop for only about a half minute. The difference between the second group and the first group, therefore, was whether they saw the image in a very blurry state, during the first 90 seconds. The second group of observers performed substantially better, recognizing the object `r 44` percent of the time rather than `r 25` percent. Surprisingly, the initial 90 seconds of viewing the image come into focus made the recognition task more difficult. A third group was also run. This group only saw the image come into focus during the last 13 seconds. The third group did not see the first 107 seconds as the image came into focus. This group also recognized the images correctly about `r 43` percent of the time.
 
 
-![The experimental viewing conditions used by Bruner and Potter in their recognition experiment. One group saw the picture come into slowly and continuously over a period of 122 seconds. A second group saw nothing for 87 seconds and then watched the remainder of the image come into focus. The final group only saw the image 109 seconds. Surprisingly, the group that watched the image come into focus for the full 122 seconds had the lowest recognition rate (Source: @bruner-potter1964).](/wp-content/uploads/2012/02/14_theExperimentalViewingConditions.png ){#fig-bruner-potter}
+![The experimental viewing conditions used by Bruner and Potter in their recognition experiment. One group saw the picture come into slowly and continuously over a period of 122 seconds. A second group saw nothing for 87 seconds and then watched the remainder of the image come into focus. The final group only saw the image 109 seconds. Surprisingly, the group that watched the image come into focus for the full 122 seconds had the lowest recognition rate (Source: @bruner-potter1964).](/wp-content/uploads/2012/02/14_theExperimentalViewingConditions.png ){#fig-bruner-potter width="60%"}
 
 Seeing these images come into focus slowly made it harder for the observers to recognize the image contents. Observers who saw the images come into focus over a long period of time formulated hypotheses as to the image contents. These hypotheses were often wrong and ultimately interfered with their recognition judgments.
 

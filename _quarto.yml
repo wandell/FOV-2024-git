@@ -27,7 +27,12 @@ book:
        - chapter-10-motion-and-depth.qmd
        - chapter-11-seeing.qmd
     - references.qmd
-    - appendix.qmd
+    - part: "Appendix"
+      chapters:
+      - appendix.qmd
+        
+        
+
 
 bibliography: paperpile.bib
 
@@ -41,21 +46,27 @@ crossref:
 format:
   html:
     theme: cosmo
-    math: 
-      number-sections: true
-  pdf:
-    documentclass: scrreprt
-    toc: true
-    toc-title: "Contents"
-    toc-number-sections: true
-    toc-number-depth: 2
-    fig-caption: true
     number-sections: true
     number-depth: 2
     math:
       number-equations: true
 
+  pdf:
+    documentclass: scrreprt
+    toc: true
+    toc-title: "Contents"
+    number-sections: true
+    number-depth: 2
+    fig-caption: true
+    math:
+      number-equations: true
 
+
+# ASK someone skilled about this.  They don't work in the color chapter and elsewhere.
+# It would be nice to have macros working for math.
+latex-macros:
+  match: "\\mathbf{m}"
+  matchi: "\\mathbf{m}_{#1}"
 
 
 
