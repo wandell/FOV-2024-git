@@ -339,7 +339,7 @@ Results from test-mixture experiments based on visual masking challenge the vali
 
 If the two masking stimuli are represented by neurons that are different from those that represent the vertical test patterns, then the superposition of these two masking stimuli should not influence the target visibility. The data in @fig-masking-mixture show that this is not the case. The mixture of the two masking patterns is a potent mask even though each alone fails to have any effect[^masking-mixture-difficulty].
 
-[^masking-mixture-difficulty]: Similar difficulties in interpreting the effects of masking, but with respect to mixtures of sinusoidal gratings, have been studied by @nachmias-rogowitz1983 and @perkins-landy1991.
+[^masking-mixture-difficulty]: Similar difficulties in interpreting the effects of masking, but with respect to mixtures of sinusoidal gratings, have been studied by @nachmias1983-masking and @perkins-landy1991.
 
 <!-- 
 %VR, 29 no. 1, Nachmias and Rogowitz (1983),
