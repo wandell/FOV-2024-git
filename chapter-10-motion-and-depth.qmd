@@ -125,13 +125,13 @@ $$ {#eq-motion-shift}
 
 (Remember that $v_x$ and $v_y$ depend on the spatial position and the moment in time, $(a,b,t)$.)
 
-Our goal is to use the changing image intensities to estimate the motion vector, $(v_x, v_y)$, at each position. We expand the right hand side of Equation~[1](#eq-motion-shift) in terms of the partial derivatives of the intensity pattern with respect to space and time,
+Our goal is to use the changing image intensities to estimate the motion vector, $(v_x, v_y)$, at each position. We expand the right hand side of @eq-motion-shift in terms of the partial derivatives of the intensity pattern with respect to space and time,
 
 $$
 I(a + v_x, b + v_y, t+1) \approx I(a,b,t) + v_x \frac{\partial I}{\partial x} + v_y \frac{\partial I}{\partial y} + \frac{\partial I}{\partial t}
 $$ {#eq-taylor-expansion}
 
-The terms $\frac{\partial I}{\partial x}$ and $\frac{\partial I}{\partial y}$ are the partial derivatives of $I(x,y,t)$ in the spatial and temporal dimensions, respectively. Grouping Equations~[1](#eq-motion-shift) and [2](#eq-taylor-expansion), we obtain the *gradient constraint equation*.
+The terms $\frac{\partial I}{\partial x}$ and $\frac{\partial I}{\partial y}$ are the partial derivatives of $I(x,y,t)$ in the spatial and temporal dimensions, respectively. Grouping @eq-motion-shift and @eq-taylor-expansion, we obtain the *gradient constraint equation*.
 
 $$
 v_x \frac{\partial I}{\partial x} + v_y \frac{\partial I}{\partial y} + \frac{\partial I}{\partial t} \approx 0
@@ -147,13 +147,13 @@ Because the data at a single point do not define a unique solution, to derive an
 
 Early in this chapter, we found that we can use the response amplitudes of space-time oriented linear filters to measure local image velocity. Now, studying the motion gradient constraint, we find that we can combine the spatio-temporal derivatives of the image intensities to measure the local velocity. These two methods of measuring local motion are closely linked as the following argument shows (Simoncelli, 1993).
 
-To be able to explain the relationship using pictures, let’s consider only one-dimensional spatial stimuli and use the ![(t,x)](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-bcb656609f04ebfe06845cda68403552_l3.png "Rendered by QuickLaTeX.com") graph. With this simplification, the motion gradient constraint has the reduced form
+To be able to explain the relationship using pictures, let’s consider only one-dimensional spatial stimuli and use the $(t,x)$ graph. With this simplification, the motion gradient constraint has the reduced form
 
-<a name="id1801234289"></a>
+$$
+v_x \frac{\partial I}{\partial x} + \frac{\partial I}{\partial t} = 0
+$$ {#eq-motion-gradient-1d}
 
-<span class="ql-right-eqno"> (4) </span><span class="ql-left-eqno"> </span>![\begin{equation*} v_x \parder{I}{x} + \parder{I}{t} = 0 . \end{equation*}](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-965c3b1a47185727ed75cb2c22372209_l3.png "Rendered by QuickLaTeX.com")
-
-Since the stimuli are one-dimensional, we can only estimate a single directional velocity, ![v_x](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-2a2f865f7f8bc99b1447f4aacf399c60_l3.png "Rendered by QuickLaTeX.com").
+Since the stimuli are one-dimensional, we can only estimate a single directional velocity, $v_x$.
 
 ![The motion gradient constraint represented in terms of space-time receptive fields. (a) The spatial and temporal derivatives can be computed using neurons whose (t,x) receptive fields are shown at the top. We can form weighted sums of these neural responses to create new receptive fields that are oriented in space-time. (b,c) The response amplitudes of these neurons can be used to identify the motion of a stimulus. The receptive field of the neuron represented in (b) responds strongly to the stimulus motion while the receptive field of the neuron in (c) responds weakly. By comparing the response amplitudes of the array of neurons, one can infer the stimulus motion.](/wp-content/uploads/2012/02/connect.png){width="70%" #fig-motion-gradient-receptive-fields}
 
