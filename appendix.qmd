@@ -98,7 +98,7 @@ $$
 \sin(\frac{2 \pi f (i+j)}{N}) = \sin(\frac{2 \pi f i}{N}) \cos(\frac{2 \pi f j}{N}) + \sin(\frac{2 \pi f j}{N}) \cos(\frac{2 \pi f i}{N}) ~ .
 $$ {#eq-sin-angle-sum}
 
-Substitute Equation~[8](#eq-sin-angle-sum) into Equation~[7](#eq-convolution-shift), remembering that $\sin (-k) = - \sin (k)$ and $\cos (-k) = \cos (k)$.
+Substitute @eq-sin-angle-sum into @eq-convolution-shift, remembering that $\sin (-k) = - \sin (k)$ and $\cos (-k) = \cos (k)$.
 
 $$
 \begin{align}
@@ -166,7 +166,7 @@ $$
 \mathbf{a} = \frac{1}{N} \mathbf{C}^T \mathbf{p} ~~~\mbox{and}~~~ \mathbf{b} = \frac{1}{N} \mathbf{S}^T \mathbf{p} .
 $$ {#eq-dfs-coefficients}
 
-We can derive the relationship in Equation~[15](#eq-dfs-coefficients) from two observations. First, the matrix sum, $\mathbf{H} = \mathbf{S} + \mathbf{C}$ has a simple inverse. The columns of $\mathbf{H}$ are orthogonal to one another, so that the inverse of $\mathbf{H}$ is simply [^hartley-transform].
+We can derive the relationship in @eq-dfs-coefficients from two observations. First, the matrix sum, $\mathbf{H} = \mathbf{S} + \mathbf{C}$ has a simple inverse. The columns of $\mathbf{H}$ are orthogonal to one another, so that the inverse of $\mathbf{H}$ is simply [^hartley-transform].
 
 $$
 \mathbf{H}^{-1} = \frac{1}{N} \mathbf{H}^{T} = \frac{1}{N} (\mathbf{S} + \mathbf{C})^T .
@@ -176,13 +176,17 @@ $$ {#eq-dfs-inverse}
 
 Second, the columns of the matrices $\mathbf{C}$ and $\mathbf{S}$ are perpendicular to one another: $\mathbf{0} = \mathbf{C} \mathbf{S}^{T}$. This observation should not be surprising since continuous sinusoids and cosinusoids are also orthogonal to one another.
 
-We can use these two observations to derive Equation~[15](#eq-dfs-coefficients) as follows. Express the fact that $\mathbf{H}$ and $\frac{1}{N} \mathbf{H}^{T}$ are inverses as follows:
+We can use these two observations to derive @eq-dfs-coefficients as follows. Express the fact that $\mathbf{H}$ and $\frac{1}{N} \mathbf{H}^{T}$ are inverses as follows:
 
 $$
-{{\bf I}_{N \times N}} = \mathbf{H} \left(\frac{1}{N} \mathbf{H}^T \right) = \frac{1}{N} (\mathbf{C} + \mathbf{S}) (\mathbf{C} + \mathbf{S})^T = \frac{1}{N} (\mathbf{C} \mathbf{C}^T + \mathbf{S} \mathbf{S}^T)
+\begin{align}
+{{\bf I}_{N \times N}} & = \mathbf{H} \left(\frac{1}{N} \mathbf{H}^T \right) \\ 
+& = \frac{1}{N} (\mathbf{C} + \mathbf{S}) (\mathbf{C} + \mathbf{S})^T \\
+& = \frac{1}{N} (\mathbf{C} \mathbf{C}^T + \mathbf{S} \mathbf{S}^T)
+\end{align}
 $$ {#eq-dfs-inverse-proof}
 
-where ${\mathbf{I}_{N \times N}}$ is the identity matrix. Then, multiply both sides of Equation~[16](#eq-dfs-inverse-proof) by $\mathbf{p}$,
+where ${\mathbf{I}_{N \times N}}$ is the identity matrix. Then, multiply both sides of @eq-dfs-inverse-proof by $\mathbf{p}$,
 
 %cn cn’ stim + sn sn’ stim = stim.
 
@@ -190,7 +194,7 @@ $$
 \mathbf{p} = \frac{1}{N} (\mathbf{C} \mathbf{C}^T \mathbf{p} + \mathbf{S} \mathbf{S}^T \mathbf{p} )
 $$ {#eq-dfs-reconstruction}
 
-Compare Equation~[17](#eq-dfs-reconstruction) and Equation~[13](#eq-dfs-tableau}. Notice that the Equations become identical if we make the assignments in Equation~[15](#eq-dfs-coefficients). This completes the sketch of the proof.
+Compare @eq-dfs-reconstruction and @eq-dfs-tableau. Notice that the Equations become identical if we make the assignments in @eq-dfs-coefficients. This completes the sketch of the proof.
 
 ### Measuring a Convolution System using Harmonic Functions
 
@@ -378,7 +382,7 @@ $$
 \mbox{If}~ P(A \mid \mathbf{d}) ~ > ~ P(B \mid \mathbf{d} ) \mbox{~~choose $A$, else $B$}.
 $$ {#eq-decision-rule}
 
-We call the expression in Equation~[20](#eq-decision-rule) a *decision rule*. The decision rule in Equation~[20](#eq-decision-rule) is framed in terms of the likelihood of the stimuli ($A$ or $B$) given the data ($\mathbf{d}$). This formulation of the probabilities runs counter to our normal learning experience. During training, we know that stimulus $A$ has been presented, and we experience a collection of cone absorptions. Experience informs us about probability of the data given the stimulus, $P(\mathbf{d} \mid A)$, not the probability of the stimulus given the data, $P(A \mid \mathbf{d})$. Hence, we would like to reformulate Equation~[20](#eq-decision-rule) in terms of the way we acquire our experience.
+We call the expression in @eq-decision-rule a *decision rule*. The decision rule @eq-decision-rule is framed in terms of the likelihood of the stimuli ($A$ or $B$) given the data ($\mathbf{d}$). This formulation of the probabilities runs counter to our normal learning experience. During training, we know that stimulus $A$ has been presented, and we experience a collection of cone absorptions. Experience informs us about probability of the data given the stimulus, $P(\mathbf{d} \mid A)$, not the probability of the stimulus given the data, $P(A \mid \mathbf{d})$. Hence, we would like to reformulate @eq-decision-rule in terms of the way we acquire our experience.
 
 *Bayes Rule* is a formula that converts probabilities derived from experience, $P(\mathbf{d} \mid A)$, into the form we need for the decision-rule, $P(A \mid \mathbf{d})$. The expression for Bayes Rule is
 
@@ -488,7 +492,7 @@ $$
 \mbox{choose A, else B}.
 $$ {#eq-bayes-classifier-poisson}
 
-Equation~[28](#eq-bayes-classifier-poisson) can be interpreted as a very simple computational procedure. First, notice that the Equation contains two terms. The first term is the weighted sum of the photopigment absorptions,
+@eq-bayes-classifier-poisson can be interpreted as a very simple computational procedure. First, notice that the Equation contains two terms. The first term is the weighted sum of the photopigment absorptions,
 
 $$
 \sum_{i=1}^{N} d_i w_i ,
@@ -502,7 +506,7 @@ $$
 \sum_{i=1}^{N} \mu_{A,i} - \sum_{i=1}^{N} \mu_{B,i} .
 $$ {#eq-bayes-classifier-diff}
 
-This term acts as a normalizing criterion to correct for the overall response to the two stimuli. The decision rule in Equation~[28](#eq-bayes-classifier-poisson) compares a weighted sum of cone absorptions to the normalizing criterion. If the first term exceeds the second, then choose response $A$, else $B$.
+This term acts as a normalizing criterion to correct for the overall response to the two stimuli. The decision rule in @eq-bayes-classifier-poisson) compares a weighted sum of cone absorptions to the normalizing criterion. If the first term exceeds the second, then choose response $A$, else $B$.
 
 We have learned that a Bayes classifier for pattern discrimination can be implemented using the results of simple linear calculations, like the calculations represented in the outputs of some peripheral neurons. In fact, making a decision like a Bayes classifier is equivalent to comparing the response of a linear neuron with a criterion value. If response of the linear neuron with receptive field defined by $w_i$ exceeds the criterion value, then choose stimulus $A$, otherwise choose $B$.
 
@@ -528,7 +532,7 @@ $$ {#eq-dot-product}
 
 This formula is called the *dot product* of the vectors $\mathbf{a}$ and $\mathbf{x}$. It is so important that it is often given a special notation, such as $\mathbf{a} \cdot \mathbf{x}$. Every time we multiply a matrix by a vector, $\mathbf{A} \mathbf{x}$, we compute the dot product $\mathbf{x}$ with the rows of $\mathbf{A}$. In this section, I want to discuss some geometric intuitions connected with the dot product operation.[^dot-product-terminology]
 
-[^dot-product-terminology]: Physicists often refer to Equation~[30](#eq-dot-product) as the scalar product because the result is a scalar; mathematicians often refer to the dot product as an inner product and write it using angle brackets $\langle \mathbf{a}, \mathbf{x} \rangle$.
+[^dot-product-terminology]: Physicists often refer to @eq-dot-product as the scalar product because the result is a scalar; mathematicians often refer to the dot product as an inner product and write it using angle brackets $\langle \mathbf{a}, \mathbf{x} \rangle$.
 
 Although we used the dot product calculation many times, I decided not to use the dot product notation in the main portion of the book because the notation treats the two vectors symmetrically; but, in most applications the vectors $\mathbf{a}$ and $\mathbf{x}$ had an asymmetrical role. The vector $\mathbf{x}$ was usually a stimulus, say the wavelength composition of a light or a one-dimensional spatial pattern, and the vector $\mathbf{a}$ was part of the sensory apparatus, say a photopigment wavelength sensitivity or a ganglion cell receptive field. Because the physical entities we described were not symmetric, I felt that the asymmetric notation, $\mathbf{a}^T \mathbf{x}$, was more appropriate.
 
@@ -599,7 +603,7 @@ $$ {#eq-matrix-tableau}
 
 where $a_{i\cdot}$ is a vector that represents the sensitivity of the $i^{th}$ sensor. In the usual signal estimation problem, we know the properties of the sensors represented in the rows of the matrix and we know the responses in $\mathbf{r}$. We wish to estimate the signal in $\mathbf{x}$. The pair of sensor vectors represented in the rows of the matrix, call it $\mathbf{A}$, are the counterpart of the vectors shown in Figure A4.3a. Our ability to estimate the signal from the responses depends on the correlation between the rows of the matrix.
 
-The matrix tableau in Equation~[eq-matrix-tableau](#eq-matrix-tableau) shows a special case in which there are two sensors and two unknown values of the signal. In general, we might have more sensors or more unknowns in the signal. Having more sensors would force us to add more rows to the matrix; having more unknowns in the signal would force us to change the lengths of the sensor and signal vectors. Each of these changes might change the general shape of the matrix tableau. We can write the general case, without specifying the number of sensors or unknowns, using the concise representation
+The matrix tableau in @eq-matrix-tableau shows a special case in which there are two sensors and two unknown values of the signal. In general, we might have more sensors or more unknowns in the signal. Having more sensors would force us to add more rows to the matrix; having more unknowns in the signal would force us to change the lengths of the sensor and signal vectors. Each of these changes might change the general shape of the matrix tableau. We can write the general case, without specifying the number of sensors or unknowns, using the concise representation
 
 <a name="id321904067"></a>
 $$
@@ -673,7 +677,7 @@ $$
 .
 $$ {#eq-overconstrained-tableau}
 
-The shape of the tableau makes it plain that there are more responses in the vector $\mathbf{r}$ than there are unknowns in the vector $\mathbf{x}$. This type of estimation problem is called *over-constrained*. When there is noise in the measurements, no exact solution to the over-constrained problem may exist; that is, there may be no vector $\mathbf{x}$ such that the equality in Equation~[33](#eq-overconstrained-tableau) is perfectly satisfied. Instead, we must define an error criterion and try to find a “best” solution, that is a solution that minimizes the error criterion.
+The shape of the tableau makes it plain that there are more responses in the vector $\mathbf{r}$ than there are unknowns in the vector $\mathbf{x}$. This type of estimation problem is called *over-constrained*. When there is noise in the measurements, no exact solution to the over-constrained problem may exist; that is, there may be no vector $\mathbf{x}$ such that the equality in @eq-overconstrained-tableau is perfectly satisfied. Instead, we must define an error criterion and try to find a “best” solution, that is a solution that minimizes the error criterion.
 
 In general, the best solution will depend on the noise properties and the error criterion. In some cases, say when the noise is Gaussian and the error is the sum of the squared difference between the observed and predicted responses, there are good closed form solutions to the linear estimation problem. That is, one can find an estimate of the signal without using any search algorithms, but by direct computation. If one has other error criteria or noise, a search may be necessary.
 
@@ -724,7 +728,7 @@ These formulae apply when the rotation and translation are small quantities, mea
 ### Motion Flow
 Finally, we compute motion flow by using Equation~[34](#id2583343672) to specify how the change in position in space maps into a change in image position. The original point $\mathbf{p}$ mapped into an image position $(u,v)$; after the observer moves, the new coordinate, $\mathbf{p} + {\bf \Delta} \mathbf{p}$, maps into a new image position, $(u',v')$. The resulting motion flow is the difference in the two image positions, $\mathbf{m}(u,v) = (u-u',v-v')^T$.
 
-Equation~[35](#eq-motion-flow) defines how the motion of the pinhole camera and the depth map combine to create the motion flow field (Heeger and Jepson, 1992).
+@eq-motion-flow defines how the motion of the pinhole camera and the depth map combine to create the motion flow field (Heeger and Jepson, 1992).
 
 $$
 \mathbf{m}(u,v) = \frac{1}{{p}_{3}(u,v)} \mathbf{A}(u,v) \mathbf{t} + \mathbf{B}(u,v) \mathbf{r} .
@@ -740,4 +744,4 @@ $$
 \mathbf{B}(u,v) = \left( \begin{array}{ccc} -(uv)/f & -(f + u^2/f) & v \\ (f + v^2/f) & -(uv)/f & -u \end{array} \right)
 $$ {#eq-matrix-B}
 
-Equation~[35](#eq-motion-flow} expresses a relationship we have seen already: The local motion flow field is the sum of two vectors (see Figure~??). One vector describes a component of the motion flow field caused by viewpoint translation, $\mathbf{t}$. The second vector describes a component of the motion flow field caused by viewpoint rotation, $\mathbf{r}$. Only the first component, caused by translation, depends on the distance to the point, ${p}_{3}(u,v)$. The rotational component is the same for points at any distance from the viewpoint. Hence, all of the information concerning the depth map is contained in the motion flow field component that is caused by viewpoint translation.
+@eq-motion-flow expresses a relationship we have seen already: The local motion flow field is the sum of two vectors (see Figure~??). One vector describes a component of the motion flow field caused by viewpoint translation, $\mathbf{t}$. The second vector describes a component of the motion flow field caused by viewpoint rotation, $\mathbf{r}$. Only the first component, caused by translation, depends on the distance to the point, ${p}_{3}(u,v)$. The rotational component is the same for points at any distance from the viewpoint. Hence, all of the information concerning the depth map is contained in the motion flow field component that is caused by viewpoint translation.
