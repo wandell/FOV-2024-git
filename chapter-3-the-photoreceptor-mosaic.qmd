@@ -30,7 +30,8 @@ There are three types of cone photoreceptors within the human retina. Each cone 
 
 Because light is absorbed after passing through the inner segment, the position of the inner segment determines the spatial sampling position of the photoreceptor. @fig-cone-mosaic shows cross-sections of the human cone photoreceptors at the level of the inner segment in the human fovea (part a) and just outside the fovea (part b). In the fovea, cross-section shows that the inner segments are very tightly packed and form a regular sampling array. A cross-section just outside the fovea shows that the rod photoreceptors fill the spaces between the cones and disrupt the regular packing arrangement. The scale bar represents $10~\mu\text{m}$; the cone photoreceptor inner segments in the fovea are approximately $2.3~\mu\text{m}$ wide with a minimum center to center spacing of about $2.5~\mu\text{m}$. @fig-cone-mosaic (c) shows plots of the cone densities from several different human retinae as a function of the distance from the foveal center. The cone density varies across individuals.
 
-![Calculating Viewing Angle: By trigonometry, the tangent of the viewing angle, \\phi, is equal to the ratio of height to distance in the right triangle shown. Therefore, \\phi is the inverse tangent of that ratio (Equation e2:viewingAngle).](/wp-content/uploads/2012/02/viewingangle-1024x590.png ){#fig-viewing-angle width="50%"}
+![Calculating Viewing Angle: By trigonometry, the tangent of the viewing angle, \\phi, is equal to the ratio of height to distance in the right triangle shown. Therefore, \\phi is the inverse tangent of that ratio (@eq-viewingangle).](/wp-content/uploads/2012/02/viewingangle.png ){#fig-viewing-angle width="50%"}
+
 
 ### Units of Visual Angle
 
@@ -38,7 +39,7 @@ We can convert these cone sizes and separations into degrees of visual angle as 
 
 $$
 \tan(\phi) = \frac{2.5 \times 10^{-6}~\mathrm{m}}{1.7 \times 10^{-2}~\mathrm{m}} = 1.47 \times 10^{-4}
-$$ {#eq-tanphi}
+$$ {#eq-viewingangle}
 
 The width of a cone in degrees of visual angle, $\phi$, is approximately $0.0084$ degrees, or roughly one-half minute of visual angle. In the center of the eye, then, where the photoreceptors are packed densely, the cone photoreceptors are tightly packed and their centers are separated by one-half minute of visual angle.
 
@@ -125,13 +126,13 @@ Figure ?? shows that sampling degrades our ability to discriminate between signa
 
 The exercises at the end of this chapter include some computer programs that can help you make sampling demonstrations like the one in @fig-alias-example. If you print out squarewave patterns and various sampling arrays, using the programs provided, you can print various patterns onto overhead transparencies and explore the effects of sampling. @fig-alias-example shows an example of two squarewave patterns seen through a sampling grid. After sampling, the high frequency pattern appears to be a rotated, low frequency signal.
 
-#### Sampling is a Linear Operation
+### Sampling is a Linear Operation
 
 The sampling transformation takes the retinal image as input and generates a portion of the retinal image as output. Sampling is a linear operation as the following thought experiment reveals. Suppose we measure the sample values at the cone positions when we present image $A$; call the intensities at the sample positions $S(A)$. Now, measure the intensities at the sample positions for a second image, $B$; call the sample intensities $S(B)$. If we add together the two images, the new image, $A + B$, contains the sum of the intensities in the original images. The values picked out by sampling will be the sum of the two sample vectors, $S(A) + S(B)$.
 
 Since sampling is a linear transformation, we can express it as a matrix multiplication. In our simple description, each position in the retinal image either falls within a cone inner segment or not. The sampling matrix consists of $N$ rows representing the $N$ sampled values. Each row is all zero except at the entry corresponding to that row’s sampling position, where the value is $1$.
 
-#### Aliasing of harmonic functions
+### Aliasing of harmonic functions
 
 For uniform sampling arrays we have already observed that some pairs of sinusoidal stimuli are aliases of one another (part (a) of @fig-aliasing). We can analyze precisely which pairs of sinusoids form alias pairs using a little bit of algebra. Suppose that the continuous input signal is $\cos ( 2 \pi f x )$. When we sample the stimulus at regular intervals, the output values will be the value of the cosinusoid at those regularly spaced sample points. Suppose that within a single unit of distance there are $N$ sample points, so that our measurements of the stimulus takes place every $1 / N$ units. Then the sampled values will be $S_{f} ( k ) = \cos \left( 2 \pi f \frac{k}{N} \right)$. A second cosinusoid, at frequency $f'$ will be an alias if its sample values are equal, that is, if $S_{f'} (k) = S_{f} (k)$.
 
@@ -141,11 +142,11 @@ $$
 \cos\left( 2\pi \left( \frac{N}{2} + f \right) \frac{k}{N} \right) = \cos\left( 2\pi \left( \frac{N}{2} - f \right) \frac{k}{N} \right)
 $$ {#eq-cos-alias}
 
-(To prove this we must use the cosine addition law to expand the right sides of the following equation. The steps in the verification are left as an exercise at the end of the chapter.)
+(To prove this we must use the cosine addition law. The steps in the verification are in Exercise 5 at the end of the chapter.)
 
 The frequency $f = N / 2$ is called the *Nyquist frequency* of the uniform sampling array; sometimes it is referred to as the *folding frequency*. Cosinusoidal stimuli whose frequencies differ by equal amounts above and below the Nyquist frequency of a uniform sampling array will have identical sample responses.
 
-#### Experimental Implications
+### Experimental Implications
 The aliasing calculations suggest an experimental method to measure the spacing of the cones in the eye. If the cone spacing is uniform, then pairs of stimuli separated by equal amounts above and below the Nyquist frequency should appear indistinguishable. Specifically, a signal $\cos \left(2 \pi \left( \frac{N}{2} + f \right) \right)$ that is above the Nyquist frequency will appear the same as the signal $\cos \left(2 \pi \left( \frac{N}{2} - f \right) \right)$ that is an equal amount below the Nyquist frequency. Thus, as subjects view interferometric patterns of increasing frequency, as we cross the Nyquist frequency the perceived spatial frequency should begin to decrease even though the physical spatial frequency of the diffraction pattern increases.
 
 @yellott1982-alias examined the aliasing prediction in a nice graphical way. He made a sampling grid from Polyak’s (1957) anatomical estimate of the cone positions. He simply poked small holes in the paper at the cone positions in one of Polyak’s anatomical drawings. We can place any image we like, for example patterns of light and dark bars, behind the grid. The bits of the image that we see are only those that would be seen by the visual system. Any pair of images that differ only in the regions between the holes will be an aliased pair. Yellott introduced the method and proper analysis, but he used the @polyak1957-vertebratebook data on the outer segment positions rather than on the positions of the inner segments (@miller1983-alias).
