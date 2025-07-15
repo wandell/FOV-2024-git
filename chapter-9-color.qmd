@@ -144,9 +144,9 @@ $$
 e(\lambda) = \sum_{i=1}^{3} w_{i} E_{i}(\lambda) .
 $$ {#eq-illuminant-linear-model}
 
-We can express the linear model in Equation \@eq-illuminant-linear-model as a matrix equation, $\mathbf{e} = \mathbf{B}_{\mathbf{e}} \mathbf{w}$ in which $\mathbf{e}$ is a vector representing the illuminant spectral power distribution, the three columns of $\mathbf{B}_{\mathbf{e}}$ contain the basis functions $E_{i}(\lambda)$, and $\mathbf{w}$ is a three dimensional vector containing the linear model coefficients $w_{i}$.
+We can express the linear model in @eq-illuminant-linear-model as a matrix equation, $\mathbf{e} = \mathbf{B}_{\mathbf{e}} \mathbf{w}$ in which $\mathbf{e}$ is a vector representing the illuminant spectral power distribution, the three columns of $\mathbf{B}_{\mathbf{e}}$ contain the basis functions $E_{i}(\lambda)$, and $\mathbf{w}$ is a three dimensional vector containing the linear model coefficients $w_{i}$.
 
-We can see why linear models are efficient by writing Equation \@eq-squared-error as a matrix tableau.
+We can see why linear models are efficient by writing @eq-squared-error as a matrix tableau.
 
 <span class="ql-right-eqno"> (3) </span><span class="ql-left-eqno"> </span>
 $$
@@ -214,10 +214,9 @@ $$ {#eq-sensor-linear-model}
 
 The matrix $(\mathbf{S} \mathbf{B}_{\mathbf{e}})$ is $3 \times 3$, and its entries are all known. The sensor responses, $r$, are also known. The only unknown is $w$. Hence, we can estimate $w$, and use these weights to calculate the spectral power distribution, $\mathbf{B}_\mathbf{e}\, \mathbf{w}$.
 
-This calculation illustrates two aspects of the role of linear models. First, linear models represent a priori knowledge about the likely set of inputs. Using this information permits us to convert underdetermined linear equations (Equation \@eq-sensor-matrix) into equations we can solve (Equation \@eq-sensor-linear-model). Linear models are a blunt but useful tool for representing probabilities. Using linear models, it becomes possible to use measurements from only three color sensors to estimate the full relative spectral power distribution of daylight illumination.
+This calculation illustrates two aspects of the role of linear models. First, linear models represent a priori knowledge about the likely set of inputs. Using this information permits us to convert underdetermined linear equations (@eq-sensor-matrix) into equations we can solve (@eq-sensor-linear-model). Linear models are a blunt but useful tool for representing probabilities. Using linear models, it becomes possible to use measurements from only three color sensors to estimate the full relative spectral power distribution of daylight illumination.
 
 Second, linear models work smoothly with the imaging equations. Since the imaging equations are linear, the estimation methods remain linear and simple.
-
 
 ### Surface Reflectance Models
 
@@ -292,7 +291,7 @@ r_{3} & = \sum_{\lambda} R_{3}(\lambda) E(\lambda) S(\lambda) .
 \end{align}
 $$ {#eq-cone-absorptions}
 
-Next, we replace the illuminant and surface functions in Equation~[8](#id530804539) with their linear model approximations. This yields a new relationship between the coefficients of the surface reflectance linear model, $\mathbf{\sigma}$, and the three-dimensional vector of cone absorptions, $\mathbf{r}$,
+Next, we replace the illuminant and surface functions in @eq-cone-absorptions with their linear model approximations. This yields a new relationship between the coefficients of the surface reflectance linear model, $\mathbf{\sigma}$, and the three-dimensional vector of cone absorptions, $\mathbf{r}$,
 
 $$
 \mathbf{r} \approx \mathbf{\Lambda}_{e} \mathbf{\sigma} .
@@ -304,7 +303,7 @@ $$
 \sum_{\lambda} \left ( \sum_k w_{k} E_{k}(\lambda) \right ) R_{i}(\lambda) S_{j}(\lambda) .
 $$ {#eq-lighting-matrix-entry}
 
-We can compute two lighting matrices (Equation~[9](#id4233032400)) from the spectral curves we have been using as examples. For one lighting matrix I used the mean daylight spectral power distribution, and for the other I used the spectral power distribution of a tungsten bulb. I used the linear model of the Macbeth ColorChecker for the surface basis functions and the Stockman and MacLeod cone absorption functions (see the appendix to [Chapter 4](/chapter-4-wavelength-encoding/)). The lighting matrix for the blue sky illumination is
+We can compute two lighting matrices (@eq-lighting-matrix) from the spectral curves we have been using as examples. For one lighting matrix I used the mean daylight spectral power distribution, and for the other I used the spectral power distribution of a tungsten bulb. I used the linear model of the Macbeth ColorChecker for the surface basis functions and the Stockman and MacLeod cone absorption functions (see the appendix to [Chapter 4](/chapter-4-wavelength-encoding/)). The lighting matrix for the blue sky illumination is
 
 $$
 \left (
@@ -361,7 +360,7 @@ $$ {#eq-tungsten-to-blue-sky}
 
 The retina can compensate for the illumination change by linearly transforming the observed cone absorptions, $\mathbf{r}^\prime$, into a new signal, $\mathbf{r}$.
 
-Now, what does it mean for the retina to compute a linear transformation? The linear transformation consists of a simple series of multiplications and additions. For example, consider the third row of the matrix in Equation~\@eq-tungsten-to-blue-sky. This row defines how the new $S$ cone absorptions should be computed from the observed absorptions. When we write this transformation as a single linear equation we see that the observed and transformed signals are related as
+Now, what does it mean for the retina to compute a linear transformation? The linear transformation consists of a simple series of multiplications and additions. For example, consider the third row of the matrix in @eq-tungsten-to-blue-sky. This row defines how the new $S$ cone absorptions should be computed from the observed absorptions. When we write this transformation as a single linear equation we see that the observed and transformed signals are related as
 
 $$
 S = .0429~L^\prime + -0.0755~M^\prime + 1.8091~S^\prime .

@@ -193,7 +193,6 @@ Consider the simple case of a one-dimensional stimulus that varies along one spa
 $$
 I = [ 1 + c ]~\mu ,
 $$ {#eq-rf-contrast}
-<a name="id997383386"></a>
 
 where $I$ is the stimulus intensity, $\mu$ is the mean background intensity, and $c$ is the stimulus contrast.
 
@@ -207,9 +206,9 @@ To test superposition, we must measure the response to two different contrast pa
 $$
 [ 1 + c_1 + c_2 ]~\mu .
 $$ {#eq-rf-superposition}
-<a name="id3660135889"></a>
 
-We expect that the steady-state response to the new test pattern will be $\Delta r_1 + \Delta r_2$. Be sure to compare Equation [1](#id997383386) and [2](#id3660135889); the new stimulus pattern is formed by adding together the **contrast terms**, $c_1$ and $c_2$, not the two intensity patterns.
+
+We expect that the steady-state response to the new test pattern will be $\Delta r_1 + \Delta r_2$. Be sure to compare @eq-rf-contrast and @eq-rf-superposition; the new stimulus pattern is formed by adding together the **contrast terms**, $c_1$ and $c_2$, not the two intensity patterns.
 
 ![The steady-state contrast response of primate retinal ganglion cells are often linear. We can predict the response to contrast patterns by measuring the system-matrix that maps the stimulus contrast into the increased firing rate of the neuron. Since the change in firing rate is a single number, the system matrix is a row-vector. The entries of the system matrix define the one-dimensional, steady-state, receptive field of the neuron.](/wp-content/uploads/2012/02/rf.linear.png){#fig-rf-linear width="80%"}
 
@@ -303,7 +302,7 @@ Neurons in the lateral geniculate nucleus respond linearly for stimuli as high a
 
 The response to contrast-reversing patterns of a parvocellular neuron in the monkey lateral geniculate nucleus is shown in @fig-dl. This surface plot was derived by interpolating measurements reported by @derrington1984-contrastsensitivity. This cell responded to temporal and spatial modulations up to 15 Hz and 15 cycles per degree. From the shape of the neuron we can make several observations about the neuron’s responsivity. First, the reduced sensitivity at low spatial frequencies shows that the neuron had a significant opponent surround. Second, the neuron responds well to all tested temporal frequencies when we measured with a low spatial frequency stimulus, but the neuron responds poorly at high temporal frequencies when measured using a high spatial frequency stimulus. Since the response to the high spatial frequency stimulus is mediated through the on-center, the data show that the temporal sensitivity from the on-center and opposing surround may be different. It is time to consider the general question of the interdependence of spatial and temporal sensitivity.
 
-### Space-time separability.
+### Space-time separability {#sec-retina-separability}
 
 We have defined the neuron’s receptive using two complementary representations. In one case, the we have defined the receptive field using briefly flashed lines, and in the second case we have defined the receptive field using harmonic functions of space-time. We can use either method to measure and describe a linear neuron’s receptive field.
 
@@ -321,8 +320,7 @@ A neuron will only have a well-defined spatial receptive field when the space-ti
 
 $$
 \mathbf{R}(x,t) = S(x) T(t)
-$$
-<a name="id3008821091"></a>
+$$ {#eq-retina-separability}
 
 If the space-time receptive field is separable, then, it follows from the definition that the spatial receptive fields at two times will always be related by the scale factor $T(t_1)/T(t_2)$. In this case the function $S(x)$ is a meaningful definition of the neuron’s spatial receptive field. The function $T(t)$ is a meaningful definition of the neuron’s temporal impulse response function. If the space-time receptive field is separable, then it is possible to show that the space-time contrast sensitivity function will also be separable.
 
