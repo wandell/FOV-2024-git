@@ -43,11 +43,7 @@ $$ {#eq-viewingangle}
 
 The width of a cone in degrees of visual angle, $\phi$, is approximately $0.0084$ degrees, or roughly one-half minute of visual angle. In the center of the eye, then, where the photoreceptors are packed densely, the cone photoreceptors are tightly packed and their centers are separated by one-half minute of visual angle.
 
-<a name="TheSConeMosaic"></a>
-
 ## The S Cone Mosaic {#sec-s-cone-mosaic}
-
-<a name="BehavioralMeasurements"></a>
 
 ### Behavioral Measurements {#sec-s-cone-behavior}
 
