@@ -82,7 +82,7 @@ Second, we find a more efficient representation of the transformed representatio
 
 From our example, we can identify a key property of the linear transformation that is essential for achieving efficient coding. The new transformation should convert the data to *decorrelated* values. Values are decorrelated when we gain no advantage in predicting one value from knowing the other. It should seem intuitive that decorrelation is important part of efficiency: if we can predict one value from the another, there is no reason to encode both. Generalizing this idea, if we can predict approximately predict one value from another, we can achieve some efficiencies in our representation. In our example we found that the value $p(x,y)$ is a good predictor of the value $p(x,y+1)$. Hence, it is efficient to predict that $p(x,y+1)$ is equal to $p(x,y)$ and to encode only the error in our prediction. If we have a good predictor (i.e., high correlation) the prediction error will span a smaller range than the data value. Hence, the error can be encoded using fewer bits and we can save storage space.
 
-The transformation in Equation~[1](#id1630831666) does yield a pair of approximately decorrelated values. To make the example simple, I chose a simple linear transformation. We might ask how we might find a decorrelating linear transformation in general. When the set of images we will have to encode is known precisely, then the best linear transformation for lossless image compression can be found using a matrix decomposition called the *singular value decomposition*. The singular value decomposition defines a linear transformation from the data to a new representation with statistically independent values that are concentrated over smaller and smaller ranges. This representation is just what we seek for efficient image encoding. The singular value decomposition is at the heart of principal components analysis and goes by many other names including the Karhunen-Loeve transform and the Hoteling transform. The singular value decomposition may be the most important technique in linear algebra.
+The transformation in @eq-pixel-decor does yield a pair of approximately decorrelated values. To make the example simple, I chose a simple linear transformation. We might ask how we might find a decorrelating linear transformation in general. When the set of images we will have to encode is known precisely, then the best linear transformation for lossless image compression can be found using a matrix decomposition called the *singular value decomposition*. The singular value decomposition defines a linear transformation from the data to a new representation with statistically independent values that are concentrated over smaller and smaller ranges. This representation is just what we seek for efficient image encoding. The singular value decomposition is at the heart of principal components analysis and goes by many other names including the Karhunen-Loeve transform and the Hoteling transform. The singular value decomposition may be the most important technique in linear algebra.
 
 In practice, however, the image population is not known precisely. Nor are the image statistics for the set of natural images are known precisely. As a result, the singular value decomposition has no ready application to image compression. As a practical matter, then, selecting a good initial linear transformation remains an engineering skill acquired by experience with algorithm design.
 
@@ -106,7 +106,7 @@ Perceptually lossless image encoding algorithms follow a logic that has much in 
 
 In my overview of perceptually lossless compression algorithms, I used — but did not define — the phrase “perceptually decorrelated features.” The notion of a “perceptual feature” is widely used in a very loose way to describe the image properties that are essential for object perception. There is no widely agreed on the specific image features that comprise the perceptual features. In the context of image compression, however, we can use a very useful operational definition for perceptual feature, defined in terms of the linear transformation used to decorrelate the image data. The idea is illustrated in the matrix tableau drawn in @fig-linear-trans.
 
-Suppose we represent the original image as a list of intensities, one intensity for each pixel in the image. We then apply a linear transformation to the image data, as shown in @fig-linear-trans (a), to yield a new vector of *transform coefficients*. This is the same procedure we applied in our simple example defined by Equation~[1](#id1630831666).
+Suppose we represent the original image as a list of intensities, one intensity for each pixel in the image. We then apply a linear transformation to the image data, as shown in @fig-linear-trans (a), to yield a new vector of *transform coefficients*. This is the same procedure we applied in our simple example defined by @eq-pixel-decor.
 
 In the transformed representation, each value represents something about the contents of the input image. One way to represent the visual significance of each transformed value is to identify an input image that is represented by that transform coefficient alone. This idea is illustrated in @fig-linear-trans (b), in which a feature is defined as the input image that is represented by a set of transform coefficients that are zero everywhere except at one location. We call this image the *feature* represented by this transform coefficient. Using this operational definition, features are defined with respect to a particular linear transformation.
 
@@ -181,7 +181,7 @@ To complete the construction of all levels of the pyramid, we apply the same seq
 The pyramid construction procedure defines three sequences of signals; the series of blurred and sampled signals whose size is continually being reduced, the interpolated signals, and the error signals. We can summarize their relationship to one another in a few simple equations. First, the reduced image at the $i^{th}$ level is created by applying the basic pyramid operation to the previous level.
 $$
 g_i = P_{i - 1} g_{i-1}
-$$ {#eq-pyramid-reduction}
+$$ {#eq-pyramid-reduction1}
 
 The estimate of the image $\hat{g}_{i}$ is created from the lower resolution representation by the calculation
 
@@ -189,7 +189,7 @@ The estimate of the image $\hat{g}_{i}$ is created from the lower resolution rep
 
 $$
 \hat{g}_{i} = E_{i+1} g_{i+1}
-$$
+$${#eq-pyramid-reduction2}
 
 Finally, the difference between the original and the estimate is the error image,
 
@@ -252,12 +252,11 @@ The ability to quantize severely many of the transform coefficients with little 
 Pyramid representations using a Gaussian convolution kernel have many useful features; but, they also have several imperfections. By examining the problematic features of Gaussian and Laplacian pyramids, we will see the rationale for using a different convolution kernel, {\\em quadrature mirror filters} (QMFs), in creating image pyramids.
 The first inelegant feature of the Gaussian and Laplacian pyramids is an inconsistency in the blurring and sampling operation. Suppose we had begun our analysis with the estimated image, ${{\hat{g}_{0}}}$, rather than ${{g_0}}$. From the pyramid construction point of view, the estimate should be equivalent to the original image. It seems reasonable to expect, therefore, that the reduced image derived from ${{\hat{g}_{0}}}$ should be the same as the reduced image derived from ${{g_0}}$. We can express this condition as an equation,
 
-<a name="id1070182640"></a>
 $$
 g_1 = P_0 (2 {P_0}^t) g_1 = P_0 \hat{g}_{0}
-$$ {#eq-sec6}
+$${#eq-sec6}
 
-Equation [6](#id1070182640) implies that the square matrix ${{P_0}( 2 {P_0}^t)}$ must be the identity matrix. This implies that the columns of the matrix, $P_0$, should be *orthogonal* to one another[^orthogonality-def]. This is not a property of the Gaussian and Laplacian pyramid.
+@eq-sec6 implies that the square matrix ${{P_0}( 2 {P_0}^t)}$ must be the identity matrix. This implies that the columns of the matrix, $P_0$, should be *orthogonal* to one another[^orthogonality-def]. This is not a property of the Gaussian and Laplacian pyramid.
 
 [^orthogonality-def]: Orthogonality is defined in [Chapter 7](/chapter-7-pattern-sensitivity/) and the Appendix. Two vectors are orthogonal when $a^t b = 0$.
 
@@ -271,15 +270,13 @@ In the one-dimensional case, the error image, $e_i$, contains $N_{i}$ transform 
 
 The error signal and the interpolated signal are intended to code different components of the original input; the interpolated vector $\hat{g}_{i} = (2 {P_i}^t) g_{i+1}$ codes a low resolution version of the original, and $e_i$ codes the higher frequency terms left out by the low resolution version. To improve the efficiency of the representation, we might require that the two terms code completely different types of information about the input. One way to interpret the phrase “completely different” is to require that the two vectors be orthogonal, that is,
 
-<a name="id2549884629"></a>
-
 $$
 0 = {e_i}^t \hat{g}_{i}
 $$ {#eq-orthogonality}
 
 If we require that $\hat{g}_{i}$ and $e_i$ to be orthogonal, we can obtain significant efficiencies in our representation. By definition, we know that the interpolated image $\hat{g}_{i}$ is the weighted sum of the columns of ${P_i}^t$. If we the error $e_i$ image is orthogonal to the interpolated image, then the error image must be the weighted sum of a set of column vectors that are all orthogonal to the columns of ${P_i}^t$. In the (one-dimensional) Gaussian pyramid construction, ${P_i}^t$ has $N_i / 2$ columns. From basic linear algebra, we know that there are $(1 / 2) N_i$ vectors perpendicular to the columns of ${P_i}^t$. Hence, if $\hat{g}_{i}$ is orthogonal to $e_i$, we can describe both of these images using only $N_i$ transform coefficients, and the representation will no longer overcomplete.
 
-But, what conditions must be met to insure that $e_i$ and $\hat{g}_{i}$ are orthogonal? By substituting Equations~[2](#id345499008), [3](#id2554509580) and [4](#id1061946577) into Equation~[8](#id2549884629) we have
+But, what conditions must be met to insure that $e_i$ and $\hat{g}_{i}$ are orthogonal? By substituting @eq-pyramid-reduction1, @eq-pyramid-reduction2, @eq-error-image into @eq-orthogonality we have
 
 <a name="id3778804003"></a>
 $$
@@ -302,7 +299,6 @@ We can summarize where we stand as follows. The basic pyramid operation has seve
 We have accumulated an extensive set of properties we would like the pyramid matrices, $P_i$, to satisfy. Now, one can have a wish list, but there is no guarantee that there exist any functions that satisfy all our requirements. The most difficult pair of constraints to satisfy is the combination of orthogonality and localization. For example, if we look at convolution operators alone, there are no convolutions that are simultaneously orthogonal and localized in space.
 
 Interestingly there exists a class of discrete-valued functions, called *quadrature mirror filters*, that satisfy all of the properties on our wish list (@esteban1977; @simoncelli1990; @vetterli1986-filterbanks). The quadrature mirror filter pair splits the input signal into two orthogonal components. One of the filters defines a convolution kernel that we use to blur the original image and obtain the reduced image. The second filter is orthogonal to the first and can be used to calculate an efficient representation of the error signal. Hence, the quadrature mirror filter pair splits the original signal into coefficients that define of the two orthogonal terms, $\hat{g}_{i}$ and $e_i$; Each set of coefficients has only $n/2$ terms, so the new representation is an efficient pyramid representation. @fig-quad-mirror shows an example of a pair of quadrature mirror filters. The function shown in @fig-quad-mirror (a) is the convolution kernel that is used to create the reduced images, $g_i$. The function in @fig-quad-mirror (b) is the convolution kernel needed to calculate the transform coefficients in the error pyramid directly. When the theory of these filters is developed for continuous, rather than discrete, functions the convolution kernels are called *orthogonal wavelets* (@daubechies1990).
-
 
 ![A quadrature mirror filter pair. One can use these two functions as convolution kernels to construct a pyramid. Convolution with the kernel in (a) followed by sampling produces the transform coefficients in the set of reduced signals. Transformation by the kernel in (b) followed by sampling yields the transform coefficients of the error pyramid (Source: @simoncelli1988).](/wp-content/uploads/2012/02/11_aQuadtratureMirror.png){#fig-quad-mirror}
 
@@ -367,7 +363,7 @@ Using a ramp to join the images blurs the image at the edge, as illustrated in p
 Multiresolution representations provide a natural, way for combining the two images that avoid some of these artifacts. We can state the multiresolution blending method as an algorithm.
 
 1. Form the pyramid of error images for $L$ and $R$.
-2. Within each level of the pyramid, average the error images with a blend function $b(x,y)$. A simple ramp function, as in Equation [13](#id3260796847) with $w = 1$, will do as the blend function.
+2. Within each level of the pyramid, average the error images with a blend function $b(x,y)$. A simple ramp function, as in @eq-blend-ramp with $w = 1$, will do as the blend function.
 3. Compute the new image by reconstructing the image from the blended pyramid of error images.
 
 The image in panel (f) of @fig-astro-res contains the results of applying the multiresolution blend to the images. The multiresolution algorithm avoids the previous artifacts because by averaging the two error pyramids, two images combine over different spatial regions in each of the resolution bands. Data from the low resolution level is combined over a wide spatial region of the image, while data from the high resolution levels are combined over a narrow spatial region of the image.
