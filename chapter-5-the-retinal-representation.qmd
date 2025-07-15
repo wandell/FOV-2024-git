@@ -193,7 +193,6 @@ Consider the simple case of a one-dimensional stimulus that varies along one spa
 $$
 I = [ 1 + c ]~\mu ,
 $$ {#eq-rf-contrast}
-<a name="id997383386"></a>
 
 where $I$ is the stimulus intensity, $\mu$ is the mean background intensity, and $c$ is the stimulus contrast.
 
@@ -207,9 +206,9 @@ To test superposition, we must measure the response to two different contrast pa
 $$
 [ 1 + c_1 + c_2 ]~\mu .
 $$ {#eq-rf-superposition}
-<a name="id3660135889"></a>
 
-We expect that the steady-state response to the new test pattern will be $\Delta r_1 + \Delta r_2$. Be sure to compare Equation [1](#id997383386) and [2](#id3660135889); the new stimulus pattern is formed by adding together the **contrast terms**, $c_1$ and $c_2$, not the two intensity patterns.
+
+We expect that the steady-state response to the new test pattern will be $\Delta r_1 + \Delta r_2$. Be sure to compare @eq-rf-contrast and @eq-rf-superposition; the new stimulus pattern is formed by adding together the **contrast terms**, $c_1$ and $c_2$, not the two intensity patterns.
 
 ![The steady-state contrast response of primate retinal ganglion cells are often linear. We can predict the response to contrast patterns by measuring the system-matrix that maps the stimulus contrast into the increased firing rate of the neuron. Since the change in firing rate is a single number, the system matrix is a row-vector. The entries of the system matrix define the one-dimensional, steady-state, receptive field of the neuron.](/wp-content/uploads/2012/02/rf.linear.png){#fig-rf-linear width="80%"}
 

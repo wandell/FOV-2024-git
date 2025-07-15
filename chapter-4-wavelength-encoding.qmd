@@ -66,7 +66,7 @@ $$
 e = \sum_{i=1}^{i=n_{\lambda}} R_{i} \mathbf{t}_{i}
 $$ {#eq-scotopic-sum}
 
-Suppose we use a monochromatic test light of unit intensity, that is, an input $\mathbf{t}$ that has only a single non-zero wavelength, $(0,0,...,0,1,0,...0)^{T}$. Then Equation~\@ref(eq-scotopic-sum) becomes simply $e = R_{i} \mathbf{t}_{i}$. This shows that the slope of the line relating the monochromatic test intensity, $\mathbf{t}_{i}$, to the primary intensity, $e$, is the system matrix entry, $R_{i}$. Hence, we can estimate the system matrix from the slopes of the experimental lines we measure in the test of homogeneity shown in @fig-scotopic.
+Suppose we use a monochromatic test light of unit intensity, that is, an input $\mathbf{t}$ that has only a single non-zero wavelength, $(0,0,...,0,1,0,...0)^{T}$. Then @eq-scotopic-sum becomes simply $e = R_{i} \mathbf{t}_{i}$. This shows that the slope of the line relating the monochromatic test intensity, $\mathbf{t}_{i}$, to the primary intensity, $e$, is the system matrix entry, $R_{i}$. Hence, we can estimate the system matrix from the slopes of the experimental lines we measure in the test of homogeneity shown in @fig-scotopic.
 
 ![The scotopic spectral sensitivity function defines the human wavelength sensitivity under scotopic viewing conditions. The curve is a plot of the entries of the scotopic system matrix.](/wp-content/uploads/2012/02/scot.sens_.png ){#fig-scotopic-sens width="60%" }
 
@@ -151,9 +151,9 @@ Shifting one of the primaries to the other side of the bipartite field means tha
 
 $$
 \mathbf{t} + e_1 \mathbf{p}_1 = e_2 \mathbf{p}_2 + e_3 \mathbf{p}_3 .
-$$ {#eq-cmatch2}
+$${#eq-cmatch2}
 
-To a mathematician, Equation (3) is the same as
+To a mathematician, @eq-cmatch2 is the same as
 
 $$
 \mathbf{t} = - e_1 \mathbf{p}_1 + e_2 \mathbf{p}_2 + e_3 \mathbf{p}_3 .
@@ -187,7 +187,7 @@ $$
 \mathbf{C} \mathbf{t} = \mathbf{C} \mathbf{P}' \mathbf{e}'
 $$ {#eq-photopic-match2}
 
-By combining Equations~\@ref(eq-photopic-match) and \@ref(eq-photopic-match2), we find that the two vectors of primary intensities, $\mathbf{e}$ and $\mathbf{e}'$, are related by a linear transformation,
+By combining @eq-photopic-match and @eq-photopic-match2, we find that the two vectors of primary intensities, $\mathbf{e}$ and $\mathbf{e}'$, are related by a linear transformation,
 
 $$
 \mathbf{e} = (\mathbf{C} \mathbf{P} )^{-1}\mathbf{C} \mathbf{P}' \mathbf{e}'
@@ -273,7 +273,7 @@ F(\mathbf{A} \mathbf{t}) = F(a \mathbf{A} \mathbf{p})
 $$
 {#eq-static-nonlinearity}
 
-where $a$ is the intensity of the primary light needed to match the test light. Since the nonlinear function $F$ is monotonic, we can remove it from both sides of the Equation and write
+where $a$ is the intensity of the primary light needed to match the test light. Since the nonlinear function $F$ is monotonic, we can remove it from both sides of @eq-static-nonlinearity and write
 
 $$
 \mathbf{A} \mathbf{t} = a \mathbf{A} \mathbf{p}
