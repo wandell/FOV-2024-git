@@ -270,15 +270,13 @@ When we set a match between the peak photocurrent from the test light and the pr
 
 $$
 F(\mathbf{A} \mathbf{t}) = F(a \mathbf{A} \mathbf{p})
-$$
-{#eq-static-nonlinearity}
+$${#eq-static-nonlinearity}
 
 where $a$ is the intensity of the primary light needed to match the test light. Since the nonlinear function $F$ is monotonic, we can remove it from both sides of @eq-static-nonlinearity and write
 
 $$
 \mathbf{A} \mathbf{t} = a \mathbf{A} \mathbf{p}
-$$
-{#eq-static-nonlinearity-linear}
+$${#eq-static-nonlinearity-linear}
 
 From this equation we see that there is a linear relationship between the primary and test light intensities, since if $\mathbf{t}$ matches $a \mathbf{p}$, then $k \mathbf{t}$ will match $k a \mathbf{p}$. Thus, even if a system has a static nonlinearity, the system’s performance in a matching experiment will satisfy the test of homogeneity. We can also show that in a matching experiment a system with a static nonlinearity will satisfy superposition.
 
