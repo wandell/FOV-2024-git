@@ -192,7 +192,11 @@ $$
 s_f \sin (\frac{2 \pi f i}{N} + \phi_f ) = a_f \cos (\frac{2 \pi f i}{N}) + b_f \sin (\frac{2 \pi f i}{N})
 $$ {#eq-sf-sinphif}
 
-For many optical systems, such as the human eye, the relationship between harmonic inputs and the output is even simpler. When the input is a harmonic function at frequency ![f](https://foundationsofvision.vista.su.domains/wp-content/ql-cache/quicklatex.com-8f51d5769daf4c908ad99156b65e83f1_l3.png "Rendered by QuickLaTeX.com"), the output is a scaled copy of the function and there is no shift in spatial phase. For example, when the input is $\sin(\frac{2 \pi f i}{N})$, the output will be
+For many optical systems, such as the human eye, the relationship between harmonic inputs and the output is even simpler. When the input is a harmonic function at frequency $f$, the output is a scaled copy of the function and there is no shift in spatial phase. For example, when the input is $\sin\left(\frac{2 \pi f i}{N}\right)$, the output will be
+
+$$
+s_f \sin\left(\frac{2 \pi f i}{N}\right)
+$$ {#eq-sf-sin}
 
 $$
 s_f \sin(\frac{2 \pi f i}{N})
@@ -335,7 +339,7 @@ One way to evaluate the quality of the optics is to compare the blurring of the 
 
 Most images, of course, are not composed of weighted sums of lines. The set of images that can be formed from sums of lines oriented in the same direction are all one-dimensional patterns. To create more complex images, we must either use lines with different orientations or use a different fundamental stimulus: the point.
 
-Any two-dimensional image can be described as the sum of a set of points. If the system we are studying is linear and shift-invariant, we can use the response to a point and the principle of superposition to predict the response of a system to any two-dimensional image. The measured response to a point input is called the {\\em pointspread} function. A pointspread function and the superposition of two nearby pointspreads are illustrated in @fig-pointspread.
+Any two-dimensional image can be described as the sum of a set of points. If the system we are studying is linear and shift-invariant, we can use the response to a point and the principle of superposition to predict the response of a system to any two-dimensional image. The measured response to a point input is called the *pointspread*}* function. A pointspread function and the superposition of two nearby pointspreads are illustrated in @fig-pointspread.
 
 Since lines can be formed by adding together many different points, we can compute the system’s linespread function from the pointspread. In general, we cannot deduce the pointspread function from the linespread because there is no way to add a set of lines, all oriented in the same direction, to form a point. If it is know that a pointspread function is circularly symmetric, however, a unique pointspread function can be deduced from the linespread function. The calculation is described in the beginning of @goodman1968 and in @yellott1984.
 
