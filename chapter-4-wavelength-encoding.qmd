@@ -179,7 +179,7 @@ We can answer this question by the following thought experiment. First, create a
 
 $$
 \mathbf{C} \mathbf{t} = \mathbf{C} \mathbf{P} \mathbf{e}
-$$
+$$ {#eq-photopic-match}
 
 Suppose the second group of researchers can also established matches to this test light using their primaries. To describe their measurements, we create a second matrix whose columns contain the spectral power distributions of the second group’s primary lights, $\mathbf{P}'$. Call the primary intensities used to match the test with the second primaries $\mathbf{e}'$. Since the light $\mathbf{P}' \mathbf{e}'$ is a visual matched to the test light, we know that
 
