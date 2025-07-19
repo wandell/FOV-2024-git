@@ -324,7 +324,7 @@ We have assumed that the effects of pattern adaptation are due to neural fatigue
 
 From this analysis, it should be clear that the spatial properties of the neural encoding derived from pattern adaptation may differ from the spatial properties of the neural encoding derived from detection tasks, To argue that the mechanisms limiting detection and mediating pattern adaptation are the same, we must find behavioral experimental measurements that prove this point. In that case, we can piece together the results from detection and pattern adaptation to infer the organization within multiresolution models.
 
-### Masking with Mixtures
+### Masking with Mixtures {#sec-pattern-masking}
 In the @campbell1968-robson discrimination experiment, the observer was asked to distinguish between two stimuli $S$ and $S + \Delta S$, where $S$ and $\Delta S$, effectively, were sinusoidal patterns. Campbell and Robson found that when $S$ and $\Delta S$ were sinusoidal stimuli at well-separated spatial frequencies the two patterns were discriminable when $\Delta S$ was at its own threshold. In reviewing their experiments we considered how masking depends on the relative spatial frequency of the test and masking patterns (@@fig-masking).
 
 ![Orientation tuning in the masking experiment. Threshold elevation to a 2 cpd test as a function of the orientation of a 2 cpd masking stimulus. The data include only maskers with positive orientations since masking is symmetric with respect to the orientation of the masking stimulus. The two curves show data from two observers and the error bars are one standard error of the mean (Source: @phillipswilson1984).](/wp-content/uploads/2012/02/PW.Fig.1.png){width="60%" #fig-orientation-masking}
