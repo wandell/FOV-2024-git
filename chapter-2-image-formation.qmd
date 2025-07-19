@@ -242,7 +242,6 @@ $$
 \mathbf{l}_{i} = 0.5 + \sum_{f=1}^{N-1} s_f \cos\left( 2 \pi f \frac{i}{N} \right)
 $$ {#eq-retinal-image}
 
-![The linespread function of the human eye: The solid line in each panel is a measurement of the linespread. The dotted lines are the diffraction-limited linespread for a pupil of that diameter. (Diffraction is explained later in the text). The different panels show measurements for a variety of pupil diameters (From @campbell1966-gubisch).](/wp-content/uploads/2012/02/cg.linespread.png){#fig-linespread width="60%"}
 
 The values $\mathbf{l}_{i}$ define the linespread function of the eye’s optics. We can correct for the double passage and estimate the linespread because the system is linear and shift-invariant.
 
@@ -251,6 +250,8 @@ As you read further about experimental and computational methods in vision scien
 ### The Linespread Function {#sec-linespread}
 
 @fig-linespread contains Campbell and Gubisch’s estimates of the linespread functions of the eye. Notice that as the pupil size increases, the width of the linespread function increases which indicates that the focus is worse for larger pupil sizes. As the pupil size increases, light reaches the retina through larger and larger sections of the lens. As the area of the lens affecting the passage of light increases, the amount of blurring increases.
+
+![The linespread function of the human eye: The solid line in each panel is a measurement of the linespread. The dotted lines are the diffraction-limited linespread for a pupil of that diameter. (Diffraction is explained later in the text). The different panels show measurements for a variety of pupil diameters (From @campbell1966-gubisch).](/wp-content/uploads/2012/02/cg.linespread.png){#fig-linespread width="60%"}
 
 The measured linespread functions, $\mathbf{l}_{i}$, along with our belief that we are studying a shift-invariant linear system, permit us to predict the retinal image for any one-dimensional input image. To calculate these predictions, it is convenient to have a function that describes the linespread of the human eye. G. Westheimer (@westheimer1986) suggested the following formula to describe the measured linespread function of the human eye, when in good focus, and when the pupil diameter is near 3mm.
 
@@ -265,6 +266,8 @@ The linespread function is given by:
 $$
 \mathbf{l}_{i} = 0.47 e^{ - 3.3 i ^ {2} } + 0.53 e ^ { -0.93 | i | }
 $$ {#eq-westheimer-linespread-inline}
+
+
 
 ## Lenses, Diffraction and Aberrations {#sec-lensesdiffractionandaberrations}
 
