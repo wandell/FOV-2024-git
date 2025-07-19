@@ -9,8 +9,8 @@ book:
     - index.qmd
     - part: "Image Encoding"
       chapters:
-       - part-1-image-encoding-v2.qmd
-       - chapter-2-image-formation-v2.qmd
+       - part-1-image-encoding.qmd
+       - chapter-2-image-formation.qmd
        - chapter-3-the-photoreceptor-mosaic.qmd
        - chapter-4-wavelength-encoding.qmd
     - part:  "Image Representation"
