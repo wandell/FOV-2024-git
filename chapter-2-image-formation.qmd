@@ -267,6 +267,7 @@ $$
 \mathbf{l}_{i} = 0.47 e^{ - 3.3 i ^ {2} } + 0.53 e ^ { -0.93 | i | }
 $$ {#eq-westheimer-linespread-inline}
 
+Missing:  "where the variable .... more than a factor of 2"  Includes missing figure references.
 
 
 ## Lenses, Diffraction and Aberrations {#sec-lensesdiffractionandaberrations}
