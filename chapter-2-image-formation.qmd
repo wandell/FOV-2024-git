@@ -71,11 +71,11 @@ $$ {#eq-linear-transform}
 Homogeneity and superposition are defined by the pair of equations:
 
 $$
-\begin{aligned}
-L(a\,\mathbf{p}) &= a\,L(\mathbf{p}) \quad &\text{(Homogeneity)} \\
-L(\mathbf{p} + \mathbf{p}') &= L(\mathbf{p}) + L(\mathbf{p}') \quad &\text{(Superposition)}
-\end{aligned}
-$$ {#eq-homogeneity-superposition}
+L(a,\mathbf{p}) = a ~ L(\mathbf{p}) \quad \text{(Homogeneity)} 
+$$ {#eq-homogeneity}
+$$
+L(\mathbf{p} + \mathbf{p}') = L(\mathbf{p}) + L(\mathbf{p}') \quad \text{(Superposition)}
+$$ {#eq-superposition}
 
 
 ### Implications of Homogeneity and Superposition
@@ -90,11 +90,13 @@ $$
 \mathbf{r} = \sum_{i}^{N} p_i \mathbf{r}_i .
 $$ {#eq-weighted-sum}
 
-The above equation defines a transformation that maps the input stimulus, $\boldsymbol{p}$, into the measurement, $\boldsymbol{r}$. Because of the properties of homogeneity and superposition, the transformation is the weighted sum of a fixed collection of vectors: When the monitor image varies, only the weights in the formula, $p_i$, vary but the vectors $\boldsymbol{r}_i$, the reflections from single-line stimuli, remain the same. Hence, the reflected light will always be the weighted sum of these reflections.
+@eq-weighted-sum defines a transformation that maps the input stimulus, $\boldsymbol{p}$, into the measurement, $\boldsymbol{r}$. Because of the properties of homogeneity and superposition, the transformation is the weighted sum of a fixed collection of vectors: When the monitor image varies, only the weights in the formula, $p_i$, vary but the vectors $\boldsymbol{r}_i$, the reflections from single-line stimuli, remain the same. Hence, the reflected light will always be the weighted sum of these reflections.
 
-To represent the weighted sum of a set of vectors, we use the mathematical notation of *matrix multiplication*. As shown in @fig-matrix-mult, multiplying a matrix times a vector computes the weighted sum of the matrix columns; the entries of the vector define the weights. Matrix multiplication and linear systems methods are closely linked. In fact, the set of all possible matrices define the set of all possible linear transformations of the input vectors.
+To represent the weighted sum of a set of vectors, we use the mathematical notation of *matrix multiplication*. Multiplying a matrix times a vector computes the weighted sum of the matrix columns; the entries of the vector define the weights. Matrix multiplication and linear systems methods are closely linked. In fact, the set of all possible matrices define the set of all possible linear transformations of the input vectors.
 
+<!--
 ![Matrix multiplication – is a convenient notation for linear systems methods. For example, the weighted sum of a set of vectors, as in part (c) of @fig-imgfor-homsup, can be represented using matrix multiplication. The matrix product equals the sum of the columns of … weighted by the entries of …. When the matrix describes the responses of a linear system, we call it a system matrix.](/wp-content/uploads/2012/02/02_mat.mult_.png){#fig-matrix-mult width="50%"}
+-->
 
 Matrix multiplication has a shorthand notation to replace the explicit sum of vectors in @eq-weighted-sum. In the example here, we define a matrix, $\mathbf{R}$, whose columns are the responses to individual monitor lines at unit intensity, $\mathbf{r}_i$. The matrix $\mathbf{R}$ is called the system matrix. Matrix multiplication of the input vector, $\mathbf{p}$, times the system matrix $\mathbf{R}$, transforms the input vector into the output vector. Matrix multiplication is written using the notation
 
@@ -267,7 +269,25 @@ $$
 \mathbf{l}_{i} = 0.47 e^{ - 3.3 i ^ {2} } + 0.53 e ^ { -0.93 | i | }
 $$ {#eq-westheimer-linespread-inline}
 
-Missing:  "where the variable .... more than a factor of 2"  Includes missing figure references.
+where the variable $i$ refers to position on the retina specified in terms of minutes of visual angle. A graph of this linespread function is shown in @eq-westheimer-linespread.
+
+> <small><sup>*3* </sup> Westheimer’s linespread function is for an average observer under one set of viewing conditions. As the pupil changes size and as observer’s age, the linespread function can vary. Consult IJspeert et al. (1993) and Williams et al. (1995) for alternatives to Westheimer’s formula.</small>
+
+### The Modulation Transfer Function
+
+![Retinal Images. Examples of the effect of optical blurring. (a) Images of a line, edge and a bar pattern. (b) The estimated retinal image of the images after blurring by Westheimer’s linespread function. The spacing of the photoreceptors in the retina is shown by the stylized arrows.](/wp-content/uploads/2012/02/blurring.png){#fig-retinal-blurring width="70%"}
+
+In correcting for double passage, we thought about the measurements in two separate ways. Since our main objective was to derive the linespread function, a function of spatial position, we spent most of our time thinking of the measurements in terms of light intensity as a function of spatial position. When we corrected for double passage through the optics, however, we also considered a hypothetical experiment in which the stimuli were harmonic functions (cosinusoids). To perform this calculation, we found that it was easier to correct for double passage by thinking of the stimuli as the sum of harmonic functions, rather than as a function of spatial position.
+
+These two ways of looking at the system, in terms of spatial functions or sums of harmonic functions, are equivalent to one another. To see this, notice that we can use the linespread function to derive the retinal image to any input image. Hence, we can use the linespread to compute the scale factors of the harmonic functions. Conversely, we already saw that by measuring how the system responds to the harmonic functions, we can derive the linespread function. It is convenient to be able to reason about system performance in both ways.
+
+![Modulation transfer function measurements of the optical quality of the lens made using visual interferometry (Williams et al., 1995; described in Chapter 3). The data are compared with the predictions from the linespread suggested by Westheimer (1984) and a curve fit through the data by Williams et al. (1995).](/wp-content/uploads/2012/02/otfDataTheory.png){#fig-modulation-transfer width="70%"}
+
+The *optical transfer function* defines the system’s complete response to harmonic functions. The optical transfer function is a complex-valued function of spatial frequency. The complex values code both the scale factor and the phase shift the system induces in each harmonic function.
+
+When the linespread function of the eye is an even-symmetric function, there is no phase shift of the harmonic functions. In this case, we can describe the system completely using a real valued function, the *modulation transfer function*. This function defines the scale factors applied to each spatial frequency. The data points in Figure 2.15 show measurements of the modulation transfer function of the human eye. These data points were measured using a method called *visual interferometry* that is described in [Chapter @sec-photoreceptor-mosaic]. Along with the data points in Figure 2.15, I have plotted the predicted modulation transfer function using Westheimer’s linespread function and a curve fit to the data by Williams et al. (1995). The curve derived by Westheimer (1986) using completely different data sets differs from the measurements by Williams et al. (1995) by no more than about twenty percent. This should tell you something about the relative precision of these descriptions of the optical quality of the lens.
+
+The linespread function and the modulation transfer function offer us two different ways to think about the optical quality of the lines. The linespread function in Figure 2.15, describes defocus as the spread of light from a fine slit across the photoreceptors: the light is spread across three to five photoreceptors. The modulation transfer function in Figure 2.15 describes defocus as an amplitude reduction of harmonic stimuli: beyond 12 cycles per degree the amplitude is reduced by more than a factor of two.
 
 
 ## Lenses, Diffraction and Aberrations {#sec-lensesdiffractionandaberrations}
