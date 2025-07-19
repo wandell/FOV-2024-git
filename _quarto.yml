@@ -33,7 +33,7 @@ book:
        - computational-examples.qmd
        - online-teaching-resources.qmd
 
-bibliography: references.bib
+bibliography: paperpile.bib
 
 crossref:
   chapters: true
