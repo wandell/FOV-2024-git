@@ -5,9 +5,9 @@ appendix: true
 
 # Appendix {.unnumbered #sec-appendix}
 
-The appendix consists of five sections. In [Appendix section 1](/appendix/#Shift-Invariant_Linear_Systems) I review several properties of shift-invariant linear systems and outline proofs of these properties. This appendix also includes a brief discussion of the Discrete Fourier Series, a method for representing functions as the weighted sum of harmonic functions. [Appendix section 2](/appendix/#Display_Calibration) contains a review of the main aspects of visual display calibration for psychophysical experiments. [Appendix section 3](/appendix/#Classification) contains a description of the basic results in classification theory, Bayes Rule and linear discriminant functions. [Appendix section 4](/appendix/#Signal_Estimation:_A_Geometric_View) provides a geometric interpretation of vector and matrix multiplication as well as a brief introduction to signal estimation. [Appendix section 5](/appendix/#Motion_Flow_Field_Calculation) outlines how to compute a motion flow field that arises when an observer moves through a fixed environment.
+The appendix consists of five sections. In @sec-appendix-shift-invariant I review several properties of shift-invariant linear systems and outline proofs of these properties. This appendix also includes a brief discussion of the Discrete Fourier Series, a method for representing functions as the weighted sum of harmonic functions. @sec-appendix-display-calibration contains a review of the main aspects of visual display calibration for psychophysical experiments. @sec-appendix-classification contains a description of the basic results in classification theory, Bayes Rule and linear discriminant functions. @sec-appendix-signal-estimation provides a geometric interpretation of vector and matrix multiplication as well as a brief introduction to signal estimation. @sec-appendix-flow-field outlines how to compute a motion flow field that arises when an observer moves through a fixed environment.
 
-## Shift-Invariant Linear Systems {#sec-shift-invariant}
+## Shift-Invariant Linear Systems {#sec-appendix-shift-invariant}
 
 Many of the ideas in this book rely on properties of shift-invariant linear systems. In the text, I introduced these properties without any indication of how to prove that they are true. I have two goals for this section. First, I will sketch proofs of several important properties of shift-invariant linear systems. Second, I will describe *convolution* and the *Discrete Fourier Series*, two tools that help us take advantage of these properties.[^convolution]
 
@@ -15,7 +15,7 @@ Many of the ideas in this book rely on properties of shift-invariant linear syst
 
 ### Definitions
 
-Shift-invariance is a system property that can be verified by experimental measurement. For example, in [Chapter 2](/chapter-2-image-formation/) I described how to check whether the optics of the eye is shift-invariant by the following measurements. Image a line through the optics onto the retina, and measure the linespread function. Then, shift the line to a new position, forming a new retinal image. Compare the new image with the original. If the images have the same shape, differing only by a shift in position, then the optics is shift-invariant over the measured range.
+Shift-invariance is a system property that can be verified by experimental measurement. For example, in @sec-image-formation I described how to check whether the optics of the eye is shift-invariant by the following measurements. Image a line through the optics onto the retina, and measure the linespread function. Then, shift the line to a new position, forming a new retinal image. Compare the new image with the original. If the images have the same shape, differing only by a shift in position, then the optics is shift-invariant over the measured range.
 
 We can express the empirical property of shift-invariance using the following mathematical notation. Choose a stimulus, $\mathbf{p}_{i}$ and measure the system response, $\mathbf{r}_{i}$. Now, shift the stimulus by an amount $j$ and measure again. If the response is shifted by $j$ as well, then the system may be shift-invariant. Try this experiment for many values of the shift parameter, $j$. If the experiment succeeds for all shifts, then the system is shift-invariant.
 
@@ -40,11 +40,11 @@ $$ {#eq-periodic-example}
 
 ### Convolution
 
-Next, we derive some of the properties of linear shift-invariant systems. We begin by describing these properties in terms of the *system matrix* (see [Chapter 2](/chapter-2-image-formation/)). Then, we will show how the simple structure of the shift-invariant system matrix permits us to relate the input and output by a summation formula called *cyclic convolution*. The convolution formula is so important that shift-invariant systems are sometimes called *convolution systems*.[^cyclic-convolution]
+Next, we derive some of the properties of linear shift-invariant systems. We begin by describing these properties in terms of the *system matrix* (see @sec-image-formation). Then, we will show how the simple structure of the shift-invariant system matrix permits us to relate the input and output by a summation formula called *cyclic convolution*. The convolution formula is so important that shift-invariant systems are sometimes called *convolution systems*.[^cyclic-convolution]
 
 [^cyclic-convolution]: Since we use only cyclic convolution here, I will drop the word “cyclic” and refer to the formula simply as convolution. This is slightly abusive, but conforms to common practice in many fields.
 
-In [Chapter 2](/chapter-2-image-formation/) I reviewed how to measure the system matrix of an optical system for one-dimensional input stimuli. We measure the image resulting from a single line at a series of uniformly spaced input locations. If the system is shift-invariant, then the columns of the system matrix are shifted copies of one another (except for edge artifacts). To create the system matrix, we extend the inputs and outputs to be periodic functions (@eq-periodic-extensions). Then, we select a central block of size $N \times N$ to be the system matrix and we use the corresponding entries of the extended stimulus. For example, if the input stimulus consists of six values, $\mathbf{p} = (0,0,0,1,0,0)$, and the response to this stimulus is the vector, $\mathbf{l} = (0.0,0.3,0.6,0.2,0.1,0.0)$, then the $6 \times 6$ system matrix is
+In @sec-image-formation I reviewed how to measure the system matrix of an optical system for one-dimensional input stimuli. We measure the image resulting from a single line at a series of uniformly spaced input locations. If the system is shift-invariant, then the columns of the system matrix are shifted copies of one another (except for edge artifacts). To create the system matrix, we extend the inputs and outputs to be periodic functions (@eq-periodic-extensions). Then, we select a central block of size $N \times N$ to be the system matrix and we use the corresponding entries of the extended stimulus. For example, if the input stimulus consists of six values, $\mathbf{p} = (0,0,0,1,0,0)$, and the response to this stimulus is the vector, $\mathbf{l} = (0.0,0.3,0.6,0.2,0.1,0.0)$, then the $6 \times 6$ system matrix is
 
 $$
 \hat{\mathbf{C}} = \left ( \begin{array}{cccccc} 0.2 & 0.6 & 0.3 & 0.0 & 0.0 & 0.1 \\ 0.1 & 0.2 & 0.6 & 0.3 & 0.0 & 0.0 \\ 0.0 & 0.1 & 0.2 & 0.6 & 0.3 & 0.0 \\ 0.0 & 0.0 & 0.1 & 0.2 & 0.6 & 0.3 \\ 0.3 & 0.0 & 0.0 & 0.1 & 0.2 & 0.6 \\ 0.6 & 0.3 & 0.0 & 0.0 & 0.1 & 0.2 \end{array} \right) .
@@ -81,7 +81,7 @@ In this form, we see that the response depends only on the input and the linespr
 
 Next, we study some of the properties of the convolution formula. Most important, we will see why harmonic functions have a special role in the analysis of convolution systems.
 
-Beginning with our analysis of optics in [Chapter 2](/chapter-2-image-formation/), we have relied on the fact that the response of a shift-invariant system to a harmonic function at frequency $f$ is also a harmonic function at $f$. In that chapter, the result was stated in two equivalent ways.
+Beginning with our analysis of optics in @sec-image-formation, we have relied on the fact that the response of a shift-invariant system to a harmonic function at frequency $f$ is also a harmonic function at $f$. In that chapter, the result was stated in two equivalent ways.
 
 1. If the input is a harmonic at frequency $f$, the output is a shifted and scaled copy of the harmonic.
 2. The response to a harmonic at frequency $f$ will be the weighted sum of a sinusoid and cosinusoid at the same frequency (Equation~??).
@@ -217,11 +217,11 @@ We have shown that if we measure the system response to unit amplitude cosinusoi
 - Calculate the DFS coefficients of the output using Equation~[18](#id210596798).
 - Reconstruct the output from the coefficients using Equation~[12](#id4026990660).
 
-You will find this series of calculations used implicitly at several points in the text. For example, we followed this organization when I described measurements of the optical quality of the lens ([Chapter 2](/chapter-2-image-formation/)) and when I described measurements of behavioral sensitivity to spatiotemporal patterns ([Chapter 7](/chapter-7-pattern-sensitivity/)).
+You will find this series of calculations used implicitly at several points in the text. For example, we followed this organization when I described measurements of the optical quality of the lens (@sec-image-formation) and when I described measurements of behavioral sensitivity to spatiotemporal patterns (@sec-pattern-vision).
 
-## Display Calibration
+## Display Calibration {#sec-appendix-display-calibration}
 
-Visual displays based on a *cathode ray tube* (CRT) are used widely in business, education and entertainment. The CRT reproduces color images using the principles embodied in the color-matching experiment ([Chapter 4](/chapter-4-wavelength-encoding/)).
+Visual displays based on a *cathode ray tube* (CRT) are used widely in business, education and entertainment. The CRT reproduces color images using the principles embodied in the color-matching experiment (@sec-wavelength-encoding).
 
 The design of the color CRT is one of the most important applications of vision science; thus, it is worth understanding the design as an engineering achievement. Also, because the CRT is used widely in experimental vision science, understanding how to control the CRT display is an essential skill for all vision scientists. This appendix reviews several of the principles of monitor calibration.
 
@@ -291,7 +291,7 @@ Figure A2.3 is a matrix tableau that illustrates how to compute the spectral pow
 
 ![The spectral power distribution of light emitted from a CRT. The entries e = (er, eg, eb) are the relative intensity of the three phosphors. The columns of M contain the spectral power distributions at maximum intensity. The vector calculated by Me is the spectral power distribution of the light emitted by the CRT. The output shown in the figure was calculated for e = (0.5, 0.6,0.7)T.](../wp-content/uploads/2012/02/monitor.mat_.png){#fig-monitor-matrix width="70%"}
 
-The light emitted from a CRT is different from lights we encounter in natural scenes. For example, the spectral power distribution of the red phosphor, with its sharp and narrow peaks, is unlike the light we see in natural images. Nonetheless, we can adjust the three intensities of the three phosphors on a color CRT to match the appearance of most spectral power distributions, just as we can match appearance in the color-matching experiment by adjusting the intensity of three primary lights (see [Chapter 4](/chapter-4-wavelength-encoding/)).
+The light emitted from a CRT is different from lights we encounter in natural scenes. For example, the spectral power distribution of the red phosphor, with its sharp and narrow peaks, is unlike the light we see in natural images. Nonetheless, we can adjust the three intensities of the three phosphors on a color CRT to match the appearance of most spectral power distributions, just as we can match appearance in the color-matching experiment by adjusting the intensity of three primary lights (see @sec-wavelength-encoding).
 
 ### Color Calibration Matrix
 
@@ -368,9 +368,9 @@ Before performing your experiments, it is important to verify phosphor independe
 
 For further discussion of calibration, consult some papers in which authors have described their experience with specific display calibration projects (e.g. Brainard, 1989; Cowan and Rowell, 1986; Post, 1989; Berns et al., 1993ab).
 
-## Classification
+## Classification {#sec-appendix-classification}
 
-Many visual judgments are classifications: an edge is present, or not; a part is defective, or not; a tumor is present, or not. The threshold and discrimination performances reviewed in [Chapter 7](/chapter-7-pattern-sensitivity/) are classifications as well: I saw it, or not; the stimulus was this one, or that. This appendix explains some of the basic concepts in classification theory and their application to understanding vision.
+Many visual judgments are classifications: an edge is present, or not; a part is defective, or not; a tumor is present, or not. The threshold and discrimination performances reviewed in @sec-pattern-vision are classifications as well: I saw it, or not; the stimulus was this one, or that. This appendix explains some of the basic concepts in classification theory and their application to understanding vision.
 
 We will explore the issues in classification by analyzing some simple behavioral decisions, the kind that take place in many vision experiments. Suppose that during an experimental trial, the observer must decide which of two visual stimuli, $A$ or $B$, is present. Part of the observer’s decision will be based on the pattern of cone absorptions during the experimental trial. We can list the cone absorptions in a vector, $\mathbf{d}$, whose values represent the number of absorptions in each of the cones. Because there are statistical fluctuations in the light source, and variability in the image formation process, the pattern of cone absorptions created by the same stimulus varies from trial to trial. As a result, the pattern of cone absorptions from the two different stimuli may sometimes be the same, and perfect classification may be impossible.
 
@@ -498,7 +498,7 @@ $$
 \sum_{i=1}^{N} d_i w_i ,
 $$ {#eq-bayes-classifier-weighted-sum}
 
-where $w_i= \ln \left( \frac{\mu_{A,i}}{\mu_{B,i}} \right)$. This is a very familiar computation; it is directly analogous to the calculation implemented by a linear neuron whose receptive field sensitivity at position $i$ is $w_i$ (see [Chapter 5](/chapter-5-the-retinal-representation/)).
+where $w_i= \ln \left( \frac{\mu_{A,i}}{\mu_{B,i}} \right)$. This is a very familiar computation; it is directly analogous to the calculation implemented by a linear neuron whose receptive field sensitivity at position $i$ is $w_i$ (see @sec-retinal-representation).
 
 The second term is the difference between the total number of photopigment absorptions expected from each stimulus.
 
@@ -522,7 +522,7 @@ Why, then, is the Bayes classifier analysis important? The Bayes classifier anal
 
 > The real power of this approach is that the ideal discriminator \[Bayes classifier\] measures all the information available to the later stages of the visual system. I would like to suggest that measuring the information available in discrimination stimuli with a model of the sort I have described here should be done as routinely as measuring the luminances of the stimuli with a photometer. In other words, we should not only use a light meter but we should also use the appropriate information meter. It is simply a matter of following the first commandment of psychophysics: “know thy stimulus.” (Geisler, 1987, p. 30)
 
-## Signal Estimation: A Geometric View
+## Signal Estimation: A Geometric View {#sec-appendix-signal-estimation}
 
 This book is filled with calculations of the general form
 
@@ -612,7 +612,7 @@ $$ {#eq-matrix-equation}
 
 Again, in the (linear) signal estimation problem we know the responses ($\mathbf{r}$) and the sensors in the rows of $\mathbf{A}$ and we wish to estimate the signal ($\mathbf{x}$).
 
-Many topics we have reviewed in the text can be framed as linear estimation problems within the matrix Equation~[32](#id321904067). For example, you might imagine that the rows of the matrix are retinal ganglion receptive fields, the responses are neural firing rates, and the input is a spatial contrast pattern ([Chapter 5](/chapter-5-the-retinal-representation/)). The brain may then need to estimate various properties of the contrast pattern from the neural firing patterns. Or, you might imagine that the rows of the matrix represent the spectral responsivities of the three cone types, the responses are the cone signals, and the signal is a spectral power distribution (Chapters [4](/chapter-4-wavelength-encoding/) and [9](/chapter-9-color/)). Or, you might imagine that each row of the matrix represents the receptive field of a space-time oriented neuron, the output is the neuron’s response, and the signal are the two velocity components of the local motion flow field ([Chapter 10](/chapter-10-motion-and-depth/)).
+Many topics we have reviewed in the text can be framed as linear estimation problems within the matrix Equation~[32](#id321904067). For example, you might imagine that the rows of the matrix are retinal ganglion receptive fields, the responses are neural firing rates, and the input is a spatial contrast pattern (@sec-retinal-representation). The brain may then need to estimate various properties of the contrast pattern from the neural firing patterns. Or, you might imagine that the rows of the matrix represent the spectral responsivities of the three cone types, the responses are the cone signals, and the signal is a spectral power distribution (@sec-wavelength-encoding and @sec-color). Or, you might imagine that each row of the matrix represents the receptive field of a space-time oriented neuron, the output is the neuron’s response, and the signal are the two velocity components of the local motion flow field (@sec-motion-depth).
 
 There are many matrix algebra tools that are useful for solving matrix equations like Equation~[32](#id321904067). To choose the proper tool for a problem, one must take into account a variety of specific properties of the measurement conditions. For example, in some cases there are more sensors than there are unknown entries in the vector $\mathbf{x}$. We can represent this estimation problem using matrix tableau as
 
@@ -683,9 +683,9 @@ In general, the best solution will depend on the noise properties and the error 
 
 A full discussion of the problems involved in signal estimation and matrix algebra would take us far beyond the scope of this book, but there are several excellent textbooks that explain these ideas (Strang, 1993; Lawson and Hanson, 1974, Vetterling, et al., 1992). Also, the manuals for several computer packages, such as *Matlab* and *Mathematica*, contain useful information about using these methods and further references. To see how some of these tools have been applied to vision science, you might consult some of the following references (Brainard, 1994, Heeger and Jepson, 1992; Marimont and Wandell,1992; Nielsen and Wandell, 1988; Thomas et al., 1994; Tomasi and Kanade, 1991, Wandell, 1987)
 
-## Motion Flow Field Calculation
+## Motion Flow Field Calculation {#sec-appendix-flow-field}
 
-The motion flow field describes how an image point changes position from one moment in time to the next, say, as an observer changes viewpoint. I reviewed several properties of the motion flow field in [Chapter 10](/chapter-10-motion-and-depth/), and I also reviewed how to use the information in a motion flow field to estimate scene properties, including observer motion and depth maps.
+The motion flow field describes how an image point changes position from one moment in time to the next, say, as an observer changes viewpoint. I reviewed several properties of the motion flow field in @sec-motion-depth, and I also reviewed how to use the information in a motion flow field to estimate scene properties, including observer motion and depth maps.
 
 In this appendix I describe how to compute a motion flow field. There are various reasons one might need to calculate a motion flow field. For example, motion flow fields are used as experimental stimuli to analyze human performance (e.g., Royden et al., 1992; Warren and Hannon, 1990). Also, algorithms designed to estimate depth maps from motion flow fields must be tested using artificial motion flow fields (e.g., Tomasi and Kanade, 1992, Heeger and Jepson, 1992).
 
@@ -693,7 +693,7 @@ To calculate the motion flow field, we will treat the eye as a pinhole camera an
 
 ### Imaging Geometry and Perspective Projection
 
-We base our calculations on ray-tracing from points in the world onto an image plane in a pinhole camera (see [Chapter 2](/chapter-2-image-formation/)). To simplify some of the graphics calculations, it is conventional to place the pinhole at the origin of the coordinate frame and the imaging plane in the positive quadrant of the coordinate frame. Figure A5.1a shows the geometric relationship between a point in space, the pinhole, and the image plane.
+We base our calculations on ray-tracing from points in the world onto an image plane in a pinhole camera (see @sec-image-formation). To simplify some of the graphics calculations, it is conventional to place the pinhole at the origin of the coordinate frame and the imaging plane in the positive quadrant of the coordinate frame. Figure A5.1a shows the geometric relationship between a point in space, the pinhole, and the image plane.
 
 We define the pinhole to be the origin of the imaging coordinate frame. The image plane is parallel to the X-Y plane at a distance $f$ along the Z axis. A ray from $\mathbf{p} = ({p}_{1},{p}_{2},{p}_{3})$ passes towards the pinhole and intersects the image plane location $(u,v,f)$. Since the third coordinate, $f$, is the same for all points in the image plane, we can describe the image plane location using only the first two coordinates, $(u,v)$.
 
