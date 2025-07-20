@@ -32,9 +32,6 @@ book:
       - appendix.qmd
       - numbers.qmd
       - online-teaching-resources.qmd
-        
-        
-
 
 bibliography: paperpile.bib
 
@@ -47,6 +44,7 @@ crossref:
 #  I am unsure about these formatting commands for the document.  Experimental.
 format:
   html:
+    csl:  styles/springer-basic-author-date.csl
     theme: cosmo
     number-sections: true
     number-depth: 2
@@ -60,6 +58,7 @@ format:
     number-sections: true
     number-depth: 2
     fig-caption: true
+    csl:  styles/styles/springer-basic-author-date.csl
     math:
       number-equations: true
 
