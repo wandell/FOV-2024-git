@@ -84,9 +84,9 @@ Next, we study some of the properties of the convolution formula. Most important
 Beginning with our analysis of optics in @sec-image-formation, we have relied on the fact that the response of a shift-invariant system to a harmonic function at frequency $f$ is also a harmonic function at $f$. In that chapter, the result was stated in two equivalent ways.
 
 1. If the input is a harmonic at frequency $f$, the output is a shifted and scaled copy of the harmonic.
-2. The response to a harmonic at frequency $f$ will be the weighted sum of a sinusoid and cosinusoid at the same frequency (Equation~??).
+2. The response to a harmonic at frequency $f$ will be the weighted sum of a sinusoid and cosinusoid at the same frequency (@eq-sinusoid-output).
 
-We can derive this result from the convolution formula. Define a new variable, $k=i-j$, and substitute $k$ into Equation~[6](#id2513666426). Remember that the summation can take place over any adjacent $N$ values. Hence, the substitution yields a modified convolution formula,
+We can derive this result from the convolution formula. Define a new variable, $k=i-j$, and substitute $k$ into @eq-cyclic-convolution. Remember that the summation can take place over any adjacent $N$ values. Hence, the substitution yields a modified convolution formula,
 
 $$
 \hat{r}_{i} = \sum_{k=<N>} \hat{l}_{k} \hat{p}_{ {i - k} }
@@ -125,7 +125,7 @@ We have shown that when the input to the system is a sinusoidal function at freq
 
 ### The Discrete Fourier Series: Defined
 
-In general, when we measure the response of a shift-invariant linear system we measure $N$ output values. When the input is a sinusoid, or more generally a harmonic, we can specify the response using only the two numbers, $a$ and $b$, in Equation~[10](#id3539455567). We would like to take advantage of this special property of shift-invariant systems. To do so, we need a method of representing input stimuli as the weighted sum of harmonic functions.
+In general, when we measure the response of a shift-invariant linear system we measure $N$ output values. When the input is a sinusoid, or more generally a harmonic, we can specify the response using only the two numbers, $a$ and $b$, in @eq-sinusoid-coeffs. We would like to take advantage of this special property of shift-invariant systems. To do so, we need a method of representing input stimuli as the weighted sum of harmonic functions.
 
 The method used to transform a stimulus into the weighted sum of harmonic functions is called the *Discrete Fourier Transform* (DFT). The representation of the stimulus as the weighted sum of harmonic functions is called the *Discrete Fourier Series* (DFS). We use the DFS to represent an extended stimulus, $\hat{\mathbf{p}}$.
 
@@ -213,9 +213,9 @@ $$ {#eq-dfs-output-coeffs}
 
 We have shown that if we measure the system response to unit amplitude cosinusoidal inputs, we can compute the system response to an arbitrary input stimulus as follows.
 
-- Compute the DFS coefficients of the input stimulus using Equation~[15](#id3985969429).
-- Calculate the DFS coefficients of the output using Equation~[18](#id210596798).
-- Reconstruct the output from the coefficients using Equation~[12](#id4026990660).
+- Compute the DFS coefficients of the input stimulus using @eq-dfs-coefficients.
+- Calculate the DFS coefficients of the output using @eq-dfs-output-coeffs.
+- Reconstruct the output from the coefficients using @eq-dfs-representation.
 
 You will find this series of calculations used implicitly at several points in the text. For example, we followed this organization when I described measurements of the optical quality of the lens (@sec-image-formation) and when I described measurements of behavioral sensitivity to spatiotemporal patterns (@sec-pattern-vision).
 
@@ -397,22 +397,20 @@ where $P(A)$ is the probability the experimenter presents signal $A$ (in this ca
 
 The probabilities on the right hand side of Bayes Rule are either estimated from our experience, $P(\mathbf{d} \mid A)$, or they are a structural part of the experimental design $P(A)$. The probability that stimulus $A$ or $B$ is presented is called the *a priori* probability, or *base rate*. The probability $P(\mathbf{d} \mid A)$ is called the *likelihood* of the observation given the hypothesis. The probability, $P(A \mid \mathbf{d})$ is called the *a posteriori* probability. Bayes Rule combines the base rate and the likelihood of the observation to form the a posteriori probability of the hypothesis.
 
-We can use Bayes Rule to express the decision criterion in Equation~[20](#id4204964774) in this more convenient form.
+We can use Bayes Rule to express the decision criterion in @eq-decision-rule in this more convenient form.
 <a name="id1391374113"></a>
 
 $$(\mbox{If}~~ P(\mathbf{d} \mid A) \frac { P(A)}{ P(\mathbf{d}) } > P(\mathbf{d} \mid B) \frac{ P(B) }{ P(\mathbf{d}) } ~~\mbox{choose $A$,~else~$B$}.)
 $$ {#eq-bayes-decision-1}
 
 Since the probability of observing the data, $P(\mathbf{d})$, divides both sides of this inequality, this probability is irrelevant to the
-decision. Therefore, we can re-write Equation [22](#id1391374113) as
-
-<a name="id3514090741"></a>
+decision. Therefore, we can re-write @eq-bayes-decision-1 as
 
 $$
 \frac{ P(\mathbf{d} \mid A) }{ P(\mathbf{d} \mid B) } > \frac{ P(B) } { P(A) }.
 $$ {#eq-bayes-decision-2}
 
-The term on the left hand side of Equation~[23](#id3514090741) is called the *likelihood ratio*. The quantity on the right is called the *odds ratio*. The formula tells us that we should select $A$ when the likelihood ratio, which depends on the data, exceeds the odds ratio, which depends on the a priori knowledge. A system that uses this formula to classify the stimuli is called a *Bayes classifier*.
+The term on the left hand side of @eq-bayes-decision-2 is called the *likelihood ratio*. The quantity on the right is called the *odds ratio*. The formula tells us that we should select $A$ when the likelihood ratio, which depends on the data, exceeds the odds ratio, which depends on the a priori knowledge. A system that uses this formula to classify the stimuli is called a *Bayes classifier*.
 
 ### A Bayes classifier for an Intensity Discrimination Task
 
@@ -514,7 +512,7 @@ We have learned that a Bayes classifier for pattern discrimination can be implem
 
 Figure A3.2 shows an example of a Bayes classifier computed for a simple pattern discrimination task. The two spatial patterns to be discriminated are shown in panels (a) and (b). The image in (a) is the retinal image of a line segment. Figure A3.2b shows the retinal image of a pair of line segments, separated by 30 sec of arc. The grid marks on the image are spaced by 30 sec of arc, essentially the same spacing as the cone inner segments. The curves below the images measure the intensity of the stimuli across a horizontal section.
 
-Figure A3.2c shows the weights of the Bayes classifier for discriminating the two images; the weights were computing using Equation~[29](#id2994861042). In this image the gray level represents the value of the weight that should be applied to the individual cone absorptions: a medium gray intensity corresponds to a zero weight, lighter values are positive weights, and darker values are negative weights. The spatial pattern of weights bears an obvious resemblance to the spatial patterns of receptive fields in the visual cortex.
+Figure A3.2c shows the weights of the Bayes classifier for discriminating the two images; the weights were computing using @eq-bayes-classifier-weighted-sum. In this image the gray level represents the value of the weight that should be applied to the individual cone absorptions: a medium gray intensity corresponds to a zero weight, lighter values are positive weights, and darker values are negative weights. The spatial pattern of weights bears an obvious resemblance to the spatial patterns of receptive fields in the visual cortex.
 
 The Bayes classifier specifies how to obtain the optimal discrimination performance when we know the signal and the noise. Apart from the optimality of the Bayes classifier itself, observers in behavioral experiments can never know the true signal and noise perfectly. The performance of the Bayes classifier, therefore, must be equal or superior to human performance. In nearly all cases where a Bayes classifier analysis has been carried out, the Bayesian classifier performance is vastly better than human observer performance. Human observers usually fail to extract a great deal of information available in the stimulus. In general, then, the Bayes classifier does not model human performance (Banks et al., 1987).
 
@@ -605,16 +603,15 @@ where $a_{i\cdot}$ is a vector that represents the sensitivity of the $i^{th}$ s
 
 The matrix tableau in @eq-matrix-tableau shows a special case in which there are two sensors and two unknown values of the signal. In general, we might have more sensors or more unknowns in the signal. Having more sensors would force us to add more rows to the matrix; having more unknowns in the signal would force us to change the lengths of the sensor and signal vectors. Each of these changes might change the general shape of the matrix tableau. We can write the general case, without specifying the number of sensors or unknowns, using the concise representation
 
-<a name="id321904067"></a>
 $$
 \mathbf{r} = \mathbf{A} \mathbf{x}
 $$ {#eq-matrix-equation}
 
 Again, in the (linear) signal estimation problem we know the responses ($\mathbf{r}$) and the sensors in the rows of $\mathbf{A}$ and we wish to estimate the signal ($\mathbf{x}$).
 
-Many topics we have reviewed in the text can be framed as linear estimation problems within the matrix Equation~[32](#id321904067). For example, you might imagine that the rows of the matrix are retinal ganglion receptive fields, the responses are neural firing rates, and the input is a spatial contrast pattern (@sec-retinal-representation). The brain may then need to estimate various properties of the contrast pattern from the neural firing patterns. Or, you might imagine that the rows of the matrix represent the spectral responsivities of the three cone types, the responses are the cone signals, and the signal is a spectral power distribution (@sec-wavelength-encoding and @sec-color). Or, you might imagine that each row of the matrix represents the receptive field of a space-time oriented neuron, the output is the neuron’s response, and the signal are the two velocity components of the local motion flow field (@sec-motion-depth).
+Many topics we have reviewed in the text can be framed as linear estimation problems within the matrix @eq-matrix-equation. For example, you might imagine that the rows of the matrix are retinal ganglion receptive fields, the responses are neural firing rates, and the input is a spatial contrast pattern (@sec-retinal-representation). The brain may then need to estimate various properties of the contrast pattern from the neural firing patterns. Or, you might imagine that the rows of the matrix represent the spectral responsivities of the three cone types, the responses are the cone signals, and the signal is a spectral power distribution (@sec-wavelength-encoding and @sec-color). Or, you might imagine that each row of the matrix represents the receptive field of a space-time oriented neuron, the output is the neuron’s response, and the signal are the two velocity components of the local motion flow field (@sec-motion-depth).
 
-There are many matrix algebra tools that are useful for solving matrix equations like Equation~[32](#id321904067). To choose the proper tool for a problem, one must take into account a variety of specific properties of the measurement conditions. For example, in some cases there are more sensors than there are unknown entries in the vector $\mathbf{x}$. We can represent this estimation problem using matrix tableau as
+There are many matrix algebra tools that are useful for solving matrix equations like @eq-matrix-equation. To choose the proper tool for a problem, one must take into account a variety of specific properties of the measurement conditions. For example, in some cases there are more sensors than there are unknown entries in the vector $\mathbf{x}$. We can represent this estimation problem using matrix tableau as
 
 $$
 \left(
@@ -726,7 +723,7 @@ These formulae apply when the rotation and translation are small quantities, mea
 
 
 ### Motion Flow
-Finally, we compute motion flow by using Equation~[34](#id2583343672) to specify how the change in position in space maps into a change in image position. The original point $\mathbf{p}$ mapped into an image position $(u,v)$; after the observer moves, the new coordinate, $\mathbf{p} + {\bf \Delta} \mathbf{p}$, maps into a new image position, $(u',v')$. The resulting motion flow is the difference in the two image positions, $\mathbf{m}(u,v) = (u-u',v-v')^T$.
+Finally, we compute motion flow by using @eq-coordinate-change to specify how the change in position in space maps into a change in image position. The original point $\mathbf{p}$ mapped into an image position $(u,v)$; after the observer moves, the new coordinate, $\mathbf{p} + {\bf \Delta} \mathbf{p}$, maps into a new image position, $(u',v')$. The resulting motion flow is the difference in the two image positions, $\mathbf{m}(u,v) = (u-u',v-v')^T$.
 
 @eq-motion-flow defines how the motion of the pinhole camera and the depth map combine to create the motion flow field (Heeger and Jepson, 1992).
 
@@ -744,4 +741,4 @@ $$
 \mathbf{B}(u,v) = \left( \begin{array}{ccc} -(uv)/f & -(f + u^2/f) & v \\ (f + v^2/f) & -(uv)/f & -u \end{array} \right)
 $$ {#eq-matrix-B}
 
-@eq-motion-flow expresses a relationship we have seen already: The local motion flow field is the sum of two vectors (see Figure~??). One vector describes a component of the motion flow field caused by viewpoint translation, $\mathbf{t}$. The second vector describes a component of the motion flow field caused by viewpoint rotation, $\mathbf{r}$. Only the first component, caused by translation, depends on the distance to the point, ${p}_{3}(u,v)$. The rotational component is the same for points at any distance from the viewpoint. Hence, all of the information concerning the depth map is contained in the motion flow field component that is caused by viewpoint translation.
+@eq-motion-flow expresses a relationship we have seen already: The local motion flow field is the sum of two vectors (see @fig-perspective). One vector describes a component of the motion flow field caused by viewpoint translation, $\mathbf{t}$. The second vector describes a component of the motion flow field caused by viewpoint rotation, $\mathbf{r}$. Only the first component, caused by translation, depends on the distance to the point, ${p}_{3}(u,v)$. The rotational component is the same for points at any distance from the viewpoint. Hence, all of the information concerning the depth map is contained in the motion flow field component that is caused by viewpoint translation.
