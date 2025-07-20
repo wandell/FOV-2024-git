@@ -30,6 +30,8 @@ book:
     - part: "Appendix"
       chapters:
       - appendix.qmd
+      - numbers.qmd
+      - online-teaching-resources.qmd
         
         
 
