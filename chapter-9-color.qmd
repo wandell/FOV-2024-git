@@ -112,7 +112,7 @@ The data plotted in @fig-daylight-spectra show that measured daylight relative s
 First, they decided that they wanted to approximate their observations in the *squared-error sense*. That is, suppose $e(\lambda)$ is a measurement, and $\hat{e}(\lambda)$ is the linear model estimate of the measurement. Then, they decided to select the approximation in order to minimize the *squared error*
 $$
 \sum_{\lambda} (e(\lambda) - \hat{e}(\lambda) )^2 .
-$$ {#eq-squared-error}
+$$
 
 When we consider the collection of observations as a whole, the function that approximates the entire data set with the smallest squared error is the mean. The mean observation from Judd et al.’s data set, $ e_{0}(\lambda) $, is the bold curve in @fig-linear-model-daylight.
 
@@ -136,9 +136,6 @@ Because daylights vary in their absolute spectral power distributions, not just 
 
 [^linear-basis]: It is possible to improve on this model slightly, but as a practical matter these three curves do quite well as basis functions.
 
-<a name="id1075871617"></a>
-
-<span class="ql-right-eqno"> (2) </span><span class="ql-left-eqno"> </span>
 $$
 e(\lambda) = \sum_{i=1}^{3} w_{i} E_{i}(\lambda) .
 $$ {#eq-illuminant-linear-model}
@@ -147,7 +144,6 @@ We can express the linear model in @eq-illuminant-linear-model as a matrix equat
 
 We can see why linear models are efficient by writing @eq-squared-error as a matrix tableau.
 
-<span class="ql-right-eqno"> (3) </span><span class="ql-left-eqno"> </span>
 $$
 \left (
     \begin{array}{ccc}
@@ -179,7 +175,7 @@ $$
         & w_{3} & \\
     \end{array}
 \right )
-$$ {#eq-illuminant-matrix-form}
+$$
 
 The single spectral power distribution, the vector on the left, consists of measurements at many different wavelengths. The linear model summarizes each measurement as the weighted sum of the basis functions, which are the same for all measurements, and a few weights, $\mathbf{w}$, which are unique to each measurement. The linear model is efficient because we represent each additional measurement using only three weights, $\mathbf{w}$, rather than the full spectral power distribution.
 
@@ -247,9 +243,9 @@ The low-dimensional linear model approximates these surface reflectance function
 
 ![Basis functions of the linear model for the Macbeth ColorChecker. The surface reflectance functions in the collection vary smoothly with wavelength, as do the basis functions. The first basis function is all positive and explains the most variance in the surface reflectance functions. The basis functions are ordered in terms of their relative significance for reducing the error in the linear model approximation to the surfaces.](/wp-content/uploads/2012/02/macbethBasis.png){width="70%" #fig-macbeth-basis}
 
-![Color renderings of the linear model approximations to the Macbeth ColorChecker. The linear model approximations are shown rendered under a blue sky illumination. The dimension of the linear model approximation is shown above each image. The one-dimensional approximation the surfaces appear achromatic, varying only in lightness. For this illuminant, and using three or more dimensions in the linear model, the rendering is visually indistinguishable from a complete rendering of the surfaces.](/wp-content/uploads/2012/02/macbethRender.png){width="70%" #fig-macbeth-render}
+![**Color Plate 4.** Color renderings of the linear model approximations to the Macbeth ColorChecker. The linear model approximations are shown rendered under a blue sky illumination. The dimension of the linear model approximation is shown above each image. The one-dimensional approximation the surfaces appear achromatic, varying only in lightness. For this illuminant, and using three or more dimensions in the linear model, the rendering is visually indistinguishable from a complete rendering of the surfaces.](/wp-content/uploads/2012/02/macbethRender.png){width="70%"}
 
-Although the approximations are quite good, there are still differences between the surface reflectance functions and the three dimensional linear model. We might ask whether these differences are visually salient. This question is answered by the renderings of these surface approximations in @fig-macbeth-render. The one-dimensional model looks like a collection of surfaces in various shades of gray. For the blue sky illumination used in the rendering, linear models with three or more dimensions are visually indistinguishable from a rendering using the complete set of data.
+Although the approximations are quite good, there are still differences between the surface reflectance functions and the three dimensional linear model. We might ask whether these differences are visually salient. This question is answered by the renderings of these surface approximations in Color Plate 4. The one-dimensional model looks like a collection of surfaces in various shades of gray. For the blue sky illumination used in the rendering, linear models with three or more dimensions are visually indistinguishable from a rendering using the complete set of data.
 
 ### Sensor-based error measures
 
@@ -312,7 +308,7 @@ $$
 267.61 & 487.46 & 350.39 \\
 \end{array}
 \right )
-$$ {#eq-lighting-matrix-blue-sky}
+$$ 
 
 and the lighting matrix for the tungsten bulb is
 
@@ -324,7 +320,7 @@ $$
 152.46 & 278.51 & 185.47 \\
 \end{array}
 \right ) .
-$$ {#eq-lighting-matrix-tungsten}
+$$ 
 
 Notice that the largest differences between the matrices are in the third row. This is the row that describes the effect of each surface coefficient on the $S$ cone absorptions. The blue sky lighting matrix contains much larger values than matrix for the tungsten bulb. This makes sense because that is the region of the spectrum where these two illuminant spectral power distributions differ the most (see @fig-color-signal).
 
@@ -337,7 +333,7 @@ $$
 \mathbf{r} & \approx \mathbf{\Lambda}_{e} \mathbf{\sigma}, \text{and} \\
 \mathbf{r}^\prime & \approx \mathbf{\Lambda}_{e'} \mathbf{\sigma} .
 \end{align}
-$$ {#eq-cone-absorptions-two-illuminants}
+$$ 
 
 By inverting the lighting matrices and recombining terms, we find that the cone absorptions under the two illuminants should be related linearly as,
 
@@ -381,17 +377,17 @@ To formulate some ideas about how the visual pathways compute color appearance, 
 
 From the computational analysis, we have discovered a good principle to examine in experimental studies of color appearance: What is the relationship between the cone absorptions of objects that appear the same under different illuminants? The computational analysis suggests that the cone absorptions of lights with the same color appearance, but seen under different illuminants, are related by a linear transformation.
 
-![Two experimental methods for measuring asymmetric color-matches. (a) In a memory matching method, the observer sees a target under one illumination, remembers it, and then identifies a matching target after adapting to a second illumination. (b) In a haploscopic experiment the observer adapts the two eyes separately and makes a simultaneous appearance match. The basic findings from these two types of experiments are the same.](/wp-content/uploads/2012/02/matchingMethods.png){width="70%" #fig-matching-methods}
+![**Color Plate 5.** Two experimental methods for measuring asymmetric color-matches. (a) In a memory matching method, the observer sees a target under one illumination, remembers it, and then identifies a matching target after adapting to a second illumination. (b) In a haploscopic experiment the observer adapts the two eyes separately and makes a simultaneous appearance match. The basic findings from these two types of experiments are the same.](/wp-content/uploads/2012/02/matchingMethods.png){width="70%"}
 
-It is up to the experimentalist, then, to find an experimental method to use for measuring the cone absorptions that correspond to the same color appearance when seen in different viewing contexts. @fig-matching-methods illustrates two methods of making such measurements. Panel (a) shows a  *memory matching* method. In this method, the subject studies the color of a target that is presented under one illumination source and then must select a target that looks the same under a second illumination source. These measurements identify the stimuli, and thus the cone absorptions, of targets that appear the same under the two illuminants. The drawback of the method is that making such matches is very time-consuming because the subject must adapt to the two illumination sources completely, a process which can take two minutes or more.
+It is up to the experimentalist, then, to find an experimental method to use for measuring the cone absorptions that correspond to the same color appearance when seen in different viewing contexts. Color Plate 5 illustrates two methods of making such measurements. Panel (a) shows a  *memory matching* method. In this method, the subject studies the color of a target that is presented under one illumination source and then must select a target that looks the same under a second illumination source. These measurements identify the stimuli, and thus the cone absorptions, of targets that appear the same under the two illuminants. The drawback of the method is that making such matches is very time-consuming because the subject must adapt to the two illumination sources completely, a process which can take two minutes or more.
 
-@fig-matching-methods (b) shows a second method called  *dichoptic matching*. In this experiment the observer views the two scenes simultaneously in different eyes. One eye is exposed to a large neutral surface illuminated by, say, a daylight lamp. The other eye is exposed to an equivalent large neutral surface illuminated by, say, a tungsten lamp. These surfaces define a background stimulus that is different to each eye. The two backgrounds fuse in appearance, and appear as a single large background. To establish the asymmetric color-matches, the experimenter places a test object on top of the standard background seen by one eye. The observer selects a matching object from an array of choices seen by the second eye. The color appearance mapping is defined by measuring the cone absorptions of the  *test* and  *matching* objects, usually small colored papers, seen under their respective illuminants.
+Color Plate 5 (b) shows a second method called  *dichoptic matching*. In this experiment the observer views the two scenes simultaneously in different eyes. One eye is exposed to a large neutral surface illuminated by, say, a daylight lamp. The other eye is exposed to an equivalent large neutral surface illuminated by, say, a tungsten lamp. These surfaces define a background stimulus that is different to each eye. The two backgrounds fuse in appearance, and appear as a single large background. To establish the asymmetric color-matches, the experimenter places a test object on top of the standard background seen by one eye. The observer selects a matching object from an array of choices seen by the second eye. The color appearance mapping is defined by measuring the cone absorptions of the  *test* and  *matching* objects, usually small colored papers, seen under their respective illuminants.
 
 The dichoptic method has the advantage that the matches may be set quickly, avoiding the tedious delays required for visual adaptation in memory matches. The method has the disadvantage of making the assumption that adaptation occurs independently, prior to binocular combination[^dichoptic-method]. 
 
 [^dichoptic-method]: This binocular method makes sense if one accepts the view that the adjustment for the illumination is mediated primarily before the signals from the two eyes are combined, in the superficial layers of area V1. The coherence of the experimental method can be tested psychophysically by examining transitivity. The observer matches a test on backgrounds L and $R_1$, and then on backgrounds L and $R_2$. The experimenter then places $R_1$ in the left eye and $R_2$ in the right eye and verifies that the matching lights match one another. There is no guarantee, of course, that these measurements are governed by precisely the same visual mechanisms that govern adaptation under normal viewing conditions.
 
-The experimental methods illustrated in @fig-matching-methods generalize conventional usual color-matching experiment. These methods are called *asymmetric* color-matching because, unlike conventional color-matching, in these experiments the matches are set between stimuli presented in different contexts. As we have already seen, because color appearance discounts estimated changes of the illumination, matches set in the asymmetric color-matching experiment are **not** cone absorption matches. Rather, the observer is establishing a match at a more central site following the correction for the properties of the scene.
+The experimental methods illustrated in Color Plate 5 generalize conventional usual color-matching experiment. These methods are called *asymmetric* color-matching because, unlike conventional color-matching, in these experiments the matches are set between stimuli presented in different contexts. As we have already seen, because color appearance discounts estimated changes of the illumination, matches set in the asymmetric color-matching experiment are **not** cone absorption matches. Rather, the observer is establishing a match at a more central site following the correction for the properties of the scene.
 
 The asymmetric color-matching experiment is directly relevant to the questions raised by our computational analysis of color appearance. Moreover, the experiment has a central place in the study of color appearance simply for practical experimental reasons. There are many general questions we might ask about color appearance. For example, we would like to be able to measure which colors are similar to one another; which colors have a common hue, saturation or brightness, and so forth. If we had to study these questions separately under each illuminant, the task would be overwhelming. By beginning with the asymmetric color-matching experiment, we can divide color appearance measurements into two parts and reduce our experimental burden. The asymmetric matches define a mapping between the cone absorptions of objects with the same color appearance seen under different illuminants. From these experiments, we learn how to convert a target seen under one illuminant into an equivalent target under a standard illuminant. This transformations saves a great deal of experimental effort since we can focus most of our questions about color appearance on studies using just one standard illuminant.
 
@@ -445,93 +441,6 @@ Brainard and Wandell's experiments were conducted on display monitors, and the i
 
 ## The Perceptual Organization of Color
 
-<!--
-Notes from ChatGPT about Goethe and Newton.  An interesting aside.  Maybe a linkout to this.
-
-https://chatgpt.com/share/681d3f02-f1f0-8002-9d29-3c1b1012b25a
-
-Yes—Goethe's disagreement with Newton on color was deep and philosophical, and indeed, quite personal. In his major work *Zur Farbenlehre* (*Theory of Colours*, 1810), Goethe criticizes not just Newton's conclusions but also the entire approach Newton used to study light and color. Here's an overview of what Goethe wrote and how he regarded Newton:
-
-### 1. **Goethe’s Main Criticism of Newton**
-
-Goethe believed that Newton's **prismatic experiments**, which reduced white light into spectral colors, were **overly abstract and mechanistic**, missing the **subjective and phenomenological** aspects of how we experience color.
-
-* Goethe focused on **human perception**—how color arises from the interaction between light and dark, and between brightness and darkness through a medium (like a prism).
-* He **rejected Newton's idea** that colors are constituents of white light. Instead, Goethe saw color as **emerging at the boundaries of light and dark**, depending on the viewing conditions.
-
-For example, he would observe colors not just through prisms, but in afterimages, turbidity (as in the sky), or shadow boundaries.
-
-### 2. **Tone and Personal Criticism**
-
-Goethe's tone in *Theory of Colours* is often scathing. He accuses Newton of being **dogmatic**, **intellectually dishonest**, and **deliberately manipulative** in his presentation of optical experiments. He even suggested Newton **"deceived himself and others"** and accused him of **selecting only those results that supported his theory**.
-
-> “In this way the theory is built up out of hypotheses, confirmations, and arbitrary manipulations... Newton's statements are often so confused that one cannot help but suspect an intention to deceive.”
-> — *Paraphrased from Goethe’s Zur Farbenlehre*
-
-This kind of attack is what Helmholtz was referring to when he said that Goethe “heaped abuse” on Newton.
-
-### 3. **Philosophical Underpinning**
-
-Goethe was a **Romantic** thinker, and his disagreement was also philosophical:
-
-* He **opposed reductionism** and the idea that complex phenomena could be fully understood by breaking them into smaller, isolated parts (as Newton did with light).
-* He saw science as something that must remain connected to **lived, human experience**—and so his approach to color was more experiential, sometimes artistic, than Newton’s mathematical and physical method.
-
-### 4. **Reception and Legacy**
-
-* Goethe’s theory was **largely rejected** by physicists like Helmholtz, who upheld Newton’s optical science as correct and fundamental.
-* However, Goethe's work influenced **psychologists and artists**. Figures like **Wittgenstein**, **Kandinsky**, and the **Bauhaus** movement drew from Goethe’s emphasis on perception and subjectivity.
-* Modern **color psychology** and aspects of **visual phenomenology** can trace threads back to Goethe’s color theory.
-
-Would you like a few specific quotes from Goethe's *Zur Farbenlehre* that show his view of Newton?
-
-Certainly—here are some notable quotes from Goethe’s *Zur Farbenlehre* (*Theory of Colours*, 1810) that reflect both his disagreement with Newton and his broader approach to color. These are translated from the original German, and where helpful, I’ve added brief context.
-
----
-
-### 1. **On Newton’s Method:**
-
-> “It is much easier to perceive error than to find truth, for the former lies on the surface and is easily seen, while the latter lies in the depths, where few are willing to search for it.”
-
-Goethe presents himself as someone willing to dive deeper than Newton, whose “surface-level” methods he believed distorted reality by relying too much on abstraction and not enough on human experience.
-
----
-
-### 2. **Accusation of Manipulation:**
-
-> “It may truly be said that Newton has in this instance reversed the natural order of things, in order to establish an hypothesis. What is false in the foundation must also be false in the superstructure.”
-
-Here, Goethe accuses Newton of **starting with a theory and then forcing the facts to fit it**, rather than honestly observing nature.
-
----
-
-### 3. **On Newton’s Influence:**
-
-> “The moment is come when the reign of the great Newton must end.”
-
-This is one of Goethe’s most dramatic pronouncements. It’s less a scientific claim than a **philosophical and cultural rebellion**—he was trying to dethrone Newton’s dominance in natural philosophy and replace it with something more organic and perceptual.
-
----
-
-### 4. **Defense of Experience and Perception:**
-
-> “The eye owes its existence to light. Out of indifferent animal organs the light produces an organ to correspond to itself.”
-
-This famous quote reflects Goethe’s **biological and poetic** view of vision—not as a mechanical receiver of objective data (as in Newton), but as a co-creator of reality with light. The eye and light are **mutually generative**, not separable.
-
----
-
-### 5. **Goethe’s Alternative Vision of Color:**
-
-> “Color itself is a degree of darkness.”
-
-Here he proposes a **very different ontology** of color than Newton’s spectrum theory. For Goethe, colors arise **between light and dark**, and their study requires attention to **context, edges, and contrasts**, not just to refraction and wavelength.
-
----
-
-Goethe’s *Zur Farbenlehre* is unusual among scientific texts: it is at once experimental, poetic, polemical, and deeply philosophical. Would you like suggestions for an English edition that preserves his tone, or a summary of how later thinkers (like Wittgenstein or Schopenhauer) responded to it?
-
--->
 In this section, I will review some of the methods for describing the perceptual organization of color appearance. Specifically, we will review the relationship between different colors and some of the systems for describing color appearance. In addition to the implications this organization has for understanding the neural representation of color appearance, there are also many practical needs for descriptive systems of color appearance. Artists and designers need ways to identify and specify the color appearance of a design. Further, they need ways of organizing colors and finding interesting color harmonies. Engineers need to assess the appearance and discriminability of colors used to highway signs and to label parts, packaging, and software icons.
 
 Language provides us with a useful start at organizing color appearance. Spoken English in the U.S. consists of eleven color terms that are widely and consistently used[^basic-color-terms]. While the number of terms used differs across cultures, there is a remarkable hierarchical organization to the order in which color names appear. Cultures with a small number of basic color names always include white, black and red. Color terms such as purple and pink enter later (@berlinkay1969-basiccolorterms; @boynton1987-basiccolors).
@@ -724,11 +633,11 @@ The opponent-colors representation is a universal property of human color appear
 
 Color Plate 2 (Albers) and @fig-contrast-illusion show that the color appearance at a location depends on the local image contrast, that is, the relationship between the local cone absorptions and the mean image absorptions. The targets we used to demonstrate this dependence are very simple spatial patterns, squares or lines, with no internal spatial structure of their own. In this section, we will review how color appearance can also depend on the spatial structure, such as the texture or spatial frequency, of the target itself.
 
-@fig-squarewave-pattern shows two squarewaves composed of alternating blue and yellow bars. One squarewave is at a higher spatial frequency than the other. The average signal reflected from the regions containing the squarewaves is the same, that is, these are pure contrast modulations about a common mean field. If you examine the squarewaves from a close distance, you will see that bars in the squarewave patterns are drawn with the same ink. If you place this book a few meters away from you, say across the room, the color of the bars in the high spatial frequency pattern will appear different from the color of the bars in the low spatial frequency pattern. The bars in the high spatial frequency pattern will appear to be light and dark modulations about the green average. The bars in the low spatial frequency pattern will continue to look a distinct blue and yellow[^squarewave-motion].
+Color Plate 6 shows two squarewaves composed of alternating blue and yellow bars. One squarewave is at a higher spatial frequency than the other. The average signal reflected from the regions containing the squarewaves is the same, that is, these are pure contrast modulations about a common mean field. If you examine the squarewaves from a close distance, you will see that bars in the squarewave patterns are drawn with the same ink. If you place this book a few meters away from you, say across the room, the color of the bars in the high spatial frequency pattern will appear different from the color of the bars in the low spatial frequency pattern. The bars in the high spatial frequency pattern will appear to be light and dark modulations about the green average. The bars in the low spatial frequency pattern will continue to look a distinct blue and yellow[^squarewave-motion].
 
 [^squarewave-motion]: You can also alter the relative color appearance of the patterns by moving the book rapidly up and down. You will see that the low frequency squarewave retains its appearance while the high frequency squarewave becomes a green blur.
 
-![Color appearance covaries with spatial pattern. The bars printed in these two squarewaves are the same. Yet, whether the bars appear the same or not depends on their spatial frequency which you can control by altering the viewing distance. Also, you can influence the color appearance in the two patterns by moving the book rapidly up and down while you look at the patterns. (Source: @poirson1993-colorpatterns).](/wp-content/uploads/2012/02/squarewave.png){width="70%" #fig-squarewave-pattern}
+![**Color Plate 6.** Color appearance covaries with spatial pattern. The bars printed in these two squarewaves are the same. Yet, whether the bars appear the same or not depends on their spatial frequency which you can control by altering the viewing distance. Also, you can influence the color appearance in the two patterns by moving the book rapidly up and down while you look at the patterns. (Source: @poirson1993-colorpatterns).](/wp-content/uploads/2012/02/squarewave.png){width="70%"}
 
 @poirson1993-colorpatterns used an asymmetric color-matching task to study how color appearance changes with spatial frequency of the squarewave pattern. Subjects viewed squarewave patterns whose bars were colored modulations about a neutral gray background; that is, the average of the two bars comprising the pattern was equal to the mean background level. Subjects adjusted the appearance of a 2 degree square patch to have the same color appearance as each of the bars in the pattern.
 
@@ -740,9 +649,9 @@ Interestingly, the three color pathways that we derived from the asymmetric matc
 
 ![Estimates of the pattern-color separable sensitivity of pathways mediating color appearance. By measuring spatially asymmetric color-matches, it is possible to deduce the pattern and color sensitivity of three visual mechanisms that mediate color appearance judgments. The pattern and wavelength sensitivity of a light-dark, red-green, and blue-yellow mechanism derived from experimental measurements are shown here. (Source: @poirson1993-colorpatterns).](/wp-content/uploads/2012/02/colorCsf.png){width="70%" #fig-pattern-color-sensitivity}
 
-One of the more striking aspects of opponent-colors representations is that the apparent spatial sharpness, or focus, of a color image depends mainly on the sharpness of the light-dark component the image; apparent sharpness depends very little on the spatial structure of the opponent-color image components. This is illustrated in the three images shown in @fig-compress. These images were created by converting the original image, represented as three spatial patterns of cone absorptions, into three new images corresponding to a light-dark representation and two opponent-colors representations. The image in @fig-compress (a) shows the result of spatially blurring the light-dark component and then reconstructing the image; the result appears defocussed. The images in @fig-compress (b,c) show the result of applying the same spatial blurring to the red-green and blue-yellow opponent-colors representations and then reconstructing. These images look spatially focused, though their color appearance has been changed somewhat.
+One of the more striking aspects of opponent-colors representations is that the apparent spatial sharpness, or focus, of a color image depends mainly on the sharpness of the light-dark component the image; apparent sharpness depends very little on the spatial structure of the opponent-color image components. This is illustrated in the three images shown in Color Plate 7. These images were created by converting the original image, represented as three spatial patterns of cone absorptions, into three new images corresponding to a light-dark representation and two opponent-colors representations. The image in Color Plate 7 (a) shows the result of spatially blurring the light-dark component and then reconstructing the image; the result appears defocussed. The images in Color Plate 7 (b,c) show the result of applying the same spatial blurring to the red-green and blue-yellow opponent-colors representations and then reconstructing. These images look spatially focused, though their color appearance has been changed somewhat.
 
-![The apparent spatial sharpness (focus) of a color image depends mainly on the light-dark component of the image, not the opponent-colors components. A colored image was converted to a light-dark, red-green and blue-yellow representation. To create the three images, the light-dark (a), red-green (b), or blue-yellow (c) components were spatially blurred and then the image was reconstructed. The light-dark image looks defocused, but the same amount of blurring does not make the other two images look defocused. (Source: H. Hel-Or, personal communication).](/wp-content/uploads/2012/02/compress.png){width="70%" #fig-compress}
+![**Color Plate 7.** The apparent spatial sharpness (focus) of a color image depends mainly on the light-dark component of the image, not the opponent-colors components. A colored image was converted to a light-dark, red-green and blue-yellow representation. To create the three images, the light-dark (a), red-green (b), or blue-yellow (c) components were spatially blurred and then the image was reconstructed. The light-dark image looks defocused, but the same amount of blurring does not make the other two images look defocused. (Source: H. Hel-Or, personal communication).](/wp-content/uploads/2012/02/compress.png){width="100%"}
 
 We can take advantage of the poor spatial resolution of the opponent-colors representations when we code color images for image storage and transmission. We can allocate much less information about the opponent-colors components of color images without changing the apparent spatial sharpness of the image. This property of human perception was important in shaping broadcast television standards and digital image compression algorithms. As a quantitative prediction, we should expect to find that neurons in the central visual pathways that represent light-dark information should be able to represent spatial information at much higher resolution than neurons that code opponent-colors information. Consequently, we should expect that the largest fraction of central neurons encode light-dark, rather than the other two opponent-colors signals.
 
@@ -818,13 +727,15 @@ Zeki argues that there is a direct correlation between the neural responses in c
 
 Livingstone and Hubel’s hypothesis need not conflict with Zeki’s since information may be interwined within peripheral visual areas only to be segregated later. But, the presence of subdivisions within areas V1 and V2 raise the question of whether more detailed study might not reveal functional subdivisions within areas V4 and MT as well (see e.g. @born-tootell1992).
 
-The principle line of evidence used to support Zeki’s hypothesis of functional segregation is Barlow’s neuron doctrine: namely, that the receptive field of a neuron corresponds to the perceptual experience the animal will have when the neuron is excited ([Chapter 6](/chapter-6-the-cortical-representation/)). Based on this doctrine, neurophysiologists frequently assume that neurons with spatially oriented receptive fields are responsible for the perception of form; neurons that are inhibited by some wavelengths and excited by others are responsible for opponent-color percepts; neurons with motion selective receptive fields are responsible for motion perception.
+The principle line of evidence used to support Zeki’s hypothesis of functional segregation is Barlow’s neuron doctrine: namely, that the receptive field of a neuron corresponds to the perceptual experience the animal will have when the neuron is excited (Chapter @sec-cortical-representation). Based on this doctrine, neurophysiologists frequently assume that neurons with spatially oriented receptive fields are responsible for the perception of form; neurons that are inhibited by some wavelengths and excited by others are responsible for opponent-color percepts; neurons with motion selective receptive fields are responsible for motion perception.
 
 Zeki’s suggestion that monkey area V4 is a color center and area MT is a motion center is based on differences in the receptive field properties of neurons in these two areas. The overwhelming majority of neurons in area MT show motion direction selectivity. Zeki reported that many neurons in area V4 reported an unusual wavelength selectivity (@zeki1974, @zeki1980, @zeki1990).
 
 As we have already seen, qualitative observations concerning receptive neural wavelength selectivity is not a firm basis to establish these neurons as being devoted mainly to color. For example, the vast majority of neurons in the lateral geniculate nucleus respond with opponent-signals, and these neurons have no orientation selectivity. Yet, we know that these neurons surely represent color, form and motion information.
 
-Moreover, the quality of the receptive field measurements in area V4 has not achieved the same level of precision as measurements in the retina or area V1. Because these cells appear to be highly nonlinear, there are no widely agreed upon methods for fully characterizing their responses. And, there have been disputes concerning even the qualitative properties of area V4 receptive fields. For example, @desimone1987-v4 report that many cells are selective to orientation, direction of motion, and spatial frequency. Like Zeki, these authors too accept the basic logic of the neuron doctrine. They conclude from the variation of receptive field properties that “V4 is not specialized to analyze one particular attribute of a stimulus; rather, V4 appears to process both spatial and spectral information in parallel.” They then develop an alternative notion of the role of area V4 and later visual areas. \\nocite{Desimone1985}
+Moreover, the quality of the receptive field measurements in area V4 has not achieved the same level of precision as measurements in the retina or area V1. Because these cells appear to be highly nonlinear, there are no widely agreed upon methods for fully characterizing their responses. And, there have been disputes concerning even the qualitative properties of area V4 receptive fields. For example, @desimone1987-v4 report that many cells are selective to orientation, direction of motion, and spatial frequency. Like Zeki, these authors too accept the basic logic of the neuron doctrine. They conclude from the variation of receptive field properties that “V4 is not specialized to analyze one particular attribute of a stimulus; rather, V4 appears to process both spatial and spectral information in parallel.” They then develop an alternative notion of the role of area V4 and later visual areas.
+
+<!-- \\nocite{Desimone1985} -->
 
 ### Reasoning about Cortex and Perception
 
