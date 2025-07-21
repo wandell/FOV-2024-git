@@ -2,9 +2,9 @@ project:
   type: book
 
 book:
-  title: "Foundations of Vision (Version 1.1)"
+  title: "Foundations of Vision (1995)"
   author: "Brian Wandell"
-  date: "10/26/2024"
+  date: "10/26/1995"
   chapters:
     - index.qmd
     - part: "Image Encoding"
