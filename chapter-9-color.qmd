@@ -142,7 +142,7 @@ $$ {#eq-illuminant-linear-model}
 
 We can express the linear model in @eq-illuminant-linear-model as a matrix equation, $\mathbf{e} = \mathbf{B}_{\mathbf{e}} \mathbf{w}$ in which $\mathbf{e}$ is a vector representing the illuminant spectral power distribution, the three columns of $\mathbf{B}_{\mathbf{e}}$ contain the basis functions $E_{i}(\lambda)$, and $\mathbf{w}$ is a three dimensional vector containing the linear model coefficients $w_{i}$.
 
-We can see why linear models are efficient by writing @eq-squared-error as a matrix tableau.
+We can see why linear models are efficient by writing @eq-illuminant-linear-model as a matrix tableau.
 
 $$
 \left (
