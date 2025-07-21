@@ -42,6 +42,9 @@ crossref:
   sec-prefix: "Section"
   
 #  I am unsure about these formatting commands for the document.  Experimental.
+#     To remove tooltips for sec-*, we are supposed to be able to use this.
+#     include-after-body: styles/disable-section-tooltips.js
+
 format:
   html:
     csl:  styles/springer-basic-author-date.csl
