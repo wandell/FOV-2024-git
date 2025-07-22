@@ -1,12 +1,13 @@
----
+<!-- 
 id: 1657
 title: 'Example Programs'
 date: '2012-06-21T12:27:00-07:00'
 author: wandell
 layout: page
 guid: 'http://www.stanford.edu/group/vista/cgi-bin/FOV/?page_id=1657'
----
+-->
 
+# Computational examples {#sec-computational-examples}
 The links on this page explain specific computations from the book. At present, these computations include image formation, cone absorption characteristics, and color matching and discrimination. Other topics will be added over time.
 
 The computations are written in Matlab and rely on a set of integrated tools for modeling visual encoding and early visual system processing ([ISETBIO](https://github.com/isetbio/isetbio)) The code is freely available on [gitub](https://github.com/isetbio/isetbio).
